@@ -20,6 +20,8 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: daniel
+  password: Esime03844
 
 development:
   <<: *default
@@ -81,5 +83,4 @@ test:
 production:
   <<: *default
   database: saaga_production
-  username: saaga
   password: <%= ENV['SAAGA_DATABASE_PASSWORD'] %>
