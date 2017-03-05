@@ -16,9 +16,12 @@ class ApplicationController < ActionController::Base
 
   protected
 
-    def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:type, :email, :password, :password_confirmation) }
-    end
+    #def configure_permitted_parameters
+      #if params.key?(:user) && params[:user].key?(:type)
+      #  raise "You shall not pass!" unless params[:user][:type].in?{['Student','Teacher']}
+     # end
+    #  devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:type, :email, :password, :password_confirmation) }
+    #end
 
 
 end
