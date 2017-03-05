@@ -1,7 +1,5 @@
 class HomeworksController < ApplicationController
 
-
-
   def index
   end
 

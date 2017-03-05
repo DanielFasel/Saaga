@@ -38,6 +38,9 @@ gem 'foundation-rails'
 
 # devise
 gem 'devise'
+
+#pundit
+gem 'pundit'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
