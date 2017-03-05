@@ -1,4 +1,4 @@
-class ClassesPolicy < Struct.new(:user, :classes)
+class HomeworksPolicy < Struct.new(:user, :homeworks)
 
    class Scope
      def resolve
@@ -7,6 +7,6 @@ class ClassesPolicy < Struct.new(:user, :classes)
    end
 
   def index?
-     user.is_a?(Teacher)
+     user.is_a?(Student)
   end
 end

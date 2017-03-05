@@ -10,7 +10,12 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(user)
-    homeworks_url
+
+    if user.is_a?(Student)
+      homeworks_url
+    elsif user.is_a?(Teacher)
+      classes_url
+    end
   end
 
 
