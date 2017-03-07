@@ -1,1 +1,15 @@
+<% user=current_user %>
+<% if user.is_a?(Teacher) %>
+  <% content_for :menu do %>
+  <% render partial: "tmenu" %>
+  <% end %>
+
+<% elsif user.is_a?(Student) %>
+  <% content_for :menu do %>
+  <% render partial: "smenu" %>
+  <% end %>
+
+<% end %>
+
+
 <h1>Global</h1>
