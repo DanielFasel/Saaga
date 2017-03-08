@@ -1,3 +1,5 @@
+# checking if user a teacher or student and letting them access the page.
+
 class ClassesPolicy < Struct.new(:user, :classes)
 
    class Scope

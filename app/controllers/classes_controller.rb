@@ -1,7 +1,8 @@
 class ClassesController < ApplicationController
 
   def index
-     authorize :classes, :index?
+    #calls the policy to check if authorized to acces the page
+    authorize :classes, :index?
   end
 
 end

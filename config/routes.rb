@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  devise_for :users
+
+  # root page
   root 'homepages#index'
 
+
+  # routes to the mainpages
   get '/homeworks', to: 'homeworks#index'
   get '/classes', to: 'classes#index'
   get '/exercises', to: 'exercises#index'
