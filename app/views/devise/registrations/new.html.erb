@@ -10,6 +10,10 @@
     <%= f.select :type, ['Student', 'Teacher'] %>
   </div>
 
+  <div>
+    <%= f.label :region %>:
+    <%= f.select :region, [['English','en'], ['Finland-Finnish','fi']] %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
