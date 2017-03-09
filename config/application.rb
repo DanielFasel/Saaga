@@ -13,6 +13,6 @@ module Saaga
     # -- all .rb files in that directory are automatically loaded.
     #
     config.i18n.default_locale = :en
-    I18n.available_locales = [:en, :fi]
+    I18n.available_locales = [:en, :fi, :sv]
   end
 end

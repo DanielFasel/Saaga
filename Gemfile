@@ -38,6 +38,7 @@ gem 'foundation-rails'
 
 # devise
 gem 'devise'
+gem 'devise-i18n'
 
 #pundit
 gem 'pundit'

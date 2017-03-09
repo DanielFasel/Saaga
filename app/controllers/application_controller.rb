@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
       if params.key?(:user) && params[:user].key?(:type) && params[:user].key?(:region)
 
         raise "YOU SHALL NOT PASS!" unless params[:user][:type].in?(['Student', 'Teacher'])
-        raise "invalid language" unless params[:user][:region].in?(['en','fi'])
+        raise "invalid language" unless params[:user][:region].in?(['en','fi','sv'])
 
       end
 
