@@ -61,6 +61,7 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.1.1)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -98,6 +99,8 @@ GEM
     orm_adapter (0.5.0)
     pg (0.19.0)
     puma (3.7.1)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -181,12 +184,14 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise
+  devise-i18n
   foundation-rails
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
   pg (~> 0.18)
   puma (~> 3.0)
+  pundit
   rails (~> 5.0.1)
   sass-rails (~> 5.0)
   spring

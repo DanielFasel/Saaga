@@ -14,6 +14,14 @@
 
   <body>
 
+
+    <!-- Checking if menu exists. If yes renders it. -->
+    <% if content_for? :menu %>
+      <nav>
+        <%= yield :menu %>
+      </nav>
+    <% end %>
+
     <!-- flash messages for devise -->
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

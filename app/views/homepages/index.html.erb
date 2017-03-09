@@ -1,0 +1,28 @@
+
+
+<ul class="dropdown menu" data-dropdown-menu>
+  <li class="is-dropdown-submenu-parent">
+    <a href="#">Languages</a>
+    <ul class="menu">
+
+          <li> <%= link_to 'English', change_locale_path(:en) %> </li>
+          <li> <%= link_to 'Finnish', change_locale_path(:fi) %> </li>
+          <li> <%= link_to 'Swedish', change_locale_path(:sv) %> </li>
+    </ul>
+  </li>
+
+</ul>
+
+
+<h1>Welcome to Saaga!</h1>
+
+<!-- Links to login logout -->
+<% if user_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>
+  </li>
+<% end %>

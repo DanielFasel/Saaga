@@ -38,6 +38,10 @@ gem 'foundation-rails'
 
 # devise
 gem 'devise'
+gem 'devise-i18n'
+
+#pundit
+gem 'pundit'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

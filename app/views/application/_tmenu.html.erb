@@ -1,0 +1,18 @@
+<!-- Menu for the Teachers -->
+
+
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li><a href="classes">Classes</a></li>
+      <li><a href="tcourses">My Courses</a></li>
+      <li><a href="exercises">Exercises</a></li>
+      <li><a href="global">Global</a></li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+    </ul>
+  </div>
+</div>
