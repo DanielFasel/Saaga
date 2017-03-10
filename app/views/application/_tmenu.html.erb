@@ -47,9 +47,14 @@
 
       <ul class="vertical dropdown menu" data-dropdown-menu>
 
-        <li><a href="right_item_1">Right item 1</a></li>
-        <li><a href="right_item_2">Right item 2</a></li>
-        <li><a href="right_item_3">Right item 3</a></li>
+        <li><a href="classes">Classes</a></li>
+        <li><a href="tcourses">My Courses</a></li>
+        <li><a href="exercises">Exercises</a></li>
+        <li><a href="global">Global</a></li>
+
+        <li><a href="#">Account settings</a></li>
+        <li><a href="#">Help</a></li>
+        <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
 
       </ul>
 
