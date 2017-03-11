@@ -82,12 +82,18 @@
   <div class="top-bar-right">
      <ul class="menu">
        <li><a href="#">Account settings</a></li>
-       <li><a href="#">Help</a></li>
+       <li><a data-open="exampleModal11">Help</a></li>
       <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
     </ul>
   </div>
 
-
   </div>
 
 
+<div class="large reveal" id="exampleModal11" aria-labelledby="exampleModalHeader11" data-reveal>
+  <h1 id="exampleModalHeader11">Label for the Modal!</h1>
+  <p class="lead">I am even more accessible than the other modals.</p>
+  <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
