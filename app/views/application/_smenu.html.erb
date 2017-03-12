@@ -37,7 +37,7 @@
 
     <!-- off-canvas right menu -->
 
-    <div class="off-canvas position-right" id="offCanvasRight" data-off-canvas data-position="right">
+    <div class="off-canvas position-right" id="offCanvasRight" data-off-canvas>
 
       <ul class="vertical dropdown menu" data-dropdown-menu>
 
@@ -92,31 +92,56 @@
 
 
 
-
 <!-- Help modal -->
 <div class="large reveal" id="studenthelp" aria-labelledby="studenthelpheader" data-reveal>
 
 
+ <div class="title-bar"  data-hide-for="medium">
+
+      <div class="title-bar-left">
+       <a data-toggle="offcanvasstudenthelp">Categories</a>
+
+      </div>
+
+
+      <div class="title-bar-middle">
+      <span>Help</span>
+
+      </div>
+
+
+      <div class="title-bar-right">
+        <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+    </div>
+
+
   <div class="off-canvas-wrapper" >
-      <div  class="off-canvas-absolute reveal-for-large position-left"  id="offcanvasstudenthelp" data-off-canvas>
+
+
+
+      <div  class="off-canvas-absolute position-left reveal-for-large"  id="offcanvasstudenthelp" data-off-canvas data-transition="overlap">
         <!-- Your menu or Off-canvas content goes here -->
       </div>
+
+
 
       <div class="off-canvas-content" data-off-canvas-content>
 
         <h1 id="studenthelpheader">Student's Help!</h1>
         <p class="lead">Student's help modal</p>
 
-        <button type="button" class="button" data-toggle="offcanvasstudenthelp">Open Left</button>
 
-        <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
-          <span aria-hidden="true">&times;</span>
-        </button>
+
+
 
       </div>
+
+
   </div>
-
-
 </div>
 
 
@@ -125,27 +150,51 @@
 <div class="large reveal" id="studentsettings" aria-labelledby="studentsettingsheader" data-reveal>
 
 
+ <div class="title-bar"  data-hide-for="medium">
+
+      <div class="title-bar-left">
+       <a data-toggle="offcanvasstudentsettings">Categories</a>
+
+      </div>
+
+
+      <div class="title-bar-middle">
+      <span>Settings</span>
+
+      </div>
+
+
+      <div class="title-bar-right">
+        <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+    </div>
+
+
+
+
+
   <div class="off-canvas-wrapper">
-      <div class="off-canvas-absolute reveal-for-large position-left"  id="offcanvasstudentsettings" data-off-canvas>
+
+      <div class="off-canvas-absolute  position-left reveal-for-large"  id="offcanvasstudentsettings" data-off-canvas data-transition="overlap">
         <!-- Your menu or Off-canvas content goes here -->
       </div>
+
 
       <div class="off-canvas-content" data-off-canvas-content>
 
         <h1 id="studentsettingsheader">Student's Account Settings</h1>
         <p class="lead">Account settings for Students</p>
 
-        <button type="button" class="button" data-toggle="offcanvasstudentsettings">Open Left</button>
 
-        <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
-          <span aria-hidden="true">&times;</span>
-        </button>
+
 
       </div>
+
+
   </div>
-
-
-
 </div>
 
 
