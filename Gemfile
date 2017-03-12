@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 
 # foundation 6
 gem 'foundation-rails'
+# allows foundation to work with turbolinks
+gem 'jquery-turbolinks'
 
 # devise
 gem 'devise'
