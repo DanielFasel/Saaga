@@ -52,9 +52,9 @@
         <li><a href="global">Global</a></li>
 
 
-        <li><a href="#">Mini Game</a></li>
-        <li><a href="#">Account settings</a></li>
-        <li><a href="#">Help</a></li>
+        <li><a data-open="minigame">Mini Game</a></li>
+        <li><a data-open="studentsettings">Account Settings</a></li>
+        <li><a data-open="studenthelp">Help</a></li>
         <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
 
       </ul>
@@ -85,9 +85,9 @@
 
   <div class="top-bar-right">
     <ul class="menu">
-      <li><a href="#">Mini Game</a></li>
-      <li><a href="#">Account settings</a></li>
-      <li><a href="#">Help</a></li>
+      <li><a data-open="minigame">Mini Game</a></li>
+      <li><a data-open="studentsettings">Account Settings</a></li>
+      <li><a data-open="studenthelp">Help</a></li>
       <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
     </ul>
   </div>
@@ -96,3 +96,70 @@
     </div>
 
 
+
+
+
+<!-- Help modal -->
+<div class="large reveal" id="studenthelp" aria-labelledby="studenthelpheader" data-reveal>
+
+
+  <div class="off-canvas-wrapper">
+      <div class="off-canvas-absolute reveal-for-large position-left" id="offCanvasLeftSPlit1" data-off-canvas>
+        <!-- Your menu or Off-canvas content goes here -->
+      </div>
+
+      <div class="off-canvas-content" data-off-canvas-content>
+
+        <h1 id="studenthelpheader">Student's Help!</h1>
+        <p class="lead">Student's help modal</p>
+
+        <button type="button" class="button" data-toggle="offCanvasLeftSPlit1">Open Left</button>
+
+      </div>
+  </div>
+
+  <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+
+</div>
+
+
+
+<!-- Account Settings modal -->
+<div class="large reveal" id="studentsettings" aria-labelledby="studentsettingsheader" data-reveal>
+
+
+  <div class="off-canvas-wrapper">
+      <div class="off-canvas-absolute reveal-for-large position-left" id="offCanvasLeftSPlit1" data-off-canvas>
+        <!-- Your menu or Off-canvas content goes here -->
+      </div>
+
+      <div class="off-canvas-content" data-off-canvas-content>
+
+        <h1 id="studentsettingsheader">Student's Account Settings</h1>
+        <p class="lead">Account settings for Students</p>
+
+        <button type="button" class="button" data-toggle="offCanvasLeftSPlit1">Open Left</button>
+
+      </div>
+  </div>
+
+  <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+
+</div>
+
+
+
+<!-- Mini game modal -->
+<div class="large reveal" id="minigame" aria-labelledby="minigameheader" data-reveal>
+  <h1 id="minigameheader">Mini Game</h1>
+  <p class="lead">Mini Game for student progress </p>
+  <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>

@@ -52,8 +52,8 @@
         <li><a href="exercises">Exercises</a></li>
         <li><a href="global">Global</a></li>
 
-        <li><a href="#">Account settings</a></li>
-        <li><a href="#">Help</a></li>
+        <li><a data-open="teachersettings">Account Settings</a></li>
+        <li><a data-open="teacherhelp">Help</a></li>
         <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
 
       </ul>
@@ -81,8 +81,8 @@
 
   <div class="top-bar-right">
      <ul class="menu">
-       <li><a href="#">Account settings</a></li>
-       <li><a data-open="exampleModal11">Help</a></li>
+       <li><a data-open="teachersettings">Account Settings</a></li>
+       <li><a data-open="teacherhelp">Help</a></li>
       <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
     </ul>
   </div>
@@ -90,10 +90,59 @@
   </div>
 
 
-<div class="large reveal" id="exampleModal11" aria-labelledby="exampleModalHeader11" data-reveal>
-  <h1 id="exampleModalHeader11">Label for the Modal!</h1>
-  <p class="lead">I am even more accessible than the other modals.</p>
+
+
+
+<!-- Help modal -->
+<div class="large reveal" id="teacherhelp" aria-labelledby="teacherhelpheader" data-reveal>
+
+
+  <div class="off-canvas-wrapper">
+      <div class="off-canvas-absolute reveal-for-large position-left" id="offCanvasLeftSPlit1" data-off-canvas>
+        <!-- Your menu or Off-canvas content goes here -->
+      </div>
+
+      <div class="off-canvas-content" data-off-canvas-content>
+
+        <h1 id="teacherhelpheader">Teacher's Help!</h1>
+        <p class="lead">Teacher's help modal</p>
+
+        <button type="button" class="button" data-toggle="offCanvasLeftSPlit1">Open Left</button>
+
+      </div>
+  </div>
+
   <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
     <span aria-hidden="true">&times;</span>
   </button>
+
+
+</div>
+
+
+
+<!-- Account Settings modal -->
+<div class="large reveal" id="teachersettings" aria-labelledby="teachersettingsheader" data-reveal>
+
+
+  <div class="off-canvas-wrapper">
+      <div class="off-canvas-absolute reveal-for-large position-left" id="offCanvasLeftSPlit1" data-off-canvas>
+        <!-- Your menu or Off-canvas content goes here -->
+      </div>
+
+      <div class="off-canvas-content" data-off-canvas-content>
+
+        <h1 id="teachersettingsheader">Teacher's Account Settings</h1>
+        <p class="lead">Account settings for Teachers</p>
+
+        <button type="button" class="button" data-toggle="offCanvasLeftSPlit1">Open Left</button>
+
+      </div>
+  </div>
+
+  <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+
 </div>
