@@ -499,9 +499,9 @@ $responsive-embed-ratios: (
 // ----------
 
 $reveal-background: $white;
-$reveal-width: 600px;
-$reveal-max-width: $global-width;
-$reveal-padding: $global-padding;
+$reveal-width: 90%;
+$reveal-max-width: 100%;
+$reveal-padding: 0;
 $reveal-border: 1px solid $medium-gray;
 $reveal-radius: $global-radius;
 $reveal-zindex: 1005;
