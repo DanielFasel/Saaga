@@ -19,6 +19,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # redirects after Sign-out.
+  def after_sign_out_path_for(user)
+    new_user_session_path
+  end
+
 
 
 
