@@ -5,18 +5,13 @@
 
 
   <div>
-    <%= f.label :type %>:
-    <%= f.select :type, ['Student', 'Teacher'] %>
-  </div>
-
-  <div>
-    <%= f.label :region %>:
-    <%= f.select :region, [['English','en'], ['Finnish','fi'],['Swedish','sv']] %>
+    <%= f.label :username %>:
+    <%= f.text_field :username, autofocus: true %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email %>
   </div>
 
   <div class="field">
@@ -32,6 +27,30 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+
+  <div>
+    <%= f.label :givenname %>:
+    <%= f.text_field :givenname  %>
+  </div>
+
+
+  <div>
+    <%= f.label :familyname %>:
+    <%= f.text_field :familyname %>
+  </div>
+
+
+  <div>
+    <%= f.label :type %>:
+    <%= f.select :type, ['Student', 'Teacher'] %>
+  </div>
+
+  <div>
+    <%= f.label :region %>:
+    <%= f.select :region, [['English','en'], ['Finnish','fi'],['Swedish','sv']] %>
+  </div>
+
+
 
   <div class="actions">
     <%= f.submit t('.sign_up') %>

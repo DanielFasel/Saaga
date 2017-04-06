@@ -26,6 +26,31 @@
 <div class="large reveal" id="addmodifyclass" aria-labelledby="addmodifyclassheader" data-reveal>
   <h1 id="addmodifyclassheader">Add or modify class</h1>
   <p class="lead">Add or modify classes here</p>
+
+  <%= form_for @normalclass do |f| %>
+  <div>
+    <%= f.label :name %>:
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Create a new Class" %>
+  </div>
+<% end %>
+
+
+<% @normalclass2.each do |c| %>
+
+  <h2>
+    <%= c.name %>
+  </h2>
+  <%= link_to "Delete Class", c, :confirm => "Are you sure?", :method => :delete %>
+
+<% end %>
+
+
+
+
+
   <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
     <span aria-hidden="true">&times;</span>
   </button>
