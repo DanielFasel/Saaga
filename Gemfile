@@ -33,11 +33,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 
-# foundation 6
-gem 'foundation-rails'
-# allows foundation to work with turbolinks
-gem 'jquery-turbolinks'
-
 # devise
 gem 'devise'
 gem 'devise-i18n'
