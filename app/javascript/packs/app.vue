@@ -1,18 +1,44 @@
 <template>
   <div id="app">
-    <p>{{ message }}</p>
+  
+    
+      <v-text-field
+            name="input-1"
+            label="Class"
+            v-model="message"
+          ></v-text-field>
+          <p>{{ message }}</p>
+          <v-btn light default v-on:click="saveclass">Save the class</v-btn>
+
+
+
+
+
   </div>
 </template>
+
+
 
 <script>
 module.exports = {
   data: function () {
     return {
-      message: "Hello Vue!"
+      message: ""
+    }
+  },
+
+  methods: {
+    saveclass: function (event) {
+     
+  
+        console.log(event.target.value)
     }
   }
 }
+
 </script>
+
+
 
 <style scoped>
 p {

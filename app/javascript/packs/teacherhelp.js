@@ -5,7 +5,7 @@
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
 import Vue from 'vue/dist/vue.esm'
-import App from './app.vue'
+import Teacherhelp from './teacherhelp.vue'
 
 import Vuetify from 'vuetify'
  
@@ -16,12 +16,12 @@ Vue.use(Vuetify)
 
 document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(document.createElement('hello'))
-  const app = new Vue({
+  const teacherhelp = new Vue({
     el: 'hello',
-    template: '<App/>',
-    components: { App }
+    template: '<Teacherhelp/>',
+    components: { Teacherhelp }
   })
 
-  console.log(app)
+  console.log(teacherhelp)
 })
 
