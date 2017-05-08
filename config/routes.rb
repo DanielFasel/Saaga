@@ -2,6 +2,12 @@ Rails.application.routes.draw do
 
   devise_for :users, skip: [:sessions, :registrations, :passwords]
 
+
+  # resources
+  resources :normalclasses
+
+
+
   # slected language inside of url
   scope "(:locale)", locale: /en|fi|sv/ do
 
@@ -12,7 +18,6 @@ Rails.application.routes.draw do
     # devise routes
 
     as :user do
-
       # passwords controller
       get '/password/new', to: 'devise/passwords#new', as: :new_user_password
       get '/password/edit', to: 'devise/passwords#edit', as: :edit_user_password
@@ -32,9 +37,9 @@ Rails.application.routes.draw do
       post '/users', to: 'devise/registrations#create'
 
       # sessions controller
-      get 'login', to: 'devise/sessions#new', as: :new_user_session
-      post 'login', to: 'devise/sessions#create', as: :user_session
-      delete 'logout', to: 'devise/sessions#destroy', as: :destroy_user_session
+      get '/login', to: 'devise/sessions#new', as: :new_user_session
+      post '/login', to: 'devise/sessions#create', as: :user_session
+      delete '/logout', to: 'devise/sessions#destroy', as: :destroy_user_session
     end
 
     # routes to the mainpages

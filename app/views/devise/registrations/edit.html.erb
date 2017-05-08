@@ -8,6 +8,32 @@
     <%= f.email_field :email %>
   </div>
 
+  <div class="field">
+    <%= f.label :username %>:
+    <%= f.text_field :username, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :givenname %>:
+    <%= f.text_field :givenname  %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :familyname %>:
+    <%= f.text_field :familyname %>
+  </div>
+
+
+
+
+  <div class="field">
+    <%= f.label :region %>:
+    <%= f.select :region, [['English','en'], ['Finnish','fi'],['Swedish','sv']] %>
+  </div>
+
+
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <p>
       <%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %>
@@ -31,6 +57,9 @@
 
   <div><%= f.submit t('.update') %></div>
 <% end %>
+
+
+
 
 <h3><%= t('.cancel_my_account') %></h3>
 

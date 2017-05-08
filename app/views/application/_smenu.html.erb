@@ -1,98 +1,164 @@
 
+<!-- off-canvas title bar for 'small' screen -->
+<div class="title-bar" data-responsive-toggle="widemenu" data-hide-for="medium">
 
+  <div class="title-bar-left">
+    <button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
+    <span class="title-bar-title">Saaga</span>
+  </div>
 
-    <!-- off-canvas title bar for 'small' screen -->
+  <div class="title-bar-right">
+    <span class="title-bar-title">Login</span>
+    <button class="menu-icon" type="button" data-open="offCanvasRight"></button>
+  </div>
 
-    <div class="title-bar" data-responsive-toggle="widemenu" data-hide-for="medium">
-
-      <div class="title-bar-left">
-
-        <button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
-
-        <span class="title-bar-title">Saaga</span>
-
-      </div>
-
-      <div class="title-bar-right">
-
-        <span class="title-bar-title">Login</span>
-
-        <button class="menu-icon" type="button" data-open="offCanvasRight"></button>
-
-      </div>
-
-    </div>
+</div>
 
 
 
-    <!-- off-canvas left menu -->
+<!-- off-canvas left menu -->
+<div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
 
-    <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
+  <ul class="vertical dropdown menu" data-dropdown-menu>
+    <li><a href="left_item_1">Left item 1</a></li>
+    <li><a href="left_item_2">Left item 2</a></li>
+    <li><a href="left_item_3">Left item 3</a></li>
+  </ul>
 
-      <ul class="vertical dropdown menu" data-dropdown-menu>
-
-        <li><a href="left_item_1">Left item 1</a></li>
-        <li><a href="left_item_2">Left item 2</a></li>
-        <li><a href="left_item_3">Left item 3</a></li>
-
-      </ul>
-
-    </div>
+</div>
 
 
 
-    <!-- off-canvas right menu -->
+<!-- off-canvas right menu -->
+<div class="off-canvas position-right" id="offCanvasRight" data-off-canvas>
 
-    <div class="off-canvas position-right" id="offCanvasRight" data-off-canvas data-position="right">
+  <ul class="vertical dropdown menu" data-dropdown-menu>
+    <li><a href="homeworks">Homeworks</a></li>
+    <li><a href="scourses">My Courses</a></li>
+    <li><a href="global">Global</a></li>
 
-      <ul class="vertical dropdown menu" data-dropdown-menu>
+    <li><a data-open="minigame">Mini Game</a></li>
+    <li><a data-open="studentsettings">Account Settings</a></li>
+    <li><a data-open="studenthelp">Help</a></li>
+    <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+  </ul>
 
-        <li><a href="homeworks">Homeworks</a></li>
-        <li><a href="scourses">My Courses</a></li>
-        <li><a href="global">Global</a></li>
-
-
-        <li><a href="#">Mini Game</a></li>
-        <li><a href="#">Account settings</a></li>
-        <li><a href="#">Help</a></li>
-        <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-
-      </ul>
-
-    </div>
+</div>
 
 
 
-    <!-- "wider" top-bar menu for 'medium' and up -->
+<!-- "wider" top-bar menu for 'medium' and up -->
+<div id="widemenu" class="top-bar">
 
-
-
-
-    <div id="widemenu" class="top-bar">
-      <div class="top-bar-left">
-        <ul class="dropdown menu" data-dropdown-menu>
-
-
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
       <li><a href="homeworks">Homeworks</a></li>
       <li><a href="scourses">My Courses</a></li>
       <li><a href="global">Global</a></li>
-
-
-        </ul>
-      </div>
-
-
+    </ul>
+  </div>
 
   <div class="top-bar-right">
     <ul class="menu">
-      <li><a href="#">Mini Game</a></li>
-      <li><a href="#">Account settings</a></li>
-      <li><a href="#">Help</a></li>
+      <li><a data-open="minigame">Mini Game</a></li>
+      <li><a data-open="studentsettings">Account Settings</a></li>
+      <li><a data-open="studenthelp">Help</a></li>
       <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
     </ul>
   </div>
 
+</div>
 
+
+
+
+<!-- Help modal -->
+<div class="large reveal" id="studenthelp" aria-labelledby="studenthelpheader" data-reveal>
+
+  <!-- title bar for modal -->
+  <div class="title-bar"  data-hide-for="medium">
+
+    <div class="title-bar-left">
+      <a data-toggle="offcanvasstudenthelp">Categories</a>
     </div>
 
+    <div class="title-bar-middle">
+      <span>Help</span>
+    </div>
 
+    <div class="title-bar-right">
+      <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- off canvas dor modal -->
+  <div class="off-canvas-wrapper" >
+
+    <div  class="off-canvas-absolute position-left reveal-for-large"  id="offcanvasstudenthelp" data-off-canvas data-transition="overlap">
+      <!-- Your menu or Off-canvas content goes here -->
+    </div>
+
+    <div class="off-canvas-content" data-off-canvas-content>
+        <h1 id="studenthelpheader">Student's Help!</h1>
+        <p class="lead">Student's help modal</p>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- Account Settings modal -->
+<div class="large reveal" id="studentsettings" aria-labelledby="studentsettingsheader" data-reveal>
+
+  <!-- title bar for modal -->
+  <div class="title-bar"  data-hide-for="medium">
+
+    <div class="title-bar-left">
+      <a data-toggle="offcanvasstudentsettings">Categories</a>
+    </div>
+
+    <div class="title-bar-middle">
+      <span>Settings</span>
+    </div>
+
+    <div class="title-bar-right">
+      <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- off-canvas for modal -->
+  <div class="off-canvas-wrapper">
+
+    <div class="off-canvas-absolute  position-left reveal-for-large"  id="offcanvasstudentsettings" data-off-canvas data-transition="overlap">
+      <!-- Your menu or Off-canvas content goes here -->
+    </div>
+
+    <div class="off-canvas-content" data-off-canvas-content>
+      <h1 id="studentsettingsheader">Student's Account Settings</h1>
+      <p class="lead">Account settings for Students</p>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- Mini game modal -->
+<div class="large reveal" id="minigame" aria-labelledby="minigameheader" data-reveal>
+
+  <h1 id="minigameheader">Mini Game</h1>
+  <p class="lead">Mini Game for student progress </p>
+  <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+</div>

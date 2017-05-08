@@ -19,6 +19,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # redirects after Sign-out.
+  def after_sign_out_path_for(user)
+    new_user_session_path
+  end
+
 
 
 
@@ -52,7 +57,7 @@ class ApplicationController < ActionController::Base
 
       end
 
-      devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:type, :email, :password, :password_confirmation, :region) }
+      devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:username, :givenname, :familyname, :type, :email, :password, :password_confirmation, :region) }
     end
 
 
