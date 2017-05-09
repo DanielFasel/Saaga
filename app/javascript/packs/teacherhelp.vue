@@ -1,25 +1,13 @@
 <template>
-
-<div id="teacherhelp">
-
- <v-dialog v-model="d2" persistent>
-  <v-btn primary dark slot="activator">Open Dialog</v-btn>
-  <v-card>
-    <v-card-row>
-      <v-card-title>Use Google's location service?</v-card-title>
-    </v-card-row>
-    <v-card-row>
-      <v-card-text>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</v-card-text>
-    </v-card-row>
-    <v-card-row actions>
-      <v-btn class="green--text darken-1" flat="flat" @click.native="d2 = false">Disagree</v-btn>
-      <v-btn class="green--text darken-1" flat="flat" @click.native="d2 = false">Agree</v-btn>
-    </v-card-row>
-  </v-card>
-</v-dialog>
-
-</div>
-
+  <div id="app">
+      <v-text-field
+          name="input-1"
+          label="Class"
+          v-model="message"
+      ></v-text-field>
+      <p>{{ message }}</p>
+      <v-btn light default v-on:click="saveclass">Save the class</v-btn>
+  </div>
 </template>
 
 
@@ -28,14 +16,23 @@
 module.exports = {
   data: function () {
     return {
+      message: ""
+    }
+  },
+
+  methods: {
+    saveclass: function (event) {
+        console.log(event.target.value)
+    }
   }
 }
-}
-
 </script>
 
 
 
 <style scoped>
-
+p {
+  font-size: 2em;
+  text-align: center;
+}
 </style>
