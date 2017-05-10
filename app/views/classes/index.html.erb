@@ -10,21 +10,9 @@
 <h1>Classes and Teacher's homepage</h1>
 
 
-<p><a data-open="addsub">Add substitute teacher</a></p>
-
-<div class="large reveal" id="addsub" aria-labelledby="addsubheader" data-reveal>
-  <h1 id="addsubheader">Add substitute Teacher!</h1>
-  <p class="lead">Add substitute teacher here</p>
-  <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
 
 
-<p><a data-open="addmodifyclass">Add or modify classes</a></p>
 
-<div class="large reveal" id="addmodifyclass" aria-labelledby="addmodifyclassheader" data-reveal>
-  <h1 id="addmodifyclassheader">Add or modify class</h1>
   <p class="lead">Add or modify classes here</p>
 
   <%= form_for @normalclass do |f| %>
@@ -51,11 +39,4 @@
 
 
 
-  <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-
-
 <%= javascript_pack_tag 'hello_vue' %>
-<%= javascript_pack_tag 'menu_teacher' %>

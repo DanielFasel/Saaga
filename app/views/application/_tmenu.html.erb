@@ -1,24 +1,34 @@
 
 
 <!-- "wider" top-bar menu for 'medium' and up -->
-<div id="widemenu" class="top-bar">
+<div class="nav">
+
+  
 
   <div class="top-bar-left">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li><a href="classes">Classes</a></li>
-      <li><a href="tcourses">My Courses</a></li>
-      <li><a href="exercises">Exercises</a></li>
-      <li><a href="global">Global</a></li>
-    </ul>
+
+    <div>Logo</div>
+
+    <div class="menu" >
+      <a href="classes">Classes</a>
+      <a href="tcourses">My Courses</a>
+      <a href="exercises">Exercises</a>
+      <a href="global">Global</a>
+    </div>
   </div>
 
 
   <div class="top-bar-right">
-    <ul class="menu">
-      <li><a data-open="teachersettings">Account Settings</a></li>
-      <li><a data-open="teacherhelp">Help</a></li>
-      <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-    </ul>
+   
+    <div>notification</div>
+    
+    <div class="menu">
+      <a data-open="teachersettings">Account Settings</a>
+
+      <a><%= javascript_pack_tag 'modal' %><a/>
+      <a data-open="teacherhelp">Help</a>
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+    </div>
   </div>
 
 </div>

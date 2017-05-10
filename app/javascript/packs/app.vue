@@ -7,6 +7,7 @@
       ></v-text-field>
       <p>{{ message }}</p>
       <v-btn light default v-on:click="saveclass">Save the class</v-btn>
+
   </div>
 </template>
 
@@ -16,7 +17,7 @@
 module.exports = {
   data: function () {
     return {
-      message: ""
+     modal:false
     }
   },
 
