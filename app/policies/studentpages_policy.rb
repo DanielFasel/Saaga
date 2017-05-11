@@ -1,4 +1,4 @@
-class HomeworksPolicy < Struct.new(:user, :homeworks)
+class StudentpagesPolicy < Struct.new(:user, :studentpages)
 
    class Scope
      def resolve

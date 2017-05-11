@@ -13,9 +13,9 @@ class ApplicationController < ActionController::Base
   # redirects after Sign-in.
   def after_sign_in_path_for(user)
     if user.is_a?(Student)
-      homeworks_url
+      student_url
     elsif user.is_a?(Teacher)
-      classes_url
+      teacher_url
     end
   end
 

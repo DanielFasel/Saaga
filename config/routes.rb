@@ -43,12 +43,9 @@ Rails.application.routes.draw do
     end
 
     # routes to the mainpages
-    get '/homeworks', to: 'homeworks#index'
-    get '/classes', to: 'classes#index'
-    get '/exercises', to: 'exercises#index'
-    get '/scourses', to: 'scourses#index'
-    get '/tcourses', to: 'tcourses#index'
-    get '/global', to: 'global#index'
+    get '/student', to: 'studentpages#index'
+    get '/teacher', to: 'teacherpages#index'
+  
 
 
     get '/', to: 'locals#change_locale', as: :change_locale
