@@ -1,0 +1,2 @@
+class HpPrivacyNoticesController < ApplicationController
+end

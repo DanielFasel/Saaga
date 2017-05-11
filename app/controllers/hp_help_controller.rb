@@ -1,0 +1,2 @@
+class HpHelpController < ApplicationController
+end

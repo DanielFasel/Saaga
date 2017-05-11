@@ -1,0 +1,2 @@
+class HpFaqsController < ApplicationController
+end

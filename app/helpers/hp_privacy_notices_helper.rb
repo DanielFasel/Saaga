@@ -1,0 +1,2 @@
+module HpPrivacyNoticesHelper
+end

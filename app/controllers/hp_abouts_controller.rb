@@ -1,0 +1,2 @@
+class HpAboutsController < ApplicationController
+end

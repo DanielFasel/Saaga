@@ -1,0 +1,2 @@
+class HpTermsController < ApplicationController
+end

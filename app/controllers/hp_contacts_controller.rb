@@ -1,0 +1,2 @@
+class HpContactsController < ApplicationController
+end

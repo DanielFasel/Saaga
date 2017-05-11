@@ -1,0 +1,2 @@
+class HpSitemapsController < ApplicationController
+end
