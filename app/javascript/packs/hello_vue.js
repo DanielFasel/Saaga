@@ -6,9 +6,11 @@
 
 import Vue from 'vue/dist/vue.esm'
 import App from './app.vue'
-
+import VueRouter from 'vue-router'
 import Vuetify from 'vuetify'
  
+
+Vue.use(VueRouter)
 Vue.use(Vuetify)
 
 
