@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
 
   # slected language inside of url
-  scope "(:locale)", locale: /en|fi|sv/ do
+  scope "(:locale)" do
 
         # devise routes
     as :user do
