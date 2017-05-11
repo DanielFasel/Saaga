@@ -20,15 +20,9 @@
   <body>
 
     <!-- wrapper to hide off wrapper -->
-    <div class="off-canvas-wrapper">
 
-      <!-- Checking if menu exists. If yes renders it. -->
-      <% if content_for? :menu %>
-        <nav>
-          <%= yield :menu %>
-        </nav>
-      <% end %>
 
+  
 
 
 
@@ -39,10 +33,9 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
-      <!-- content of the page wrapped for the off canevas menu -->
-      <div class="off-canvas-content" data-off-canvas-content>
+   
         <%= yield %>
-      </div>
+      
 
 
     </div>

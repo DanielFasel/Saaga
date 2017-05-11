@@ -1,0 +1,33 @@
+
+<!-- "wider" top-bar menu for 'medium' and up -->
+<div class="nav">
+
+    <div class="menu" >
+      <a href="contact">Contact</a>
+      <a href="help">Help</a>
+      <a href="sitemap">Site map</a>
+      <a href="terms">Terms of use</a>
+      <a href="privacy">Privacy notice</a>
+    </div>
+
+
+
+<ul class="dropdown menu" data-dropdown-menu>
+  <li class="is-dropdown-submenu-parent" data-options="is_hover:true" >
+    <a href="#">Languages</a>
+    <ul class="menu">
+
+          <li> <%= link_to 'English', change_locale_path(:en) %> </li>
+          <li> <%= link_to 'Finnish', change_locale_path(:fi) %> </li>
+          <li> <%= link_to 'Swedish', change_locale_path(:sv) %> </li>
+    </ul>
+  </li>
+
+</ul>
+
+</div>
+
+
+
+
+
