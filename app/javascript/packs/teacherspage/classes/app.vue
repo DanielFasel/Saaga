@@ -6,7 +6,11 @@
           v-model="message"
       ></v-text-field>
       <p>{{ message }}</p>
+      <router-link to='/'>Home</router-link>
+      <router-link to='/courses'>courses</router-link>
+      <router-link to='/assignments'>Assignments</router-link>
       <v-btn light default v-on:click="saveclass">Save the class</v-btn>
+      <router-view></router-view>
 
   </div>
 </template>
