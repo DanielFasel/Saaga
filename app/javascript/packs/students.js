@@ -5,10 +5,12 @@
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
 import Vue from 'vue/dist/vue.esm'
-import Modal from './modal_help.vue'
-
+import App from './teacherspage/classes/app.vue'
+import VueRouter from 'vue-router'
 import Vuetify from 'vuetify'
  
+
+Vue.use(VueRouter)
 Vue.use(Vuetify)
 
 
@@ -18,10 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(document.createElement('hello'))
   const app = new Vue({
     el: 'hello',
-    template: '<Modal/>',
-    components: { Modal }
+    template: '<App/>',
+    components: { App }
   })
 
-  console.log(modal)
+  console.log(app)
 })
 

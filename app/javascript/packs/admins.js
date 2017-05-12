@@ -5,7 +5,7 @@
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
 import Vue from 'vue/dist/vue.esm'
-import App from './app.vue'
+import App from './teacherspage/classes/app.vue'
 import VueRouter from 'vue-router'
 import Vuetify from 'vuetify'
  
