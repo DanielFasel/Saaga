@@ -4,37 +4,52 @@
 // like app/views/layouts/application.html.erb.
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
+//extentions
 import Vue from 'vue/dist/vue.esm'
-import Courses from './teacherspage/courses/courses.vue'
-import Classes from './teacherspage/classes/app.vue'
-import Assignemnts from './teacherspage/assignments/assignments.vue'
-
 import VueRouter from 'vue-router'
 import Vuetify from 'vuetify'
  
-
 Vue.use(VueRouter)
 Vue.use(Vuetify)
 
-const routes =[
-	{path:'/courses', component: Courses},
 
-	{path:'/assignments', component: Assignemnts}
+//components
+import TeacherMainpage from './teacher_pages/teacher_mainpage.vue'
+import TeacherMenu from './teacher_pages/teacher_helpers/teacher_menu/teacher_menu.vue'
+import TeacherAssignments from './teacher_pages/teacher_assignments/teacher_assignments.vue'
+import TeacherCourses from './teacher_pages/teacher_courses/teacher_courses.vue'
+import TeacherClasses from './teacher_pages/teacher_classes/teacher_classes.vue'
+import Global from './general_helpers/global.vue'
+
+Vue.component('teacher-menu', TeacherMenu)
+
+
+
+
+//routing
+const routes = [
+	{path: '/assignments' , component : TeacherAssignments},
+	{path: '/courses', component: TeacherCourses},
+  {path: '/global', component: Global},
+  {path: '/classes', component: TeacherClasses},
+
+  { path: '/', redirect: '/classes' }
 ]
 
 const router = new VueRouter({
-	routes
+	routes,
+	
 
 })
 
-
+//default component
 document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(document.createElement('hello'))
   const app = new Vue({
     el: 'hello',
     router,
-    template: '<Classes/>',
-    components: { Classes }
+    template: '<teacher-mainpage/>',
+    components: { TeacherMainpage }
   })
 
   console.log(app)

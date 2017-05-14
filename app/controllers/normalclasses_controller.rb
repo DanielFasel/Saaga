@@ -6,7 +6,7 @@ class NormalclassesController < ActionController::Base
     @normalclass = Normalclass.new(normalclass_params)
     @normalclass.save
 
-    redirect_to teacherpages_path, :notice => "The class was added"
+    redirect_to teacher_path, :notice => "The class was added"
 
 
   end
@@ -15,7 +15,7 @@ class NormalclassesController < ActionController::Base
   def destroy
     @normalclass = Normalclass.find(params[:id])
     @normalclass.destroy
-    redirect_to teacherpages_path, :notice => "The class was deleted"
+    redirect_to teacher_path, :notice => "The class was deleted"
   end
 
 
