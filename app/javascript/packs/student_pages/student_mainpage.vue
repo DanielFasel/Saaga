@@ -1,10 +1,12 @@
 <template>
-  <div>
+  
+  <div id="page_container">
+   
    <student-menu></student-menu>
-    <router-view></router-view>
-
+   <router-view></router-view>
     
   </div>
+  
 </template>
 
 
@@ -23,6 +25,25 @@ module.exports = {
 
 
 
-<style scoped>
+<style>
+ #page_container{
+    background: rgb(51,41,135);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom:1em; 
 
+    
+  }
+  .content_container{
+    display: flex;
+    background: white;
+    width: 95%;
+    padding: 1em;
+   
+    border-top-width: thick;
+    border-top-color: rgb(51,41,135);
+  }
 </style>

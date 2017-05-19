@@ -1,7 +1,5 @@
 <template>
-	<div>
-		<h5>Classes</h5>
-	</div>
+	<h5>test file in teacher_lesson imported in teacher mainpage</h5>
 </template>
 
 <script>

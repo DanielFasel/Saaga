@@ -7,11 +7,17 @@
 //extentions
 import Vue from 'vue/dist/vue.esm'
 import VueRouter from 'vue-router'
-import Vuetify from 'vuetify'
-import axios from 'axios'
 
 Vue.use(VueRouter)
-Vue.use(Vuetify)
+
+
+
+// Axios and default settings
+import axios from 'axios'
+let token = document.getElementsByName('csrf-token')[0].getAttribute('content')
+axios.defaults.headers.common['X-CSRF-Token'] = token
+axios.defaults.headers.common['Accept'] = 'application/json'
+Vue.prototype.$http = axios
 
 
 //components

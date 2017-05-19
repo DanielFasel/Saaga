@@ -1,7 +1,9 @@
 <template>
-  <div>
-   <h5>Homeworks</h5>
+
+  <div class="content_container">
+  	<h5>Homeworks</h5>
   </div>
+
 </template>
 
 

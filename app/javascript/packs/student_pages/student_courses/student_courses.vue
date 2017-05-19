@@ -1,8 +1,9 @@
 <template>
-  <div>
-  
-   <h5>Courses</h5>
+
+  <div class="content_container">
+  	<h5>Courses</h5>
   </div>
+
 </template>
 
 

@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="content_container">
 		<h5>Global</h5>
 	</div>
 </template>

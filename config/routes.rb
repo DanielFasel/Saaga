@@ -3,13 +3,20 @@ Rails.application.routes.draw do
   devise_for :users, skip: [:sessions, :registrations, :passwords]
 
 
-  # resources
-  resources :normalclasses
-
 
 
   # slected language inside of url
   scope "(:locale)", locale: /#{I18n.available_locales.join('|')}/ do
+
+
+
+
+
+    # resources
+    resources :normalclasses
+
+
+
 
         # devise routes
     as :user do
@@ -58,12 +65,8 @@ Rails.application.routes.draw do
     get '/teacher', to: 'teacherpages#index'
 
 
-
-
-
-   
-
-    get '/', to: 'locals#change_locale', as: :change_locale
   end
+
+
 
 end

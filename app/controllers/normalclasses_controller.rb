@@ -1,5 +1,13 @@
 class NormalclassesController < ActionController::Base
 
+  respond_to :html, :json
+
+
+  def index
+    @normalclass=Normalclass.all
+    respond_with(@normalclass)
+
+  end
 
   def create
 

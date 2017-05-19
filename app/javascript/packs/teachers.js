@@ -7,10 +7,17 @@
 //extentions
 import Vue from 'vue/dist/vue.esm'
 import VueRouter from 'vue-router'
-import Vuetify from 'vuetify'
- 
 Vue.use(VueRouter)
-Vue.use(Vuetify)
+
+
+
+// Axios and default settings
+import axios from 'axios'
+let token = document.getElementsByName('csrf-token')[0].getAttribute('content')
+axios.defaults.headers.common['X-CSRF-Token'] = token
+axios.defaults.headers.common['Accept'] = 'application/json'
+Vue.prototype.$http = axios
+
 
 
 //components
@@ -18,7 +25,7 @@ import TeacherMainpage from './teacher_pages/teacher_mainpage.vue'
 import TeacherMenu from './teacher_pages/teacher_helpers/teacher_menu/teacher_menu.vue'
 import TeacherAssignments from './teacher_pages/teacher_assignments/teacher_assignments.vue'
 import TeacherCourses from './teacher_pages/teacher_courses/teacher_courses.vue'
-import TeacherClasses from './teacher_pages/teacher_classes/teacher_classes.vue'
+import TeacherLessons from './teacher_pages/teacher_lessons/teacher_lessons.vue'
 import Global from './general_helpers/global.vue'
 
 Vue.component('teacher-menu', TeacherMenu)
@@ -31,9 +38,9 @@ const routes = [
 	{path: '/assignments' , component : TeacherAssignments},
 	{path: '/courses', component: TeacherCourses},
   {path: '/global', component: Global},
-  {path: '/classes', component: TeacherClasses},
+  {path: '/lessons', component: TeacherLessons},
 
-  { path: '/', redirect: '/classes' }
+  { path: '/', redirect: '/courses' }
 ]
 
 const router = new VueRouter({
