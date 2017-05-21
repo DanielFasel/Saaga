@@ -20,10 +20,10 @@
       </ul>
 
       <ul id="utility_links">
-        <li><button class="utility_buttons">8</button></li>
-        <li><button class="utility_buttons">Settings</button></li>
-        <li><button class="utility_buttons">Help</button></li>
-        <li><button class="utility_buttons" v-on:click="post">Logout</button></li>
+        <li><teacher-notifications></teacher-notifications></li>
+        <li><teacher-settings></teacher-settings></li>
+        <li><teacher-help></teacher-help></li>
+        <li><button v-on:click="post">Logout</button></li>
       </ul>
 
     </nav>
@@ -35,9 +35,17 @@
 
 <script>
 
-
+import TeacherNotifications from "../teacher_notifications/teacher_notifications.vue"
+import TeacherSettings from "../teacher_settings/teacher_settings.vue"
+import TeacherHelp from "../teacher_help/teacher_help.vue"
 
 export default {
+
+  components: {
+    "teacher-notifications": TeacherNotifications,
+    "teacher-settings": TeacherSettings,
+    "teacher-help": TeacherHelp
+  },
 
   data: function () {
     return {
@@ -149,11 +157,6 @@ export default {
     flex-direction: row;
 
     align-self: center;
-  }
-/*--*/
-  .utility_buttons{
-    color:white;
-    padding-left: 1.5em;
   }
 
  

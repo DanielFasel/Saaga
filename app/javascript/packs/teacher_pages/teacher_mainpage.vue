@@ -3,7 +3,6 @@
   <div id="page_container">
   	<teacher-menu></teacher-menu>
     <router-view></router-view>
-    <teacher_test></teacher_test>
   </div>
 
 </template>
@@ -12,7 +11,7 @@
 
 <script>
 
-import TeacherTest from "./teacher_helpers/teacher_test.vue"
+
 
 export default {
 
@@ -20,8 +19,7 @@ export default {
     return {
       message: "Hello Daniel!"
     }
-  },
-  components: {"teacher_test": TeacherTest}
+  }
 }
 </script>
 
@@ -39,18 +37,17 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
-    padding-bottom:1em; 
-
-    
+    align-items: center; 
+    height:100%;    
   }
+
   .content_container{
     display: flex;
     background: white;
     width: 95%;
     padding: 1em;
-   
-    border-top-width: thick;
-    border-top-color: rgb(51,41,135);
+    margin-bottom: 1em;
+    height: 100%;
   }
+
 </style>

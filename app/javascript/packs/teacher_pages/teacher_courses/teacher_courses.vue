@@ -1,22 +1,42 @@
 <template>
-  <div class="content_container">
-
-      <input v-model="course_name" placeholder="Course name">'
-      <button v-on:click="post">Save Name</button>
-      <p>{{ courses }}</p>
+  <div class="content_container" id="courses_content">
+    <div>
+      <course-list></course-list>
+    </div>
+    <div>
+      <student-management></student-management>
+      <course-management></course-management>
+      <substitute-teacher></substitute-teacher>
+      <class-overview></class-overview>
+    </div>
   </div>
 </template>
 
 
 
 <script>
+import CourseList from "./course_list/course_list.vue"
+import StudentManagement from "./student_management/student_management.vue"
+import CourseManagement from "./course_management/course_management.vue"
+import SubstituteTeacher from "./substitute_teacher/substitute_teacher.vue"
+import ClassOverview from "./class_overview/class_overview.vue"
+
 export default {
+  
+  components: 
+    { "course-list": CourseList,
+      "student-management": StudentManagement,
+      "course-management": CourseManagement,
+      "substitute-teacher": SubstituteTeacher,
+      "class-overview": ClassOverview
+     },
+
   data: function () {
     return {
-     courses: "",
-     course_name: ""
+     courses: "Courses"
     }
   },
+
   created(){
     this.$http.get('./normalclasses')
     .then(function(data){
@@ -28,11 +48,9 @@ export default {
 
 </script>
 
-
-
-<style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
+<style>
+  #courses_content{
+    flex-direction: row;
+    justify-content: space-between;
+  }
 </style>
