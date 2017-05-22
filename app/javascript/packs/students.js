@@ -25,7 +25,7 @@ import StudentMainpage from './student_pages/student_mainpage.vue'
 import StudentMenu from './student_pages/student_helpers/student_menu/student_menu.vue'
 import StudentCourses from './student_pages/student_courses/student_courses.vue'
 import StudentHomeworks from './student_pages/student_homeworks/student_homeworks.vue'
-import Global from './general_helpers/global.vue'
+import Global from './general_helpers/global/global.vue'
 
 
 Vue.component('student-menu', StudentMenu)

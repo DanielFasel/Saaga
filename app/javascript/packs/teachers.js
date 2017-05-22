@@ -26,7 +26,7 @@ import TeacherMenu from './teacher_pages/teacher_helpers/teacher_menu/teacher_me
 import TeacherAssignments from './teacher_pages/teacher_assignments/teacher_assignments.vue'
 import TeacherCourses from './teacher_pages/teacher_courses/teacher_courses.vue'
 import TeacherLessons from './teacher_pages/teacher_lessons/teacher_lessons.vue'
-import Global from './general_helpers/global.vue'
+import Global from './general_helpers/global/global.vue'
 
 Vue.component('teacher-menu', TeacherMenu)
 
