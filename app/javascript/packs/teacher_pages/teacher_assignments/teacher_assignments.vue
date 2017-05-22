@@ -5,10 +5,10 @@
     <div>Filter By + Help</div>
     <assignement-category-card-list></assignement-category-card-list>
 
-    <div>
+    <div id="bottom_half">
       <teacher-vertical-category-list></teacher-vertical-category-list>
-      <div>
-        <div>
+      <div id="bottom_right_half">
+        <div id="bottom_right_top">
           <teacher-search-bar></teacher-search-bar>
           <div>Help link</div>
         </div>
@@ -46,7 +46,26 @@
   }
 </script>
 
+<style>
+  #assignments_content{
+    display: flex;
+    flex-direction: column;
+  }
 
+</style>
 
 <style scoped>
+  #bottom_half{
+    display: flex;
+    flex-direction: row;
+  }
+   #bottom_right_half{
+    display: flex;
+    flex-direction: column;
+  }
+  #bottom_right_top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 </style>
