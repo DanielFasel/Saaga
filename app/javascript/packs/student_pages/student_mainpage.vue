@@ -33,7 +33,7 @@ module.exports = {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding-bottom:1em; 
+    height:100%;
 
     
   }
@@ -42,8 +42,7 @@ module.exports = {
     background: white;
     width: 95%;
     padding: 1em;
-   
-    border-top-width: thick;
-    border-top-color: rgb(51,41,135);
+    margin-bottom: 1em;
+    height: 100%;
   }
 </style>
