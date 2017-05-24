@@ -6,16 +6,16 @@
 
       <ul id="navigation_links">
         <li>
-          <router-link class="routerlink current_navigation_tab" to='/courses'>Courses <img src="" alt="Courses"></router-link>
+          <router-link class="routerlink navigation_tab" to='/courses' exact>Courses <img src="" alt="Courses"></router-link>
         </li>
         <li>
-          <router-link class="routerlink navigation_tab" to='/lessons'>Lessons <img src="" alt="Lessons"></router-link>
+          <router-link class="routerlink navigation_tab" to='/lessons' exact>Lessons <img src="" alt="Lessons"></router-link>
         </li>
         <li>
-          <router-link class="routerlink navigation_tab" to='/assignments'>Assignments <img src="" alt="Assignments"></router-link>
+          <router-link class="routerlink navigation_tab" to='/assignments' exact>Assignments <img src="" alt="Assignments"></router-link>
         </li>
         <li>
-          <router-link class="routerlink navigation_tab" to='/global'>Global <img src="" alt="Global"></router-link>
+          <router-link class="routerlink navigation_tab" to='/global' exact>Global <img src="" alt="Global"></router-link>
         </li>
       </ul>
 
@@ -23,7 +23,7 @@
         <li><teacher-notifications></teacher-notifications></li>
         <li><teacher-settings></teacher-settings></li>
         <li><teacher-help></teacher-help></li>
-        <li><button v-on:click="post">Logout</button></li>
+        <li><button v-on:click="logout">Logout</button></li>
       </ul>
 
     </nav>
@@ -49,17 +49,16 @@ export default {
 
   data: function () {
     return {
-     message: "My Courses!"
     }
   },
 
   methods:{
-    post:function(){
+    logout:function(){
       this.$http.delete('./logout')
         .then(function(){
           window.location.href = "/login"
-    })
-  }
+        })
+    }
   }
 
 }
@@ -122,7 +121,7 @@ export default {
   }
 
   /*---*/
-  .current_navigation_tab{
+  .router-link-active{
     display: flex;
     align-items: center;
     margin-right:0.5vw;
