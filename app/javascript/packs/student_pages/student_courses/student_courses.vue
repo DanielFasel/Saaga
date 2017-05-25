@@ -5,7 +5,7 @@
  			<student-official-course-list></student-official-course-list>
  			<student-unofficial-course-list></student-unofficial-course-list>
  		</div>
- 		<div>Add new course</div>
+ 		<student-new-course></student-new-course>
  	</div>
 
 </template>
@@ -16,12 +16,14 @@
 
 	import StudentOfficialCourseList from "./student_official_course_list/student_official_course_list.vue"
 	import StudentUnofficialCourseList from "./student_unofficial_course_list/student_unofficial_course_list.vue"
+	import StudentNewCourse from "./student_new_course/student_new_course.vue"
 
 	export default {
 
 		components: {
 			"student-official-course-list": StudentOfficialCourseList,
-			"student-unofficial-course-list": StudentUnofficialCourseList
+			"student-unofficial-course-list": StudentUnofficialCourseList,
+			"student-new-course": StudentNewCourse
 		},
 
   		data: function () {

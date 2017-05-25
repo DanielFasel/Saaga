@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<button id="show-modal" @click="showModal = true">Help</button>
+		<button id="show-modal" @click="showModal = true">Add New Course</button>
 		<modal-window v-if="showModal" @close="onClose">
-		<div slot="body">Help</div>
+		<div slot="body">Course</div>
  		</modal-window>
  	</div>
 </template>

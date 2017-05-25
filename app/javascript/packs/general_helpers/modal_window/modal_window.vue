@@ -2,36 +2,37 @@
 
   <transition name="modal">
     <div class="modal-mask">
-      <div class="modal-wrapper">
-        <div class="modal-container">
+        <div class="modal-wrapper">
 
-       
-		<button class="modal-close-button" @click="$emit('close')">Close</button>
-          <div class="modal-body">
-            <slot name="body">
-              {{modal_name}}
-            </slot>
-          </div>
+        	<div class="modal-header">
+        		<button class="mobile-menu"></button>
+        		<h5>title</h5>
+				<button class="modal-close-button" @click="$emit('close')">Close</button>
+			</div>
+			
+			<div class="modal-content">
+				<div class="modal-side-menu">
+					<slot name="side_menu">
+					
+					</slot>	
+          		</div>
 
+          		<div class="modal-body">
+            		<slot name="body">
+              			{{modal_name}}
+            		</slot>
+          		</div>
+          	</div>
+			
          
-        </div>
+       
       </div>
     </div>
   </transition>
+
 </template>
 
 <script>
-
-	export default {
-
-  		data: function () {
-    		return {
-    			modal_name: "Modal"
-      			
-    		}
-  		}
-	}
-
 </script>
 
 <style>
@@ -44,18 +45,18 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, .5);
-  display: table;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: opacity .3s ease;
 }
 
-.modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
-}
 
-.modal-container {
+
+.modal-wrapper {
 	display: flex;
 	flex-direction: column;
+	
   width: 95vw;
   max-width: 600px;
   height: 95vh;
@@ -66,6 +67,21 @@
   border-radius: 1px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
   transition: all .3s ease;
+}
+
+.modal-header{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.mobile-menu{
+
+}
+
+.modal-content{
+	display: flex;
+	flex-direction: row;
 }
 
 .modal-close-button {
@@ -99,8 +115,8 @@
   opacity: 0;
 }
 
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
+.modal-enter .modal-wrapper,
+.modal-leave-active .modal-wrapper {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }

@@ -18,10 +18,10 @@
 
       <ul id="utility_links">
 
-        <li><button class="utility_buttons">8</button></li>
-        <li><button class="utility_buttons">Game</button></li>
-        <li><button class="utility_buttons">Settings</button></li>
-        <li><button class="utility_buttons">Help</button></li>
+        <li><student-notifications></student-notifications></li>
+        <li><student-game></student-game></li>
+        <li><student-settings></student-settings></li>
+        <li><student-help></student-help></li>
         <li><button class="utility_buttons" v-on:click="post">Logout</button></li>
       </ul>
 
@@ -34,9 +34,19 @@
 
 <script>
 
-
+import StudentNotifications from "../student_notifications/student_notifications.vue"
+import StudentGame from "../student_game/student_game.vue"
+import StudentSettings from "../student_settings/student_settings.vue"
+import StudentHelp from "../student_help/student_help.vue"
 
 export default {
+
+  components: {
+    "student-notifications": StudentNotifications,
+    "student-game": StudentGame,
+    "student-settings": StudentSettings,
+    "student-help": StudentHelp
+  },
 
   data: function () {
     return {
