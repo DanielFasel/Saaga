@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<button id="show-modal" @click="showModal = true">Settings</button>
-		<modal-window v-if="showModal" @close="onClose">
+		<button id="show-modal" @click="openModal">Settings</button>
+		<modal-window v-if="showModal" @close="closeModal">
 		<div slot="body">Settings</div>
  		</modal-window>
  	</div>
@@ -9,24 +9,34 @@
 
 <script>
 	import ModalWindow from "../../../general_helpers/modal_window/modal_window.vue"
+	
+
 
 	export default {
 
 		components: {
 			"modal-window": ModalWindow
 		},
-
-		data: function () {
-    		return {
-     			showModal: false
-    		}
-  		},
+		
 
   		methods: {
-  			onClose: function(){
-  				this.showModal = false
+
+  			closeModal: function(){
+  				this.$store.dispatch('closeModal')
+  			},
+  			openModal: function(){
+  				this.$store.dispatch('openModal')
   			}
+  		},
+
+  		computed:{
+  				
+  				showModal(){
+  					this.$store.getters.showModal
+  				}
+  				
   		}
+  		
 	}
 </script>
 

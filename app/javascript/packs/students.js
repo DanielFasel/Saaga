@@ -10,7 +10,8 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-
+//Vuex
+import {store} from './student_store/student_store.js'
 
 // Axios and default settings
 import axios from 'axios'
@@ -53,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(document.createElement('hello'))
   const app = new Vue({
     el: 'hello',
+    store,
     router,
     template: '<student-mainpage/>',
     components: { StudentMainpage }

@@ -7,8 +7,13 @@
 //extentions
 import Vue from 'vue/dist/vue.esm'
 import VueRouter from 'vue-router'
+
 Vue.use(VueRouter)
 
+//Vuex
+import {store} from './teacher_store/teacher_store.js'
+import Vuex from 'vuex'
+Vue.use(Vuex)
 
 
 // Axios and default settings
@@ -54,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(document.createElement('hello'))
   const app = new Vue({
     el: 'hello',
+    store,
     router,
     template: '<teacher-mainpage/>',
     components: { TeacherMainpage }

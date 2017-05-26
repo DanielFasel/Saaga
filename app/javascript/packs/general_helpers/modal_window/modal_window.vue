@@ -7,7 +7,7 @@
         	<div class="modal-header">
         		<button class="mobile-menu"></button>
         		<h5>title</h5>
-				<button class="modal-close-button" @click="$emit('close')">Close</button>
+				<button class="modal-close-button" @click="onClose">Close</button>
 			</div>
 			
 			<div class="modal-content">
@@ -33,6 +33,15 @@
 </template>
 
 <script>
+
+export default {
+
+  methods: {
+    onClose: function(){
+      
+    }
+  }
+}
 </script>
 
 <style>
