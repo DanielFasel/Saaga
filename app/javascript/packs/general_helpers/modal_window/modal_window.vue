@@ -19,7 +19,7 @@
 
           		<div class="modal-body">
             		<slot name="body">
-              			{{modal_name}}
+              			
             		</slot>
           		</div>
           	</div>
