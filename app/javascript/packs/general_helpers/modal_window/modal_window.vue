@@ -7,7 +7,7 @@
         	<div class="modal-header">
         		<button class="mobile-menu"></button>
         		<h5>title</h5>
-				<button class="modal-close-button" @click="closeModal">Close</button>
+				<button class="modal-close-button" @click="$emit('close')">Close</button>
 			</div>
 			
 			<div class="modal-content">
@@ -34,14 +34,6 @@
 
 <script>
 
-export default {
-
-  methods: {
-    closeModal: function(){
-          this.$store.dispatch('closeModal')
-        }
-  }
-}
 </script>
 
 <style>

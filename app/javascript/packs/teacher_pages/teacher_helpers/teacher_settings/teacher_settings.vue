@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<button id="show-modal" @click="openModal">Settings</button>
-		<modal-window v-if="showModal">
+		<button id="show-modal" @click="showModal = true">Settings</button>
+		<modal-window v-if="showModal" @close="onClose">
 		<div slot="body">Settings</div>
  		</modal-window>
  	</div>
@@ -18,20 +18,16 @@
 			"modal-window": ModalWindow
 		},
 		
-
-  		methods: {
-
-  			openModal: function(){
-  				this.$store.dispatch('openModal')
-  			}
+		data: function () {
+    		return {
+     			showModal: false
+    		}
   		},
 
-  		computed:{
-  				
-  				showModal(){
-  					return this.$store.getters.showModal
-  				}
-  				
+  		methods: {
+  			onClose: function(){
+  				this.showModal = false
+  			}
   		}
   		
 	}
