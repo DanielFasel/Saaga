@@ -1,6 +1,6 @@
 export default {
 
-	showModal(state){
-		return state.showModal
+	normalClasses(state){
+		return state.normalClasses
 	}
 }
