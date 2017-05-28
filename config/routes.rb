@@ -3,20 +3,22 @@ Rails.application.routes.draw do
   devise_for :users, skip: [:sessions, :registrations, :passwords]
 
 
-  # resources
-  resources :normalclasses
-
 
 
   # slected language inside of url
-  scope "(:locale)", locale: /en|fi|sv/ do
-
-    # root page
-    root 'homepages#index'
+  scope "(:locale)", locale: /#{I18n.available_locales.join('|')}/ do
 
 
-    # devise routes
 
+
+
+    # resources
+    resources :normalclasses
+
+
+
+
+        # devise routes
     as :user do
       # passwords controller
       get '/password/new', to: 'devise/passwords#new', as: :new_user_password
@@ -42,16 +44,29 @@ Rails.application.routes.draw do
       delete '/logout', to: 'devise/sessions#destroy', as: :destroy_user_session
     end
 
-    # routes to the mainpages
-    get '/homeworks', to: 'homeworks#index'
-    get '/classes', to: 'classes#index'
-    get '/exercises', to: 'exercises#index'
-    get '/scourses', to: 'scourses#index'
-    get '/tcourses', to: 'tcourses#index'
-    get '/global', to: 'global#index'
 
 
-    get '/', to: 'locals#change_locale', as: :change_locale
+    # root page
+    root 'homepages#index'
+
+    # routes to homepages
+    get '/about', to: 'hp_abouts#index' 
+    get '/contact', to: 'hp_contacts#index' 
+    get '/faq', to: 'hp_faqs#index'
+    get '/help', to: 'hp_helps#index' 
+    get '/privacy', to: 'hp_privacy_notices#index'
+    get '/sitemap', to: 'hp_sitemaps#index' 
+    get '/terms', to: 'hp_terms#index' 
+
+
+
+    # routes to the student and teacher spa
+    get '/student', to: 'studentpages#index'
+    get '/teacher', to: 'teacherpages#index'
+
+
   end
+
+
 
 end

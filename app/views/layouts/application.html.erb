@@ -9,35 +9,31 @@
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> 
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet" type="text/css">
+
     <%= csrf_meta_tags %>
   </head>
 
   <body>
 
     <!-- wrapper to hide off wrapper -->
-    <div class="off-canvas-wrapper">
 
-      <!-- Checking if menu exists. If yes renders it. -->
-      <% if content_for? :menu %>
-        <nav>
-          <%= yield :menu %>
-        </nav>
-      <% end %>
+
+  
 
 
 
 
 
 
-
-      <!-- flash messages for devise -->
+      <!-- flash messages for devise 
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-
-      <!-- content of the page wrapped for the off canevas menu -->
-      <div class="off-canvas-content" data-off-canvas-content>
+-->
+   
         <%= yield %>
-      </div>
+      
 
 
     </div>

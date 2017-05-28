@@ -12,5 +12,10 @@ module.exports = merge(sharedConfig, {
 
   output: {
     pathinfo: true
+  },
+    resolve: {
+    alias: {
+      vue: 'vue/dist/vue.js'
+    }
   }
 })

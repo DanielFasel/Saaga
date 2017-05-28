@@ -1,0 +1,32 @@
+<!-- "wider" top-bar menu for 'medium' and up -->
+<div class="nav">
+
+    <div class="menu" >
+      <%= link_to('Contact', contact_path) %>
+      <%= link_to('Help', help_path) %>
+      <%= link_to('Site map', sitemap_path) %>
+      <%= link_to('Terms of use', terms_path) %>
+      <%= link_to('Privacy notice', privacy_path) %>
+    </div>
+
+
+
+<ul class="dropdown menu" data-dropdown-menu>
+  <li class="is-dropdown-submenu-parent" data-options="is_hover:true" >
+    <a href="#">Languages</a>
+    <ul class="menu">
+
+          <li> <%= link_to_unless_current "English", locale: "en" %> </li>
+          <li> <%= link_to_unless_current "Finnish", locale: "fi" %> </li>
+          <li> <%= link_to_unless_current "Swedish", locale: "sv" %> </li>
+    </ul>
+  </li>
+
+</ul>
+
+</div>
+
+
+
+
+
