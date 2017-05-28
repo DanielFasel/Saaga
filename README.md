@@ -1,24 +1,21 @@
-# README
+SAAGA
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+--Helpful commands and tricks--
 
-* Ruby version
+Ruby on rails:
 
-* System dependencies
 
-* Configuration
+Postgrsql:
 
-* Database creation
 
-* Database initialization
+VueJs:
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+Vue-router:
 
-* Deployment instructions
 
-* ...
+Vuex:
+
+
+Axios:
