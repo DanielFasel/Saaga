@@ -1,4 +1,5 @@
 <template>
+
   <div class="content_container" id="courses_content">
     <div>
       <course-list></course-list>
@@ -10,11 +11,13 @@
       <class-overview></class-overview>
     </div>
   </div>
+
 </template>
 
 
 
 <script>
+
 import CourseList from "./course_list/course_list.vue"
 import StudentManagement from "./student_management/student_management.vue"
 import CourseManagement from "./course_management/course_management.vue"
@@ -38,22 +41,23 @@ export default {
   },
 
   created: function() {
-        // This component just got created. Lets fetch some data here using an action
-        this.$store.dispatch("normalClasses").then(response => {
-            console.log("Got some data, now lets show something in this component")
-        }, error => {
-            console.error("Got nothing from server. Prompt user to check internet connection and try again")
-        })
+    // This component just got created. Lets fetch some data here using an action
+    this.$store.dispatch("normalClasses").then(response => {
+        console.log("Got some data, now lets show something in this component")
+    }, error => {
+        console.error("Got nothing from server. Prompt user to check internet connection and try again")
+    })
   }
 
 }
 
-
 </script>
 
 <style>
+
   #courses_content{
     flex-direction: row;
     justify-content: space-between;
   }
+  
 </style>

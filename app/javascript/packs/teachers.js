@@ -1,19 +1,12 @@
-// Run this example by adding <%= javascript_pack_tag 'hello_vue' %>
-/* eslint no-console: 0 */
-// to the head of your layout file,
-// like app/views/layouts/application.html.erb.
-// All it does is render <div>Hello Vue</div> at the bottom of the page.
 
 //extentions
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
 Vue.use(VueRouter)
+
 
 //Vuex
 import {store} from './teacher_store/teacher_store.js'
-import Vuex from 'vuex'
-Vue.use(Vuex)
 
 
 // Axios and default settings
@@ -24,7 +17,6 @@ axios.defaults.headers.common['Accept'] = 'application/json'
 Vue.prototype.$http = axios
 
 
-
 //components
 import TeacherMainpage from './teacher_pages/teacher_mainpage.vue'
 import TeacherMenu from './teacher_pages/teacher_helpers/teacher_menu/teacher_menu.vue'
@@ -33,9 +25,8 @@ import TeacherCourses from './teacher_pages/teacher_courses/teacher_courses.vue'
 import TeacherLessons from './teacher_pages/teacher_lessons/teacher_lessons.vue'
 import Global from './general_helpers/global/global.vue'
 
+//imported component to be used on all the SPA
 Vue.component('teacher-menu', TeacherMenu)
-
-
 
 
 //routing
@@ -44,15 +35,14 @@ const routes = [
 	{path: '/courses', component: TeacherCourses},
   {path: '/global', component: Global},
   {path: '/lessons', component: TeacherLessons},
-
   { path: '/', redirect: '/courses' }
 ]
 
 const router = new VueRouter({
-	routes,
-	
-
+	routes
 })
+
+
 
 //default component
 document.addEventListener('DOMContentLoaded', () => {
@@ -64,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
     template: '<teacher-mainpage/>',
     components: { TeacherMainpage }
   })
-
   console.log(app)
 })
 

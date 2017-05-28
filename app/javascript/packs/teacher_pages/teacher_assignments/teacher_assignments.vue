@@ -44,9 +44,11 @@
         }
       }
   }
+
 </script>
 
 <style>
+
   #assignments_content{
     display: flex;
     flex-direction: column;
@@ -55,17 +57,21 @@
 </style>
 
 <style scoped>
+
   #bottom_half{
     display: flex;
     flex-direction: row;
   }
+
    #bottom_right_half{
     display: flex;
     flex-direction: column;
   }
+
   #bottom_right_top{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
+
 </style>

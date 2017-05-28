@@ -1,17 +1,13 @@
-// Run this example by adding <%= javascript_pack_tag 'hello_vue' %>
-/* eslint no-console: 0 */
-// to the head of your layout file,
-// like app/views/layouts/application.html.erb.
-// All it does is render <div>Hello Vue</div> at the bottom of the page.
 
 //extentions
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
 Vue.use(VueRouter)
+
 
 //Vuex
 import {store} from './student_store/student_store.js'
+
 
 // Axios and default settings
 import axios from 'axios'
@@ -28,9 +24,8 @@ import StudentCourses from './student_pages/student_courses/student_courses.vue'
 import StudentHomeworks from './student_pages/student_homeworks/student_homeworks.vue'
 import Global from './general_helpers/global/global.vue'
 
-
+//imported component to be used on all the SPA
 Vue.component('student-menu', StudentMenu)
-
 
 
 
@@ -40,12 +35,10 @@ const routes = [
   {path: '/homeworks', component: StudentHomeworks},
   {path: '/global', component: Global},
   { path: '/', redirect: '/homeworks' }
-
 ]
 
 const router = new VueRouter({
-	routes,
-
+	routes
 })
 
 
@@ -59,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
     template: '<student-mainpage/>',
     components: { StudentMainpage }
   })
-
   console.log(app)
 })
 

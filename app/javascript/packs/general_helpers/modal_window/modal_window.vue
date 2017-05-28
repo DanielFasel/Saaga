@@ -2,30 +2,25 @@
 
   <transition name="modal">
     <div class="modal-mask">
-        <div class="modal-wrapper">
 
-        	<div class="modal-header">
-        		<button class="mobile-menu"></button>
-        		<h5>title</h5>
-				<button class="modal-close-button" @click="$emit('close')">Close</button>
-			</div>
-			
-			<div class="modal-content">
-				<div class="modal-side-menu">
-					<slot name="side_menu">
-					
-					</slot>	
-          		</div>
+      <div class="modal-wrapper">
 
-          		<div class="modal-body">
-            		<slot name="body">
-              			
-            		</slot>
-          		</div>
-          	</div>
+        <div class="modal-header">
+        	<button class="mobile-menu"></button>
+        	<h5>title</h5>
+				  <button class="modal-close-button" @click="$emit('close')">Close</button>
+        </div>
 			
-         
-       
+        <div class="modal-content">
+				  <div class="modal-side-menu">
+            <slot name="side_menu"></slot>	
+          </div>
+
+          <div class="modal-body">
+            <slot name="body"></slot>
+          </div>
+        </div>
+
       </div>
     </div>
   </transition>
@@ -33,7 +28,6 @@
 </template>
 
 <script>
-
 </script>
 
 <style>
@@ -51,8 +45,6 @@
   align-items: center;
   transition: opacity .3s ease;
 }
-
-
 
 .modal-wrapper {
 	display: flex;
@@ -96,8 +88,6 @@
 .modal-body {
   margin: 20px 0;
 }
-
-
 
 /*
  * The following styles are auto-applied to elements with

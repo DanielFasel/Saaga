@@ -8,25 +8,21 @@
 </template>
 
 
-
 <script>
 
+  export default {
 
-
-export default {
-
-  data: function () {
-    return {
-      message: "Hello Daniel!"
+    data: function () {
+      return {
+        message: "Hello Daniel!"
+      }
     }
   }
-}
+
 </script>
 
 
-
 <style scoped>
-
 </style>
 
 <style>

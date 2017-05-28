@@ -16,13 +16,14 @@
 
  */
 
-
+/* css for the entire website */
 * {
-margin: 0;
-padding: 0;
+	margin: 0;
+	padding: 0;
 }
+
 html *{
-font-family: 'Montserrat', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
 
 html, body {

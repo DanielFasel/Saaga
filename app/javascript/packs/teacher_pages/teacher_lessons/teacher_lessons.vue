@@ -1,6 +1,8 @@
 <template>
+
 	<div class="content_container" id="lessons_content">
 		<teacher-vertical-category-list></teacher-vertical-category-list>
+		
 		<div id="right_side">
 			<div id="right_side_top">
 				<teacher-search-bar></teacher-search-bar>
@@ -10,10 +12,12 @@
 				</div>
 			</div>
 			<teacher-lesson-assignement-list></teacher-lesson-assignement-list>
-
 		</div>
+
 	</div>
+
 </template>
+
 
 <script>
 
@@ -39,6 +43,7 @@
 </script>
 
 <style scoped>
+
 	#right_side{
 		display: flex;
 		flex-direction: column;
@@ -49,13 +54,14 @@
 		flex-direction: row;
 		justify-content: space-between;
 	}
+
 </style>
 
 <style>
+
 	#lessons_content{
 		display: flex;
 		flex-direction: row;
-
 	}
 
 </style>

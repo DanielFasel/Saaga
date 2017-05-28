@@ -5,10 +5,7 @@ export default {
 	},
 
 	deleteNormalClass(state,classid){
-		
-	
 		var index = state.normalClasses.findIndex(x => x.id==classid);
-		
 		if (index > -1) {
     		state.normalClasses.splice(index, 1);
 		}
@@ -23,4 +20,5 @@ export default {
     		state.normalClasses.push(array[i])
 		}
 	}
+	
 }

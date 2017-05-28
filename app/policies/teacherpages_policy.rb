@@ -1,4 +1,4 @@
-# checking if user a teacher or student and letting them access the page.
+# checking if user a teacher and letting them access the page.
 
 class TeacherpagesPolicy < Struct.new(:user, :teacherpages)
 
@@ -11,4 +11,5 @@ class TeacherpagesPolicy < Struct.new(:user, :teacherpages)
   def index?
      user.is_a?(Teacher)
   end
+
 end

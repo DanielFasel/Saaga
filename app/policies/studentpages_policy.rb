@@ -1,3 +1,5 @@
+# checking if user a student and letting them access the page.
+
 class StudentpagesPolicy < Struct.new(:user, :studentpages)
 
    class Scope
@@ -9,4 +11,5 @@ class StudentpagesPolicy < Struct.new(:user, :studentpages)
   def index?
      user.is_a?(Student)
   end
+  
 end

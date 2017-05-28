@@ -1,9 +1,11 @@
 <template>
+
 	<div class="content_container" id="global_container">
 		<global-search-bar></global-search-bar>
 		<div>Region selector + help</div>
 		<global-horizontal-category-list></global-horizontal-category-list>
 	</div>
+
 </template>
 
 
@@ -28,13 +30,13 @@
 
 
 <style scoped>
-	
-
 </style>
 
 <style>
+	
 	#global_container{
 		display: flex;
 		flex-direction: column;
 	}
+
 </style>

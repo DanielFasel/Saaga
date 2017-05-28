@@ -1,10 +1,8 @@
 <template>
   
   <div id="page_container">
-   
-   <student-menu></student-menu>
-   <router-view></router-view>
-    
+    <student-menu></student-menu>
+    <router-view></router-view>
   </div>
   
 </template>
@@ -13,7 +11,7 @@
 
 <script>
 
-module.exports = {
+export default {
 
   data: function () {
     return {
@@ -21,11 +19,13 @@ module.exports = {
     }
   }
 }
+
 </script>
 
 
 
 <style>
+
  #page_container{
     background: rgb(51,41,135);
     
@@ -37,6 +37,7 @@ module.exports = {
 
     
   }
+
   .content_container{
     display: flex;
     background: white;
@@ -45,4 +46,5 @@ module.exports = {
     margin-bottom: 1em;
     height: 100%;
   }
+  
 </style>

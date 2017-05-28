@@ -27,40 +27,26 @@ class ApplicationController < ActionController::Base
 
 
 
-
-
-
-
-
-
-
-
-
-
   protected
 
     # Checks if receiving data and type from form then makes sure no other type was used.
     def configure_permitted_parameters
 
       if params.key?(:user) && params[:user].key?(:type) && params[:user].key?(:region)
-
         raise "YOU SHALL NOT PASS!" unless params[:user][:type].in?(['Student', 'Teacher'])
         raise "invalid language" unless params[:user][:region].in?(['en','fi','sv'])
-
       end
 
       devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:username, :givenname, :familyname, :type, :email, :password, :password_confirmation, :region) }
     end
 
 
+  private
 
-
-    private
-
+      #setting locals
       def set_locale
         I18n.locale = params[:locale] || I18n.default_locale
       end
-
 
       def default_url_options(option = {})
         { locale: I18n.locale }
@@ -70,5 +56,5 @@ class ApplicationController < ActionController::Base
         I18n.locale = current_user.region if user_signed_in?
       end
 
-end
+  end
 

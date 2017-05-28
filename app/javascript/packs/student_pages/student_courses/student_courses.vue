@@ -38,6 +38,7 @@
 
 
 <style>
+
 	#student_courses_content{
 		display: flex;
 		flex-direction: row;
@@ -47,4 +48,5 @@
 		display: flex;
 		flex-direction: column;
 	}
+	
 </style>
