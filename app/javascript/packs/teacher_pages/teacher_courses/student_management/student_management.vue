@@ -6,13 +6,14 @@
 		<div slot="body">
 			<input v-model="className" placeholder="New Class">
 			<p>{{className}}</p>
-			<button @click="saveClass" >Save</button>
-			<!--<ul>
-  				<template v-for="item in items">
-    				<li>{{ item.msg }}</li>
-    				<li class="divider"></li>
+			<button @click="saveNormalClasses" >Save</button>
+			<ul>
+  				<template v-for="schoolclass in listClasses">
+    				<li>{{ schoolclass.name }}</li>
+    				<li><button @click="deleteNormalClasses(schoolclass)" >delete</button></li>
+
   				</template>
-			</ul>-->
+			</ul>
 		</div>
  		</modal-window>
  	</div>
@@ -29,16 +30,28 @@
 		data: function () {
     		return {
     			className: "",
-     			showModal: false
+     			showModal: false,
+     			item:"2"
     		}
   		},
   		methods: {
   			onClose: function(){
   				this.showModal = false
   			},
-  			saveClass: function(){
+  			saveNormalClasses: function(){
   				
-  				this.$store.dispatch('saveClass',this.className)
+  				this.$store.dispatch('saveNormalClasses',this.className)
+  			},
+  			deleteNormalClasses: function(schoolclass){
+				var schoolclassid=schoolclass.id				
+  				this.$store.dispatch('deleteNormalClasses',schoolclassid)
+  			}
+  		},
+
+  		computed: {
+
+  			listClasses() {
+  				return this.$store.getters.normalClasses
   			}
   		}
     }
@@ -47,5 +60,10 @@
 </script>
 
 <style>
+
+.divider{
+	border-bottom: 1px;
+	
+}
 	
 </style>

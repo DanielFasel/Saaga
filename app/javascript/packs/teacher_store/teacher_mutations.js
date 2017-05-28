@@ -1,7 +1,17 @@
 export default {
 
-	saveClass(state, className){
+	saveNormalClass(state, className){
 		state.normalClasses.push(className)
+	},
+
+	deleteNormalClass(state,classid){
+		
+	
+		var index = state.normalClasses.findIndex(x => x.id==classid);
+		
+		if (index > -1) {
+    		state.normalClasses.splice(index, 1);
+		}
 	},
 
 	normalClasses(state, data){
