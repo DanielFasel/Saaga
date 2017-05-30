@@ -2,22 +2,31 @@
  
 <header>
     <div id="logo">SAAGA</div>
+    <div id="current_page">My courses</div>
+    <div class="center_div" id="mobile_center_div">
+      <i  class="menu_icon fa fa-ellipsis-v fa-lg"></i>
+    </div>
+
     <nav>
 
       <ul id="navigation_links">
         <li>
-          <router-link class="routerlink navigation_tab" to='/courses' exact>Courses <img src="" alt="Courses"></router-link>
+          <router-link class="navigation_tab" to='/courses' exact>Courses <i class="fa fa-link" aria-hidden="true"></i></router-link>
         </li>
         <li>
-          <router-link class="routerlink navigation_tab" to='/lessons' exact>Lessons <img src="" alt="Lessons"></router-link>
+          <router-link class="navigation_tab" to='/lessons' exact>Lessons <i class="fa fa-book" aria-hidden="true"></i></router-link>
         </li>
         <li>
-          <router-link class="routerlink navigation_tab" to='/assignments' exact>Assignments <img src="" alt="Assignments"></router-link>
+          <router-link class="navigation_tab" to='/assignments' exact>Assignments <i class="fa fa-tasks" aria-hidden="true"></i></router-link>
         </li>
         <li>
-          <router-link class="routerlink navigation_tab" to='/global' exact>Global <img src="" alt="Global"></router-link>
+          <router-link class="navigation_tab" to='/global' exact>Global <i class="fa fa-globe" aria-hidden="true"></i></router-link>
         </li>
       </ul>
+
+      <div class="center_div">
+      <i  class="menu_icon fa fa-ellipsis-v fa-lg"></i>
+      </div>
 
       <ul id="utility_links">
         <li><teacher-notifications></teacher-notifications></li>
@@ -26,6 +35,7 @@
         <li><button v-on:click="logout">Logout</button></li>
       </ul>
 
+ 
     </nav>
   </header>
 
@@ -73,91 +83,128 @@ export default {
 
 <style>
 
+/* nav only displayed on medium and large screen */
+nav{
+  display: none;
+}
+
  
 /* Header styling */
-  header{
-    display: flex;
-    flex-direction: row;
-    height:3.5em;
-    width: 95%;
-  }
+header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 3rem;
+}
 
 /* Logo styling */
+#logo{
+  color:white;
+  padding-left: 3vw;
+  width: 10vw;
+}
+/* Display non nav for mobile */
+.center_div{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 3vw;
+  width:10vw;
+}
 
-  #logo{
-    display: flex;
-    align-items: flex-end;
-    color:white;
-    padding-bottom: 0.5em;
-    padding-right: 1.5vw;
+#current_page{
+  color: white;
+  font-size: small;
+}
+
+.menu_icon{
+  color: white;
+  margin-left: 1em;
+  margin-right: 0.5em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 650px){
+
+  /* elements not displayed for small screens */
+  #mobile_center_div{
+    display: none;
+  }
+
+  #current_page{
+    display: none;
+  }
+
+  #utility_links{
+    display: none;
   }
 
 
-
-/* Navigation styling */
-
-  nav {
+  /* Styling for medium configuration */ 
+  nav{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
+    height: 3rem;
     width: 100%;
-    }
-
-  ul {
-         list-style-type: none;
+    margin-left: 2vw;
   }
-  
 
-
-
-/* Nav links styling */
-
-  #navigation_links {
+  #navigation_links{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
+    align-self:flex-end;
   }
 
-  /*---*/
-  .router-link-active{
+  #navigation_links li{
     display: flex;
     align-items: center;
-    margin-right:0.5vw;
-    background: white; 
-    padding:0.65em 1.3em 0.65em 1.3em;
-    border-radius: 0.15em 0.15em 0 0;
+    justify-content: center;
+    padding: 0.6rem;
+    margin-left: 0.8vw;
+    background-color: rgb(216,214,230);
+    border-radius: 2px 2px 0px 0px;
   }
+
   .navigation_tab{
-    display: flex;
-    align-items: center;
-    margin-right:0.5vw;
-    background: rgb(215,213,230); 
-    padding:0.5em 1.25em 0.5em 1.25em;
-    border-radius: 0.15em 0.15em 0 0;
-  }
-
-  .navigation_tab:active{
-    background: white;
-  }
-
- .routerlink{
-   text-decoration: none;
     color:rgb(51,41,135);
-  }
-  .routerlink:hover{
+    text-decoration: none;
   }
 
+}
 
-/* Nav Utility styling */
-  #utility_links {
+
+
+@media only screen and (min-width: 1010px){
+
+
+  .center_div{
+    display: none;
+  }
+
+  #utility_links{
     display: flex;
     flex-direction: row;
-
-    align-self: center;
+    padding-right: 3vw;
   }
 
- 
+  #utility_links li {
+    margin-left: 1vw;
+  }
+
+}
 
 </style>

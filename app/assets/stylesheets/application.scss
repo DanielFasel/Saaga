@@ -15,7 +15,8 @@
 
 
  */
-
+@import "font-awesome-sprockets";
+@import "font-awesome";
 /* css for the entire website */
 * {
 	margin: 0;
@@ -28,4 +29,8 @@ html *{
 
 html, body {
 	height:100%;
+}
+
+ul * {
+list-style: none;
 }
