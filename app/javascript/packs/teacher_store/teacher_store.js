@@ -10,7 +10,10 @@ import actions from"./teacher_actions.js"
 export const store = new Vuex.Store({
 
 	state: {
-		normalClasses: []
+		normalClasses: [],
+		showMenuDrawer: false,
+		rightMenuDrawer: true,
+		backgroundBlur: false
 	},
 
 	getters,

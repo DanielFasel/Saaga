@@ -46,6 +46,10 @@ export default {
                 reject(error);
             })
         })
+    },
+
+    showMenuDrawer(context){
+        return context.commit('showMenuDrawer')
     }
 	
 }

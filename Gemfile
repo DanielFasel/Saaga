@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 #icon set
 gem 'font-awesome-sass'
 
+#needed for windows
+gem 'nokogiri', '1.6.8.rc3'
 
 # webpacker
 gem 'webpacker'

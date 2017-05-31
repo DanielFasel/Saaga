@@ -4,7 +4,7 @@
     <div id="logo">SAAGA</div>
     <div id="current_page">My courses</div>
     <div class="center_div" id="mobile_center_div">
-      <i  class="menu_icon fa fa-ellipsis-v fa-lg"></i>
+      <i  class="menu_icon fa fa-ellipsis-v fa-lg" @click="toggleMenuDrawer" ></i>
     </div>
 
     <nav>
@@ -25,7 +25,7 @@
       </ul>
 
       <div class="center_div">
-      <i  class="menu_icon fa fa-ellipsis-v fa-lg"></i>
+      <i  class="menu_icon fa fa-ellipsis-v fa-lg" @click="toggleMenuDrawer"></i>
       </div>
 
       <ul id="utility_links">
@@ -37,6 +37,36 @@
 
  
     </nav>
+
+
+
+    <menu-drawer v-show="showMenuDrawer">
+      <ul id="mobile_navigation_links">
+        <li>
+          <router-link class="navigation_tab" to='/courses' exact @click="toggleMenuDrawer">Courses <i class="fa fa-link" aria-hidden="true"></i></router-link>
+        </li>
+        <li @click="toggleMenuDrawer">
+          <router-link class="navigation_tab" to='/lessons' exact >Lessons <i class="fa fa-book" aria-hidden="true"></i></router-link>
+        </li>
+        <li>
+          <router-link class="navigation_tab" to='/assignments' exact @click="toggleMenuDrawer">Assignments <i class="fa fa-tasks" aria-hidden="true"></i></router-link>
+        </li>
+        <li>
+          <router-link class="navigation_tab" to='/global' exact @click="toggleMenuDrawer">Global <i class="fa fa-globe" aria-hidden="true"></i></router-link>
+        </li>
+      </ul>
+
+    <ul id="mobile_utility_links">
+        <li><teacher-notifications></teacher-notifications></li>
+        <li @click="toggleMenuDrawer"><teacher-settings></teacher-settings></li>
+        <li><teacher-help @click="toggleMenuDrawer"></teacher-help></li>
+        <li><button v-on:click="logout">Logout</button></li>
+      </ul>
+
+    </menu-drawer>
+
+
+
   </header>
 
 </template>
@@ -48,17 +78,20 @@
 import TeacherNotifications from "../teacher_notifications/teacher_notifications.vue"
 import TeacherSettings from "../teacher_settings/teacher_settings.vue"
 import TeacherHelp from "../teacher_help/teacher_help.vue"
+import MenuDrawer from "../../../general_helpers/menu_drawer/menu_drawer.vue"
 
 export default {
 
   components: {
     "teacher-notifications": TeacherNotifications,
     "teacher-settings": TeacherSettings,
-    "teacher-help": TeacherHelp
+    "teacher-help": TeacherHelp,
+    "menu-drawer": MenuDrawer
   },
 
   data: function () {
     return {
+    
     }
   },
 
@@ -68,6 +101,17 @@ export default {
         .then(function(){
           window.location.href = "/login"
         })
+    },
+
+    toggleMenuDrawer: function(){
+      this.$store.dispatch('showMenuDrawer')
+    }
+  },
+
+  computed: {
+
+    showMenuDrawer(){
+      return this.$store.getters.showMenuDrawer
     }
   }
 
@@ -126,14 +170,21 @@ header{
 
 
 
+/* menu drawer styling */
+.menu-drawer{
+  display: flex;
+  flex-direction: column;
+}
+  
+#mobile_navigation_links{
+  display: flex;
+  flex-direction: column;
+}
 
-
-
-
-
-
-
-
+#mobile_utility_links{
+  display: flex;
+  flex-direction: column;
+}
 
 
 @media only screen and (min-width: 650px){
@@ -188,7 +239,10 @@ header{
 
 
 
-@media only screen and (min-width: 1010px){
+
+
+
+@media only screen and (min-width: 1000px){
 
 
   .center_div{

@@ -19,6 +19,14 @@ export default {
     		//Do something
     		state.normalClasses.push(array[i])
 		}
+	},
+
+
+	showMenuDrawer(state){
+		
+		if (state.showMenuDrawer==true)
+			state.showMenuDrawer=false
+		else
+			state.showMenuDrawer=true
 	}
-	
 }
