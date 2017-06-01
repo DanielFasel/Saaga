@@ -15,7 +15,7 @@ export default {
 	methods:{
 
 		toggleMenuDrawer: function(){
-      		this.$store.dispatch('showMenuDrawer')
+      		this.$store.dispatch('layout/modalDrawer/showMenuDrawer')
     	}
 	}
 }

@@ -106,13 +106,13 @@ export default {
     },
 
     toggleMenuDrawer: function(){
-      this.$store.dispatch('showMenuDrawer')
+      this.$store.dispatch('layout/modalDrawer/showMenuDrawer')
     }
   },
 
   computed: {
 
-    ...mapGetters([
+    ...mapGetters('layout/modalDrawer',[
         'showMenuDrawer'
       ])
 
