@@ -4,9 +4,6 @@ export default {
 		return state.normalClasses
 	},
 
-	showMenuDrawer(state){
-		return state.showMenuDrawer
-	},
 
 	rightMenuDrawer(state){
 		return state.rightMenuDrawer

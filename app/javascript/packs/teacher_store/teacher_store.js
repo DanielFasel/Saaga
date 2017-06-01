@@ -19,7 +19,6 @@ export const store = new Vuex.Store({
 
 	state: {
 		normalClasses: [],
-		showMenuDrawer: false,
 		rightMenuDrawer: true,
 		backgroundBlur: false,
 		showHelpModal: false

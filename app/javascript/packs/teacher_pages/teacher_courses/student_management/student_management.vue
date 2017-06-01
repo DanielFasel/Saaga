@@ -10,7 +10,7 @@
         <button @click="saveNormalClasses" >Save</button>
 
         <ul>
-  				<template v-for="schoolclass in listClasses">
+  				<template v-for="schoolclass in normalClasses">
     				<li>{{ schoolclass.name }}</li>
     				<li><button @click="deleteNormalClasses(schoolclass)" >delete</button></li>
   				</template>
@@ -27,6 +27,7 @@
 
 	import ModalWindow from "../../../general_helpers/modal_window/modal_window.vue"
   import {mapGetters} from 'vuex'
+  
 	export default {
 
 		components: {
@@ -64,7 +65,7 @@
         ])
   		}
   	}
-  }
+  
 
 </script>
 

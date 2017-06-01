@@ -11,11 +11,12 @@
 <script>
 
 export default {
+
 	methods:{
 
 		toggleMenuDrawer: function(){
       		this.$store.dispatch('showMenuDrawer')
-    }
+    	}
 	}
 }
 	

@@ -21,15 +21,6 @@ export default {
 		}
 	},
 
-
-	showMenuDrawer(state){
-		
-		if (state.showMenuDrawer==false)
-			state.showMenuDrawer=true
-		else
-			state.showMenuDrawer=false
-	},
-
 	showHelpModal(state){
 		if (state.showHelpModal==false)
 			state.showHelpModal=true

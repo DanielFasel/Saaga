@@ -80,6 +80,8 @@ import TeacherSettings from "../teacher_settings/teacher_settings.vue"
 import TeacherHelp from "../teacher_help/teacher_help.vue"
 import MenuDrawer from "../../../general_helpers/menu_drawer/menu_drawer.vue"
 
+import {mapGetters} from 'vuex'
+
 export default {
 
   components: {
@@ -110,10 +112,12 @@ export default {
 
   computed: {
 
-    showMenuDrawer(){
-      return this.$store.getters.showMenuDrawer
-    }
+    ...mapGetters([
+        'showMenuDrawer'
+      ])
+
   }
+  
 
 }
 
