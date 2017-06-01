@@ -31,7 +31,7 @@
   background: rgb(51,41,135);
   height:100vh;
   width: 100vw;
-  overflow-y: auto;
+  overflow:auto;
 }
 
 .content_container{

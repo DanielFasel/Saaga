@@ -24,9 +24,16 @@ export default {
 
 	showMenuDrawer(state){
 		
-		if (state.showMenuDrawer==true)
-			state.showMenuDrawer=false
-		else
+		if (state.showMenuDrawer==false)
 			state.showMenuDrawer=true
+		else
+			state.showMenuDrawer=false
+	},
+
+	showHelpModal(state){
+		if (state.showHelpModal==false)
+			state.showHelpModal=true
+		else
+			state.showHelpModal=false
 	}
 }

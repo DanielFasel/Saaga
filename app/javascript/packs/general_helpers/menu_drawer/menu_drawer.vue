@@ -31,8 +31,7 @@ export default {
   	height: 100%;
   	display: flex;
   	justify-content: flex-end;
-  	padding-top: 3rem;
-  	overflow-y: auto;
+  	
 
 }
 

@@ -42,24 +42,24 @@
 
     <menu-drawer v-show="showMenuDrawer">
       <ul id="mobile_navigation_links">
-        <li>
-          <router-link class="navigation_tab" to='/courses' exact @click="toggleMenuDrawer">Courses <i class="fa fa-link" aria-hidden="true"></i></router-link>
+        <li @click="toggleMenuDrawer">
+          <router-link class="navigation_tab" to='/courses' exact>Courses <i class="fa fa-link" aria-hidden="true"></i></router-link>
         </li>
         <li @click="toggleMenuDrawer">
           <router-link class="navigation_tab" to='/lessons' exact >Lessons <i class="fa fa-book" aria-hidden="true"></i></router-link>
         </li>
-        <li>
-          <router-link class="navigation_tab" to='/assignments' exact @click="toggleMenuDrawer">Assignments <i class="fa fa-tasks" aria-hidden="true"></i></router-link>
+        <li @click="toggleMenuDrawer">
+          <router-link class="navigation_tab" to='/assignments' exact>Assignments <i class="fa fa-tasks" aria-hidden="true"></i></router-link>
         </li>
-        <li>
-          <router-link class="navigation_tab" to='/global' exact @click="toggleMenuDrawer">Global <i class="fa fa-globe" aria-hidden="true"></i></router-link>
+        <li @click="toggleMenuDrawer">
+          <router-link class="navigation_tab" to='/global' exact>Global <i class="fa fa-globe" aria-hidden="true"></i></router-link>
         </li>
       </ul>
 
     <ul id="mobile_utility_links">
         <li><teacher-notifications></teacher-notifications></li>
-        <li @click="toggleMenuDrawer"><teacher-settings></teacher-settings></li>
-        <li><teacher-help @click="toggleMenuDrawer"></teacher-help></li>
+        <li><teacher-settings></teacher-settings></li>
+        <li><teacher-help></teacher-help></li>
         <li><button v-on:click="logout">Logout</button></li>
       </ul>
 
@@ -180,7 +180,6 @@ header{
   display: flex;
   flex-direction: column;
 }
-
 #mobile_utility_links{
   display: flex;
   flex-direction: column;
@@ -202,6 +201,9 @@ header{
     display: none;
   }
 
+  #mobile_navigation_links{
+  display: none;
+}
 
   /* Styling for medium configuration */ 
   nav{

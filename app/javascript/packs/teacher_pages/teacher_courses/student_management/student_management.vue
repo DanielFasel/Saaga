@@ -26,7 +26,7 @@
 <script>
 
 	import ModalWindow from "../../../general_helpers/modal_window/modal_window.vue"
-
+  import {mapGetters} from 'vuex'
 	export default {
 
 		components: {
@@ -59,8 +59,9 @@
 
   	computed: {
 
-  		listClasses() {
-  			return this.$store.getters.normalClasses
+      ...mapGetters([
+          'normalClasses'
+        ])
   		}
   	}
   }

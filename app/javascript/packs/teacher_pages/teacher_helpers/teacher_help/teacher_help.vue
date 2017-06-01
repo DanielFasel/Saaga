@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<button id="show-modal" @click="showModal = true">Help</button>
-		<modal-window v-if="showModal" @close="onClose">
+		<button id="show-modal" @click="handler">Help</button>
+		<modal-window v-show="showHelpModal">
 		<div slot="body">Help</div>
  		</modal-window>
  	</div>
@@ -18,15 +18,36 @@
 
 		data: function () {
     		return {
-     			showModal: false
+     			
     		}
   		},
 
   		methods: {
-  			onClose: function(){
-  				this.showModal = false
-  			}
-  		}
+
+  			handler: function(){
+  				this.toggleMenuDrawer()
+  				this.toggleHelpModal()
+  				
+  				
+  			},
+			toggleMenuDrawer: function(){
+			
+					this.$store.dispatch('showMenuDrawer')
+				
+				
+    		},
+    		toggleHelpModal: function(){
+				this.$store.dispatch('showHelpModal')
+
+    		}
+    	},
+
+    	computed: {
+
+    		showHelpModal:function(){
+    			return this.$store.getters.showHelpModal
+    		}
+    	}
 	}
 </script>
 

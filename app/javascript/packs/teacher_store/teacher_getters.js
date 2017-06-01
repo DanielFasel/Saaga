@@ -14,6 +14,10 @@ export default {
 
 	backgroundBlur(state){
 		return state.backgroundBlur
+	},
+
+	showHelpModal(state){
+		return state.showHelpModal
 	}
 	
 }
