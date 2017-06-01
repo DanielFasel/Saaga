@@ -8,6 +8,7 @@ export const modalDrawer = {
 	namespaced:true,
 	state : {
 		showMenuDrawer: false,
+		showSettingsModal: false,
 	},
 	getters,
 	mutations,

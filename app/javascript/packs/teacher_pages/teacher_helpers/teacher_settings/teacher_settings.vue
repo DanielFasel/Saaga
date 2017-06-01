@@ -1,16 +1,17 @@
 <template>
-	<div>
-		<button id="show-modal" @click="showModal = true">Settings</button>
-		<modal-window v-if="showModal" @close="onClose">
-		<div slot="body">Settings</div>
- 		</modal-window>
- 	</div>
+	
+	<modal-window v-if="showSettingsModal">
+		<div slot="body">
+		<button @click="SettingsClose">close</button>
+		Settings</div>
+ 	</modal-window>
+ 
 </template>
 
 <script>
 	import ModalWindow from "../../../general_helpers/modal_window/modal_window.vue"
 	
-
+	import {mapGetters} from 'vuex'
 
 	export default {
 
@@ -20,16 +21,21 @@
 		
 		data: function () {
     		return {
-     			showModal: false
+     			
     		}
   		},
 
   		methods: {
-  			onClose: function(){
-  				this.showModal = false
+  			SettingsClose: function(){
+  				this.$store.dispatch('layout/modalDrawer/showSettingsModal')
   			}
+  		},
+
+  		computed: {
+    		...mapGetters('layout/modalDrawer',[
+        	'showSettingsModal'
+      ])
   		}
-  		
 	}
 </script>
 

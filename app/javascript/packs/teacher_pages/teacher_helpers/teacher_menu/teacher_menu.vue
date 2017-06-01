@@ -30,7 +30,7 @@
 
       <ul id="utility_links">
         <li><teacher-notifications></teacher-notifications></li>
-        <li><teacher-settings></teacher-settings></li>
+        <li><button @click="settingsclick">Settings</button></li>
         <li><teacher-help></teacher-help></li>
         <li><button v-on:click="logout">Logout</button></li>
       </ul>
@@ -58,14 +58,14 @@
 
     <ul id="mobile_utility_links">
         <li><teacher-notifications></teacher-notifications></li>
-        <li><teacher-settings></teacher-settings></li>
+        <li><button @click="settingsclick">Settings</button></li>
         <li><teacher-help></teacher-help></li>
         <li><button v-on:click="logout">Logout</button></li>
       </ul>
-
+     
     </menu-drawer>
 
-
+ <teacher-settings></teacher-settings>
 
   </header>
 
@@ -81,7 +81,7 @@ import TeacherHelp from "../teacher_help/teacher_help.vue"
 import MenuDrawer from "../../../general_helpers/menu_drawer/menu_drawer.vue"
 
 import {mapGetters} from 'vuex'
-
+import {mapActions} from 'vuex'
 export default {
 
   components: {
@@ -98,6 +98,12 @@ export default {
   },
 
   methods:{
+
+    ...mapActions('layout/modalDrawer',{
+        toggleMenuDrawer: 'showMenuDrawer',
+        toggleSettingsModal: 'showSettingsModal'
+      }),
+
     logout:function(){
       this.$http.delete('./logout')
         .then(function(){
@@ -105,9 +111,12 @@ export default {
         })
     },
 
-    toggleMenuDrawer: function(){
-      this.$store.dispatch('layout/modalDrawer/showMenuDrawer')
+    settingsclick:function(){
+      this.toggleMenuDrawer(),
+      this.toggleSettingsModal()
     }
+
+   
   },
 
   computed: {
