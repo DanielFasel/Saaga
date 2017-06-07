@@ -2,7 +2,7 @@
 
 	<modal-window modalToggleFunction="showSettingsModal" v-if="showSettingsModal">
 		<div slot="body">
-		Settings
+		Settings hi
 		</div>
  	</modal-window>
 
