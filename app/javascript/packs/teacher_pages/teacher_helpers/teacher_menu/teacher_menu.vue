@@ -1,74 +1,65 @@
 <template>
- 
 <header>
-    <div id="logo">SAAGA</div>
-    <div id="current_page">My courses</div>
-    <div class="center_div" id="mobile_center_div">
-      <i  class="menu_icon fa fa-ellipsis-v fa-lg" @click="toggleMenuDrawer" ></i>
-    </div>
 
-    <nav>
+  <div id="logo">SAAGA</div>
+  <div id="current_page">My courses</div>
 
-      <ul id="navigation_links">
-        <li>
-          <router-link class="navigation_tab" to='/courses' exact>Courses <i class="fa fa-link" aria-hidden="true"></i></router-link>
-        </li>
-        <li>
-          <router-link class="navigation_tab" to='/lessons' exact>Lessons <i class="fa fa-book" aria-hidden="true"></i></router-link>
-        </li>
-        <li>
-          <router-link class="navigation_tab" to='/assignments' exact>Assignments <i class="fa fa-tasks" aria-hidden="true"></i></router-link>
-        </li>
-        <li>
-          <router-link class="navigation_tab" to='/global' exact>Global <i class="fa fa-globe" aria-hidden="true"></i></router-link>
-        </li>
-      </ul>
+  <nav>
+    <ul id="navigation_links">
+      <li>
+        <router-link class="navigation_tab" to='/courses' exact>Courses <i class="fa fa-link" aria-hidden="true"></i></router-link>
+      </li>
+      <li>
+        <router-link class="navigation_tab" to='/lessons' exact>Lessons <i class="fa fa-book" aria-hidden="true"></i></router-link>
+      </li>
+      <li>
+        <router-link class="navigation_tab" to='/assignments' exact>Assignments <i class="fa fa-tasks" aria-hidden="true"></i></router-link>
+      </li>
+      <li>
+        <router-link class="navigation_tab" to='/global' exact>Global <i class="fa fa-globe" aria-hidden="true"></i></router-link>
+      </li>
+    </ul>
 
-      <div class="center_div">
-      <i  class="menu_icon fa fa-ellipsis-v fa-lg" @click="toggleMenuDrawer"></i>
-      </div>
+     <ul id="utility_links">
+      <li><teacher-notifications></teacher-notifications></li>
+      <li><button @click="settingsclick">Settings</button></li>
+      <li><button @click="helpclick">Help</button></li>
+      <li><button v-on:click="logout">Logout</button></li>
+    </ul>
+  </nav>
 
-      <ul id="utility_links">
-        <li><teacher-notifications></teacher-notifications></li>
-        <li><button @click="settingsclick">Settings</button></li>
-        <li><teacher-help></teacher-help></li>
-        <li><button v-on:click="logout">Logout</button></li>
-      </ul>
+  <div class="center_div" id="mobile_center_div">
+    <i  class="menu_icon fa fa-ellipsis-v fa-lg" @click="toggleMenuDrawer" ></i>
+  </div>
 
- 
-    </nav>
-
-
-
-    <menu-drawer v-show="showMenuDrawer">
-      <ul id="mobile_navigation_links">
-        <li @click="toggleMenuDrawer">
-          <router-link class="navigation_tab" to='/courses' exact>Courses <i class="fa fa-link" aria-hidden="true"></i></router-link>
-        </li>
-        <li @click="toggleMenuDrawer">
-          <router-link class="navigation_tab" to='/lessons' exact >Lessons <i class="fa fa-book" aria-hidden="true"></i></router-link>
-        </li>
-        <li @click="toggleMenuDrawer">
-          <router-link class="navigation_tab" to='/assignments' exact>Assignments <i class="fa fa-tasks" aria-hidden="true"></i></router-link>
-        </li>
-        <li @click="toggleMenuDrawer">
-          <router-link class="navigation_tab" to='/global' exact>Global <i class="fa fa-globe" aria-hidden="true"></i></router-link>
-        </li>
-      </ul>
+  <menu-drawer v-show="showMenuDrawer">
+    <ul id="mobile_navigation_links">
+      <li @click="toggleMenuDrawer">
+        <router-link class="navigation_tab" to='/courses' exact>Courses <i class="fa fa-link" aria-hidden="true"></i></router-link>
+      </li>
+      <li @click="toggleMenuDrawer">
+        <router-link class="navigation_tab" to='/lessons' exact >Lessons <i class="fa fa-book" aria-hidden="true"></i></router-link>
+      </li>
+      <li @click="toggleMenuDrawer">
+        <router-link class="navigation_tab" to='/assignments' exact>Assignments <i class="fa fa-tasks" aria-hidden="true"></i></router-link>
+      </li>
+      <li @click="toggleMenuDrawer">
+        <router-link class="navigation_tab" to='/global' exact>Global <i class="fa fa-globe" aria-hidden="true"></i></router-link>
+      </li>
+    </ul>
 
     <ul id="mobile_utility_links">
-        <li><teacher-notifications></teacher-notifications></li>
-        <li><button @click="settingsclick">Settings</button></li>
-        <li><teacher-help></teacher-help></li>
-        <li><button v-on:click="logout">Logout</button></li>
-      </ul>
-     
-    </menu-drawer>
+      <li><teacher-notifications></teacher-notifications></li>
+      <li><button @click="settingsclicksmall">Settings</button></li>
+      <li><button @click="helpclicksmall">Help</button</li>
+      <li><button v-on:click="logout">Logout</button></li>
+    </ul>
+  </menu-drawer>
 
- <teacher-settings></teacher-settings>
+  <teacher-settings></teacher-settings>
+  <teacher-help></teacher-help>
 
-  </header>
-
+</header>
 </template>
 
 
@@ -82,6 +73,7 @@ import MenuDrawer from "../../../general_helpers/menu_drawer/menu_drawer.vue"
 
 import {mapGetters} from 'vuex'
 import {mapActions} from 'vuex'
+
 export default {
 
   components: {
@@ -91,9 +83,10 @@ export default {
     "menu-drawer": MenuDrawer
   },
 
-  data: function () {
-    return {
-    
+  data: function(){
+    return{
+      bigtimer:0,
+      oncetimer:0
     }
   },
 
@@ -101,7 +94,8 @@ export default {
 
     ...mapActions('layout/modalDrawer',{
         toggleMenuDrawer: 'showMenuDrawer',
-        toggleSettingsModal: 'showSettingsModal'
+        toggleSettingsModal: 'showSettingsModal',
+        toggleHelpModal: 'showHelpModal'
       }),
 
     logout:function(){
@@ -111,12 +105,29 @@ export default {
         })
     },
 
-    settingsclick:function(){
+    // toggle for utility modals
+    settingsclicksmall:function(){
       this.toggleMenuDrawer(),
       this.toggleSettingsModal()
-    }
+    },
+    settingsclick:function(){   
+      this.toggleSettingsModal()
+    },
 
-   
+    helpclicksmall:function(){
+      this.toggleMenuDrawer(),
+      this.toggleHelpModal()
+    },
+    helpclick: function(){
+      this.toggleHelpModal()
+    },
+
+    // hide the drawer when going from medium to big screen
+    hideDrawerMenu: function(){
+      if (this.showMenuDrawer && this.$mq.above(1000)) {
+         this.toggleMenuDrawer()
+          }
+    }
   },
 
   computed: {
@@ -124,15 +135,14 @@ export default {
     ...mapGetters('layout/modalDrawer',[
         'showMenuDrawer'
       ])
+  },
 
+  //watcher that checks screen size to hide drawer
+  watch: {
+    '$mq.resize': 'hideDrawerMenu'
   }
-  
-
+ 
 }
-
-
-
-
 
 </script>
 
@@ -202,9 +212,6 @@ header{
 @media only screen and (min-width: 650px){
 
   /* elements not displayed for small screens */
-  #mobile_center_div{
-    display: none;
-  }
 
   #current_page{
     display: none;

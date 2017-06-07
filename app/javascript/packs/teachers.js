@@ -8,6 +8,8 @@ Vue.use(VueRouter)
 //Vuex
 import {store} from './teacher_store/teacher_store.js'
 
+import vMediaQuery from 'v-media-query' 
+Vue.use(vMediaQuery)
 
 // Axios and default settings
 import axios from 'axios'
@@ -53,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     router,
     template: '<teacher-mainpage/>',
     components: { TeacherMainpage }
+
   })
   console.log(app)
 })

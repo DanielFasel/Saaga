@@ -4,6 +4,7 @@
 			<div class="drawer-wrapper">
 				<slot></slot>
 			</div>
+			
 		</div>
 	</transition>
 </template>

@@ -8,7 +8,7 @@
         <div class="modal-header">
         	<button class="mobile-menu"></button>
         	<h5>title</h5>
-				  <button class="modal-close-button" @click="$emit('close')">Close</button>
+          <button class="modal-close-button" @click="closeModal">Close</button>
         </div>
 			
         <div class="modal-content">
@@ -28,6 +28,19 @@
 </template>
 
 <script>
+
+export default{
+  
+  props:['modalToggleFunction'],
+
+  methods:{
+
+    closeModal: function(){
+          this.$store.dispatch('layout/modalDrawer/'+this.modalToggleFunction)
+        }
+  }
+}
+
 </script>
 
 <style>
