@@ -46,6 +46,10 @@ export default {
                 reject(error);
             })
         })
+    },
+
+    showHelpModal(context){
+        return context.commit('showHelpModal')
     }
 	
 }

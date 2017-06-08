@@ -19,6 +19,12 @@ export default {
     		//Do something
     		state.normalClasses.push(array[i])
 		}
+	},
+
+	showHelpModal(state){
+		if (state.showHelpModal==false)
+			state.showHelpModal=true
+		else
+			state.showHelpModal=false
 	}
-	
 }

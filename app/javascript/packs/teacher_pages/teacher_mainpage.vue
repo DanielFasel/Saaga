@@ -1,9 +1,12 @@
 <template>
+  
+   
 
-  <div id="page_container">
+  <div id="page_container" class="background-blur">
   	<teacher-menu></teacher-menu>
     <router-view></router-view>
   </div>
+ 
 
 </template>
 
@@ -23,27 +26,22 @@
 
 
 <style scoped>
-</style>
-
-<style>
   
-  #page_container{
-    background: rgb(51,41,135);
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center; 
-    height:100%;    
-  }
+#page_container{
+  background: rgb(51,41,135);
+  height:100vh;
+  width: 100vw;
+  overflow:auto;
+}
 
-  .content_container{
-    display: flex;
-    background: white;
-    width: 95%;
-    padding: 1em;
-    margin-bottom: 1em;
-    height: 100%;
-  }
+.content_container{
+  display: flex;
+  background: white;
+  padding-left: 3vw;
+  padding-right:3vw;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  height: 100%;
+ }
 
 </style>
