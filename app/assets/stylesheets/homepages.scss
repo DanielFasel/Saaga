@@ -8,10 +8,11 @@
   justify-content: center;
   align-items: center;
   padding: 3em;
+  margin-bottom: 20px;
 }
 #card1{
   flex-direction: row;
-  background: rgb(255, 232, 67);
+  background: rgb(255, 237, 135);
 }
 
 #card2{
@@ -21,17 +22,18 @@
 
 #card3{
   flex-direction: row-reverse;
-  background: rgb(135, 255, 211);
+  background: rgb(255,226,182);
 }
 
 #card4{
   flex-direction: row;
-  background: rgb(255, 232, 67);
+  background: rgb(255, 237, 135);
 }
 
 #card5{
   flex-direction: row-reverse;
   background: rgb(201, 208, 265);
+  margin: 0px;
 }
 
 article{

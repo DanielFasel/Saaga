@@ -5,11 +5,12 @@
       <course-list></course-list>
     </div>
     <div>
-      <student-management></student-management>
+      <button @click="toggleStudentManagementModal">StudentManagement</button>
       <course-management></course-management>
       <substitute-teacher></substitute-teacher>
       <class-overview></class-overview>
     </div>
+    <student-management></student-management>
   </div>
 
 </template>
@@ -24,9 +25,12 @@ import CourseManagement from "./course_management/course_management.vue"
 import SubstituteTeacher from "./substitute_teacher/substitute_teacher.vue"
 import ClassOverview from "./class_overview/class_overview.vue"
 
+import {mapActions} from 'vuex'
+
+
 export default {
-  
-  components: 
+
+  components:
     { "course-list": CourseList,
       "student-management": StudentManagement,
       "course-management": CourseManagement,
@@ -34,11 +38,11 @@ export default {
       "class-overview": ClassOverview
      },
 
-  data: function () {
-    return {
-     courses: "Courses"
-    }
-  },
+     methods:{
+       ...mapActions('layout/modalDrawer',{
+         toggleStudentManagementModal: 'showStudentManagementModal'
+       })
+     },
 
   created: function() {
     // This component just got created. Lets fetch some data here using an action
@@ -59,5 +63,5 @@ export default {
     flex-direction: row;
     justify-content: space-between;
   }
-  
+
 </style>

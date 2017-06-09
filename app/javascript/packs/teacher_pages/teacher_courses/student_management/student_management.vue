@@ -1,9 +1,6 @@
 <template>
 
-	<div>
-		<button id="show-modal" @click="showModal = true">Student Managment</button>
-
-		<modal-window v-if="showModal" @close="onClose">
+		<modal-window modalToggleFunction="showStudentManagementModal" v-if="showStudentManagementModal">
 		  <div slot="body">
         <input v-model="className" placeholder="New Class">
         <p>{{className}}</p>
@@ -19,15 +16,13 @@
 		  </div>
     </modal-window>
 
-  </div>
-
 </template>
 
 <script>
 
 	import ModalWindow from "../../../general_helpers/modal_window/modal_window.vue"
   import {mapGetters} from 'vuex'
-  
+
 	export default {
 
 		components: {
@@ -36,36 +31,32 @@
 
 		data: function () {
       return {
-    		className: "",
-     		showModal: false,
+    		className: ""
     	}
   	},
 
   	methods: {
-
-  		onClose: function(){
-  			this.showModal = false
-  		},
-
   		saveNormalClasses: function(){
   			this.$store.dispatch('saveNormalClasses',this.className)
   		},
-
   		deleteNormalClasses: function(schoolclass){
-				var schoolclassid=schoolclass.id				
+				var schoolclassid=schoolclass.id
   			this.$store.dispatch('deleteNormalClasses',schoolclassid)
   		}
-
   	},
 
   	computed: {
 
-      ...mapGetters([
-          'normalClasses'
-        ])
-  		}
+      ...mapGetters({
+				normalClasses: 'normalClasses',
+				showStudentManagementModal: 'layout/modalDrawer/showStudentManagementModal'
+		}),
+		...mapGetters('layout/modalDrawer',[
+			'showStudentManagementModal'
+	]),
   	}
-  
+  }
+
 
 </script>
 
@@ -74,5 +65,5 @@
 .divider{
 	border-bottom: 1px;
 }
-	
+
 </style>
