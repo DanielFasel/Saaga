@@ -1,17 +1,15 @@
 <template>
 
-	<div>
-		<button id="show-modal" @click="showModal = true">Add a Substitute Teacher</button>
-		<modal-window v-if="showModal" @close="onClose">
+		<modal-window modalToggleFunction="showSubstituteTeacherModal" v-if="showSubstituteTeacherModal">
 		<div slot="body">Teacher</div>
  		</modal-window>
- 	</div>
 
 </template>
 
 <script>
 
 	import ModalWindow from "../../../general_helpers/modal_window/modal_window.vue"
+	import {mapGetters} from 'vuex'
 
 	export default {
 
@@ -19,21 +17,16 @@
 			"modal-window": ModalWindow
 		},
 
-		data: function () {
-    		return {
-     			showModal: false
-    		}
-  		},
+		computed: {
+			...mapGetters('layout/modalDrawer',[
+				'showSubstituteTeacherModal'
+			])
+		}
 
-  		methods: {
-  			onClose: function(){
-  				this.showModal = false
-  			}
-  		}
 	}
-	
+
 </script>
 
 <style>
-	
+
 </style>

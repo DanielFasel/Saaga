@@ -4,13 +4,15 @@
     <div>
       <course-list></course-list>
     </div>
-    <div>
+    <div id="sidelinks">
       <button @click="toggleStudentManagementModal">StudentManagement</button>
-      <course-management></course-management>
-      <substitute-teacher></substitute-teacher>
+      <button @click="toggleCourseManagementModal">CourseManagement</button>
+      <button @click="toggleSubstituteTeacherModal">SubstituteTeacher</button>
       <class-overview></class-overview>
     </div>
     <student-management></student-management>
+    <substitute-teacher></substitute-teacher>
+    <course-management></course-management>
   </div>
 
 </template>
@@ -40,7 +42,9 @@ export default {
 
      methods:{
        ...mapActions('layout/modalDrawer',{
-         toggleStudentManagementModal: 'showStudentManagementModal'
+         toggleStudentManagementModal: 'showStudentManagementModal',
+         toggleSubstituteTeacherModal: 'showSubstituteTeacherModal',
+         toggleCourseManagementModal: 'showCourseManagementModal'
        })
      },
 
@@ -57,11 +61,16 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 
   #courses_content{
     flex-direction: row;
     justify-content: space-between;
   }
+
+  #sidelinks{
+  display: flex;
+  flex-direction: column;
+}
 
 </style>

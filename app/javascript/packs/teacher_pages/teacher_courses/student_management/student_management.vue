@@ -48,8 +48,7 @@
   	computed: {
 
       ...mapGetters({
-				normalClasses: 'normalClasses',
-				showStudentManagementModal: 'layout/modalDrawer/showStudentManagementModal'
+				normalClasses: 'normalClasses'
 		}),
 		...mapGetters('layout/modalDrawer',[
 			'showStudentManagementModal'

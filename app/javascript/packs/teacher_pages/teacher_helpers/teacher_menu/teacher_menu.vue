@@ -28,8 +28,9 @@
     </ul>
   </nav>
 
-  <div class="center_div" id="mobile_center_div">
-    <i  class="menu_icon fa fa-ellipsis-v fa-lg" @click="toggleMenuDrawer" ></i>
+  <div class="center_div" id="mobile_center_div" @click="toggleMenuDrawer">
+    <i  class="menu_icon fa fa-bars"></i>
+    <span id="menutext">Menu</span>
   </div>
 
   <menu-drawer v-show="showMenuDrawer">
@@ -110,7 +111,7 @@ export default {
       this.toggleMenuDrawer(),
       this.toggleSettingsModal()
     },
-    settingsclick:function(){   
+    settingsclick:function(){
       this.toggleSettingsModal()
     },
 
@@ -141,7 +142,7 @@ export default {
   watch: {
     '$mq.resize': 'hideDrawerMenu'
   }
- 
+
 }
 
 </script>
@@ -155,7 +156,7 @@ nav{
   display: none;
 }
 
- 
+
 /* Header styling */
 header{
   display: flex;
@@ -175,9 +176,20 @@ header{
 /* Display non nav for mobile */
 .center_div{
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
   padding-right: 3vw;
   width:10vw;
+}
+
+.menu_icon{
+  color: white;
+  margin-bottom: 0.1em;
+}
+
+#menutext{
+  font-size: small;
+  color: white;
 }
 
 #current_page{
@@ -185,11 +197,7 @@ header{
   font-size: small;
 }
 
-.menu_icon{
-  color: white;
-  margin-left: 1em;
-  margin-right: 0.5em;
-}
+
 
 
 
@@ -198,7 +206,7 @@ header{
   display: flex;
   flex-direction: column;
 }
-  
+
 #mobile_navigation_links{
   display: flex;
   flex-direction: column;
@@ -225,7 +233,7 @@ header{
   display: none;
 }
 
-  /* Styling for medium configuration */ 
+  /* Styling for medium configuration */
   nav{
     display: flex;
     flex-direction: row;
