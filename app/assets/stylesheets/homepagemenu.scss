@@ -18,8 +18,18 @@
 	flex-direction: row;
 }
 
+.top-bar-right li {
+	list-style: none;
+}
 .menu {
 	display: flex;
 	flex-direction: row;
 }
-a{color: white;}
+a{
+	color: white;
+	text-decoration: none;
+	margin-left: 10px;
+}
+h1{
+	color: white;
+}
