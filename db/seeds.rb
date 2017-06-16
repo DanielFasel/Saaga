@@ -14,7 +14,6 @@ User.create!(username:  "TomS",
              familyname: "Smith",
              region: "en",
              type: "Student",
-             school: "",
              email: "student@english.com",
              password:              "123456",
              password_confirmation: "123456"
@@ -27,7 +26,6 @@ User.create!(username:  "MarcusA",
              familyname: "Aurelius",
              region: "sv",
              type: "Student",
-             school: "",
              email: "student@swedish.com",
              password:              "123456",
              password_confirmation: "123456"
@@ -39,10 +37,7 @@ User.create!(username:  "KimS",
              familyname: "Smith",
              region: "fi",
              type: "Teacher",
-             school: "",
              email: "teacher@finnish.com",
              password:              "123456",
              password_confirmation: "123456"
              )
-
-

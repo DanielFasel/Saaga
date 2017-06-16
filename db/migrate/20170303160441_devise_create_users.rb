@@ -15,7 +15,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
 
       t.string :type, null: false, default: ""
       t.string :region, null: false, default: ""
-      t.string :school
+      
 
 
 
@@ -52,7 +52,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
 
       t.timestamps null: false
     end
-
+    add_index :users, :username, unique: true
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
     add_index :users, :confirmation_token,   unique: true

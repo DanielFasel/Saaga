@@ -5,7 +5,7 @@
 
   <div class="top-bar-left">
 
-      <%= link_to('Saaga', root_path) %>
+      <h1><%= link_to('Saaga', root_path) %></h1>
 
 
     <div class="menu" >
@@ -31,18 +31,7 @@
       </li>
     <% end %>
 
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li class="is-dropdown-submenu-parent" data-options="is_hover:true" >
-        <a href="#">Languages</a>
-        <ul class="menu">
 
-              <li> <%= link_to_unless_current "English", locale: "en" %> </li>
-              <li> <%= link_to_unless_current "Finnish", locale: "fi" %> </li>
-              <li> <%= link_to_unless_current "Swedish", locale: "sv" %> </li>
-        </ul>
-      </li>
-
-    </ul>
 
   </div>
 

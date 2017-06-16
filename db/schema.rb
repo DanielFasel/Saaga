@@ -10,49 +10,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170403165538) do
+ActiveRecord::Schema.define(version: 20170616122956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "normalclass_students", force: :cascade do |t|
-    t.integer  "student_id"
-    t.integer  "normalclass_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["normalclass_id"], name: "index_normalclass_students_on_normalclass_id", using: :btree
-    t.index ["student_id"], name: "index_normalclass_students_on_student_id", using: :btree
+  create_table "school_admins", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "normalclasses", force: :cascade do |t|
+  create_table "school_student_student_specs", force: :cascade do |t|
+    t.integer  "school_student_id"
+    t.integer  "student_spec_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["school_student_id"], name: "index_school_student_student_specs_on_school_student_id", using: :btree
+    t.index ["student_spec_id"], name: "index_school_student_student_specs_on_student_spec_id", using: :btree
+  end
+
+  create_table "school_students", force: :cascade do |t|
+    t.integer  "school_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["school_id"], name: "index_school_students_on_school_id", using: :btree
+  end
+
+  create_table "school_teacher_teacher_specs", force: :cascade do |t|
+    t.integer  "school_teacher_id"
+    t.integer  "teacher_spec_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["school_teacher_id"], name: "index_school_teacher_teacher_specs_on_school_teacher_id", using: :btree
+    t.index ["teacher_spec_id"], name: "index_school_teacher_teacher_specs_on_teacher_spec_id", using: :btree
+  end
+
+  create_table "school_teachers", force: :cascade do |t|
+    t.integer  "school_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["school_id"], name: "index_school_teachers_on_school_id", using: :btree
+  end
+
+  create_table "schools", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_normalclasses_on_name", using: :btree
+    t.index ["name"], name: "index_schools_on_name", using: :btree
   end
 
-  create_table "students", force: :cascade do |t|
-    t.integer  "studentlist_id"
+  create_table "student_specs", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["user_id"], name: "index_students_on_user_id", using: :btree
-  end
-
-  create_table "substituteteachers", force: :cascade do |t|
-    t.date     "expiration"
-    t.integer  "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["teacher_id"], name: "index_substituteteachers_on_teacher_id", using: :btree
+    t.index ["user_id"], name: "index_student_specs_on_user_id", using: :btree
   end
 
-  create_table "teachers", force: :cascade do |t|
-    t.string   "type"
-    t.integer  "teacher_id"
+  create_table "teacher_specs", force: :cascade do |t|
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["teacher_id"], name: "index_teachers_on_teacher_id", using: :btree
+    t.index ["user_id"], name: "index_teacher_specs_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,7 +79,6 @@ ActiveRecord::Schema.define(version: 20170403165538) do
     t.string   "familyname",             default: "", null: false
     t.string   "type",                   default: "", null: false
     t.string   "region",                 default: "", null: false
-    t.string   "school"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -81,6 +98,7 @@ ActiveRecord::Schema.define(version: 20170403165538) do
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
 end
