@@ -100,8 +100,7 @@ export default {
       }),
 
     logout:function(){
-      this.$http.delete('./logout')
-        .then(function(){
+      this.$http.delete('./logout').then(function(){
           window.location.href = "/login"
         })
     },

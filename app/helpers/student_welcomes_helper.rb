@@ -1,0 +1,2 @@
+module StudentWelcomesHelper
+end

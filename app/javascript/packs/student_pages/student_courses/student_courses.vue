@@ -5,7 +5,8 @@
  			<student-official-course-list></student-official-course-list>
  			<student-unofficial-course-list></student-unofficial-course-list>
  		</div>
- 		<student-new-course></student-new-course>
+    <button @click="toggleAddCourses">Add Courses</button>
+ 		<student-add-courses></student-add-courses>
  	</div>
 
 </template>
@@ -16,21 +17,23 @@
 
 	import StudentOfficialCourseList from "./student_official_course_list/student_official_course_list.vue"
 	import StudentUnofficialCourseList from "./student_unofficial_course_list/student_unofficial_course_list.vue"
-	import StudentNewCourse from "./student_new_course/student_new_course.vue"
+	import StudentAddCourses from "./student_add_courses/student_add_courses.vue"
+  import {mapActions} from 'vuex'
 
 	export default {
 
 		components: {
 			"student-official-course-list": StudentOfficialCourseList,
 			"student-unofficial-course-list": StudentUnofficialCourseList,
-			"student-new-course": StudentNewCourse
+			"student-add-courses": StudentAddCourses
 		},
 
-  		data: function () {
-    		return {
-      			message: "Hello Daniel!"
-    		}
-  		}
+    methods:{
+      ...mapActions('layout/modalDrawer',{
+        toggleAddCourses: 'showAddCoursesModal',
+
+      })
+    }
 	}
 
 </script>
@@ -48,5 +51,5 @@
 		display: flex;
 		flex-direction: column;
 	}
-	
+
 </style>

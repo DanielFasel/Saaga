@@ -1,0 +1,2 @@
+module TeacherWelcomesHelper
+end

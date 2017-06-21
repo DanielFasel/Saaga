@@ -10,14 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616122956) do
+ActiveRecord::Schema.define(version: 20170616133700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "school_admins", force: :cascade do |t|
+  create_table "admin_spec_school_admins", force: :cascade do |t|
+    t.integer  "admin_spec_id"
+    t.integer  "school_admin_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["admin_spec_id"], name: "index_admin_spec_school_admins_on_admin_spec_id", using: :btree
+    t.index ["school_admin_id"], name: "index_admin_spec_school_admins_on_school_admin_id", using: :btree
+  end
+
+  create_table "admin_specs", force: :cascade do |t|
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_admin_specs_on_user_id", using: :btree
+  end
+
+  create_table "school_admin_teacher_specs", force: :cascade do |t|
+    t.integer  "school_admin_id"
+    t.integer  "teacher_spec_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["school_admin_id"], name: "index_school_admin_teacher_specs_on_school_admin_id", using: :btree
+    t.index ["teacher_spec_id"], name: "index_school_admin_teacher_specs_on_teacher_spec_id", using: :btree
+  end
+
+  create_table "school_admins", force: :cascade do |t|
+    t.integer  "school_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["school_id"], name: "index_school_admins_on_school_id", using: :btree
   end
 
   create_table "school_student_student_specs", force: :cascade do |t|

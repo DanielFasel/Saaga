@@ -8,6 +8,8 @@ Vue.use(VueRouter)
 //Vuex
 import {store} from './student_store/student_store.js'
 
+import vMediaQuery from 'v-media-query'
+Vue.use(vMediaQuery)
 
 // Axios and default settings
 import axios from 'axios'
@@ -54,4 +56,3 @@ document.addEventListener('DOMContentLoaded', () => {
   })
   console.log(app)
 })
-

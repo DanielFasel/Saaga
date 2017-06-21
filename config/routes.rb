@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
 
     # resources
-    resources :normalclasses
+    resources :schools
 
 
 
@@ -50,20 +50,26 @@ Rails.application.routes.draw do
     root 'homepages#index'
 
     # routes to homepages
-    get '/about', to: 'hp_abouts#index' 
-    get '/contact', to: 'hp_contacts#index' 
+    get '/about', to: 'hp_abouts#index'
+    get '/contact', to: 'hp_contacts#index'
     get '/faq', to: 'hp_faqs#index'
-    get '/help', to: 'hp_helps#index' 
+    get '/help', to: 'hp_helps#index'
     get '/privacy', to: 'hp_privacy_notices#index'
-    get '/sitemap', to: 'hp_sitemaps#index' 
-    get '/terms', to: 'hp_terms#index' 
+    get '/sitemap', to: 'hp_sitemaps#index'
+    get '/terms', to: 'hp_terms#index'
 
 
+    # Teacher and Student Welcome page after first sign in
+    get '/welcomestudent', to: 'student_welcomes#index'
+    get '/welcometeacher', to: 'teacher_welcomes#index'
 
     # routes to the student and teacher spa
     get '/student', to: 'studentpages#index'
     get '/teacher', to: 'teacherpages#index'
 
+
+    #School creation routes
+  
 
   end
 

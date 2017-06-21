@@ -50,7 +50,7 @@ export default {
 
   created: function() {
     // This component just got created. Lets fetch some data here using an action
-    this.$store.dispatch("normalClasses").then(response => {
+    this.$store.dispatch("schools").then(response => {
         console.log("Got some data, now lets show something in this component")
     }, error => {
         console.error("Got nothing from server. Prompt user to check internet connection and try again")

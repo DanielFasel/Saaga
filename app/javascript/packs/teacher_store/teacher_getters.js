@@ -1,7 +1,7 @@
 export default {
 
-	normalClasses(state){
-		return state.normalClasses
+	schools(state){
+		return state.schools
 	},
 
 
@@ -16,5 +16,5 @@ export default {
 	showHelpModal(state){
 		return state.showHelpModal
 	}
-	
+
 }

@@ -1,23 +1,23 @@
 export default {
 
-	saveNormalClass(state, className){
-		state.normalClasses.push(className)
+	saveSchools(state, className){
+		state.schools.push(className)
 	},
 
-	deleteNormalClass(state,classid){
-		var index = state.normalClasses.findIndex(x => x.id==classid);
+	deleteSchools(state,classid){
+		var index = state.schools.findIndex(x => x.id==classid);
 		if (index > -1) {
-    		state.normalClasses.splice(index, 1);
+    		state.schools.splice(index, 1);
 		}
 	},
 
-	normalClasses(state, data){
-		state.normalClasses=[]
+	schools(state, data){
+		state.schools=[]
 		var array = data
 		var arrayLength = array.length;
 		for (var i = 0; i < arrayLength; i++) {
     		//Do something
-    		state.normalClasses.push(array[i])
+    		state.schools.push(array[i])
 		}
 	},
 

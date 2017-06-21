@@ -1,39 +1,35 @@
 <template>
 
-	<div>
-		<button id="show-modal" @click="showModal = true">Help</button>
-		<modal-window v-if="showModal" @close="onClose">
-			<div slot="body">Help</div>
- 		</modal-window>
- 	</div>
+	<modal-window modalToggleFunction="showHelpModal" v-if="showHelpModal">
+		<div slot="body">
+			Help
+		</div>
+	</modal-window>
 
 </template>
 
 <script>
 
-	import ModalWindow from "../../../general_helpers/modal_window/modal_window.vue"
+import ModalWindow from "../../../general_helpers/modal_window/modal_window.vue"
 
-	export default {
+import {mapGetters} from 'vuex'
 
-		components: {
-			"modal-window": ModalWindow
-		},
 
-		data: function () {
-    		return {
-     			showModal: false
-    		}
-  		},
+export default {
 
-  		methods: {
-  			onClose: function(){
-  				this.showModal = false
-  			}
-  		}
+	components: {
+		"modal-window": ModalWindow
+	},
+
+	computed: {
+
+		...mapGetters('layout/modalDrawer',[
+			'showHelpModal'
+		])
 	}
-	
+}
 </script>
 
 <style>
-	
+
 </style>

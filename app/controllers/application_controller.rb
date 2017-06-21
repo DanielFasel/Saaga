@@ -12,11 +12,20 @@ class ApplicationController < ActionController::Base
 
   # redirects after Sign-in.
   def after_sign_in_path_for(user)
-    if user.is_a?(Student)
+
+    #If user is a student
+    if user.is_a?(Student) && user.sign_in_count>2
       student_url
-    elsif user.is_a?(Teacher)
+    elsif user.is_a?(Student) && user.sign_in_count==2
+      welcomestudent_path
+  
+    #If user is a teacher
+    elsif user.is_a?(Teacher) && user.sign_in_count>1
       teacher_url
+    elsif user.is_a?(Teacher) && user.sign_in_count==1
+      welcometeacher_path
     end
+
   end
 
   # redirects after Sign-out.
@@ -57,4 +66,3 @@ class ApplicationController < ActionController::Base
       end
 
   end
-

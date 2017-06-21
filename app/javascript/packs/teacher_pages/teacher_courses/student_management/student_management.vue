@@ -2,14 +2,14 @@
 
 		<modal-window modalToggleFunction="showStudentManagementModal" v-if="showStudentManagementModal">
 		  <div slot="body">
-        <input v-model="className" placeholder="New Class">
-        <p>{{className}}</p>
-        <button @click="saveNormalClasses" >Save</button>
+        <input v-model="schoolName" placeholder="New School">
+        <p>{{schoolName}}</p>
+        <button @click="saveSchools" >Save</button>
 
         <ul>
-  				<template v-for="schoolclass in normalClasses">
-    				<li>{{ schoolclass.name }}</li>
-    				<li><button @click="deleteNormalClasses(schoolclass)" >delete</button></li>
+  				<template v-for="school in schools">
+    				<li>{{ school.name }}</li>
+    				<li><button @click="deleteSchools(school)" >delete</button></li>
   				</template>
         </ul>
 
@@ -31,24 +31,24 @@
 
 		data: function () {
       return {
-    		className: ""
+    		schoolName: ""
     	}
   	},
 
   	methods: {
-  		saveNormalClasses: function(){
-  			this.$store.dispatch('saveNormalClasses',this.className)
+  		saveSchools: function(){
+  			this.$store.dispatch('saveSchools',this.schoolName)
   		},
-  		deleteNormalClasses: function(schoolclass){
-				var schoolclassid=schoolclass.id
-  			this.$store.dispatch('deleteNormalClasses',schoolclassid)
+  		deleteSchools: function(school){
+				var schoolid=school.id
+  			this.$store.dispatch('deleteSchools',schoolid)
   		}
   	},
 
   	computed: {
 
       ...mapGetters({
-				normalClasses: 'normalClasses'
+				schools: 'schools'
 		}),
 		...mapGetters('layout/modalDrawer',[
 			'showStudentManagementModal'
