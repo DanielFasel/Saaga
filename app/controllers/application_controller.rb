@@ -14,11 +14,11 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(user)
 
     #If user is a student
-    if user.is_a?(Student) && user.sign_in_count>2
+    if user.is_a?(Student) && user.sign_in_count>1
       student_url
-    elsif user.is_a?(Student) && user.sign_in_count==2
+    elsif user.is_a?(Student) && user.sign_in_count==1
       welcomestudent_path
-  
+
     #If user is a teacher
     elsif user.is_a?(Teacher) && user.sign_in_count>1
       teacher_url

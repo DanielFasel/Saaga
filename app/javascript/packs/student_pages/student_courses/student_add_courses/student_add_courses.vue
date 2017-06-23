@@ -2,7 +2,9 @@
 
 	<modal-window modalToggleFunction="showAddCoursesModal" v-if="showAddCoursesModal">
 		<div slot="body">
-			Add Courses
+			<input v-model="addSchool" placeholder="Add School">
+			<p>{{addSchool}}</p>
+			<button @click="saveSchool" >Save</button>
 		</div>
 	</modal-window>
 
@@ -14,6 +16,12 @@
 	import {mapGetters} from 'vuex'
 
 	export default {
+
+		data: function(){
+			return {
+				addSchool: ""
+			}
+		},
 
 		components: {
 			"modal-window": ModalWindow
