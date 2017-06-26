@@ -29,14 +29,14 @@ Rails.application.routes.draw do
       post '/password', to: 'devise/passwords#create'
 
       # registrations controller
-      get '/cancel', to: 'devise/registrations#cancel', as: :cancel_user_registration
-      get '/register', to: 'devise/registrations#new', as: :new_user_registration
-      get '/edit', to: 'devise/registrations#edit', as: :edit_user_registration
+      get '/cancel', to: 'users/registrations#cancel', as: :cancel_user_registration
+      get '/register', to: 'users/registrations#new', as: :new_user_registration
+      get '/edit', to: 'users/registrations#edit', as: :edit_user_registration
 
-      patch '/users', to: 'devise/registrations#update', as: :user_registration
-      put '/users', to: 'devise/registrations#update'
-      delete '/users', to: 'devise/registrations#destroy'
-      post '/users', to: 'devise/registrations#create'
+      patch '/users', to: 'users/registrations#update', as: :user_registration
+      put '/users', to: 'users/registrations#update'
+      delete '/users', to: 'users/registrations#destroy'
+      post '/users', to: 'users/registrations#create'
 
       # sessions controller
       get '/login', to: 'devise/sessions#new', as: :new_user_session
@@ -69,7 +69,7 @@ Rails.application.routes.draw do
 
 
     #School creation routes
-  
+
 
   end
 
