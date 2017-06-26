@@ -21,6 +21,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @teacherSpec = TeacherSpec.new
       @teacherSpec.user_id = resource.id
       @teacherSpec.save
+
+    elsif resource.save && resource.type=="Administrator"
+      @adminSpec = Adminspec.new
+      @adminSpec.user_id = resource.id
+      @adminSpec.save
     end
 
   end
