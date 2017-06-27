@@ -9,8 +9,7 @@ class TeacherSpec < ApplicationRecord
   has_many :school_teachers, through: :school_teacher_teacher_specs
   has_many :schools, through: :school_teachers
 
-  has_many :school_admin_teacher_specs, :dependent => :delete_all
-  has_many :school_admins, through: :school_admin_teacher_specs
-  has_many :schools, through: :school_admins
+  has_one :teacher_admin, :dependent => :delete
+
 
 end

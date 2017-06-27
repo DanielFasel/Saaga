@@ -12,7 +12,6 @@ class SchoolsController < ApplicationController
 
     render :json => @school
 
-
     @schoolTeacher=SchoolTeacher.new
     @schoolTeacher.school_id=@school.id
     @schoolTeacher.save
@@ -28,6 +27,12 @@ class SchoolsController < ApplicationController
     @school = School.find(params[:id])
     @school.destroy
   end
+
+
+
+
+
+
 
   private
 

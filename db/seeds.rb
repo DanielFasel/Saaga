@@ -88,8 +88,10 @@ end
   @user = User.last
   TeacherSpec.create!(user_id: @user.id)
   @tsp = TeacherSpec.last
+  TeacherAdmin.create!(teacher_spec_id: @tsp.id)
+  @tad = TeacherAdmin.last
   SchoolTeacherTeacherSpec.create!(teacher_spec_id: @tsp.id, school_teacher_id: 1+i)
-  SchoolAdminTeacherSpec.create!(teacher_spec_id: @tsp.id, school_admin_id: 1+i)
+  SchoolAdminTeacherAdmin.create!(teacher_admin_id: @tad.id, school_admin_id: 1+i)
 end
 
 #admin

@@ -71,6 +71,9 @@ Rails.application.routes.draw do
     #School creation routes
 
 
+    #Schools of Teacher
+    get '/teacheradminschools', to: 'teacher_admins#schools'
+
   end
 
 
