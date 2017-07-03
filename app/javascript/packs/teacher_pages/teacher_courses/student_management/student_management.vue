@@ -11,10 +11,11 @@
     				<li>{{ school.name }}</li>
     				<li><button @click="deleteSchools(school)" >delete</button></li>
   				</template>
-
+				</ul>
 				<br>
 				<br>
-				<template v-for="adminSchool in adminSchools">
+				<ul>
+				<template v-for="adminSchool in teacherAdminSchools">
 					<li>{{ adminSchool.name }}</li>
 
 				</template>
@@ -62,8 +63,8 @@
 			...mapGetters('layout/modalDrawer',[
 				'showStudentManagementModal'
 			]),
-			...mapGetters('teacher_spec',[
-				{adminSchools: 'teacherAdminSchools'}
+			...mapGetters('teacherSpec',[
+				'teacherAdminSchools'
 			])
 		},
 

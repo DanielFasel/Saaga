@@ -1,4 +1,4 @@
-class HpPrivacyNoticesController < ApplicationController
+class StaticPages::HpFaqsController < ApplicationController
 
 	# to allow visiting this page without being logged in.
 	skip_before_action :authenticate_user!, :only => [:index]
