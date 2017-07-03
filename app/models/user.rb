@@ -7,9 +7,10 @@ class User < ApplicationRecord
 
 
 
+  # :dependent => :delete simply deletes them, if a more complicated deleting procedure is needed :dependent => :destroy should be used since it will call the destroy action
 
-  has_one :student_spec
-  has_one :teacher_spec
-
+  has_one :student_spec, :dependent => :delete
+  has_one :teacher_spec, :dependent => :delete
+  has_one :admin_spec, :dependent => :delete
 
 end

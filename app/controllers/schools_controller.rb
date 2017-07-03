@@ -12,22 +12,27 @@ class SchoolsController < ApplicationController
 
     render :json => @school
 
-
     @schoolTeacher=SchoolTeacher.new
     @schoolTeacher.school_id=@school.id
     @schoolTeacher.save
-    @schoolTeacher=SchoolStudent.new
-    @schoolTeacher.school_id=@school.id
-    @schoolTeacher.save
-    @schoolTeacher=SchoolAdmin.new
-    @schoolTeacher.school_id=@school.id
-    @schoolTeacher.save
+    @schoolStudent=SchoolStudent.new
+    @schoolStudent.school_id=@school.id
+    @schoolStudent.save
+    @schoolAdmin=SchoolAdmin.new
+    @schoolAdmin.school_id=@school.id
+    @schoolAdmin.save
   end
 
   def destroy
     @school = School.find(params[:id])
     @school.destroy
   end
+
+
+
+
+
+
 
   private
 

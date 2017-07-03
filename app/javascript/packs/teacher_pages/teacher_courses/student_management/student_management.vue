@@ -11,6 +11,14 @@
     				<li>{{ school.name }}</li>
     				<li><button @click="deleteSchools(school)" >delete</button></li>
   				</template>
+				</ul>
+				<br>
+				<br>
+				<ul>
+				<template v-for="adminSchool in teacherAdminSchools">
+					<li>{{ adminSchool.name }}</li>
+
+				</template>
         </ul>
 
 		  </div>
@@ -22,6 +30,7 @@
 
 	import ModalWindow from "../../../general_helpers/modal_window/modal_window.vue"
   import {mapGetters} from 'vuex'
+	import {mapActions} from 'vuex'
 
 	export default {
 
@@ -36,6 +45,7 @@
   	},
 
   	methods: {
+
   		saveSchools: function(){
   			this.$store.dispatch('saveSchools',this.schoolName)
   		},
@@ -49,11 +59,23 @@
 
       ...mapGetters({
 				schools: 'schools'
-		}),
-		...mapGetters('layout/modalDrawer',[
-			'showStudentManagementModal'
-	]),
-  	}
+			}),
+			...mapGetters('layout/modalDrawer',[
+				'showStudentManagementModal'
+			]),
+			...mapGetters('teacherSpec',[
+				'teacherAdminSchools'
+			])
+		},
+
+		created: function(){
+			this.$store.dispatch("teacherSpec/teacherAdminSchools").then(response => {
+					console.log("Got some data, now lets show something in this component")
+			}, error => {
+					console.error("Got nothing from server. Prompt user to check internet connection and try again")
+			})
+		}
+
   }
 
 

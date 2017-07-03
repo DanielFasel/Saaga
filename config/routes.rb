@@ -29,14 +29,14 @@ Rails.application.routes.draw do
       post '/password', to: 'devise/passwords#create'
 
       # registrations controller
-      get '/cancel', to: 'devise/registrations#cancel', as: :cancel_user_registration
-      get '/register', to: 'devise/registrations#new', as: :new_user_registration
-      get '/edit', to: 'devise/registrations#edit', as: :edit_user_registration
+      get '/cancel', to: 'users/registrations#cancel', as: :cancel_user_registration
+      get '/register', to: 'users/registrations#new', as: :new_user_registration
+      get '/edit', to: 'users/registrations#edit', as: :edit_user_registration
 
-      patch '/users', to: 'devise/registrations#update', as: :user_registration
-      put '/users', to: 'devise/registrations#update'
-      delete '/users', to: 'devise/registrations#destroy'
-      post '/users', to: 'devise/registrations#create'
+      patch '/users', to: 'users/registrations#update', as: :user_registration
+      put '/users', to: 'users/registrations#update'
+      delete '/users', to: 'users/registrations#destroy'
+      post '/users', to: 'users/registrations#create'
 
       # sessions controller
       get '/login', to: 'devise/sessions#new', as: :new_user_session
@@ -46,17 +46,22 @@ Rails.application.routes.draw do
 
 
 
-    # root page
-    root 'homepages#index'
 
-    # routes to homepages
-    get '/about', to: 'hp_abouts#index'
-    get '/contact', to: 'hp_contacts#index'
-    get '/faq', to: 'hp_faqs#index'
-    get '/help', to: 'hp_helps#index'
-    get '/privacy', to: 'hp_privacy_notices#index'
-    get '/sitemap', to: 'hp_sitemaps#index'
-    get '/terms', to: 'hp_terms#index'
+    #StaticPages
+      # root page
+      root 'static_pages/homepages#index'
+
+      # routes to homepages
+      get '/about', to: 'static_pages/hp_abouts#index'
+      get '/contact', to: 'static_pages/hp_contacts#index'
+      get '/faq', to: 'static_pages/hp_faqs#index'
+      get '/help', to: 'static_pages/hp_helps#index'
+      get '/privacy', to: 'static_pages/hp_privacy_notices#index'
+      get '/sitemap', to: 'static_pages/hp_sitemaps#index'
+      get '/terms', to: 'static_pages/hp_terms#index'
+
+
+
 
 
     # Teacher and Student Welcome page after first sign in
@@ -69,7 +74,10 @@ Rails.application.routes.draw do
 
 
     #School creation routes
-  
+
+
+    #Schools of Teacher
+    get '/teacheradminschools', to: 'teacher_admins#schools'
 
   end
 

@@ -6,7 +6,7 @@ import actions from './modal_drawer_actions.js'
 export const modalDrawer = {
   // This makes your getters, mutations, and actions accessed by, eg: 'myModule/myModularizedNumber' instead of mounting getters, mutations, and actions to the root namespace.
 	namespaced:true,
-	state : {
+	state: {
 		// mobile drawer menu
 		showMenuDrawer: false,
 
@@ -23,4 +23,3 @@ export const modalDrawer = {
 	mutations,
 	actions
 }
-  

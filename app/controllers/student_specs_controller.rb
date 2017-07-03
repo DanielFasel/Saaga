@@ -1,0 +1,5 @@
+class StudentSpecsController < ApplicationController
+
+
+
+end
