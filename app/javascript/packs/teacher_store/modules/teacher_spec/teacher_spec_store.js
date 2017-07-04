@@ -7,8 +7,7 @@ export const teacherSpec = {
 
 	namespaced:true,
   state: {
-		teacherAdminSchools: [],
-		adminSchools: []
+		teacherAdminSchools: []
   },
   getters,
   mutations,

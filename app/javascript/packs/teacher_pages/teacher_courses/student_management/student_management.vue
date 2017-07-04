@@ -14,12 +14,17 @@
 				</ul>
 				<br>
 				<br>
+
 				<ul>
 				<template v-for="adminSchool in teacherAdminSchools">
 					<li>{{ adminSchool.name }}</li>
-
+					<div v-for='student in teacherAdminSchoolStudents'>
+						<li>{{student.username}}</li>
+					</div>
 				</template>
         </ul>
+
+
 
 		  </div>
     </modal-window>
@@ -64,12 +69,13 @@
 				'showStudentManagementModal'
 			]),
 			...mapGetters('teacherSpec',[
-				'teacherAdminSchools'
+				'teacherAdminSchools',
+				'teacherAdminSchoolStudents'
 			])
 		},
 
 		created: function(){
-			this.$store.dispatch("teacherSpec/teacherAdminSchools").then(response => {
+			this.$store.dispatch("teacherSpec/saveTeacherAdminSchools").then(response => {
 					console.log("Got some data, now lets show something in this component")
 			}, error => {
 					console.error("Got nothing from server. Prompt user to check internet connection and try again")

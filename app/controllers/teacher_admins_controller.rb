@@ -10,7 +10,6 @@ respond_to :html, :json
     respond_with(@schools)
   end
 
-  def adminSchools
-  end
+
 
 end

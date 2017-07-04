@@ -4,8 +4,9 @@ export default {
 		return state.teacherAdminSchools
 	},
 
-  adminSchools(state){
-    return state.adminSchools
+  teacherAdminSchoolStudents(state){
+    return state.teacherAdminSchoolStudents
   }
+
 
 }

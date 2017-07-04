@@ -30,7 +30,7 @@ class SchoolsController < ApplicationController
 
 
 
-
+  
 
 
 

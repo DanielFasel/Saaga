@@ -78,6 +78,7 @@ Rails.application.routes.draw do
 
     #Schools of Teacher
     get '/teacheradminschools', to: 'teacher_admins#schools'
+    get '/schoolstudents/:id', to: 'school_students#index'
 
   end
 
