@@ -10,10 +10,10 @@
         	<h5>title</h5>
           <button class="modal-close-button" @click="closeModal">Close</button>
         </div>
-			
+
         <div class="modal-content">
 				  <div class="modal-side-menu">
-            <slot name="side_menu"></slot>	
+            <slot name="side_menu"></slot>
           </div>
 
           <div class="modal-body">
@@ -30,7 +30,7 @@
 <script>
 
 export default{
-  
+
   props:['modalToggleFunction'],
 
   methods:{
@@ -62,13 +62,13 @@ export default{
 .modal-wrapper {
 	display: flex;
 	flex-direction: column;
-	
+
   width: 95vw;
-  max-width: 600px;
+  max-width: 1000px;
   height: 95vh;
-  max-height: 500px;
+  max-height: 700px;
   margin: 0px auto;
-  
+
   background-color: #fff;
   border-radius: 1px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
@@ -100,6 +100,8 @@ export default{
 
 .modal-body {
   margin: 20px 0;
+  width: 100%;
+  overflow: auto;
 }
 
 /*
@@ -113,7 +115,7 @@ export default{
 
 .modal-enter {
   opacity: 0;
- 
+
 }
 
 .modal-leave-active {
@@ -127,5 +129,5 @@ export default{
   transform: scale(1.1);
 }
 
-	
+
 </style>

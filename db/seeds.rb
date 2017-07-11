@@ -94,6 +94,28 @@ end
   SchoolAdminTeacherAdmin.create!(teacher_admin_id: @tad.id, school_admin_id: 1+i)
 end
 
+#double adminteacher
+2.times do |i|
+  User.create!(username:  "Marc#{i}",
+              givenname: "Marc#{i}",
+              familyname: "Pittet#{i}",
+              region: "en",
+              type: "Teacher",
+              email: "doubleadminteacher#{i}@english.com",
+              password:              "123456",
+              password_confirmation: "123456"
+              )
+  @user = User.last
+  TeacherSpec.create!(user_id: @user.id)
+  @tsp = TeacherSpec.last
+  TeacherAdmin.create!(teacher_spec_id: @tsp.id)
+  @tad = TeacherAdmin.last
+  2.times do |x|
+    SchoolTeacherTeacherSpec.create!(teacher_spec_id: @tsp.id, school_teacher_id: 1+x)
+    SchoolAdminTeacherAdmin.create!(teacher_admin_id: @tad.id, school_admin_id: 1+x)
+  end
+end
+
 #admin
 2.times do |i|
   User.create!(username:  "Ben#{i}",

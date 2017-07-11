@@ -8,32 +8,47 @@ export default {
             Vue.prototype.$http.get('./teacheradminschools').then(function(response){
                 // http success, call the mutator and change something in state
 
+                var receivedData = [response.data]
 
-                var receivedData = []
-                receivedData.push(response.data)
                 var schools = receivedData[0]
                 var schoolsLength = schools.length
+                var schoolStudent = []
+                var counter = 0
+                studentfunction()
 
-                var schoolStudents = []
+                function studentfunction(){
+                  if (counter<schoolsLength){
+                    var school_id = schools[counter].id
+                    asyncfunction(school_id)
+                    }
+                  else{
+                    asyncfunction()
+                    }
+                  }
 
-                for (var i=0; i<schoolsLength; i++){
-                  var schoolStudent =[]
-                  schoolStudent.push(schools[i])
 
-                  var id = schools[i].id
+                function asyncfunction(id){
+                  if (counter<schoolsLength){
+                    Vue.prototype.$http.get('./schoolstudents/'+id).then(function(response){
+                      var data = [response.data]
+                      Array.prototype.push.apply(schoolStudent,data)
+                      counter+=1
+                      studentfunction()
 
-                  Vue.prototype.$http.get('./schoolstudents/'+ id).then(function(response){
-                    schoolStudent.push(response.data)
-                    resolve(response); // Let the calling function know that http is done. You may send some data back
-                  }, error => {
-                    reject(error);
-                  })
+                      resolve(response); // Let the calling function know that http is done. You may send some data back
+                    }, error => {
+                      reject(error);
+                    })}
+                  else{
+                    var schoolStudents = []
+                    schoolStudents.push(schools)
+                    schoolStudents.push(schoolStudent)
 
-                  schoolStudents.push(schoolStudent)
+                    context.commit('saveTeacherAdminSchools',schoolStudents )
+                  }
                 }
 
 
-                context.commit('saveTeacherAdminSchools',schoolStudents )
                 resolve(response);  // Let the calling function know that http is done. You may send some data back
             }, error => {
                 // http failed, let the calling function know that action did not work out
@@ -41,3 +56,4 @@ export default {
             })
         })
     }
+  }
