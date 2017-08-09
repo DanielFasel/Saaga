@@ -37,7 +37,9 @@
 #card1_background{
   background: rgb(255, 237, 135);
 }
-
+#article1{
+  color: rgb(86,84,196);
+}
 
 #card2{
   flex-direction: row;
@@ -97,6 +99,9 @@
 #card2_background{
   background: rgb(201, 208, 265);
 }
+#article2{
+  color: rgb(78,79,212);
+}
 
 #card3{
   flex-direction: row-reverse;
@@ -105,6 +110,9 @@
 #card3_background{
   background: rgb(255,226,182);
 }
+#article3{
+  color: rgb(86,82,202);
+}
 
 #card4{
   flex-direction: row;
@@ -112,6 +120,9 @@
 }
 #card4_background{
   background: rgb(255, 237, 135);
+}
+#article4{
+  color: rgb(86,84,196);
 }
 
 #card5{
@@ -122,4 +133,7 @@
 #card5_background{
   background: rgb(201, 208, 265);
   margin-bottom: 0px;
+}
+#article5{
+  color: rgb(78,79,212);
 }

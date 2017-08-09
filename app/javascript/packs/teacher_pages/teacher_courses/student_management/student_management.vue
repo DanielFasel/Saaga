@@ -12,19 +12,38 @@
 					<div class="bubble"><p>Lorem ipsum dolor sit amet</p></div>
 				</div>
 
+
+
 				<!-- Selection of the school and settings of that selected School -->
 				<hr>
 				<div class="under_bar_title">Schools</div>
 
 				<ul id="school_buttons">
 					<li v-for="adminSchool, index in teacherAdminSchools"><button @click="selectedSchool(index)">{{adminSchool[0].name}}</button></li>
+					<li><button @click="newSchool">add school</button></li>
 				</ul>
+				<div id="new_school" v-if="new_school">
+					<input type="text" placeholder="Name"><button @click="newSchool">Save</button>
+				</div>
+
+
 				<div id="school_settings">
-					<div>Name <button>Edit</button></div>
+					<div>
+						<span v-if="edit_school">{{teacherAdminSchools[school][0].name}}</span>
+						<input v-else type="text" :placeholder="teacherAdminSchools[school][0].name">
+						<button v-if="edit_school" @click="editSchool">Edit</button>
+						<button v-else @click="editSchool">Save</button>
+					</div>
+
 					<div>Color</div>
 					<button>Add Teacher</button>
 					<button>Delete School</button>
 				</div>
+
+
+
+
+
 
 				<!-- Content of the selected school -->
 				<div id="school_content">
@@ -67,7 +86,9 @@
 
 		data: function(){
 			return {
-				school:0
+				school:0,
+				new_school:false,
+				edit_school:true
 
 			}
 		},
@@ -88,6 +109,18 @@
 		methods:{
 			selectedSchool: function(index){
 				this.school=index
+			},
+			newSchool: function(){
+				if(this.new_school==false)
+					this.new_school=true
+				else
+					this.new_school=false
+			},
+			editSchool: function(){
+				if(this.edit_school==true)
+					this.edit_school=false
+				else
+					this.edit_school=true
 			}
 		},
 
@@ -107,6 +140,16 @@
 </script>
 
 <style scoped>
+.bubble{
+	width: 100px;
+	height: 100px;
+	background: red;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	font-size: 0.8em;
+}
+
 #modal_content{
 	display: flex;
 	flex-direction: column;
@@ -115,6 +158,8 @@
 #explanations{
 	display: flex;
 	flex-direction: row;
+	justify-content: space-around;
+	padding: 10px ;
 }
 #school_buttons{
 	display: flex;

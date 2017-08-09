@@ -1,21 +1,14 @@
-SAAGA
+#SAAGA
 
 
---Helpful commands and tricks--
+##Helpful commands
 
-Ruby on rails:
+##Current Version
 
+##Environement setup
 
-Postgrsql:
+###Ruby
+###Ruby on rails:
+###Postgrsql:
 
-
-VueJs:
-
-
-Vue-router:
-
-
-Vuex:
-
-
-Axios:
+##File Structure
