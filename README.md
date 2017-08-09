@@ -1,14 +1,19 @@
-#SAAGA
+SAAGA
+=====
 
 
-##Helpful commands
+Helpful commands
+----------------
 
-##Current Version
+Current Version
+---------------
 
-##Environement setup
+Environement setup
+------------------
 
 ###Ruby
 ###Ruby on rails:
 ###Postgrsql:
 
-##File Structure
+File Structure
+--------------
