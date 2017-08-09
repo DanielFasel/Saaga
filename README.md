@@ -11,9 +11,9 @@ Current Version
 Environement setup
 ------------------
 
-###Ruby
-###Ruby on rails:
-###Postgrsql:
+### Ruby
+### Ruby on rails:
+### Postgrsql:
 
 File Structure
 --------------
