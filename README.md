@@ -3,7 +3,7 @@
 #### Table of content
 * [Helpful Commands](#helpful-commands)
 * [Current Version](#current-version)
-* [Database diagrams and Wireframes](#databse-diagrams-and-wireframes)
+* [Database diagrams and Wireframes](#database-diagrams-and-wireframes)
 * [Environment Setup](#environment-setup)
 * [File Structure](#file-structure)
 * [Schedule](#schedule)
