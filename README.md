@@ -2,7 +2,7 @@
 
 #### Table of content
 * [Helpful commands](#helpful-commands)
-* [Current Version : 0.1.0](#current-version010)
+* [Current Version : 0.1.0](#current-version-010)
 * [Database diagrams & Wireframes](#databse-diagramswireframes)
 * [Environment Setup](#environment-setup)
 * [File Structure](#file-structure)
