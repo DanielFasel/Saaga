@@ -1,8 +1,9 @@
 # SAAGA
 
+#### Table of content
+- [Saaga](#backend)
 
 ## Helpful commands
-
 Server commands:
 - `rails s` or `rails server` is used to start the rails server. This allows the site to be accessible at `localhost:3000`.
 - `./bin/webpack-dev-server` starts the NodeJs server for the SPA's (Singe Page Apps). For more details on the webpacker integration watch their [ReadMe](https://github.com/rails/webpacker) file.
@@ -22,18 +23,12 @@ Scaffolding commands:
 These are just some of the commands I used the most. There are more commands that might prove useful so I highly suggest to read the [Ruby on rails documentation](http://guides.rubyonrails.org/v5.0/) for more information.
 
 
-## Current Version : 0.1.0
-
-### In progress
-
-
-
-### Completed
-
 ## Database diagrams & Wireframes
 The Database diagrams and wireframes can be found in a shared folder called *Saaga* on the site [Mega](https://mega.nz). If you do not have access to it contact us.
-## Environement setup
 
+
+
+## Environement setup
 The following installations are required to work with Saaga.
 - Ruby 2.3.1
 - Ruby on rails 5.0.1
@@ -51,8 +46,10 @@ If you are not sure how to proceed follow the installation guides below.
 ### Yarn & NPM
 ### Github
 
-## File Structure
 
+
+
+## File Structure
 The files are organized according to the Ruby on rails conventions which is a MVC (Model View Controller). To understand what the different files do read the [Ruby on rails documentation](http://guides.rubyonrails.org/v5.0/)
 
 ### Backend
@@ -65,7 +62,6 @@ The files are organized according to the Ruby on rails conventions which is a MV
 - Tests: `\test`
 
 ### Front end
-
 The front end files are split in two: the static pages and the SPA's which use VueJs and therefore have a different structure.
 
 #### Static Pages
@@ -86,7 +82,3 @@ The **main javascript file** gets loaded from a static page and then loads all t
 The **store** is using *Vuex* and is the place where all values are saved and manipulated to avoid having to deal with them in the *.vue* files.
 
 For a better understanding of VueJs and Vuex read their respective documentation. [VueJs-documentation](https://vuejs.org/v2/guide/) [Vuex-documentation](https://vuex.vuejs.org/en/)
-
-## Schedule
-
-- ver. 0.1.0 :
