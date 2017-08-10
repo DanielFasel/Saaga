@@ -1,15 +1,15 @@
 # SAAGA
 
 #### Table of content
-* [Helpful commands](#helpful-commands)
-* [Current Version : 0.1.0](#current-version-010)
-* [Database diagrams & Wireframes](#databse-diagramswireframes)
+* [Helpful Commands](#helpful-commands)
+* [Current Version](#current-version)
+* [Database diagrams and Wireframes](#databse-diagrams-and-wireframes)
 * [Environment Setup](#environment-setup)
 * [File Structure](#file-structure)
 * [Schedule](#schedule)
 
 
-## Helpful commands
+## Helpful Commands
 Server commands:
 - `rails s` or `rails server` is used to start the rails server. This allows the site to be accessible at `localhost:3000`.
 - `./bin/webpack-dev-server` starts the NodeJs server for the SPA's (Singe Page Apps). For more details on the webpacker integration watch their [ReadMe](https://github.com/rails/webpacker) file.
@@ -29,7 +29,7 @@ Scaffolding commands:
 These are just some of the commands I used the most. There are more commands that might prove useful so I highly suggest to read the [Ruby on rails documentation](http://guides.rubyonrails.org/v5.0/) for more information.
 
 
-## Current Version : 0.1.0
+## Current Version
 Branching rules:
 ### In progress
 ### Completed
@@ -37,7 +37,7 @@ Branching rules:
 
 
 
-## Database diagrams & Wireframes
+## Database diagrams and Wireframes
 The Database diagrams and wireframes can be found in a shared folder called *Saaga* on the site [Mega](https://mega.nz). If you do not have access to it contact us.
 
 
