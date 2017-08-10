@@ -1,7 +1,13 @@
 # SAAGA
 
 #### Table of content
-- [Saaga](#backend)
+* [Helpful commands](#helpful commands)
+* [Current Version : 0.1.0](#current version : 0.1.0)
+* [Database diagrams & Wireframes](#databse diagrams & wireframes)
+* [Environment Setup](#environment setup)
+* [File Structure](#file structure)
+* [Schedule](#schedule)
+
 
 ## Helpful commands
 Server commands:
@@ -23,12 +29,20 @@ Scaffolding commands:
 These are just some of the commands I used the most. There are more commands that might prove useful so I highly suggest to read the [Ruby on rails documentation](http://guides.rubyonrails.org/v5.0/) for more information.
 
 
+## Current Version : 0.1.0
+Branching rules:
+### In progress
+### Completed
+
+
+
+
 ## Database diagrams & Wireframes
 The Database diagrams and wireframes can be found in a shared folder called *Saaga* on the site [Mega](https://mega.nz). If you do not have access to it contact us.
 
 
 
-## Environement setup
+## Environment setup
 The following installations are required to work with Saaga.
 - Ruby 2.3.1
 - Ruby on rails 5.0.1
@@ -82,3 +96,10 @@ The **main javascript file** gets loaded from a static page and then loads all t
 The **store** is using *Vuex* and is the place where all values are saved and manipulated to avoid having to deal with them in the *.vue* files.
 
 For a better understanding of VueJs and Vuex read their respective documentation. [VueJs-documentation](https://vuejs.org/v2/guide/) [Vuex-documentation](https://vuex.vuejs.org/en/)
+
+
+
+
+## Schedule
+
+- ver. 0.1.0 :
