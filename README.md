@@ -3,9 +3,21 @@
 #### Table of content
 * [Helpful Commands](#helpful-commands)
 * [Current Version](#current-version)
+    - [In progress](#in-progress)
+    - [Completed](#completed)
 * [Database diagrams and Wireframes](#database-diagrams-and-wireframes)
 * [Environment Setup](#environment-setup)
+    - [Ruby](#ruby)
+    - [Ruby on rails](#ruby-on-rails)
+    - [Postgresql](#postgreql)
+    - [NodeJS](#nodejs)
+    - [Yarn and NPM](#yarn-and-npm)
+    - [Github](#github)
 * [File Structure](#file-structure)
+    - [Backend](#backend)
+    - [Frontend](#frontend)
+        - [Static Pages](#static-pages)
+        - [SPA](#spa)
 * [Schedule](#schedule)
 
 
@@ -57,7 +69,7 @@ If you are not sure how to proceed follow the installation guides below.
 ### Ruby on rails
 ### Postgrsql
 ### NodeJS
-### Yarn & NPM
+### Yarn and NPM
 ### Github
 
 
