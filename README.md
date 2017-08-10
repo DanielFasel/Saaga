@@ -1,11 +1,11 @@
 # SAAGA
 
 #### Table of content
-* [Helpful commands](#helpful commands)
-* [Current Version : 0.1.0](#current version : 0.1.0)
-* [Database diagrams & Wireframes](#databse diagrams & wireframes)
+* [Helpful commands](#helpful-commands)
+* [Current Version : 0.1.0](#current-version-:-0.1.0)
+* [Database diagrams & Wireframes](#databse-diagrams-&-wireframes)
 * [Environment Setup](#environment-setup)
-* [File Structure](#file_structure)
+* [File Structure](#file-structure)
 * [Schedule](#schedule)
 
 
