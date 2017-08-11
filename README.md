@@ -59,6 +59,7 @@ These are just some of the commands I used the most. There are more commands tha
 ---
 **Branching:** we should try to stick to a structure to avoid repeating the messy branching I have done so far. Here is a intersting example of a way of doing it. [Branching Model](http://nvie.com/posts/a-successful-git-branching-model/)
 
+---
 
 
 ## Database diagrams and Wireframes
