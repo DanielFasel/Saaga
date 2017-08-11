@@ -42,10 +42,13 @@ These are just some of the commands I used the most. There are more commands tha
 
 
 ## Current Version
-Branching rules:
-### In progress
-### Completed
 
+**Version 0.3.0**
+
+### In progress :
+### Completed :
+
+**Branching convention:**
 
 
 
@@ -113,5 +116,54 @@ For a better understanding of VueJs and Vuex read their respective documentation
 
 
 ## Schedule
+The following versions and their content is neither exhaustive nor finale. It's aim is to give a general plan for what is to come.
 
-- ver. 0.1.0 :
+
+#### ~~0.1.0~~ Completed
+-
+#### ~~0.2.0~~ Completed
+-
+#### 0.3.0
+- Class Management
+
+#### 0.4.0
+- Course management
+
+#### 0.5.0
+- Course creation
+
+#### 0.6.0
+- Feedback
+
+#### 0.7.0
+- Homeworks
+
+#### 0.8.0
+- Security
+
+#### 0.9.0
+- Polishing and tests
+
+### Version 1
+- Homeworks
+- Feedback
+- Course creation
+- Working Beta
+
+### Version 2
+- Global
+- Assignments
+
+### Version 3
+- Schools + Admins
+- Payment
+- Student side game
+
+### Version 4
+- Polishing
+- Security Check
+- Full scale deployment
+
+### Version 5
+
+- Release Version
