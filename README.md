@@ -46,9 +46,18 @@ These are just some of the commands I used the most. There are more commands tha
 **Version 0.3.0**
 
 ### In progress :
-### Completed :
+- Adding schools
+- Deleting schools
+- Colors for schools
+- Management of students
+- Management of classes
 
-**Branching convention:**
+### Completed :
+- ~~Schools structure in database~~
+- ~~displaying teacher's schools and students~~
+
+---
+**Branching:** we should try to stick to a structure to avoid repeating the messy branching I have done so far. Here is a intersting example of a way of doing it. [Branching Model](http://nvie.com/posts/a-successful-git-branching-model/)
 
 
 
@@ -118,11 +127,23 @@ For a better understanding of VueJs and Vuex read their respective documentation
 ## Schedule
 The following versions and their content is neither exhaustive nor finale. It's aim is to give a general plan for what is to come.
 
+---
 
 #### ~~0.1.0~~ Completed
--
+- ~~Environment setup~~
+- ~~Login with devise~~
+- ~~Static pages basic structure~~
+- ~~Language selection~~
+
 #### ~~0.2.0~~ Completed
--
+- ~~VueJs setup~~
+- ~~Vuex setup~~
+- ~~Pundit setup~~
+- ~~Webpacker setup~~
+- ~~Structure for SPA~~
+- ~~Modal windows with VueJs~~
+- ~~Menus~~
+
 #### 0.3.0
 - Class Management
 
@@ -143,6 +164,8 @@ The following versions and their content is neither exhaustive nor finale. It's 
 
 #### 0.9.0
 - Polishing and tests
+
+---
 
 ### Version 1
 - Homeworks
