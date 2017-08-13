@@ -69,22 +69,45 @@ The Database diagrams and wireframes can be found in a shared folder called *Saa
 
 ## Environment setup
 The following installations are required to work with Saaga.
-- Ruby 2.3.1
+- Ruby 2.4.1
 - Ruby on rails 5.0.1
-- Postgresql 9.6.3
-- NodeJS 6.10.3
-- Yarn & NPM
 - Github
+- Postgresql
+- NodeJS
+- Yarn & NPM
 
-If you are not sure how to proceed follow the installation guides below.
+If you are not sure how to proceed follow the installation guides below. The guide is  for Fedora but it should be fairly similar for other linux distributions. I'll do a windows and mac version if needed.  
 
 ### Ruby
-### Ruby on rails
-### Postgrsql
-### NodeJS
-### Yarn and NPM
-### Github
+The first step is to install Ruby. Make sure it is the version 2.4.1 otherwise you might get issues.
+On fedora use the command `dnf install ruby` if the version is not right you can find more information about how to choose a particular version here : [rbenv and RVM for example](https://www.ruby-lang.org/en/documentation/installation/)
 
+### Ruby on rails
+After you installed Ruby you need to install rails. Follow this [guide](https://developer.fedoraproject.org/tech/languages/ruby/ror-installation.html).
+Here it is even more important to have the right version (5.0.1 in our case). So instead of writing `gem install rails` write `gem install rails -v 5.0.1`. In case errors show up read the logs (the path is given in the terminal) and google the problem usually there is a quick fix.
+
+### Github
+To use Github you can either use a program with a graphical interface or the Terminal.
+The simplest way in my opinion is to use a program (it might be a bit slower but it's easier to begin with). I currently use gitkraken which you can install from here [Gitkraken](https://support.gitkraken.com/how-to-install). Now you can create a folder and clone the Saaga repository.
+
+### Postgrsql
+
+If on linux follow this guide : [installing postgresql](https://www.if-not-true-then-false.com/2012/install-postgresql-on-fedora-centos-red-hat-rhel/). Be careful when changing the password settings to change the postgres password before. Otherwise you won't be able to log in as postgres to create a server. If you did it anyways here is how to fix it : [postgres password](https://askubuntu.com/questions/413585/postgres-password-authentication-fails)
+
+You can now create the databases needed for *Saaga*. The default names, usernames and passwords of these databases can be found here : `config/databas.yml`. Only the development and test database is needed.
+
+After installing postgres you can go into the *Saaga* repository folder and run : `bundle install`. This will install all the gems used by *Saaga*. If you can't install **pg '0.20.0'** you might need to install it manually before running `bundle install` using this command: `gem install pg -v '0.20.0' -- --with-pg-config=[path to pg_config]`. But check the log to make sure it is because it can't find **pg_config**.
+
+
+
+### NodeJS
+To install *Nodejs* in fedora simply do `dnf install nodjs`. You can find more information for other distributions on their [official website](https://nodejs.org/en/download/).
+
+### Yarn and NPM
+*NPM* gets installed with *Nodjs*. Use it to install *Yarn* as follows : `npm install -g yarn`. The -g is to install it globally and is recommended but not required.
+
+---
+After all is installed you can run `rails db:migrate` and `rails db:seed` to create and populate the database. Now you are ready to go and can start the server using `rails s` and  `./bin/webpack-dev-server` in two distinct terminal windows.
 
 
 
