@@ -1,5 +1,5 @@
 /* css For the homepage part of the website */
-
+//top menu
 .nav {
 	position: fixed;
 	width: 100%;
@@ -21,9 +21,57 @@
 	flex-direction: row;
 }
 
+.top-bar-center{
+	display:none;
+}
+
 .top-bar-right{
 	display: flex;
 	flex-direction: row;
+}
+
+
+
+#big-menu{
+	display: none;
+}
+
+#small-menu{
+	display: flex;
+}
+
+
+//footer
+.footer{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background: rgb(51,41,135);
+	padding: 2.5em;
+}
+
+
+@media only screen and (min-width: 650px){
+
+
+
+.top-bar-center{
+	display:flex;
+}
+
+
+}
+
+
+@media only screen and (min-width: 1200px){
+
+#small-menu{
+	display: none;
+}
+#big-menu{
+	display: flex;
+}
+
 }
 
 .top-bar-right li {
@@ -47,11 +95,4 @@ a{
 }
 h1{
 	color: white;
-}
-.footer{
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	background: rgb(51,41,135);
-	padding: 2.5em;
 }

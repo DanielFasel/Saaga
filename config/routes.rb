@@ -47,19 +47,9 @@ Rails.application.routes.draw do
 
 
 
-    #StaticPages
+  
       # root page
-      root 'static_pages/homepages#index'
-
-      # routes to homepages
-      get '/about', to: 'static_pages/hp_abouts#index'
-      get '/contact', to: 'static_pages/hp_contacts#index'
-      get '/faq', to: 'static_pages/hp_faqs#index'
-      get '/help', to: 'static_pages/hp_helps#index'
-      get '/privacy', to: 'static_pages/hp_privacy_notices#index'
-      get '/sitemap', to: 'static_pages/hp_sitemaps#index'
-      get '/terms', to: 'static_pages/hp_terms#index'
-
+      root 'homepages#index'
 
 
 
