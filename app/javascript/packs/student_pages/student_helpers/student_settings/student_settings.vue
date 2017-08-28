@@ -1,6 +1,6 @@
 <template>
 
-	<modal-window modalToggleFunction="showSettingsModal" v-if="showSettingsModal">
+	<modal-window modalToggleFunction="toggleSettingsModal" v-if="showSettingsModal">
 		<div slot="body">
 		Settings hi
 		</div>

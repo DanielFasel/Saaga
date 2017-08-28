@@ -33,7 +33,7 @@
     <span id="menutext">Menu</span>
   </div>
 
-  <menu-drawer v-show="showMenuDrawer">
+  <menu-drawer v-show="showMenuDrawer" @toggleDrawer='toggleMenuDrawer'>
     <ul id="mobile_navigation_links">
       <li @click="toggleMenuDrawer">
         <router-link class="navigation_tab" to='/courses' exact>Courses <i class="fa fa-link" aria-hidden="true"></i></router-link>
@@ -94,9 +94,9 @@ export default {
   methods:{
 
     ...mapActions('layout/modalDrawer',{
-        toggleMenuDrawer: 'showMenuDrawer',
-        toggleSettingsModal: 'showSettingsModal',
-        toggleHelpModal: 'showHelpModal'
+        toggleMenuDrawer: 'toggleMenuDrawer',
+        toggleSettingsModal: 'toggleSettingsModal',
+        toggleHelpModal: 'toggleHelpModal'
       }),
 
     logout:function(){
@@ -148,7 +148,7 @@ export default {
 
 
 
-<style>
+<style scoped>
 
 /* nav only displayed on medium and large screen */
 nav{

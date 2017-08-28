@@ -1,7 +1,7 @@
 export default {
 
 	//Mobile menu drawer mutation
-	showMenuDrawer(state){
+	toggleMenuDrawer(state){
 		if (state.showMenuDrawer==false)
 			state.showMenuDrawer=true
 		else
@@ -9,13 +9,13 @@ export default {
 	},
 
 	// utility modal mutations
-	showSettingsModal(state){
+	toggleSettingsModal(state){
 		if (state.showSettingsModal==false)
 			state.showSettingsModal=true
 		else
 			state.showSettingsModal=false
 	},
-	showHelpModal(state){
+	toggleHelpModal(state){
 		if (state.showHelpModal==false)
 			state.showHelpModal=true
 		else
@@ -23,19 +23,19 @@ export default {
 	},
 
 	// my courses modal mutations
-	showStudentManagementModal(state){
+	toggleStudentManagementModal(state){
 		if (state.showStudentManagementModal==false)
 			state.showStudentManagementModal=true
 		else
 			state.showStudentManagementModal=false
 	},
-	showCourseManagementModal(state){
+	toggleCourseManagementModal(state){
 		if (state.showCourseManagementModal==false)
 			state.showCourseManagementModal=true
 		else
 			state.showCourseManagementModal=false
 	},
-	showSubstituteTeacherModal(state){
+	toggleSubstituteTeacherModal(state){
 		if (state.showSubstituteTeacherModal==false)
 			state.showSubstituteTeacherModal=true
 		else

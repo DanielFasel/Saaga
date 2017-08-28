@@ -1,20 +1,20 @@
 export default {
 
 	// mobile drawer menu action
-	showMenuDrawer(context){
-        return context.commit('showMenuDrawer')
+	toggleMenuDrawer(context){
+        return context.commit('toggleMenuDrawer')
     },
 
     // utility modal actions
-	showSettingsModal(context){
-        return context.commit('showSettingsModal')
+	toggleSettingsModal(context){
+        return context.commit('toggleSettingsModal')
     },
-    showHelpModal(context){
-        return context.commit('showHelpModal')
+    toggleHelpModal(context){
+        return context.commit('toggleHelpModal')
     },
 
     // my courses modal actions
-    showAddCoursesModal(context){
-        return context.commit('showAddCoursesModal')
+    toggleAddCoursesModal(context){
+        return context.commit('toggleAddCoursesModal')
     }
 }

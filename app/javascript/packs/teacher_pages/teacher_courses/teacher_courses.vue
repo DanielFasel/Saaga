@@ -42,9 +42,9 @@ export default {
 
      methods:{
        ...mapActions('layout/modalDrawer',{
-         toggleStudentManagementModal: 'showStudentManagementModal',
-         toggleSubstituteTeacherModal: 'showSubstituteTeacherModal',
-         toggleCourseManagementModal: 'showCourseManagementModal'
+         toggleStudentManagementModal: 'toggleStudentManagementModal',
+         toggleSubstituteTeacherModal: 'toggleSubstituteTeacherModal',
+         toggleCourseManagementModal: 'toggleCourseManagementModal'
        })
      },
 

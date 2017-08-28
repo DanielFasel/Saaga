@@ -30,7 +30,7 @@
 
     methods:{
       ...mapActions('layout/modalDrawer',{
-        toggleAddCourses: 'showAddCoursesModal',
+        toggleAddCourses: 'toggleAddCoursesModal',
 
       })
     }

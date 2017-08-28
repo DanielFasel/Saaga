@@ -1,6 +1,6 @@
 <template>
 
-		<modal-window modalToggleFunction="showStudentManagementModal" v-if="showStudentManagementModal">
+		<modal-window modalToggleFunction="toggleStudentManagementModal" v-if="showStudentManagementModal">
 		  <div id="modal_content" slot="body">
 
 				<!-- Short explanations for how to manage the students -->

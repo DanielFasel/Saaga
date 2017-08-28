@@ -1,6 +1,6 @@
 <template>
 
-	<modal-window modalToggleFunction="showAddCoursesModal" v-if="showAddCoursesModal">
+	<modal-window modalToggleFunction="toggleAddCoursesModal" v-if="showAddCoursesModal">
 		<div slot="body">
 			<input v-model="addSchool" placeholder="Add School">
 			<p>{{addSchool}}</p>

@@ -77,6 +77,9 @@
 </script>
 
 <style scoped>
+
+
+
 #homepagecontent{
   display: flex;
   flex-direction: column;
@@ -84,6 +87,7 @@
   }
   article{
     max-width: 500px;
+
   }
 
   img {
@@ -94,12 +98,12 @@
   }
 
 .cards{
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   max-width: 1200px;
   max-height: 500px;
-  padding: 3em;
+
 }
 
 .card_background{
@@ -110,7 +114,7 @@
 }
 
 #card1{
-  flex-direction: row;
+  flex-direction: column-reverse;
   background: rgb(255, 237, 135);
 }
 #card1_background{
@@ -127,7 +131,7 @@
 }
 
 #card2{
-  flex-direction: row;
+  flex-direction: column-reverse;
   background: rgb(201, 208, 265);
   }
 
@@ -147,7 +151,7 @@ margin-top: -6vw;
 }
 
 #card3{
-  flex-direction: row-reverse;
+  flex-direction: column-reverse;
   background: rgb(255,226,182);
 
 }
@@ -167,7 +171,7 @@ margin-top: -6vw;
 }
 
 #card4{
-  flex-direction: row;
+  flex-direction: column-reverse;
   background: rgb(255, 237, 135);
 }
 #card4_background{
@@ -185,7 +189,7 @@ margin-top: -6vw;
 }
 
 #card5{
-  flex-direction: row-reverse;
+  flex-direction: column-reverse;
   background: rgb(201, 208, 265);
 
 }

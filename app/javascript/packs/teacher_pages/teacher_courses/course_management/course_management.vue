@@ -1,6 +1,6 @@
 <template>
 
-		<modal-window modalToggleFunction="showCourseManagementModal" v-if="showCourseManagementModal">
+		<modal-window modalToggleFunction="toggleCourseManagementModal" v-if="showCourseManagementModal">
 			<div slot="body">hello</div>
  		</modal-window>
 

@@ -1,6 +1,6 @@
 <template>
 
-	<modal-window modalToggleFunction="showHelpModal" v-if="showHelpModal">
+	<modal-window modalToggleFunction="toggleHelpModal" v-if="showHelpModal">
 		<div slot="body">
 			Help
 		</div>

@@ -4,7 +4,6 @@
 			<div class="drawer-wrapper">
 				<slot></slot>
 			</div>
-			
 		</div>
 	</transition>
 </template>
@@ -16,11 +15,12 @@ export default {
 	methods:{
 
 		toggleMenuDrawer: function(){
-      		this.$store.dispatch('layout/modalDrawer/showMenuDrawer')
+      		
+					this.$emit('toggleDrawer')
     	}
 	}
 }
-	
+
 </script>
 
 <style scoped>
@@ -33,7 +33,7 @@ export default {
   	height: 100%;
   	display: flex;
   	justify-content: flex-end;
-  	
+
 
 }
 

@@ -1,6 +1,6 @@
 <template>
 
-		<modal-window modalToggleFunction="showSubstituteTeacherModal" v-if="showSubstituteTeacherModal">
+		<modal-window modalToggleFunction="toggleSubstituteTeacherModal" v-if="showSubstituteTeacherModal">
 		<div slot="body">Teacher</div>
  		</modal-window>
 
