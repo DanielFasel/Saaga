@@ -1,6 +1,6 @@
 <template>
 	<transition name="drawer">
-		<div class="drawer-mask" @click.self="toggleMenuDrawer">
+		<div class="drawer-mask"  @click.self="toggleMenuDrawer">
 			<div class="drawer-wrapper">
 				<slot></slot>
 			</div>
@@ -15,7 +15,7 @@ export default {
 	methods:{
 
 		toggleMenuDrawer: function(){
-      		
+
 					this.$emit('toggleDrawer')
     	}
 	}

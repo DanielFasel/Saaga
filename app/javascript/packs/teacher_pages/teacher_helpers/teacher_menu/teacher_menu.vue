@@ -1,4 +1,5 @@
 <template>
+<menu-top>
 <header>
 
   <div id="logo">SAAGA</div>
@@ -61,6 +62,7 @@
   <teacher-help></teacher-help>
 
 </header>
+</menu-top>
 </template>
 
 
@@ -71,6 +73,7 @@ import TeacherNotifications from "../teacher_notifications/teacher_notifications
 import TeacherSettings from "../teacher_settings/teacher_settings.vue"
 import TeacherHelp from "../teacher_help/teacher_help.vue"
 import MenuDrawer from "../../../general_helpers/menu_drawer/menu_drawer.vue"
+import MenuTop from "../../../general_helpers/menu_top/menu_top.vue"
 
 import {mapGetters} from 'vuex'
 import {mapActions} from 'vuex'
@@ -81,7 +84,8 @@ export default {
     "teacher-notifications": TeacherNotifications,
     "teacher-settings": TeacherSettings,
     "teacher-help": TeacherHelp,
-    "menu-drawer": MenuDrawer
+    "menu-drawer": MenuDrawer,
+    "menu-top": MenuTop
   },
 
   data: function(){

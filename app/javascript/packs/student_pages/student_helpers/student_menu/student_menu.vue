@@ -1,5 +1,5 @@
 <template>
-
+<menu-top>
   <header>
     <div id="logo">SAAGA</div>
     <div id="current_page">My courses</div>
@@ -62,7 +62,7 @@
     <student-help></student-help>
 
   </header>
-
+</menu-top>
 </template>
 
 
@@ -74,6 +74,7 @@ import StudentGame from "../student_game/student_game.vue"
 import StudentSettings from "../student_settings/student_settings.vue"
 import StudentHelp from "../student_help/student_help.vue"
 import MenuDrawer from "../../../general_helpers/menu_drawer/menu_drawer.vue"
+import MenuTop from "../../../general_helpers/menu_top/menu_top.vue"
 
 import {mapGetters} from 'vuex'
 import {mapActions} from 'vuex'
@@ -85,7 +86,8 @@ export default {
     "student-game": StudentGame,
     "student-settings": StudentSettings,
     "student-help": StudentHelp,
-    "menu-drawer": MenuDrawer
+    "menu-drawer": MenuDrawer,
+    "menu-top": MenuTop
   },
 
   data: function () {
