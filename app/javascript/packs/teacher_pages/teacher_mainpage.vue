@@ -1,7 +1,7 @@
 <template>
 <div id="page_container" class="background-blur">
   <teacher-menu></teacher-menu>
-  <router-view></router-view>
+  <router-view id="router"></router-view>
 </div>
 </template>
 
@@ -34,5 +34,8 @@ export default {
   padding-top: 1rem;
   padding-bottom: 1rem;
   height: 100%;
+}
+#router{
+  margin-top: 70px;
 }
 </style>

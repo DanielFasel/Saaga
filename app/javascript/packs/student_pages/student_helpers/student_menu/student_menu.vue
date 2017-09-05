@@ -152,7 +152,7 @@ export default {
 
 
 
-<style>
+<style scoped>
 
 /* nav only displayed on medium and large screen */
 nav{

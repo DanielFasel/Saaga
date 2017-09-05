@@ -2,10 +2,10 @@
 <menu-top>
   <header>
     <div id="logo">
-      <router-link to='/' exact>Saaga</router-link>
+      <router-link to='/' exact><h1>Saaga</h1></router-link>
     </div>
 
-    <div id="current_page">Current Page</div>
+    <menu-side-mobile id="menu_side_mobile"></menu-side-mobile>
 
     <nav>
       <ul id="navigation_links">
@@ -35,38 +35,48 @@
     </nav>
 
     <div class="center_div" id="mobile_center_div" @click="toggleMenuDrawer">
-      <i class="menu_icon fa fa-bars"></i>
-      <span id="menutext">Menu</span>
+      <i class="menu_icon fa fa-bars fa-lg"></i>
+      <span id="menu_text">Menu</span>
     </div>
 
 
 
     <menu-drawer v-show="showMenuDrawer" @toggleDrawer='toggleMenuDrawer'>
       <ul id="mobile_navigation_links">
-        <li>
-          <router-link to='/what' exact>What is it ?</router-link>
-        </li>
-        <li>
-          <router-link to='/as_student' exact>As a Student</router-link>
-        </li>
-        <li>
-          <router-link to='/as_teacher' exact>As a Teacher</router-link>
-        </li>
-        <li>
-          <router-link to='/as_school' exact>As a School</router-link>
-        </li>
+
+
+          <router-link @click.native="toggleMenuDrawer" tag="li" to='/what' exact>
+          <a @click="toggleMenuDrawer">What is it ?</a>
+          </router-link>
+
+
+          <router-link @click.native="toggleMenuDrawer" tag="li" to='/as_student' exact>
+            <a>As a Student</a>
+          </router-link>
+
+          <router-link @click.native="toggleMenuDrawer" tag="li" to='/as_teacher' exact>
+            <a>As a Teacher</a>
+          </router-link>
+
+          <router-link @click.native="toggleMenuDrawer" tag="li" to='/as_school' exact>
+            <a>As a School</a>
+          </router-link>
+
       </ul>
 
       <ul id="mobile_utility_links">
         <li>
           <a href="/login">Login</a>
         </li>
+
         <li>
           <a href="/register">Register</a>
         </li>
-        <li>Languages</li>
+
+        <li  @click="toggleMenuDrawer" >Languages</li>
       </ul>
     </menu-drawer>
+
 
   </header>
 </menu-top>
@@ -75,14 +85,21 @@
 <script>
 import MenuDrawer from "../../../general_helpers/menu_drawer/menu_drawer.vue"
 import MenuTop from "../../../general_helpers/menu_top/menu_top.vue"
-import {mapGetters} from 'vuex'
-import {mapActions} from 'vuex'
+import MenuSideMobile from "../../../general_helpers/menu_side_mobile/menu_side_mobile.vue"
+
+import {
+  mapGetters
+} from 'vuex'
+import {
+  mapActions
+} from 'vuex'
 
 export default {
 
   components: {
     "menu-drawer": MenuDrawer,
-    "menu-top": MenuTop
+    "menu-top": MenuTop,
+    "menu-side-mobile": MenuSideMobile
   },
 
   methods: {
@@ -112,24 +129,71 @@ export default {
 </script>
 
 <style scoped>
+
 /*mobile size */
+
+/* Not displayed on small */
+nav {
+  display: none;
+}
+#menu_text{
+  display: none;
+}
+/*--------------------------*/
+
+
 
 header {
   background-color: rgb(51, 41, 135);
   color: white;
-  padding: 2em;
+  padding-left: 2em;
+  padding-right:2em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
-nav {
-  display: none;
-}
+
 #mobile_center_div {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+#mobile_navigation_links{
+  margin-top: 4em;
+
+}
+
+#mobile_navigation_links li{
+  margin-bottom: 0.2em;
+  background-color: rgb(212, 209, 228);
+}
+
+
+#mobile_navigation_links li a{
+  color:rgb(51, 41, 135);
+  display: inline-block;
+  width: 100%;
+  padding: 1em;
+}
+#mobile_utility_links{
+  margin-top: 0.5em;
+
+}
+#mobile_utility_links li{
+  padding-bottom: 1em;
+  padding-left: 1em;
+  padding-top: 1em;
+}
+
+#mobile_utility_links li+li{
+  border-top: 1px solid white
+
+}
+
 
 
 
@@ -140,12 +204,25 @@ nav {
 
 @media only screen and (min-width: 650px) {
 
-  #current_page {
+
+/* Not displayed on medium */
+  #menu_side_mobile {
     display: none;
   }
   #utility_links {
     display: none;
   }
+  #mobile_navigation_links {
+    display: none;
+  }
+/*---------------------*/
+
+
+
+  #menu_text{
+    display: block;
+  }
+
   nav {
     display: flex;
   }
@@ -153,11 +230,20 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
   }
-  #mobile_navigation_links {
-    display: none;
+  #navigation_links{
+    color: white;
   }
+
 }
+
+
+
+
+
+
+
 
 
 
@@ -165,16 +251,22 @@ nav {
 
 @media only screen and (min-width: 1000px) {
 
+/* Not displayed on big */
+  #mobile_center_div {
+    display: none;
+  }
+/*---------------*/
+
+
   nav {
     flex-grow: 1;
     justify-content: space-between;
   }
-  #mobile_center_div {
-    display: none;
-  }
+
   #utility_links {
     display: flex;
     flex-direction: row;
   }
 }
+
 </style>

@@ -16,7 +16,11 @@ export const store = new Vuex.Store({
     },
 
 	state: {
-		showMenuDrawer:false
+		showMenuDrawer:false,
+		menuSide:"",
+		showMenuSideMobile:false,
+		currentPage:""
+
 	},
 
 	getters,

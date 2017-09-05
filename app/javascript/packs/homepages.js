@@ -35,11 +35,10 @@ import PrivacyNotice from './homepage_pages/privacy_notice/privacy_notice.vue'
 
 import HomepageMenu from './homepage_pages/homepage_helpers/homepage_menu/homepage_menu.vue'
 import HomepageFooter from './homepage_pages/homepage_helpers/homepage_footer/homepage_footer.vue'
-import HomepageMainMenu from './homepage_pages/homepage_helpers/homepage_main_menu/homepage_main_menu.vue'
 //imported component to be used on all the SPA
 Vue.component('homepage-menu', HomepageMenu)
 Vue.component('homepage-footer', HomepageFooter)
-Vue.component('homepage-main-menu', HomepageMainMenu)
+
 
 
 //routing

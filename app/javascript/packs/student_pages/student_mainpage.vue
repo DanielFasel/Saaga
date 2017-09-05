@@ -1,10 +1,10 @@
 <template>
-  
+
   <div id="page_container">
     <student-menu></student-menu>
-    <router-view></router-view>
+    <router-view id="router"></router-view>
   </div>
-  
+
 </template>
 
 
@@ -28,14 +28,14 @@ export default {
 
  #page_container{
     background: rgb(51,41,135);
-    
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     height:100%;
 
-    
+
   }
 
   .content_container{
@@ -46,5 +46,8 @@ export default {
     margin-bottom: 1em;
     height: 100%;
   }
-  
+  #router{
+    margin-top: 70px;
+  }
+
 </style>

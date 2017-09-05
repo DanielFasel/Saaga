@@ -6,7 +6,25 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 
+export default{
+
+
+  methods: {  ...mapActions([
+      'currentPage',
+      'menuSide'
+    ]),
+
+  },
+  created(){
+
+      this.$store.dispatch('currentPage', "Help")
+
+      this.$store.dispatch('menuSide', true)
+
+  }
+}
 </script>
 
 <style scoped>

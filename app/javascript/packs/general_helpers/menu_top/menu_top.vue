@@ -15,15 +15,28 @@ export default {
     }
   },
   methods: {
+
+
     handleScroll: function(event) {
-      if (this.scrollHeight <= event.pageY && this.scrollHeight > 100) {
+      var topScroll
+      if (typeof event.pageY == 'undefined') {
+        topScroll=event.path[1].scrollY
+      // Now we know that foo is defined, we are good to go.
+    }
+    else {
+      topScroll=event.pageY
+    }
+
+
+
+      if (this.scrollHeight <= topScroll && this.scrollHeight > 100) {
         this.menuHide = true
-        this.delayHeight = event.pageY
-      } else if (this.scrollHeight > event.pageY) {
+        this.delayHeight = topScroll
+      } else if (this.scrollHeight > topScroll) {
         if (this.delayHeight == 0) {
-          this.delayHeight = event.pageY
+          this.delayHeight = topScroll
         }
-        var travDist = (this.delayHeight - event.pageY)
+        var travDist = (this.delayHeight - topScroll)
 
         if (travDist > 30) {
           this.menuHide = false
@@ -33,7 +46,7 @@ export default {
         }
       }
 
-      this.scrollHeight = event.pageY
+      this.scrollHeight = topScroll
     }
 
 
@@ -41,6 +54,7 @@ export default {
 
   created: function() {
     window.addEventListener('scroll', this.handleScroll);
+
   },
   destroyed: function() {
     window.removeEventListener('scroll', this.handleScroll);

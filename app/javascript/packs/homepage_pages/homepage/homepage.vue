@@ -1,10 +1,9 @@
 <template>
-  <div>
-    <homepage-main-menu></homepage-main-menu>
+
     <div id="homepagecontent">
 
       <div id="card1_background" class="card_background">
-      <div class="cards" id="card1">
+
         <article id="article1">
           <h2>Flipped Classroom</h2>
           <p>
@@ -16,11 +15,11 @@
         </article>
         <img src="../../images/homepages/homepage_illustrations/flippedclassroom.png" alt="Flipped Classroom">
 
-      </div>
+
     </div>
 
     <div id="card2_background" class="card_background">
-      <div class="cards" id="card2">
+
         <article id="article2">
           <h2>Accessibility</h2>
           <p>
@@ -30,22 +29,21 @@
           <button>Learn More</button>
           </article>
             <img src="../../images/homepages/homepage_illustrations/accessibility.png" alt="Accessibility">
-      </div>
+
     </div>
 
     <div id="card3_background" class="card_background">
-      <div class="cards" id="card3">
+
         <article id="article3">
           <h2>Intelligent Feedback</h2>
           <p>The feedback provided by the platform gives the teacher an overview of the class. The system analyses where the students encounter difficulties and displays the information in a user-friendly way. This gives the teacher a fast and in depth understanding of the problems faced by the students and the class. This feedback also helps to improve the course itself.</p>
           <button>Learn More</button>
         </article>
           <img src="../../images/homepages/homepage_illustrations/intelligentfeedback.png" alt="Intelligent Feedback">
-      </div>
+
     </div>
 
     <div id="card4_background" class="card_background">
-      <div class="cards" id="card4">
         <article id="article4">
           <h2>Collaboration</h2>
           <p>
@@ -55,75 +53,97 @@
           <button>Learn More</button>
         </article>
           <img src="../../images/homepages/homepage_illustrations/connection.png" alt="Collaboration">
-      </div>
     </div>
 
     <div id="card5_background" class="card_background">
-      <div class="cards" id="card5">
         <article id="article5">
           <h2>Student Centered</h2>
           <p>The flipped classroom concept combined with the intelligent feedback allows a more student centered education. With the help of the course material available on the platform the students can learn at their own pace. The teacher can then give more individual support to those who need it most.</p>
+          <button>Learn More</button>
         </article>
           <img src="../../images/homepages/homepage_illustrations/studentcentered.png" alt="Student Centered">
-      </div>
-    </div>
     </div>
 
-  </div>
+    </div>
+
+
 </template>
 
 <script>
+
+import {mapActions} from 'vuex'
+
+export default{
+
+
+  methods: {  ...mapActions([
+      'currentPage',
+      'menuSide'
+    ]),
+
+  },
+  created(){
+
+      this.$store.dispatch('currentPage', "Homepage")
+
+      this.$store.dispatch('menuSide', false)
+
+  }
+}
 
 </script>
 
 <style scoped>
 
 
-
 #homepagecontent{
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
-
-  }
-  article{
-    max-width: 500px;
-
   }
 
-  img {
-      max-width: 100%;
-      height: auto;
-      max-height: 500px;
-      width: auto\9; /* ie8 */
+  button {
+      margin-top: 2em ;
+
+      background-color: inherit;
+      color: rgb(86,84,196);
+      border-radius: 3px;
+      border: 2px solid rgb(86,84,196); /* Green */
+      padding: 1em;
+
+      -webkit-transition-duration: 0.4s; /* Safari */
+      transition-duration: 0.4s;
   }
 
-.cards{
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 1200px;
-  max-height: 500px;
+  button:hover {
+      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+      color:white;
+      background-color: rgb(86,84,196);
+  }
 
+
+img{
+  max-width: 90vw;
+  height: auto;
 }
 
 .card_background{
   display: flex;
   justify-content: center;
-
+  align-items: center;
   overflow: hidden;
+  padding:2em;
+  flex-direction: column-reverse;
+
 }
 
-#card1{
-  flex-direction: column-reverse;
-  background: rgb(255, 237, 135);
-}
+
 #card1_background{
   background: rgb(255, 237, 135);
+  overflow:hidden;
   clip-path: polygon(
   0 0,
   100% 0,
-  100% calc(100% - 6vw),
+  100% calc(100% - 17vw),
   0 100%
 );
 }
@@ -131,81 +151,107 @@
   color: rgb(86,84,196);
 }
 
-#card2{
-  flex-direction: column-reverse;
-  background: rgb(201, 208, 265);
-  }
+
 
 
 #card2_background{
+
   background: rgb(201, 208, 265);
   clip-path: polygon(
-  0 6vw,
+  0 19vw,
   100% 0,
-  100% calc(100% - 6vw),
-  0 100%
+  100% 100%,
+  0 calc(100% - 6vw)
 );
-margin-top: -6vw;
+margin-top: -16vw;
+padding: 10vw 8vw 10vw 8vw
+
 }
 #article2{
   color: rgb(78,79,212);
 }
 
-#card3{
-  flex-direction: column-reverse;
-  background: rgb(255,226,182);
 
-}
+
 #card3_background{
+
   background: rgb(255,226,182);
-  clip-path: polygon(
-  0 6vw,
-  100% 0,
-  100% 100%,
-  0 calc(100% - 6vw)
-
-);
-margin-top: -6vw;
-}
-#article3{
-  color: rgb(86,82,202);
-}
-
-#card4{
-  flex-direction: column-reverse;
-  background: rgb(255, 237, 135);
-}
-#card4_background{
-  background: rgb(255, 237, 135);
   clip-path: polygon(
   0 0,
   100% 6vw,
   100% calc(100% - 6vw),
   0 100%
+
 );
-margin-top: -6vw;
+
+
+}
+#article3{
+  color: rgb(86,82,202);
+}
+
+
+#card4_background{
+
+  background: rgb(255, 237, 135);
+  clip-path: polygon(
+  0 6vw,
+  100% 0,
+  100% 100%,
+  0 calc(100% - 6vw)
+);
+
 }
 #article4{
   color: rgb(86,84,196);
 }
 
-#card5{
-  flex-direction: column-reverse;
-  background: rgb(201, 208, 265);
 
-}
 #card5_background{
+
   background: rgb(201, 208, 265);
   clip-path: polygon(
-  0 6vw,
-  100% 0,
-  100% calc(100% - 6vw),
+  0 0,
+  100% 6vw,
+  100% 100%,
   0 100%
 );
-margin-top: -6vw;
+
+
 }
 #article5{
   color: rgb(78,79,212);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 650px) {
+  .card_background{
+    flex-direction: row;
+    padding-left: 8vw;
+    padding-right: 8vw;
+  }
+img{
+  max-width: 45vw;
+
+}
+#card3_background{
+  flex-direction: row-reverse;
+}
+#card5_background{
+  flex-direction: row-reverse;
+}
+
 }
 
 </style>

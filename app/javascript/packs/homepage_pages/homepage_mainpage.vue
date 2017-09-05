@@ -1,6 +1,7 @@
 <template>
   <div class="background">
-    <router-view></router-view>
+    <homepage-menu></homepage-menu>
+    <router-view id="router_content"></router-view>
     <homepage-footer></homepage-footer>
   </div>
 </template>
@@ -11,4 +12,11 @@
 
 <style scoped>
 
+
+#router_content{
+
+  
+
+  padding-top: 56px;
+}
 </style>

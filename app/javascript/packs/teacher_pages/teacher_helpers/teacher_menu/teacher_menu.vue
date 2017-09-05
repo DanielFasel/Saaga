@@ -3,7 +3,7 @@
 <header>
 
   <div id="logo">SAAGA</div>
-  <div id="current_page">My courses</div>
+  <menu-side-mobile id="menu_side_mobile"></menu-side-mobile>
 
   <nav>
     <ul id="navigation_links">
@@ -74,6 +74,7 @@ import TeacherSettings from "../teacher_settings/teacher_settings.vue"
 import TeacherHelp from "../teacher_help/teacher_help.vue"
 import MenuDrawer from "../../../general_helpers/menu_drawer/menu_drawer.vue"
 import MenuTop from "../../../general_helpers/menu_top/menu_top.vue"
+import MenuSideMobile from "../../../general_helpers/menu_side_mobile/menu_side_mobile.vue"
 
 import {mapGetters} from 'vuex'
 import {mapActions} from 'vuex'
@@ -85,7 +86,8 @@ export default {
     "teacher-settings": TeacherSettings,
     "teacher-help": TeacherHelp,
     "menu-drawer": MenuDrawer,
-    "menu-top": MenuTop
+    "menu-top": MenuTop,
+    "menu-side-mobile": MenuSideMobile
   },
 
   data: function(){
@@ -167,7 +169,7 @@ header{
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 3rem;
+
 }
 
 /* Logo styling */
@@ -195,10 +197,7 @@ header{
   color: white;
 }
 
-#current_page{
-  color: white;
-  font-size: small;
-}
+
 
 
 
@@ -224,7 +223,7 @@ header{
 
   /* elements not displayed for small screens */
 
-  #current_page{
+  #menu_side_mobile{
     display: none;
   }
 
