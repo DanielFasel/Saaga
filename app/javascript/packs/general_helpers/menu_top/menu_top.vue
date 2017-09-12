@@ -16,20 +16,11 @@ export default {
   },
   methods: {
 
-
     handleScroll: function(event) {
-      var topScroll
-      if (typeof event.pageY == 'undefined') {
-        topScroll=event.path[1].scrollY
-      // Now we know that foo is defined, we are good to go.
-    }
-    else {
-      topScroll=event.pageY
-    }
+      var topScroll=window.scrollY
 
 
-
-      if (this.scrollHeight <= topScroll && this.scrollHeight > 100) {
+      if (this.scrollHeight <= topScroll && this.scrollHeight > 70) {
         this.menuHide = true
         this.delayHeight = topScroll
       } else if (this.scrollHeight > topScroll) {
@@ -37,15 +28,11 @@ export default {
           this.delayHeight = topScroll
         }
         var travDist = (this.delayHeight - topScroll)
-
         if (travDist > 30) {
           this.menuHide = false
-
           this.delayHeight = 0
-
         }
       }
-
       this.scrollHeight = topScroll
     }
 

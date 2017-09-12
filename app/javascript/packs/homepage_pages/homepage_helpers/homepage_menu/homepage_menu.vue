@@ -2,7 +2,7 @@
 <menu-top>
   <header>
     <div id="logo">
-      <router-link to='/' exact><h1>Saaga</h1></router-link>
+      <router-link to='/' exact><span id="big_logo">Saaga</span><span id="small_logo">S</span></router-link>
     </div>
 
     <menu-side-mobile id="menu_side_mobile"></menu-side-mobile>
@@ -139,6 +139,9 @@ nav {
 #menu_text{
   display: none;
 }
+#big_logo{
+  display: none;
+}
 /*--------------------------*/
 
 
@@ -150,6 +153,7 @@ header {
   padding-right:2em;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
+  height: 56px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -255,9 +259,14 @@ header {
   #mobile_center_div {
     display: none;
   }
+  #small_logo{
+    display: none;
+  }
 /*---------------*/
 
-
+#big_logo{
+  display: block;
+}
   nav {
     flex-grow: 1;
     justify-content: space-between;
