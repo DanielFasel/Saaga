@@ -2,11 +2,10 @@
 
 #### Table of content
 * [Helpful Commands](#helpful-commands)
-* [Current Version](#current-version)
-    - [In progress](#in-progress)
-    - [Completed](#completed)
+* [Where are we?](#where-are-we?)
+    - [Needed for 0.4.0](#Needed-for-0.4.0)
 * [Database diagrams and Wireframes](#database-diagrams-and-wireframes)
-* [Environment Setup](#environment-setup)
+* [How to start?](#how-to-start?)
     - [Ruby](#ruby)
     - [Ruby on rails](#ruby-on-rails)
     - [Postgresql](#postgreql)
@@ -18,7 +17,7 @@
     - [Frontend](#frontend)
         - [Static Pages](#static-pages)
         - [SPA](#spa)
-* [Schedule](#schedule)
+* [Roadmap](#roadmap)
 
 
 ## Helpful Commands
@@ -41,30 +40,26 @@ Scaffolding commands:
 These are just some of the commands I used the most. There are more commands that might prove useful so I highly suggest to read the [Ruby on rails documentation](http://guides.rubyonrails.org/v5.0/) for more information.
 
 
-## Current Version
+## Where are we?
 
-**Version 0.3.0**
-
-Main branches:
+**Version 0.3.0** / branches:
   - master
   - 0.3.0_homepage
   - 0.3.0_class_management
 
-### In progress :
-- Menu for homepage, v1
-- drawer menu for homepage, v1
-- secondary drawer menu for homepage, v1
+### Needed for 0.4.0
+- Menu for homepage, v1 **(in progress)**
+- drawer menu for homepage, v1 **(in progress)**
+- secondary drawer menu for homepage, v1 **(in progress)**
 - general structure for all pages of the homepage
 - Adding schools
 - Deleting schools
 - Colors for schools
 - Management of students
 - Management of classes
-
-### Completed :
-- ~~Schools structure in database~~
-- ~~displaying teacher's schools and students~~
-- ~~refactoring the homepage to a spa~~
+- ~~(completed) Schools structure in database~~
+- ~~(completed) displaying teacher's schools and students~~
+- ~~(completed) refactoring the homepage to a spa~~
 
 ---
 **Branching:** we should try to stick to a structure to avoid repeating the messy branching I have done so far. Here is a interesting example on how we could do it. [Branching Model](http://nvie.com/posts/a-successful-git-branching-model/)
@@ -77,7 +72,7 @@ The Database diagrams and wireframes can be found in a shared folder called *Saa
 
 
 
-## Environment setup
+## How to start?
 The following installations are required to work with Saaga.
 - Ruby 2.4.1
 - Ruby on rails 5.0.1
@@ -158,7 +153,7 @@ For a better understanding of VueJs and Vuex read their respective documentation
 
 
 
-## Schedule
+## Roadmap
 The following versions and their content is neither exhaustive nor finale. It's aim is to give a general plan for what is to come.
 
 ---
