@@ -5,7 +5,7 @@
 * [Where are we?](#where-are-we)
     - [Needed for 0.4.0](#needed-for-040)
 * [Database diagrams and Wireframes](#database-diagrams-and-wireframes)
-* [How to start?](#how-to-start-)
+* [How to start?](#how-to-start)
     - [Ruby](#ruby)
     - [Ruby on rails](#ruby-on-rails)
     - [Postgresql](#postgreql)
