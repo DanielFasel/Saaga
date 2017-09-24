@@ -2,10 +2,10 @@
 
 #### Table of content
 * [Helpful Commands](#helpful-commands)
-* [Where are we](#where-are-we)
-    - [Needed for 0.4.0](#Needed-for-0.4.0)
+* [Where are we?](#where-are-we-)
+    - [Needed for 0.4.0](#Needed-for-040)
 * [Database diagrams and Wireframes](#database-diagrams-and-wireframes)
-* [How to start?](#how-to-start?)
+* [How to start?](#how-to-start-)
     - [Ruby](#ruby)
     - [Ruby on rails](#ruby-on-rails)
     - [Postgresql](#postgreql)
@@ -40,7 +40,7 @@ Scaffolding commands:
 These are just some of the commands I used the most. There are more commands that might prove useful so I highly suggest to read the [Ruby on rails documentation](http://guides.rubyonrails.org/v5.0/) for more information.
 
 
-## Where are we
+## Where are we?
 
 **Version 0.3.0** / branches:
   - master
