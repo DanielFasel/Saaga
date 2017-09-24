@@ -2,7 +2,7 @@
 
 #### Table of content
 * [Helpful Commands](#helpful-commands)
-* [Where are we?](#where-are-we-)
+* [Where are we?](#where-are-we)
     - [Needed for 0.4.0](#needed-for-040)
 * [Database diagrams and Wireframes](#database-diagrams-and-wireframes)
 * [How to start?](#how-to-start-)
