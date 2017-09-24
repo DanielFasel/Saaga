@@ -38,7 +38,7 @@ Testing commands:
 Scaffolding commands:
 - `rails g`
 
-These are just some of the commands I used the most. There are more commands that might prove useful so I highly suggest to read the [Ruby on rails documentation](http://guides.rubyonrails.org/v5.0/) for more information.
+These are jsdfsdfust some of the commands I used the most. There are more commands that might prove useful so I highly suggest to read the [Ruby on rails documentation](http://guides.rubyonrails.org/v5.0/) for more information.
 
 
 ## Current Version
