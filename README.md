@@ -36,7 +36,7 @@ Testing commands:
 - `rails test`
 
 Scaffolding commands:
-- `rails g`
+- `rails g` you can then add "controllers", "models" and so on.
 
 These are just some of the commands I used the most. There are more commands that might prove useful so I highly suggest to read the [Ruby on rails documentation](http://guides.rubyonrails.org/v5.0/) for more information.
 
@@ -45,7 +45,16 @@ These are just some of the commands I used the most. There are more commands tha
 
 **Version 0.3.0**
 
+Main branches:
+  - master
+  - 0.3.0_homepage
+  - 0.3.0_class_management
+
 ### In progress :
+- Menu for homepage, v1
+- drawer menu for homepage, v1
+- secondary drawer menu for homepage, v1
+- general structure for all pages of the homepage
 - Adding schools
 - Deleting schools
 - Colors for schools
@@ -55,15 +64,16 @@ These are just some of the commands I used the most. There are more commands tha
 ### Completed :
 - ~~Schools structure in database~~
 - ~~displaying teacher's schools and students~~
+- ~~refactoring the homepage to a spa~~
 
 ---
-**Branching:** we should try to stick to a structure to avoid repeating the messy branching I have done so far. Here is a intersting example of a way of doing it. [Branching Model](http://nvie.com/posts/a-successful-git-branching-model/)
+**Branching:** we should try to stick to a structure to avoid repeating the messy branching I have done so far. Here is a interesting example on how we could do it. [Branching Model](http://nvie.com/posts/a-successful-git-branching-model/)
 
 ---
 
 
 ## Database diagrams and Wireframes
-The Database diagrams and wireframes can be found in a shared folder called *Saaga* on the site [Mega](https://mega.nz). If you do not have access to it contact us.
+The Database diagrams and wireframes can be found in a shared folder called *Saaga* on the site [Mega](https://mega.nz). If you do not have access to it contact Daniel.
 
 
 
@@ -132,7 +142,7 @@ The Rails convention seperates the code in views (`app\views\`) and assets (`app
 #### SPA
 The Single Page Apps use VueJs and are located here : `app\javascript\packs\`.
 
-There are three distinct SPA: the teacher's side, the student's side, and the admin's side. All of them share common code in the *general_helpers* (`app\javascript\packs\general_helpers`). Each SPA is composed of three main elements :
+There are four distinct SPA: the homepage, the teacher's side, the student's side, and the admin's side. All of them share common code in the *general_helpers* (`app\javascript\packs\general_helpers`). Each SPA is composed of three main elements :
 - a main javascript file
 - vue single file components
 - a store
@@ -170,6 +180,7 @@ The following versions and their content is neither exhaustive nor finale. It's 
 
 #### 0.3.0
 - Class Management
+- Homepage, v1
 
 #### 0.4.0
 - Course management
