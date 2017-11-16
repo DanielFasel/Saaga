@@ -24,7 +24,6 @@ import StudentMainpage from './student_pages/student_mainpage.vue'
 import StudentMenu from './student_pages/student_helpers/student_menu/student_menu.vue'
 import StudentCourses from './student_pages/student_courses/student_courses.vue'
 import StudentHomeworks from './student_pages/student_homeworks/student_homeworks.vue'
-import Global from './general_helpers/global/global.vue'
 
 //imported component to be used on all the SPA
 Vue.component('student-menu', StudentMenu)
@@ -35,7 +34,6 @@ Vue.component('student-menu', StudentMenu)
 const routes = [
 	{path: '/courses' , component : StudentCourses},
   {path: '/homeworks', component: StudentHomeworks},
-  {path: '/global', component: Global},
   { path: '/', redirect: '/homeworks' }
 ]
 

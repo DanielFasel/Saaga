@@ -13,16 +13,10 @@
       <li>
         <router-link class="navigation_tab" to='/lessons' exact>Lessons <i class="fa fa-book" aria-hidden="true"></i></router-link>
       </li>
-      <li>
-        <router-link class="navigation_tab" to='/assignments' exact>Assignments <i class="fa fa-tasks" aria-hidden="true"></i></router-link>
-      </li>
-      <li>
-        <router-link class="navigation_tab" to='/global' exact>Global <i class="fa fa-globe" aria-hidden="true"></i></router-link>
-      </li>
     </ul>
 
      <ul id="utility_links">
-      <li><teacher-notifications></teacher-notifications></li>
+      <li>8</li>
       <li><button @click="settingsclick">Settings</button></li>
       <li><button @click="helpclick">Help</button></li>
       <li><button v-on:click="logout">Logout</button></li>
@@ -42,16 +36,10 @@
       <li @click="toggleMenuDrawer">
         <router-link class="navigation_tab" to='/lessons' exact >Lessons <i class="fa fa-book" aria-hidden="true"></i></router-link>
       </li>
-      <li @click="toggleMenuDrawer">
-        <router-link class="navigation_tab" to='/assignments' exact>Assignments <i class="fa fa-tasks" aria-hidden="true"></i></router-link>
-      </li>
-      <li @click="toggleMenuDrawer">
-        <router-link class="navigation_tab" to='/global' exact>Global <i class="fa fa-globe" aria-hidden="true"></i></router-link>
-      </li>
     </ul>
 
     <ul id="mobile_utility_links">
-      <li><teacher-notifications></teacher-notifications></li>
+      <li>8</li>
       <li><button @click="settingsclicksmall">Settings</button></li>
       <li><button @click="helpclicksmall">Help</button</li>
       <li><button v-on:click="logout">Logout</button></li>
@@ -69,7 +57,6 @@
 
 <script>
 
-import TeacherNotifications from "../teacher_notifications/teacher_notifications.vue"
 import TeacherSettings from "../teacher_settings/teacher_settings.vue"
 import TeacherHelp from "../teacher_help/teacher_help.vue"
 import MenuDrawer from "../../../general_helpers/menu_drawer/menu_drawer.vue"
@@ -82,7 +69,6 @@ import {mapActions} from 'vuex'
 export default {
 
   components: {
-    "teacher-notifications": TeacherNotifications,
     "teacher-settings": TeacherSettings,
     "teacher-help": TeacherHelp,
     "menu-drawer": MenuDrawer,
