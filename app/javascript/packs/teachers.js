@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 
 
 //Vuex
-import {store} from './teacher_store/teacher_store.js'
+import {store} from './teacher/teacher_store/teacher_store.js'
 
 import vMediaQuery from 'v-media-query'
 Vue.use(vMediaQuery)
@@ -20,10 +20,10 @@ Vue.prototype.$http = axios
 
 
 //components
-import TeacherMainpage from './teacher_pages/teacher_mainpage.vue'
-import TeacherMenu from './teacher_pages/teacher_helpers/teacher_menu/teacher_menu.vue'
-import TeacherCourses from './teacher_pages/teacher_courses/teacher_courses.vue'
-import TeacherLessons from './teacher_pages/teacher_lessons/teacher_lessons.vue'
+import TeacherMainpage from './teacher/teacher_pages/teacher_mainpage.vue'
+import TeacherMenu from './teacher/teacher_pages/teacher_helpers/teacher_menu/teacher_menu.vue'
+import TeacherCourses from './teacher/teacher_pages/teacher_courses/teacher_courses.vue'
+import TeacherLessons from './teacher/teacher_pages/teacher_lessons/teacher_lessons.vue'
 
 //imported component to be used on all the SPA
 Vue.component('teacher-menu', TeacherMenu)

@@ -88,6 +88,7 @@ export default{
 .modal-content{
 	display: flex;
 	flex-direction: row;
+  overflow-y: auto;
 }
 
 .modal-close-button {
@@ -101,7 +102,6 @@ export default{
 .modal-body {
   margin: 20px 0;
   width: 100%;
-  overflow: auto;
 }
 
 /*
