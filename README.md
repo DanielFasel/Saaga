@@ -37,7 +37,7 @@ Testing commands:
 Scaffolding commands:
 - `rails g` you can then add "controllers", "models" and so on.
 
-These are just some of the commands I used the most. There are more commands that might prove useful so I highly suggest to read the [Ruby on rails documentation](http://guides.rubyonrails.org/v5.0/) for more information.
+These are jsdfsdfust some of the commands I used the most. There are more commands that might prove useful so I highly suggest to read the [Ruby on rails documentation](http://guides.rubyonrails.org/v5.0/) for more information.
 
 
 ## Where are we?
@@ -75,7 +75,7 @@ The Database diagrams and wireframes can be found in a shared folder called *Saa
 ## How to start?
 The following installations are required to work with Saaga.
 - Ruby 2.4.1
-- Ruby on rails 5.0.1
+- Ruby on rails 5.0.5
 - Github
 - Postgresql
 - NodeJS
@@ -89,7 +89,7 @@ On fedora use the command `dnf install ruby` if the version is not right you can
 
 ### Ruby on rails
 After you installed Ruby you need to install rails. Follow this [guide](https://developer.fedoraproject.org/tech/languages/ruby/ror-installation.html).
-Here it is even more important to have the right version (5.0.1 in our case). So instead of writing `gem install rails` write `gem install rails -v 5.0.1`. In case errors show up read the logs (the path is given in the terminal) and google the problem usually there is a quick fix.
+Here it is even more important to have the right version (5.0.5 in our case). So instead of writing `gem install rails` write `gem install rails -v 5.0.5`. In case errors show up read the logs (the path is given in the terminal) and google the problem usually there is a quick fix.
 
 ### Github
 To use Github you can either use a program with a graphical interface or the Terminal.
@@ -101,7 +101,7 @@ If on linux follow this guide : [installing postgresql](https://www.if-not-true-
 
 You can now create the databases needed for *Saaga*. The default names, usernames and passwords of these databases can be found here : `config/databas.yml`. Only the development and test database is needed.
 
-After installing postgres you can go into the *Saaga* repository folder and run : `bundle install`. This will install all the gems used by *Saaga*. If you can't install **pg '0.20.0'** you might need to install it manually before running `bundle install` using this command: `gem install pg -v '0.20.0' -- --with-pg-config=[path to pg_config]`. But check the log to make sure it is because it can't find **pg_config**.
+After installing postgres you can go into the *Saaga* repository folder and run : `bundle install`. This will install all the gems used by *Saaga*. If you can't install **pg '0.21.0'** you might need to install it manually before running `bundle install` using this command: `gem install pg -v '0.21.0' -- --with-pg-config=[path to pg_config]`. But check the log to make sure it is because it can't find **pg_config**.
 
 
 

@@ -1,14 +1,14 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js
+  /usr/bin/node /usr/bin/yarn
 
 PATH: 
-  /home/daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/bin:/home/daniel/.rbenv/versions/2.3.1/bin:/home/daniel/.rbenv/libexec:/home/daniel/.rbenv/plugins/ruby-build/bin:/home/daniel/.rbenv/shims:/home/daniel/.rbenv/bin:/usr/local/heroku/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/daniel/.local/bin:/home/daniel/bin
+  /usr/lib64/qt-3.3/bin:/usr/lib64/ccache:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/daniel/.local/bin:/home/daniel/bin
 
 Yarn version: 
-  0.24.5
+  0.27.5
 
 Node version: 
-  7.10.0
+  6.11.2
 
 Platform: 
   linux x64
@@ -2445,7 +2445,7 @@ Lockfile:
     dependencies:
       is-buffer "^1.0.2"
   
-  klaw@^1.0.0:
+  klaw@^1.0.0, klaw@^1.3.1:
     version "1.3.1"
     resolved "https://registry.yarnpkg.com/klaw/-/klaw-1.3.1.tgz#4088433b46b3b1ba259d78785d8e96f73ba02439"
     optionalDependencies:
@@ -2523,6 +2523,10 @@ Lockfile:
   lodash.tail@^4.1.1:
     version "4.1.1"
     resolved "https://registry.yarnpkg.com/lodash.tail/-/lodash.tail-4.1.1.tgz#d2333a36d9e7717c8ad2f7cacafec7c32b444664"
+  
+  lodash.throttle@^4.1.1:
+    version "4.1.1"
+    resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
   
   lodash.uniq@^4.5.0:
     version "4.5.0"
@@ -3586,6 +3590,10 @@ Lockfile:
     version "0.0.4"
     resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-0.0.4.tgz#0cf7f84f9463ff0ae51c4c4b142d95be37724d9c"
   
+  querystringify@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-1.0.0.tgz#6286242112c5b712fa654e526652bf6a13ff05cb"
+  
   rails-erb-loader@^5.0.0:
     version "5.0.0"
     resolved "https://registry.yarnpkg.com/rails-erb-loader/-/rails-erb-loader-5.0.0.tgz#33fcfbae3fd4584801283c4d5bc1195ae7b56723"
@@ -4324,6 +4332,12 @@ Lockfile:
     version "3.0.1"
     resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.0.1.tgz#6544bba2dfda8c1cf17e629a3a305e2bb1fee6c1"
   
+  v-media-query@^1.0.3:
+    version "1.0.3"
+    resolved "https://registry.yarnpkg.com/v-media-query/-/v-media-query-1.0.3.tgz#3bfc03919e01fff5d2077830cc3e5e92b403ddf8"
+    dependencies:
+      lodash.throttle "^4.1.1"
+  
   validate-npm-package-license@^3.0.1:
     version "3.0.1"
     resolved "https://registry.yarnpkg.com/validate-npm-package-license/-/validate-npm-package-license-3.0.1.tgz#2804babe712ad3379459acfbe24746ab2c303fbc"
@@ -4376,6 +4390,12 @@ Lockfile:
       vue-hot-reload-api "^2.1.0"
       vue-style-loader "^3.0.0"
       vue-template-es2015-compiler "^1.2.2"
+  
+  vue-media-queries@0.0.3:
+    version "0.0.3"
+    resolved "https://registry.yarnpkg.com/vue-media-queries/-/vue-media-queries-0.0.3.tgz#b2be4bf19d69283b6e8adaf27b29a32f03db88ac"
+    dependencies:
+      lodash.throttle "^4.1.1"
   
   vue-router@^2.5.3:
     version "2.5.3"
@@ -4636,4 +4656,5 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: EACCES: permission denied, mkdir '/home/daniel/RailsApplications/saaga/node_modules/camelcase-keys/node_modules'
+  Error: EACCES: permission denied, mkdir '/home/daniel/sites/Saaga/node_modules/autoprefixer/node_modules'
+      at Error (native)
