@@ -1,47 +1,62 @@
 <template>
-<div id="page_container" class="background-blur">
+<!-- the external div is used to create a mask over the background when a modal is activated or drawer menu -->
+<div id="page_container" v-bind:class="{overflowHidden: overflowHidden}" class="background-blur">
   <teacher-menu></teacher-menu>
-  <div id="teacher_menu_background"></div>
-  <router-view id="router"></router-view>
+    <!-- div id="teacher_menu_background"></div -->
+  <!-- Content of the pages when changing route -->
+  <router-view  id="router"></router-view>
+  {{overflowHidden}}
 </div>
 </template>
 
 
 <script>
+
+import {mapGetters} from 'vuex'
+
 export default {
 
   data: function() {
     return {
       message: "Hello Daniel!"
     }
+  },
+  computed:{
+    ...mapGetters('layout/modalDrawer',[
+      'overflowHidden'
+    ])
   }
 }
 </script>
 
 
 <style scoped>
+
 #page_container {
   background: rgb(51, 41, 135);
-  height: 100vh;
-  width: 100vw;
-  overflow: auto;
   display: flex;
   flex-direction: column;
-}
 
-.content_container {
+}
+#teacher_menu_background {
+height:70px;
+}
+#router{
   display: flex;
   background: white;
-  padding-left: 3vw;
-  padding-right: 3vw;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  min-height: calc(100vh - 70px);
+  width: 100%;
+  padding-top: 70px;
+
+
+
+
+
 }
 
-#teacher_menu_background{
-  height:70px;
-  background:rgb(51, 41, 135);
+.overflowHidden {
+  overflow: hidden;
 }
+
+
 
 </style>

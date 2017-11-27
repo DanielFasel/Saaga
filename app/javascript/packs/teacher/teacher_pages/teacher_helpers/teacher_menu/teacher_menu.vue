@@ -150,6 +150,12 @@ nav{
 
 /* Header styling */
 header{
+  background-color: rgb(51, 41, 135);
+  color: white;
+  padding-left: 2em;
+  padding-right:2em;
+  height: 70px;
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -175,7 +181,7 @@ header{
 
 .menu_icon{
   color: white;
-  margin-bottom: 0.1em;
+
 }
 
 #menutext{

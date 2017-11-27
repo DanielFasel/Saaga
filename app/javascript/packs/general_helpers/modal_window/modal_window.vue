@@ -34,17 +34,45 @@ export default{
   props:['modalToggleFunction'],
 
   methods:{
-
     closeModal: function(){
           this.$store.dispatch('layout/modalDrawer/'+this.modalToggleFunction)
-        }
+    },
+    // method triggering the closing if escape key is pressed
+    escapeKeyListener: function(evt){
+      if(evt.keyCode == 27){
+        this.closeModal()
+      }
+    },
+    // function to add or remove overflow hidden class from body
+    bodyOverflowHidden: function(){
+    }
+  },
+
+  created: function(){
+    // Creation of Event listener to close with the escape key
+    document.addEventListener('keyup', this.escapeKeyListener);
+  },
+
+  beforeMount: function(){
+      // add class to body in order to hide the scrollbar while modal is open
+      document.body.classList.add('modal-open');
+  },
+
+  beforeDestroy: function(){
+    // removal of Event listener to close with the escape key
+    document.removeEventListener('keyup', this.escapeKeyListener);
+    // removal of class hiding the scrollbar
+    document.body.classList.remove('modal-open');
   }
+
 }
 
 </script>
 
 <style>
-
+.modal-open {
+  overflow: hidden;
+}
 .modal-mask {
   position: fixed;
   z-index: 9998;
