@@ -42,9 +42,6 @@ export default{
       if(evt.keyCode == 27){
         this.closeModal()
       }
-    },
-    // function to add or remove overflow hidden class from body
-    bodyOverflowHidden: function(){
     }
   },
 

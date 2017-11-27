@@ -1,6 +1,6 @@
 <template>
 
-	<modal-window modalToggleFunction="showSettingsModal" v-if="showSettingsModal">
+	<modal-window modalToggleFunction="toggleSettingsModal" v-if="showSettingsModal">
 		<div slot="body">
 		Settings hi
 		</div>
@@ -11,7 +11,6 @@
 <script>
 
 	import ModalWindow from "../../../../general_helpers/modal_window/modal_window.vue"
-
 	import {mapGetters} from 'vuex'
 
 	export default {
