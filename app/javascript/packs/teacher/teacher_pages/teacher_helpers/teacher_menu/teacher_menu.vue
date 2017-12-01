@@ -28,27 +28,6 @@
     <span id="menutext">Menu</span>
   </div>
 
-  <menu-drawer v-show="showMenuDrawer" @toggleDrawer='toggleMenuDrawer'>
-    <ul id="mobile_navigation_links">
-      <li @click="toggleMenuDrawer">
-        <router-link class="navigation_tab" to='/courses' exact>Courses <i class="fa fa-link" aria-hidden="true"></i></router-link>
-      </li>
-      <li @click="toggleMenuDrawer">
-        <router-link class="navigation_tab" to='/lessons' exact >Lessons <i class="fa fa-book" aria-hidden="true"></i></router-link>
-      </li>
-    </ul>
-
-    <ul id="mobile_utility_links">
-      <li>8</li>
-      <li><button @click="settingsclicksmall">Settings</button></li>
-      <li><button @click="helpclicksmall">Help</button</li>
-      <li><button v-on:click="logout">Logout</button></li>
-    </ul>
-  </menu-drawer>
-
-  <teacher-settings></teacher-settings>
-  <teacher-help></teacher-help>
-
 </header>
 </menu-main>
 </template>
@@ -57,30 +36,15 @@
 
 <script>
 
-import TeacherSettings from "../teacher_settings/teacher_settings.vue"
-import TeacherHelp from "../teacher_help/teacher_help.vue"
-import MenuDrawer from "../../../../general_helpers/menus/menu_drawer/menu_drawer.vue"
-import MenuMain from "../../../../general_helpers/menus/menu_main/menu_main.vue"
-import MenuSideMobile from "../../../../general_helpers/menus/menu_side_mobile/menu_side_mobile.vue"
 
+import MenuMain from "../../../../general_helpers/menus/menu_main/menu_main.vue"
 import {mapGetters} from 'vuex'
 import {mapActions} from 'vuex'
 
 export default {
 
   components: {
-    "teacher-settings": TeacherSettings,
-    "teacher-help": TeacherHelp,
-    "menu-drawer": MenuDrawer,
     "menu-main": MenuMain,
-    "menu-side-mobile": MenuSideMobile
-  },
-
-  data: function(){
-    return{
-      bigtimer:0,
-      oncetimer:0
-    }
   },
 
   methods:{
@@ -97,41 +61,13 @@ export default {
         })
     },
 
-    // toggle for utility modals
-    settingsclicksmall:function(){
-      this.toggleMenuDrawer(),
-      this.toggleSettingsModal()
-    },
     settingsclick:function(){
       this.toggleSettingsModal()
     },
 
-    helpclicksmall:function(){
-      this.toggleMenuDrawer(),
-      this.toggleHelpModal()
-    },
     helpclick: function(){
       this.toggleHelpModal()
-    },
-
-    // hide the drawer when going from medium to big screen
-    hideDrawerMenu: function(){
-      if (this.showMenuDrawer && this.$mq.above(1000)) {
-         this.toggleMenuDrawer()
-          }
     }
-  },
-
-  computed: {
-
-    ...mapGetters('layout/modalDrawer',[
-        'showMenuDrawer'
-      ])
-  },
-
-  //watcher that checks screen size to hide drawer
-  watch: {
-    '$mq.resize': 'hideDrawerMenu'
   }
 
 }
@@ -191,26 +127,6 @@ header{
 
 
 
-
-
-
-
-/* menu drawer styling */
-.menu-drawer{
-  display: flex;
-  flex-direction: column;
-}
-
-#mobile_navigation_links{
-  display: flex;
-  flex-direction: column;
-}
-#mobile_utility_links{
-  display: flex;
-  flex-direction: column;
-}
-
-
 @media only screen and (min-width: 650px){
 
   /* elements not displayed for small screens */
@@ -223,9 +139,6 @@ header{
     display: none;
   }
 
-  #mobile_navigation_links{
-  display: none;
-}
 
   /* Styling for medium configuration */
   nav{

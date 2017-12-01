@@ -24,9 +24,11 @@ import TeacherMainpage from './teacher/teacher_pages/teacher_mainpage.vue'
 import TeacherMenu from './teacher/teacher_pages/teacher_helpers/teacher_menu/teacher_menu.vue'
 import TeacherCourses from './teacher/teacher_pages/teacher_courses/teacher_courses.vue'
 import TeacherLessons from './teacher/teacher_pages/teacher_lessons/teacher_lessons.vue'
+import TeacherDrawer from './teacher/teacher_pages/teacher_helpers/teacher_menu/teacher_drawer.vue'
 
 //imported component to be used on all the SPA
 Vue.component('teacher-menu', TeacherMenu)
+Vue.component('teacher-drawer', TeacherDrawer)
 
 
 //routing

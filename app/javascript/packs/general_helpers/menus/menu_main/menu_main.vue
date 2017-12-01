@@ -54,8 +54,8 @@ export default {
   position: fixed;
   top: 0;
   transition: margin-top 0.2s ease-in-out;
-  z-index: 1;
   width: 100%;
+  
 }
 
 .hide {

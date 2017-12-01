@@ -1,9 +1,13 @@
 <template>
-	<transition name="drawer">
+		<transition name="drawer">
 		<div class="drawer-mask"  @click.self="toggleMenuDrawer">
+
+
 			<div class="drawer-wrapper">
 				<slot></slot>
 			</div>
+
+
 		</div>
 	</transition>
 </template>
@@ -13,6 +17,11 @@ import {mapGetters} from 'vuex'
 
 export default {
 
+	data: function() {
+		return {
+			drawer: false
+		}
+	},
 	methods:{
 
 		toggleMenuDrawer: function(){
@@ -34,12 +43,16 @@ export default {
 	},
 
 	created: function(){
-    // Creation of Event listener to close with the escape key
-    document.addEventListener('keyup', this.escapeKeyListener);
+
+		// Creation of Event listener to close with the escape key
+		document.addEventListener('keyup', this.escapeKeyListener);
+
   },
+
 	beforeDestroy: function(){
 		// removal of Event listener to close with the escape key
 		document.removeEventListener('keyup', this.escapeKeyListener);
+
 	}
 }
 
@@ -48,8 +61,8 @@ export default {
 <style scoped>
 .drawer-mask{
 	position: fixed;
-	z-index: 9998;
-	background-color: rgba(0, 0, 0, .5);
+	z-index: 2;
+
 	top: 0;
   	left: 0;
   	width: 100%;
@@ -70,6 +83,20 @@ export default {
 
 
 /* Transition effects */
+
+.drawer-enter{
+	transform: translateX(300px);
+}
+
+.drawer-enter-active,
+.drawer-leave-active {
+	transition: all 0.3s ease;
+}
+
+
+.drawer-leave-to{
+	transform: translateX(300px);
+}
 
 
 </style>
