@@ -2,12 +2,6 @@ export default {
 
 	//Mobile menu drawer mutation
 	toggleMenuDrawer(state){
-		// overflowHidden switch
-		if (state.overflowHidden==false)
-			state.overflowHidden=true
-		else
-			state.overflowHidden=false
-
 		// modal/drawer switch
 		if (state.showMenuDrawer==false)
 			state.showMenuDrawer=true

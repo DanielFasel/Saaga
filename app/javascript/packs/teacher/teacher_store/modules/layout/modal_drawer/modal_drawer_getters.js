@@ -1,9 +1,5 @@
 export default {
 
-	// overflow hidden
-	overflowHidden(state){
-		return state.overflowHidden
-	},
 
 	// mobile menu getter
 	showMenuDrawer(state){

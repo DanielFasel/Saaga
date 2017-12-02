@@ -1,7 +1,7 @@
 <template>
 
   <transition name="modal">
-    <div class="modal-mask">
+
 
       <div class="modal-wrapper">
 
@@ -21,7 +21,7 @@
           </div>
         </div>
 
-      </div>
+
     </div>
   </transition>
 
@@ -70,34 +70,28 @@ export default{
 .modal-open {
   overflow: hidden;
 }
-.modal-mask {
-  position: fixed;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, .5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: opacity .3s ease;
-}
+
 
 .modal-wrapper {
-	display: flex;
-	flex-direction: column;
+  position: fixed;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  z-index: 2;
 
   width: 95vw;
   max-width: 1000px;
   height: 95vh;
   max-height: 700px;
-  margin: 0px auto;
+  margin: auto;
 
   background-color: #fff;
   border-radius: 1px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
   transition: all .3s ease;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-header{

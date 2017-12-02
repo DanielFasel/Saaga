@@ -9,9 +9,10 @@
   <teacher-settings></teacher-settings>
   <teacher-help></teacher-help>
 
-  <!-- Background for modals and drawer -->
-  <div id="background_mask" v-show="overflowHidden || showMenuDrawer || showSettingsModal || showHelpModal || showStudentManagementModal || showCourseManagementModal || showSubstituteTeacherModal" ></div>
-
+  <!-- Dark Background for modals and drawer all modals and other component trigering the background need to be listed here -->
+  <transition name="mask">
+    <div id="background_mask" v-show="showMenuDrawer || showSettingsModal || showHelpModal || showStudentManagementModal || showCourseManagementModal || showSubstituteTeacherModal" ></div>
+  </transition>  
 </div>
 
 </template>
@@ -76,6 +77,13 @@ height:70px;
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+.mask-enter-active, .mask-leave-active {
+transition: opacity .5s
+}
+.mask-enter, .mask-leave-to {
+opacity: 0
 }
 
 </style>

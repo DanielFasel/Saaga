@@ -6,6 +6,11 @@
     <student-drawer></student-drawer>
     <student-settings></student-settings>
     <student-help></student-help>
+
+    <!-- Dark Background for modals and drawer all modals and other component trigering the background need to be listed here -->
+    <transition name="mask">
+      <div id="background_mask" v-show="showMenuDrawer || showSettingsModal || showHelpModal || showAddCoursesModal" ></div>
+    </transition>
   </div>
 
 </template>
@@ -27,10 +32,10 @@ export default {
   },
   computed:{
     ...mapGetters('layout/modalDrawer',[
-      'overflowHidden',
       'showMenuDrawer',
       'showSettingsModal',
-      'showHelpModal'
+      'showHelpModal',
+      'showAddCoursesModal'
     ])
   }
 }
@@ -53,6 +58,16 @@ export default {
 
   }
 
+  #background_mask{
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, .5);
+    top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+  }
+
   .content_container{
     display: flex;
     background: white;
@@ -63,6 +78,13 @@ export default {
   }
   #router{
     margin-top: 70px;
+  }
+
+  .mask-enter-active, .mask-leave-active {
+  transition: opacity .5s
+  }
+  .mask-enter, .mask-leave-to {
+  opacity: 0
   }
 
 </style>

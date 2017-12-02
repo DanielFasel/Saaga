@@ -99,6 +99,7 @@ export default{
 #homepagecontent{
   display: flex;
   flex-direction: column;
+  filter: blur(5px);
   }
 
   button {
