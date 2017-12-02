@@ -40,50 +40,11 @@
     </div>
 
 
-
-    <menu-drawer v-show="showMenuDrawer" @toggleDrawer='toggleMenuDrawer'>
-      <ul id="mobile_navigation_links">
-
-
-          <router-link @click.native="toggleMenuDrawer" tag="li" to='/what' exact>
-          <a @click="toggleMenuDrawer">What is it ?</a>
-          </router-link>
-
-
-          <router-link @click.native="toggleMenuDrawer" tag="li" to='/as_student' exact>
-            <a>As a Student</a>
-          </router-link>
-
-          <router-link @click.native="toggleMenuDrawer" tag="li" to='/as_teacher' exact>
-            <a>As a Teacher</a>
-          </router-link>
-
-          <router-link @click.native="toggleMenuDrawer" tag="li" to='/as_school' exact>
-            <a>As a School</a>
-          </router-link>
-
-      </ul>
-
-      <ul id="mobile_utility_links">
-        <li>
-          <a href="/login">Login</a>
-        </li>
-
-        <li>
-          <a href="/register">Register</a>
-        </li>
-
-        <li  @click="toggleMenuDrawer" >Languages</li>
-      </ul>
-    </menu-drawer>
-
-
   </header>
 </menu-homepage>
 </template>
 
 <script>
-import MenuDrawer from "../../../../general_helpers/menus/menu_drawer/menu_drawer.vue"
 import MenuHomepage from "../../../../general_helpers/menus/menu_homepage/menu_homepage.vue"
 import MenuSideMobile from "../../../../general_helpers/menus/menu_side_mobile/menu_side_mobile.vue"
 
@@ -97,7 +58,6 @@ import {
 export default {
 
   components: {
-    "menu-drawer": MenuDrawer,
     "menu-homepage": MenuHomepage,
     "menu-side-mobile": MenuSideMobile
   },
@@ -106,24 +66,7 @@ export default {
 
     ...mapActions([
       'toggleMenuDrawer'
-    ]),
-
-    // hide the drawer when going from medium to big screen
-    hideDrawerMenu: function() {
-      if (this.showMenuDrawer && this.$mq.above(1000)) {
-        this.toggleMenuDrawer()
-      }
-    }
-  },
-  computed: {
-
-    ...mapGetters([
-      'showMenuDrawer'
     ])
-  },
-  //watcher that checks screen size to hide drawer
-  watch: {
-    '$mq.resize': 'hideDrawerMenu'
   }
 }
 </script>

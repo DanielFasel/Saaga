@@ -22,12 +22,13 @@ Vue.prototype.$http = axios
 //components
 import StudentMainpage from './student/student_pages/student_mainpage.vue'
 import StudentMenu from './student/student_pages/student_helpers/student_menu/student_menu.vue'
+import StudentDrawer from './student/student_pages/student_helpers/student_menu/student_drawer.vue'
 import StudentCourses from './student/student_pages/student_courses/student_courses.vue'
 import StudentHomeworks from './student/student_pages/student_homeworks/student_homeworks.vue'
 
 //imported component to be used on all the SPA
 Vue.component('student-menu', StudentMenu)
-
+Vue.component('student-drawer', StudentDrawer)
 
 
 //routing

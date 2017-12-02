@@ -1,8 +1,10 @@
 <template>
   <div class="background">
-    <homepage-menu></homepage-menu>
+
     <div id="homepage_menu_background"></div>
     <router-view id="router_content"></router-view>
+    <homepage-menu></homepage-menu>
+    <homepage-drawer></homepage-drawer>
     <homepage-footer></homepage-footer>
   </div>
 </template>

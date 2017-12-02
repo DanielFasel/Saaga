@@ -1,8 +1,11 @@
 <template>
 
   <div id="page_container">
-    <student-menu></student-menu>
     <router-view id="router"></router-view>
+    <student-menu></student-menu>
+    <student-drawer></student-drawer>
+    <student-settings></student-settings>
+    <student-help></student-help>
   </div>
 
 </template>
@@ -11,12 +14,24 @@
 
 <script>
 
+import {mapGetters} from 'vuex'
+
+import StudentSettings from "./student_helpers/student_settings/student_settings.vue"
+import StudentHelp from "./student_helpers/student_help/student_help.vue"
+
 export default {
 
-  data: function () {
-    return {
-      message: "Hello Daniel!"
-    }
+  components: {
+    "student-settings": StudentSettings,
+    "student-help": StudentHelp
+  },
+  computed:{
+    ...mapGetters('layout/modalDrawer',[
+      'overflowHidden',
+      'showMenuDrawer',
+      'showSettingsModal',
+      'showHelpModal'
+    ])
   }
 }
 

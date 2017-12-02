@@ -29,32 +29,6 @@
       <i  class="menu_icon fa fa-bars"></i>
       <span id="menutext">Menu</span>
     </div>
-
-    <menu-drawer v-show="showMenuDrawer" @toggleDrawer='toggleMenuDrawer'>
-      <ul id="mobile_navigation_links">
-        <li @click="toggleMenuDrawer">
-          <router-link class="navigation_tab" to='/homeworks' exact>Homeworks <i class="fa fa-link" aria-hidden="true"></i></router-link>
-        </li>
-        <li @click="toggleMenuDrawer">
-          <router-link class="navigation_tab" to='/courses' exact >Courses <i class="fa fa-book" aria-hidden="true"></i></router-link>
-        </li>
-      </ul>
-
-      <ul id="mobile_utility_links">
-        <li>8</li>
-        <li>Game</li>
-        <li><button @click="settingsclicksmall">Settings</button></li>
-        <li><button @click="helpclicksmall">Help</button</li>
-        <li><button v-on:click="logout">Logout</button></li>
-      </ul>
-    </menu-drawer>
-
-
-
-
-    <student-settings></student-settings>
-    <student-help></student-help>
-
   </header>
 </menu-main>
 </template>
@@ -63,9 +37,6 @@
 
 <script>
 
-import StudentSettings from "../student_settings/student_settings.vue"
-import StudentHelp from "../student_help/student_help.vue"
-import MenuDrawer from "../../../../general_helpers/menus/menu_drawer/menu_drawer.vue"
 import MenuMain from "../../../../general_helpers/menus/menu_main/menu_main.vue"
 
 import {mapGetters} from 'vuex'
@@ -74,16 +45,7 @@ import {mapActions} from 'vuex'
 export default {
 
   components: {
-    "student-settings": StudentSettings,
-    "student-help": StudentHelp,
-    "menu-drawer": MenuDrawer,
     "menu-main": MenuMain
-  },
-
-  data: function () {
-    return {
-     message: "My Courses!"
-    }
   },
 
   methods:{
@@ -101,41 +63,13 @@ export default {
     },
 
     // toggle for utility modals
-    settingsclicksmall:function(){
-      this.toggleMenuDrawer(),
-      this.toggleSettingsModal()
-    },
     settingsclick:function(){
       this.toggleSettingsModal()
     },
-
-    helpclicksmall:function(){
-      this.toggleMenuDrawer(),
-      this.toggleHelpModal()
-    },
     helpclick: function(){
       this.toggleHelpModal()
-    },
-
-    // hide the drawer when going from medium to big screen
-    hideDrawerMenu: function(){
-      if (this.showMenuDrawer && this.$mq.above(1000)) {
-         this.toggleMenuDrawer()
-          }
     }
-  },
-  computed: {
-
-    ...mapGetters('layout/modalDrawer',[
-        'showMenuDrawer'
-      ])
-  },
-
-  //watcher that checks screen size to hide drawer
-  watch: {
-    '$mq.resize': 'hideDrawerMenu'
   }
-
 }
 
 </script>
@@ -152,12 +86,16 @@ nav{
 
 /* Header styling */
 header{
+  background-color: rgb(51, 41, 135);
+  color: white;
+  padding-left: 2em;
+  padding-right:2em;
+  height: 70px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 3rem;
 }
 
 /* Logo styling */
@@ -191,25 +129,6 @@ header{
 }
 
 
-
-
-
-/* menu drawer styling */
-.menu-drawer{
-  display: flex;
-  flex-direction: column;
-}
-
-#mobile_navigation_links{
-  display: flex;
-  flex-direction: column;
-}
-#mobile_utility_links{
-  display: flex;
-  flex-direction: column;
-}
-
-
 @media only screen and (min-width: 650px){
 
   /* elements not displayed for small screens */
@@ -221,10 +140,6 @@ header{
   #utility_links{
     display: none;
   }
-
-  #mobile_navigation_links{
-  display: none;
-}
 
   /* Styling for medium configuration */
   nav{

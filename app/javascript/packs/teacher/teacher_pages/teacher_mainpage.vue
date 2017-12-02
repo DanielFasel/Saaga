@@ -1,6 +1,6 @@
 <template>
-<!-- the external div is used to create a mask over the background when a modal is activated or drawer menu -->
-<div id="page_container" v-bind:class="{overflowHidden: overflowHidden}">
+
+<div id="page_container">
 
   <!-- Content of the pages when changing route -->
   <router-view  id="router"></router-view>
@@ -9,8 +9,8 @@
   <teacher-settings></teacher-settings>
   <teacher-help></teacher-help>
 
-  <div id="background_mask" v-show="overflowHidden || showMenuDrawer || showSettingsModal || showHelpModal || showStudentManagementModal || showCourseManagementModal || showSubstituteTeacherModal" >
-  </div>
+  <!-- Background for modals and drawer -->
+  <div id="background_mask" v-show="overflowHidden || showMenuDrawer || showSettingsModal || showHelpModal || showStudentManagementModal || showCourseManagementModal || showSubstituteTeacherModal" ></div>
 
 </div>
 
