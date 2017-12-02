@@ -64,9 +64,10 @@ export default {
 
   methods: {
 
-    ...mapActions([
-      'toggleMenuDrawer'
-    ])
+    ...mapActions('layout/modalDrawer',{
+        toggleMenuDrawer: 'toggleMenuDrawer'
+
+      })
   }
 }
 </script>

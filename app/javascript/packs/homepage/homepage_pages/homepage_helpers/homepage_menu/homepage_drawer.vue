@@ -56,9 +56,10 @@ export default {
 
   methods: {
 
-    ...mapActions([
-      'toggleMenuDrawer'
-    ]),
+    ...mapActions('layout/modalDrawer',{
+        toggleMenuDrawer: 'toggleMenuDrawer'
+
+      }),
 
     // hide the drawer when going from medium to big screen
     hideDrawerMenu: function() {
@@ -69,9 +70,9 @@ export default {
   },
   computed: {
 
-    ...mapGetters([
-      'showMenuDrawer'
-    ])
+    ...mapGetters('layout/modalDrawer',[
+        'showMenuDrawer'
+      ])
   },
   //watcher that checks screen size to hide drawer
   watch: {
