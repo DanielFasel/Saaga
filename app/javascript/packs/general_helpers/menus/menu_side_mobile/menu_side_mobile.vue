@@ -1,8 +1,8 @@
 <template >
-  <ul class="topbar"  @click="onClick" :class="{whitebar: currentPage!='Homepage'}" >
+  <ul class="topbar" :class="{whitebar: currentPage!='Homepage'}" >
     <li v-show="currentPage!='Homepage'">{{currentPage}}</li>
-    <li v-if="menuSide==false && notTop">Press to go to the top</li>
-    <li v-if="menuSide">Press to jump to a chapter</li>
+    <li v-if="menuSide==false && notTop"><a href="#" v-scroll-to="'#testelement'">Scroll to Top</a></li>
+    <li v-if="menuSide"><a href="#" v-scroll-to="'#testelement'">Scroll to Top</a></li>
   </ul>
 </template>
 
@@ -29,6 +29,8 @@ export default {
         window.scrollTo(0, 0)
         var scroll=window.scrollY
         console.log(scroll)
+
+
       }
       else{
         this.toggleMenuSideMobile()

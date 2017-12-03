@@ -61,7 +61,7 @@ export default {
 <style scoped>
 .drawer-mask{
 	position: fixed;
-	z-index: 2;
+	z-index: 4;
 
 	top: 0;
   	left: 0;

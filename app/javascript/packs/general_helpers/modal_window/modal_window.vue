@@ -77,7 +77,7 @@ export default{
   left:50%;
   top:50%;
   transform: translate(-50%,-50%);
-  z-index: 2;
+  z-index: 4;
 
   width: 95vw;
   max-width: 1000px;

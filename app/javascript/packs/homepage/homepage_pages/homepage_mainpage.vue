@@ -1,5 +1,5 @@
 <template>
-  <div class="background">
+  <div class="background" id="testelement">
 
     <div id="homepage_menu_background"></div>
     <router-view id="router_content"></router-view>
@@ -42,7 +42,7 @@ export default {
 
 #background_mask{
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   background-color: rgba(0, 0, 0, .5);
   top: 0;
     left: 0;

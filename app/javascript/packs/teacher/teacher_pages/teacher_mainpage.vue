@@ -12,7 +12,7 @@
   <!-- Dark Background for modals and drawer all modals and other component trigering the background need to be listed here -->
   <transition name="mask">
     <div id="background_mask" v-show="showMenuDrawer || showSettingsModal || showHelpModal || showStudentManagementModal || showCourseManagementModal || showSubstituteTeacherModal" ></div>
-  </transition>  
+  </transition>
 </div>
 
 </template>
@@ -71,7 +71,7 @@ height:70px;
 
 #background_mask{
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   background-color: rgba(0, 0, 0, .5);
   top: 0;
     left: 0;
