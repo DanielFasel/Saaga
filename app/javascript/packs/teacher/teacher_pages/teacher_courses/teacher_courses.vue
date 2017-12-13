@@ -117,7 +117,8 @@ export default {
   #courses_content{
     flex-direction: row;
     justify-content: space-between;
-  
+
+
   }
 
   #sidelinks{

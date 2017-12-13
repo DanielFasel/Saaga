@@ -42,7 +42,6 @@
 
 <script>
 import MenuDrawer from "../../../../general_helpers/menus/menu_drawer/menu_drawer.vue"
-import MenuSideMobile from "../../../../general_helpers/menus/menu_side_mobile/menu_side_mobile.vue"
 
 import {mapGetters} from 'vuex'
 import {mapActions} from 'vuex'
@@ -50,8 +49,7 @@ import {mapActions} from 'vuex'
 export default {
 
   components: {
-    "menu-drawer": MenuDrawer,
-    "menu-side-mobile": MenuSideMobile
+    "menu-drawer": MenuDrawer
   },
 
   methods: {

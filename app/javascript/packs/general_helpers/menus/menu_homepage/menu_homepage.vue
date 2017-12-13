@@ -1,14 +1,16 @@
 <template>
-<div id="menu" v-bind:class="{hide: menuHide}">
-  <slot></slot>
-</div>
+  <transition name="homepagemenu">
+    <div id="menu" v-show="menuHide">
+      <slot></slot>
+    </div>
+  </transition>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      menuHide: false,
+      menuHide: true,
       scrollHeight: 0,
       delayHeight: 0
 
@@ -21,7 +23,7 @@ export default {
 
 
       if (this.scrollHeight <= topScroll && this.scrollHeight > 70) {
-        this.menuHide = true
+        this.menuHide = false
         this.delayHeight = topScroll
       } else if (this.scrollHeight > topScroll) {
         if (this.delayHeight == 0) {
@@ -29,7 +31,7 @@ export default {
         }
         var travDist = (this.delayHeight - topScroll)
         if (travDist > 30) {
-          this.menuHide = false
+          this.menuHide = true
           this.delayHeight = 0
         }
       }
@@ -53,12 +55,25 @@ export default {
 #menu {
   position: fixed;
   top: 0;
-  transition: margin-top 0.2s ease-in-out;
+  
   z-index: 1;
-  width: 100vw;
+  width: 100%;
+    padding-right: calc(100vw - 100%);
 }
 
-.hide {
-  margin-top: -100px;
+/* Transition effects */
+
+.homepagemenu-enter{
+  transform: translateY(-100px);
+}
+
+.homepagemenu-enter-active,
+.homepagemenu-leave-active {
+	transition: all 0.4s ease;
+}
+
+
+.homepagemenu-leave-to{
+	transform: translateY(-100px);
 }
 </style>

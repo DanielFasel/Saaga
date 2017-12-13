@@ -5,7 +5,11 @@
       <router-link to='/' exact><span id="big_logo">Saaga</span><span id="small_logo">S</span></router-link>
     </div>
 
-    <menu-side-mobile id="menu_side_mobile"></menu-side-mobile>
+    <ul id="menu_side_mobile" :class="{whitebar: currentPage!='Homepage'}" >
+      <li v-if="currentPage!='Homepage'" @click="toggleMenuSide">{{currentPage}}</li>
+      <li v-if="menuSide==false && notTop"><a href="#" v-scroll-to="'#testelement'">Scroll to Top</a></li>
+      <li v-if="menuSide"><a href="#" v-scroll-to="'#testelement'">Scroll to Top</a></li>
+    </ul>
 
     <nav>
       <ul id="navigation_links">
@@ -46,28 +50,52 @@
 
 <script>
 import MenuHomepage from "../../../../general_helpers/menus/menu_homepage/menu_homepage.vue"
-import MenuSideMobile from "../../../../general_helpers/menus/menu_side_mobile/menu_side_mobile.vue"
 
-import {
-  mapGetters
-} from 'vuex'
-import {
-  mapActions
-} from 'vuex'
+import {mapGetters} from 'vuex'
+import {mapActions} from 'vuex'
 
 export default {
 
+  data: function(){
+    return {
+      notTop:false
+    }
+  },
+
   components: {
-    "menu-homepage": MenuHomepage,
-    "menu-side-mobile": MenuSideMobile
+    "menu-homepage": MenuHomepage
   },
 
   methods: {
 
     ...mapActions('layout/modalDrawer',{
-        toggleMenuDrawer: 'toggleMenuDrawer'
+        toggleMenuDrawer: 'toggleMenuDrawer',
+        toggleMenuSide: 'toggleMenuSide'
+      }),
 
-      })
+      pressTop: function(){
+        if (this.menuSide==false && window.scrollY<140) {
+          this.notTop=false
+        }
+        else {
+          this.notTop=true
+        }
+      }
+  },
+
+  computed: {
+    ...mapGetters([
+      'currentPage',
+      'menuSide'
+    ])
+  },
+
+  created: function() {
+    window.addEventListener('scroll', this.pressTop);
+  },
+
+  destroyed: function() {
+    window.removeEventListener('scroll', this.pressTop);
   }
 }
 </script>

@@ -61,8 +61,9 @@ height:70px;
 #router{
   display: flex;
   background: white;
-  width: 100%;
+  width: calc(100% - (100vw - 100%));
   padding-top: 70px;
+    padding-right: calc(100vw - 100%);
 }
 
 .overflowHidden {

@@ -4,6 +4,7 @@
     <div id="homepage_menu_background"></div>
     <router-view id="router_content"></router-view>
     <homepage-menu></homepage-menu>
+    <homepage-menu-side></homepage-menu-side>
     <homepage-drawer></homepage-drawer>
     <homepage-footer></homepage-footer>
 
