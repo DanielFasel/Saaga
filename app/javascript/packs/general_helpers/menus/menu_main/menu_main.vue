@@ -7,6 +7,11 @@
 </template>
 
 <script>
+
+
+
+
+
 export default {
   data() {
     return {
@@ -16,6 +21,10 @@ export default {
 
     }
   },
+
+
+
+
   methods: {
 
     handleScroll: function(event) {
@@ -53,12 +62,12 @@ export default {
 
 <style scoped>
 #menu {
+  box-sizing: border-box;
   position: fixed;
   top: 0;
-
   width: 100%;
-  padding-right: calc(100vw - 100%);
-
+  display: flex;
+  flex-direction: row;
 }
 
 /* Transition effects */

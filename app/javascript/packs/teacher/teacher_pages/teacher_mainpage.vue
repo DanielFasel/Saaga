@@ -19,7 +19,6 @@
 
 
 <script>
-
 import {mapGetters} from 'vuex'
 import {mapActions} from 'vuex'
 
@@ -40,9 +39,10 @@ export default {
   },
 
   methods:{
-    ...mapActions('layout/generalLayout',[
-      'overflowPadding'
-    ])
+    ...mapActions('layout/generalLayout',{
+      overflowPaddingAction:'overflowPadding',
+      overflowPaddingLiveAction:'overflowPaddingLive'
+    })
   },
 
   computed:{
@@ -56,18 +56,20 @@ export default {
       'showSubstituteTeacherModal'
     ]),
     ...mapGetters('layout/generalLayout',[
-      'overflowPadding'
+      'overflowPadding',
+      'overflowPaddingLive'
     ]),
 
     modalMenuPadding: function(){
       if (this.showSettingsModal || this.showHelpModal || this.showStudentManagementModal || this.showCourseManagementModal || this.showSubstituteTeacherModal)
         {
-        this.paddingRight=this.overflowPadding
+        this.overflowPaddingLiveAction(this.overflowPadding)
+
         }
       else{
-        this.paddingRight=0
+        this.overflowPaddingLiveAction(0)
       }
-      return{ paddingRight : this.paddingRight + 'px'}
+      return{ paddingRight : this.overflowPaddingLive + 'px'}
     }
   },
 
@@ -96,7 +98,7 @@ export default {
 
       document.body.removeChild (outer);
       // sends the width to vuex
-      this.$store.dispatch('layout/generalLayout/overflowPadding', w1-w2)
+      this.overflowPaddingAction(w1-w2)
   }
 
 
@@ -119,6 +121,7 @@ height:70px;
   display: flex;
   background: white;
   padding-top: 70px;
+
 }
 
 .overflowHidden {

@@ -1,6 +1,6 @@
 <template>
 <menu-main>
-<header>
+<header :style="{paddingRight: this.overflowPaddingLive + 'px'}">
 
   <div id="logo">SAAGA</div>
 
@@ -43,6 +43,11 @@ import {mapActions} from 'vuex'
 
 export default {
 
+  data(){
+    return{
+        paddingRight : 0
+    }
+  },
   components: {
     "menu-main": MenuMain,
   },
@@ -68,7 +73,14 @@ export default {
     helpclick: function(){
       this.toggleHelpModal()
     }
-  }
+  },
+
+  computed:{
+
+      ...mapGetters('layout/generalLayout',[
+        'overflowPaddingLive'
+      ]),
+    }
 
 }
 
@@ -86,16 +98,16 @@ nav{
 
 /* Header styling */
 header{
+  box-sizing: border-box;
   background-color: rgb(51, 41, 135);
   color: white;
-  padding-left: 2em;
-  padding-right:2em;
+  width: 100%;
   height: 70px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+
 }
 
 /* Logo styling */

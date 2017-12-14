@@ -8,7 +8,8 @@ export const generalLayout = {
 	namespaced:true,
 	state: {
 		// Padding for a smooth transition when opening modals and removinf scroll bar (avoids it to "jump")
-		overflowPadding: 0
+		overflowPadding: 0,
+		overflowPaddingLive:0
 	},
 	getters,
 	mutations,
