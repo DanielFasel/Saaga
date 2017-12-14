@@ -74,8 +74,8 @@ export default{
 
 .modal-wrapper {
   position: fixed;
-  left:50%;
-  top:50%;
+  left:50vw;
+  top:50vw;
   transform: translate(-50%,-50%);
   z-index: 4;
 

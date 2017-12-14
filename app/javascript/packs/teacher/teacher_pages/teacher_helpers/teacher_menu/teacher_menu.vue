@@ -3,7 +3,7 @@
 <header>
 
   <div id="logo">SAAGA</div>
-  <menu-side-mobile id="menu_side_mobile"></menu-side-mobile>
+
 
   <nav>
     <ul id="navigation_links">

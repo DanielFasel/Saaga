@@ -3,7 +3,7 @@
 <div id="page_container">
 
   <!-- Content of the pages when changing route -->
-  <router-view  id="router"></router-view>
+  <router-view  id="router" :style="modalMenuPadding"></router-view>
   <teacher-menu></teacher-menu>
   <teacher-drawer></teacher-drawer>
   <teacher-settings></teacher-settings>
@@ -21,15 +21,28 @@
 <script>
 
 import {mapGetters} from 'vuex'
+import {mapActions} from 'vuex'
 
 import TeacherSettings from "./teacher_helpers/teacher_settings/teacher_settings.vue"
 import TeacherHelp from "./teacher_helpers/teacher_help/teacher_help.vue"
 
 export default {
 
+  data: function (){
+    return{
+      dataModalDrawer : false,
+      paddingRight : 0
+    }
+  },
   components: {
     "teacher-settings": TeacherSettings,
     "teacher-help": TeacherHelp
+  },
+
+  methods:{
+    ...mapActions('layout/generalLayout',[
+      'overflowPadding'
+    ])
   },
 
   computed:{
@@ -41,8 +54,52 @@ export default {
       'showStudentManagementModal',
       'showCourseManagementModal',
       'showSubstituteTeacherModal'
-    ])
+    ]),
+    ...mapGetters('layout/generalLayout',[
+      'overflowPadding'
+    ]),
+
+    modalMenuPadding: function(){
+      if (this.showSettingsModal || this.showHelpModal || this.showStudentManagementModal || this.showCourseManagementModal || this.showSubstituteTeacherModal)
+        {
+        this.paddingRight=this.overflowPadding
+        }
+      else{
+        this.paddingRight=0
+      }
+      return{ paddingRight : this.paddingRight + 'px'}
+    }
+  },
+
+  created: function(){
+
+    // calculates the width of the scroll bar
+      var inner = document.createElement('p');
+      inner.style.width = "100%";
+      inner.style.height = "200px";
+
+      var outer = document.createElement('div');
+      outer.style.position = "absolute";
+      outer.style.top = "0px";
+      outer.style.left = "0px";
+      outer.style.visibility = "hidden";
+      outer.style.width = "200px";
+      outer.style.height = "150px";
+      outer.style.overflow = "hidden";
+      outer.appendChild (inner);
+
+      document.body.appendChild (outer);
+      var w1 = inner.offsetWidth;
+      outer.style.overflow = 'scroll';
+      var w2 = inner.offsetWidth;
+      if (w1 == w2) w2 = outer.clientWidth;
+
+      document.body.removeChild (outer);
+      // sends the width to vuex
+      this.$store.dispatch('layout/generalLayout/overflowPadding', w1-w2)
   }
+
+
 }
 </script>
 
@@ -61,9 +118,7 @@ height:70px;
 #router{
   display: flex;
   background: white;
-  width: calc(100% - (100vw - 100%));
   padding-top: 70px;
-    padding-right: calc(100vw - 100%);
 }
 
 .overflowHidden {
