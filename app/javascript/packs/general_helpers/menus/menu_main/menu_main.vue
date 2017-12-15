@@ -8,22 +8,16 @@
 
 <script>
 
-
-
-
-
 export default {
   data() {
     return {
       menuHide: true,
       scrollHeight: 0,
-      delayHeight: 0
+      delayHeight: 0,
+      menuZIndex:0
 
     }
   },
-
-
-
 
   methods: {
 

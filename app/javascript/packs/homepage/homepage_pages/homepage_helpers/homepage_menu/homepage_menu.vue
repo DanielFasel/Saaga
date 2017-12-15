@@ -1,5 +1,5 @@
 <template>
-<menu-homepage>
+<menu-homepage :style="menuZIndex">
   <header>
     <div id="logo">
       <router-link to='/' exact><span id="big_logo">Saaga</span><span id="small_logo">S</span></router-link>
@@ -58,7 +58,7 @@ export default {
 
   data: function(){
     return {
-      notTop:false
+      notTop:false,
     }
   },
 
@@ -87,7 +87,16 @@ export default {
     ...mapGetters([
       'currentPage',
       'menuSide'
-    ])
+    ]),
+
+    menuZIndex: function(){
+      if(this.menuSide){
+        return{ zIndex: 4}
+      }
+      else{
+        return{zIndex:0}
+      }
+    }
   },
 
   created: function() {
