@@ -1,7 +1,7 @@
 <template>
 
 
-    <menu-drawer v-show="showMenuDrawer" @toggleDrawer='toggleMenuDrawer'>
+    <menu-drawer v-show="showMenuDrawer">
       <ul id="mobile_navigation_links">
 
 

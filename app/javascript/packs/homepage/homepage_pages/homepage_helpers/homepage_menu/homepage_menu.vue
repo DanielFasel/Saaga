@@ -38,7 +38,7 @@
       </ul>
     </nav>
 
-    <div class="center_div" id="mobile_center_div" @click="toggleMenuDrawer">
+    <div class="center_div" id="mobile_center_div" @click="toggleDrawer">
       <i class="menu_icon fa fa-bars fa-lg"></i>
       <span id="menu_text">Menu</span>
     </div>
@@ -73,6 +73,16 @@ export default {
         toggleMenuSide: 'toggleMenuSide'
       }),
 
+      toggleDrawer: function(){
+        if(this.showMenuSide){
+          this.toggleMenuSide()
+          this.toggleMenuDrawer()
+        }
+        else{
+          this.toggleMenuDrawer()
+        }
+      },
+
       pressTop: function(){
         if (this.menuSide==false && window.scrollY<140) {
           this.notTop=false
@@ -87,6 +97,9 @@ export default {
     ...mapGetters([
       'currentPage',
       'menuSide'
+    ]),
+    ...mapGetters('layout/modalDrawer',[
+      'showMenuSide'
     ]),
 
     menuZIndex: function(){

@@ -14,19 +14,15 @@
 
 <script>
 import {mapGetters} from 'vuex'
+import {mapActions} from 'vuex'
 
 export default {
 
-	data: function() {
-		return {
-			drawer: false
-		}
-	},
 	methods:{
-
-		toggleMenuDrawer: function(){
-					this.$emit('toggleDrawer')
-    },
+		...mapActions('layout/modalDrawer',{
+			toggleMenuDrawer: 'toggleMenuDrawer',
+			toggleMenuSide: 'toggleMenuSide'
+		}),
 
 		// close drawer if open. Uses a local store for showMenuDrawer. So needs to exist in Teacher/Student/Admin/Homepage in the same folder to function
 		escapeKeyListener: function(evt){
@@ -38,7 +34,8 @@ export default {
 
 	computed:{
 		...mapGetters('layout/modalDrawer',[
-			'showMenuDrawer'
+			'showMenuDrawer',
+			'showMenuSide'
 		])
 	},
 
@@ -46,7 +43,6 @@ export default {
 
 		// Creation of Event listener to close with the escape key
 		document.addEventListener('keyup', this.escapeKeyListener);
-
   },
 
 	beforeDestroy: function(){

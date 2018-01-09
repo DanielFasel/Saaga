@@ -47,20 +47,22 @@ Rails.application.routes.draw do
 
 
 
-  
+
       # root page
       root 'homepages#index'
 
 
 
 
-    # Teacher and Student Welcome page after first sign in
+    # Teacher, Translator and Student Welcome page after first sign in
     get '/welcomestudent', to: 'student_welcomes#index'
     get '/welcometeacher', to: 'teacher_welcomes#index'
+    get '/welcometranslator', to: 'translator_welcomes#index'
 
-    # routes to the student and teacher spa
+    # routes to the student, translator and teacher spa
     get '/student', to: 'studentpages#index'
     get '/teacher', to: 'teacherpages#index'
+    get '/translator', to: 'translatorpages#index'
 
 
     #School creation routes

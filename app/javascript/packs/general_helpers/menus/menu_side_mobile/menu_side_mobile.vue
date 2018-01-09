@@ -22,7 +22,6 @@ export default {
       hideMenuSide: function() {
         if (this.showMenuSide && this.$mq.above(1000)) {
           this.toggleMenuSide()
-    
         }
       },
       // close drawer if open. Uses a local store for showMenuDrawer. So needs to exist in Teacher/Student/Admin/Homepage in the same folder to function
@@ -36,8 +35,7 @@ export default {
 
     computed:{
         ...mapGetters('layout/modalDrawer',[
-          'showMenuSide',
-          'showMenuDrawer'
+          'showMenuSide'
         ])
       },
 

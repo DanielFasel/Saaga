@@ -21,6 +21,20 @@ end
 
 #Users and related tables
 
+#translator
+
+2.times do |i|
+  User.create!(username: "Tran#{i}",
+              givenname: "Tran#{i}",
+              familyname: "Dupont#{i}",
+              region: "en",
+              type: "Translator",
+              email:"translator#{i}@english.com",
+              password: "123456",
+              password_confirmation: "123456"
+              )
+  end
+
 #student
 
 20.times do |i|
