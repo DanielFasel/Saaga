@@ -1,9 +1,11 @@
 <template>
 
+<!--"page_container" is needed because vuejs can only have one outer element and it's also used to scroll to the top-->
 <div id="page_container">
 
   <!-- Content of the pages when changing route -->
   <router-view  id="router" :style="modalMenuPadding"></router-view>
+
   <teacher-menu></teacher-menu>
   <teacher-drawer></teacher-drawer>
   <teacher-settings></teacher-settings>
@@ -21,18 +23,11 @@
 <script>
 import {mapGetters} from 'vuex'
 import {mapActions} from 'vuex'
-
 import TeacherSettings from "./teacher_helpers/teacher_settings/teacher_settings.vue"
 import TeacherHelp from "./teacher_helpers/teacher_help/teacher_help.vue"
 
 export default {
 
-  data: function (){
-    return{
-      dataModalDrawer : false,
-      paddingRight : 0
-    }
-  },
   components: {
     "teacher-settings": TeacherSettings,
     "teacher-help": TeacherHelp
@@ -60,11 +55,10 @@ export default {
       'overflowPaddingLive'
     ]),
 
+    // function that adds padding to compensate for the scroll bar disappearing when modals are shown. It avoids the page to "jump".
     modalMenuPadding: function(){
-      if (this.showSettingsModal || this.showHelpModal || this.showStudentManagementModal || this.showCourseManagementModal || this.showSubstituteTeacherModal)
-        {
+      if (this.showSettingsModal || this.showHelpModal || this.showStudentManagementModal || this.showCourseManagementModal || this.showSubstituteTeacherModal){
         this.overflowPaddingLiveAction(this.overflowPadding)
-
         }
       else{
         this.overflowPaddingLiveAction(0)
@@ -74,8 +68,7 @@ export default {
   },
 
   created: function(){
-
-    // calculates the width of the scroll bar
+    // calculates the width of the scroll bar of any browser
       var inner = document.createElement('p');
       inner.style.width = "100%";
       inner.style.height = "200px";
@@ -101,7 +94,6 @@ export default {
       this.overflowPaddingAction(w1-w2)
   }
 
-
 }
 </script>
 
@@ -112,11 +104,8 @@ export default {
   background: rgb(51, 41, 135);
   display: flex;
   flex-direction: column;
+}
 
-}
-#teacher_menu_background {
-height:70px;
-}
 #router{
   display: flex;
   background: white;
@@ -124,20 +113,17 @@ height:70px;
 
 }
 
-.overflowHidden {
-  overflow: hidden;
-}
-
 #background_mask{
   position: fixed;
   z-index: 2;
   background-color: rgba(0, 0, 0, .5);
   top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
+/*Animation for the "background_mask" */
 .mask-enter-active, .mask-leave-active {
 transition: opacity .5s
 }
