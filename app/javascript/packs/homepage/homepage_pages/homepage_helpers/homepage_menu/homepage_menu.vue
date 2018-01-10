@@ -7,8 +7,8 @@
 
     <ul id="menu_side_mobile" :class="{whitebar: currentPage!='Homepage'}" >
       <li v-if="currentPage!='Homepage'" @click="toggleMenuSide">{{currentPage}}</li>
-      <li v-if="menuSide==false && notTop"><a href="#" v-scroll-to="'#testelement'">Scroll to Top</a></li>
-      <li v-if="menuSide"><a href="#" v-scroll-to="'#testelement'">Scroll to Top</a></li>
+      <li v-if="menuSide==false && notTop"><a href="#" v-scroll-to="'#page_container'">Scroll to Top</a></li>
+      <li v-if="menuSide"><a href="#" v-scroll-to="'#page_container'">Scroll to Top</a></li>
     </ul>
 
     <nav>
@@ -148,6 +148,7 @@ header {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   height: 56px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

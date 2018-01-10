@@ -4,7 +4,7 @@
 <div id="page_container">
 
   <!-- Content of the pages when changing route -->
-  <router-view  id="router" :style="modalMenuPadding"></router-view>
+  <router-view  id="router_content" :style="modalMenuPadding"></router-view>
 
   <teacher-menu></teacher-menu>
   <teacher-drawer></teacher-drawer>
@@ -106,7 +106,7 @@ export default {
   flex-direction: column;
 }
 
-#router{
+#router_content{
   display: flex;
   background: white;
   padding-top: 70px;

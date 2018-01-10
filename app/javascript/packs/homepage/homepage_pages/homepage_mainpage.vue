@@ -1,7 +1,6 @@
 <template>
-  <div class="background" id="testelement">
+  <div id="page_container">
 
-    <div id="homepage_menu_background"></div>
     <router-view id="router_content"></router-view>
     <homepage-menu-side></homepage-menu-side>
     <homepage-menu></homepage-menu>
@@ -36,10 +35,18 @@ export default {
 <style scoped>
 
 
-#homepage_menu_background{
-  height: 56px;
-  background:rgb(255, 237, 135) ;
-  filter: blur(5px);
+#page_container {
+  display: flex;
+  flex-direction: column;
+}
+
+#router_content{
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding-top: 70px;
+  min-height: calc(100vh - 150px);
+
 }
 
 #background_mask{
@@ -47,11 +54,12 @@ export default {
   z-index: 2;
   background-color: rgba(0, 0, 0, .5);
   top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
+/*Animation for the "background_mask" */
 .mask-enter-active, .mask-leave-active {
 transition: opacity .5s
 }

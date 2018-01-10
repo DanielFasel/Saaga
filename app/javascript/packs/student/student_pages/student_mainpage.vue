@@ -4,7 +4,7 @@
   <div id="page_container">
 
     <!-- Content of the pages when changing route -->
-    <router-view id="router" :style="modalMenuPadding"></router-view>
+    <router-view id="router_content" :style="modalMenuPadding"></router-view>
 
     <student-menu></student-menu>
     <student-drawer></student-drawer>
@@ -106,7 +106,7 @@ created: function(){
    flex-direction: column;
   }
 
-  #router{
+  #router_content{
     display: flex;
     background: white;
     margin-top: 70px;
