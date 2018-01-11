@@ -1,4 +1,5 @@
 <template>
+
   <div id="page_container">
 
     <router-view id="router_content"></router-view>
@@ -13,6 +14,7 @@
     </transition>
 
   </div>
+
 </template>
 
 <script>
@@ -28,10 +30,10 @@ export default {
     ])
   }
 }
+
 </script>
 
 <style scoped>
-
 
 #page_container {
   display: flex;
@@ -44,7 +46,6 @@ export default {
   background: white;
   padding-top: 70px;
   min-height: calc(100vh - 150px);
-
 }
 
 #router_mask{

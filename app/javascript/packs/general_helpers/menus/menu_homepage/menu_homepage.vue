@@ -2,9 +2,10 @@
 
   <transition name="homepagemenu">
     <div id="menu" v-show="menuHide">
+
       <slot></slot>
 
-      <!-- Dark Background for the MainMenu, all component trigering the background need to be listed here -->
+      <!-- Dark Background for the HomepageMenu, all component trigering the background need to be listed here -->
       <transition name="mask">
         <div id="homepage_menu_mask" v-show="showMenuDrawer" ></div>
       </transition>
@@ -16,8 +17,11 @@
 
 
 <script>
+
 import {mapGetters} from 'vuex'
+
 export default {
+
   data() {
     return {
       menuHide: true,

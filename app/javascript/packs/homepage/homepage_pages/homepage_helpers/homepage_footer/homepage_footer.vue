@@ -16,7 +16,6 @@
     <li class="link">
       <router-link  to='/privacy' exact>Privacy Notice</router-link>
     </li>
-
   </ul>
 
 </template>
@@ -26,6 +25,7 @@
 </script>
 
 <style scoped>
+
 ul {
 background-color:rgb(51,41,135);
 display: flex;
@@ -34,7 +34,9 @@ align-items: center;
 justify-content: space-around;
 min-height:5em;
 }
+
 .link:hover{
     text-decoration: underline;
 }
+
 </style>

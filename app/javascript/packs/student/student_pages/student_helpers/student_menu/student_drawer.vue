@@ -1,5 +1,8 @@
 <template>
+
     <menu-drawer v-show="showMenuDrawer" @toggleDrawer='toggleMenuDrawer'>
+
+      <!-- Navigation for routes -->
       <ul id="mobile_navigation_links">
         <li @click="toggleMenuDrawer">
           <router-link class="navigation_tab" to='/homeworks' exact>Homeworks <i class="fa fa-link" aria-hidden="true"></i></router-link>
@@ -9,6 +12,7 @@
         </li>
       </ul>
 
+      <!-- Navigation for utility modals & logout -->
       <ul id="mobile_utility_links">
         <li>8</li>
         <li>Game</li>
@@ -16,17 +20,19 @@
         <li><button @click="helpclicksmall">Help</button</li>
         <li><button v-on:click="logout">Logout</button></li>
       </ul>
+
     </menu-drawer>
+
 </template>
 
 
 
 <script>
 
-import MenuDrawer from "../../../../general_helpers/menus/menu_drawer/menu_drawer.vue"
-
 import {mapGetters} from 'vuex'
 import {mapActions} from 'vuex'
+
+import MenuDrawer from "../../../../general_helpers/menus/menu_drawer/menu_drawer.vue"
 
 export default {
 
@@ -41,7 +47,7 @@ export default {
         toggleSettingsModal: 'toggleSettingsModal',
         toggleHelpModal: 'toggleHelpModal'
       }),
-
+    // Function to log out user session
     logout:function(){
       this.$http.delete('./logout').then(function(){
         window.location.href = "/login"
@@ -66,8 +72,8 @@ export default {
           }
     }
   },
-  computed: {
 
+  computed: {
     ...mapGetters('layout/modalDrawer',[
         'showMenuDrawer'
       ])
@@ -77,7 +83,6 @@ export default {
   watch: {
     '$mq.resize': 'hideDrawerMenu'
   }
-
 }
 
 </script>
@@ -85,7 +90,6 @@ export default {
 
 
 <style scoped>
-
 
 /* menu drawer styling */
 .menu-drawer{
@@ -103,9 +107,9 @@ export default {
 }
 
 
+/* Styling for medium screens */
 @media only screen and (min-width: 650px){
 
-  /* Styling for medium configuration */
   #mobile_navigation_links{
   display: none;
   }

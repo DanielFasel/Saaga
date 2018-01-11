@@ -56,9 +56,7 @@ export default {
 
     ...mapActions('layout/modalDrawer',{
         toggleMenuDrawer: 'toggleMenuDrawer'
-
       }),
-
     // hide the drawer when going from medium to big screen
     hideDrawerMenu: function() {
       if (this.showMenuDrawer && this.$mq.above(1000)) {
@@ -83,15 +81,8 @@ export default {
 
 /*mobile size */
 
-
-/*--------------------------*/
-
-
-
-
 #mobile_navigation_links{
   margin-top: 4em;
-
 }
 
 #mobile_navigation_links li{
@@ -99,17 +90,17 @@ export default {
   background-color: rgb(212, 209, 228);
 }
 
-
 #mobile_navigation_links li a{
   color:rgb(51, 41, 135);
   display: inline-block;
   width: 100%;
   padding: 1em;
 }
+
 #mobile_utility_links{
   margin-top: 0.5em;
-
 }
+
 #mobile_utility_links li{
   padding-bottom: 1em;
   padding-left: 1em;
@@ -118,11 +109,7 @@ export default {
 
 #mobile_utility_links li+li{
   border-top: 1px solid white
-
 }
-
-
-
 
 
 
@@ -130,7 +117,6 @@ export default {
 /*medium size */
 
 @media only screen and (min-width: 650px) {
-
 
   #mobile_navigation_links {
     display: none;

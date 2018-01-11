@@ -35,6 +35,7 @@ export default {
   components: {
     "menu-drawer": MenuDrawer,
   },
+
   methods:{
 
     ...mapActions('layout/modalDrawer',{
@@ -43,6 +44,7 @@ export default {
         toggleHelpModal: 'toggleHelpModal'
       }),
 
+    // Function to log out from user session
     logout:function(){
       this.$http.delete('./logout').then(function(){
           window.location.href = "/login"
@@ -57,7 +59,6 @@ export default {
     settingsclick:function(){
       this.toggleSettingsModal()
     },
-
     helpclicksmall:function(){
       this.toggleMenuDrawer(),
       this.toggleHelpModal()
@@ -73,7 +74,6 @@ export default {
   },
 
   computed: {
-
     ...mapGetters('layout/modalDrawer',[
         'showMenuDrawer'
       ])
@@ -83,15 +83,12 @@ export default {
   watch: {
     '$mq.resize': 'hideDrawerMenu'
   }
-
 }
 
 </script>
 
 
-
 <style scoped>
-
 
 /* menu drawer styling */
 .menu-drawer{
@@ -103,19 +100,18 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
 #mobile_utility_links{
   display: flex;
   flex-direction: column;
 }
 
-
+/* Styling for medium screens */
 @media only screen and (min-width: 650px){
-
-  /* elements not displayed for small screens */
 
   #mobile_navigation_links{
   display: none;
-}
+  }
 }
 
 </style>

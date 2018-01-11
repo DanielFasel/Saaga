@@ -1,19 +1,22 @@
 <template >
+
   <transition name="menuside">
     <div id="menu-side-mask"  @click.self="toggleMenuSide">
-    <div id="menu_side_mobile">
-      <slot></slot>
+      <div id="menu_side_mobile">
+        <slot></slot>
+      </div>
     </div>
-  </div>
   </transition>
+
 </template>
 
 <script>
+
 import {mapGetters} from 'vuex'
 import {mapActions} from 'vuex'
 
 export default {
-  
+
   methods:{
       ...mapActions('layout/modalDrawer',{
         toggleMenuSide: 'toggleMenuSide'
@@ -58,6 +61,7 @@ export default {
 </script>
 
 <style scoped>
+
 #menu-side-mask{
   position: fixed;
   z-index: 3;
@@ -87,4 +91,5 @@ export default {
 .menuside-leave-to{
 	transform: translateY(-200px);
 }
+
 </style>

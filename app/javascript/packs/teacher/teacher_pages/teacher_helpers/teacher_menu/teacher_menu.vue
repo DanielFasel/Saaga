@@ -1,4 +1,5 @@
 <template>
+
 <menu-main>
   <!-- "padding right" is there to avoid jumps when opening a modal because the scroll bar disappears-->
   <header :style="{paddingRight: this.overflowPaddingLive + 'px'}">
@@ -33,13 +34,16 @@
 
   </header>
 </menu-main>
+
 </template>
 
 
 
 <script>
+
 import {mapGetters} from 'vuex'
 import {mapActions} from 'vuex'
+
 import MenuMain from "../../../../general_helpers/menus/menu_main/menu_main.vue"
 
 export default {
@@ -74,7 +78,9 @@ export default {
 
 
 <style scoped>
-/* nav only displayed on medium and large screen and therefore not displayed for small screens*/
+
+/* Styling for small screens */
+/* nav only displayed on medium and large screen and therefore not displayed for small screens */
 
 nav {
   display: none;
@@ -101,8 +107,6 @@ header {
   width: 10vw;
 }
 
-
-/* Display non nav for mobile */
 .center_div {
   display: flex;
   align-items: center;
@@ -122,6 +126,7 @@ header {
 
 
 
+/* Styling for medium screens */
 @media only screen and (min-width: 650px) {
 
   /* elements not displayed for small screens */
@@ -168,12 +173,8 @@ header {
 }
 
 
-
-
-
-
-@media only screen and (min-width: 1000px) {
 /* Styling for big screens */
+@media only screen and (min-width: 1000px) {
 
   .center_div {
     display: none;
@@ -189,4 +190,5 @@ header {
     margin-left: 1vw;
   }
 }
+
 </style>
