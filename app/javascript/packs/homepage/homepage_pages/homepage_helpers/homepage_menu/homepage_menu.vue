@@ -1,5 +1,5 @@
 <template>
-<menu-homepage :style="menuZIndex">
+<menu-homepage>
   <header>
     <div id="logo">
       <router-link to='/' exact><span id="big_logo">Saaga</span><span id="small_logo">S</span></router-link>
@@ -7,8 +7,7 @@
 
     <ul id="menu_side_mobile" :class="{whitebar: currentPage!='Homepage'}" >
       <li v-if="currentPage!='Homepage'" @click="toggleMenuSide">{{currentPage}}</li>
-      <li v-if="menuSide==false && notTop"><a href="#" v-scroll-to="'#page_container'">Scroll to Top</a></li>
-      <li v-if="menuSide"><a href="#" v-scroll-to="'#page_container'">Scroll to Top</a></li>
+      <li v-if="notTop"><a href="#" v-scroll-to="'#page_container'">Scroll to Top</a></li>
     </ul>
 
     <nav>
@@ -84,32 +83,22 @@ export default {
       },
 
       pressTop: function(){
-        if (this.menuSide==false && window.scrollY<140) {
-          this.notTop=false
+        if (this.showMenuSide=true && window.scrollY>140) {
+          this.notTop=true
         }
         else {
-          this.notTop=true
+          this.notTop=false
         }
       }
   },
 
   computed: {
     ...mapGetters([
-      'currentPage',
-      'menuSide'
+      'currentPage'
     ]),
     ...mapGetters('layout/modalDrawer',[
       'showMenuSide'
-    ]),
-
-    menuZIndex: function(){
-      if(this.menuSide){
-        return{ zIndex: 4}
-      }
-      else{
-        return{zIndex:0}
-      }
-    }
+    ])
   },
 
   created: function() {

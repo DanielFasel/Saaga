@@ -2,11 +2,9 @@
 		<transition name="drawer">
 		<div class="drawer-mask"  @click.self="toggleMenuDrawer">
 
-
 			<div class="drawer-wrapper">
 				<slot></slot>
 			</div>
-
 
 		</div>
 	</transition>
@@ -40,7 +38,6 @@ export default {
 	},
 
 	created: function(){
-
 		// Creation of Event listener to close with the escape key
 		document.addEventListener('keyup', this.escapeKeyListener);
   },
@@ -48,25 +45,22 @@ export default {
 	beforeDestroy: function(){
 		// removal of Event listener to close with the escape key
 		document.removeEventListener('keyup', this.escapeKeyListener);
-
 	}
 }
 
 </script>
 
 <style scoped>
+
 .drawer-mask{
 	position: fixed;
 	z-index: 4;
-
 	top: 0;
-  	left: 0;
-  	width: 100%;
-  	height: 100%;
-  	display: flex;
-  	justify-content: flex-end;
-
-
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .drawer-wrapper{
@@ -74,22 +68,17 @@ export default {
 	height: 100%;
 	max-width: 300px;
 	width: 80vw;
-
 }
 
 
 /* Transition effects */
-
 .drawer-enter{
 	transform: translateX(300px);
 }
-
 .drawer-enter-active,
 .drawer-leave-active {
 	transition: all 0.3s ease;
 }
-
-
 .drawer-leave-to{
 	transform: translateX(300px);
 }

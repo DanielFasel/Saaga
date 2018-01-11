@@ -2,7 +2,14 @@
 
   <transition name="menumain">
     <div id="menu" v-show="menuShow">
+
       <slot></slot>
+
+      <!-- Dark Background for the MainMenu, all component trigering the background need to be listed here -->
+      <transition name="mask">
+        <div id="main_menu_mask" v-show="showMenuDrawer" ></div>
+      </transition>
+
     </div>
   </transition>
 
@@ -10,6 +17,7 @@
 
 
 <script>
+import {mapGetters} from 'vuex'
 
 export default {
   data() {
@@ -20,27 +28,39 @@ export default {
     }
   },
 
+  computed:{
+    ...mapGetters('layout/modalDrawer',[
+      'showMenuDrawer'
+    ])},
+
   methods: {
     // function that hides the menu on scroll
     handleScroll: function(event) {
-      // setting actual scrollposition
-      var topScroll=window.scrollY
+      // Renders the menu fixed when the screen is really big
+      if(window.innerWidth>1500 && window.innerHeight>500){
+        this.menuShow = true
+      }
+      // Handles smalles screens
+      else{
+        // setting actual scrollposition
+        var topScroll=window.scrollY
 
-      // If user scrolls down after 70, hides menu
-      if (this.scrollHeight <= topScroll && this.scrollHeight > 70) {
-        this.menuShow = false
-        this.delayHeight = topScroll
-      }
-      // shows menu if user scrolls up for more than 30
-      else if (this.scrollHeight > topScroll) {
-        var travDist = (this.delayHeight - topScroll)
-        if (travDist > 30) {
-          this.menuShow = true
-          this.delayHeight = 0
+        // If user scrolls down after 70, hides menu
+        if (this.scrollHeight <= topScroll && this.scrollHeight > 70) {
+          this.menuShow = false
+          this.delayHeight = topScroll
         }
+        // shows menu if user scrolls up for more than 30
+        else if (this.scrollHeight > topScroll) {
+          var travDist = (this.delayHeight - topScroll)
+          if (travDist > 30) {
+            this.menuShow = true
+            this.delayHeight = 0
+          }
+        }
+        // sets previous scrollposition
+        this.scrollHeight = topScroll
       }
-      // sets previous scrollposition
-      this.scrollHeight = topScroll
     }
   },
 
@@ -68,17 +88,33 @@ export default {
   flex-direction: row;
 }
 
-/* Transition effects */
+#main_menu_mask{
+  position: fixed;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, .5);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Animation for the hide/show effect */
 .menumain-enter{
   transform: translateY(-70px);
 }
-
 .menumain-enter-active,
 .menumain-leave-active {
 	transition: all 0.4s ease;
 }
-
 .menumain-leave-to{
 	transform: translateY(-70px);
+}
+
+/*Animation for the "main_menu_mask" */
+.mask-enter-active, .mask-leave-active {
+transition: opacity .5s
+}
+.mask-enter, .mask-leave-to {
+opacity: 0
 }
 </style>

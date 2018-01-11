@@ -3,6 +3,12 @@
   <transition name="homepagemenu">
     <div id="menu" v-show="menuHide">
       <slot></slot>
+
+      <!-- Dark Background for the MainMenu, all component trigering the background need to be listed here -->
+      <transition name="mask">
+        <div id="homepage_menu_mask" v-show="showMenuDrawer" ></div>
+      </transition>
+
     </div>
   </transition>
 
@@ -10,7 +16,7 @@
 
 
 <script>
-
+import {mapGetters} from 'vuex'
 export default {
   data() {
     return {
@@ -20,27 +26,45 @@ export default {
     }
   },
 
+  computed: {
+    ...mapGetters('layout/modalDrawer',[
+      'showMenuSide',
+      'showMenuDrawer'
+    ])
+  },
+
   methods: {
     // function that hides the menu on scroll
     handleScroll: function(event) {
-      // setting actual scrollposition
-      var topScroll=window.scrollY
+      // Renders the menu fixed when the screen is really big
+      if(window.innerWidth>1500 && window.innerHeight>500){
+        this.menuShow = true
+      }
+      // fixed menu if drop down menu is activated (needs to be done on main menu and sligthly rethought after menuside name and concept is set)
+      else if(this.showMenuSide) {
+        this.menuShow = true
+      }
+      // Handles smalles screens
+      else{
+        // setting actual scrollposition
+        var topScroll=window.scrollY
 
-      // If user scrolls down after 70, hides menu
-      if (this.scrollHeight <= topScroll && this.scrollHeight > 70) {
-        this.menuHide = false
-        this.delayHeight = topScroll
-      }
-      // shows menu if user scrolls up for more than 30
-      else if (this.scrollHeight > topScroll) {
-        var travDist = (this.delayHeight - topScroll)
-        if (travDist > 30) {
-          this.menuHide = true
-          this.delayHeight = 0
+        // If user scrolls down after 70, hides menu
+        if (this.scrollHeight <= topScroll && this.scrollHeight > 70) {
+          this.menuHide = false
+          this.delayHeight = topScroll
         }
+        // shows menu if user scrolls up for more than 30
+        else if (this.scrollHeight > topScroll) {
+          var travDist = (this.delayHeight - topScroll)
+          if (travDist > 30) {
+            this.menuHide = true
+            this.delayHeight = 0
+          }
+        }
+        // sets previous scrollposition
+        this.scrollHeight = topScroll
       }
-      // sets previous scrollposition
-      this.scrollHeight = topScroll
     }
   },
 
@@ -62,24 +86,39 @@ export default {
   box-sizing: border-box;
   position: fixed;
   top: 0;
-  z-index: 1;
+  z-index: 4;
   width: 100%;
   display: flex;
   flex-direction: row;
 }
 
-/* Transition effects */
+#homepage_menu_mask{
+  position: fixed;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, .5);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
+/* Animation for the hide/show effect */
 .homepagemenu-enter{
   transform: translateY(-100px);
 }
-
 .homepagemenu-enter-active,
 .homepagemenu-leave-active {
 	transition: all 0.4s ease;
 }
-
 .homepagemenu-leave-to{
 	transform: translateY(-100px);
+}
+
+/*Animation for the "main_homepage_mask" */
+.mask-enter-active, .mask-leave-active {
+transition: opacity .5s
+}
+.mask-enter, .mask-leave-to {
+opacity: 0
 }
 </style>

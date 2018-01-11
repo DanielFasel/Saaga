@@ -2,8 +2,7 @@
   <transition name="menuside">
     <div id="menu-side-mask"  @click.self="toggleMenuSide">
     <div id="menu_side_mobile">
-      <slot>
-      </slot>
+      <slot></slot>
     </div>
   </div>
   </transition>
@@ -14,6 +13,7 @@ import {mapGetters} from 'vuex'
 import {mapActions} from 'vuex'
 
 export default {
+  
   methods:{
       ...mapActions('layout/modalDrawer',{
         toggleMenuSide: 'toggleMenuSide'
@@ -24,13 +24,12 @@ export default {
           this.toggleMenuSide()
         }
       },
-      // close drawer if open. Uses a local store for showMenuDrawer. So needs to exist in Teacher/Student/Admin/Homepage in the same folder to function
+      // Closes drawer if open. Uses a local store for showMenuDrawer. So needs to exist in Teacher/Student/Admin/Homepage in the same folder to function
       escapeKeyListener: function(evt){
         if(evt.keyCode == 27 && this.showMenuSide){
           this.toggleMenuSide()
         }
       }
-
     },
 
     computed:{
@@ -45,16 +44,13 @@ export default {
     },
 
     created: function(){
-
       // Creation of Event listener to close with the escape key
       document.addEventListener('keyup', this.escapeKeyListener);
-
     },
 
     beforeDestroy: function(){
       // removal of Event listener to close with the escape key
       document.removeEventListener('keyup', this.escapeKeyListener);
-
     }
 
 }
@@ -64,15 +60,13 @@ export default {
 <style scoped>
 #menu-side-mask{
   position: fixed;
-  z-index: 4;
+  z-index: 3;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: flex-end;
-
-
 }
 
 #menu_side_mobile{
@@ -82,17 +76,14 @@ export default {
   margin-top: 70px;
 }
 
-/* Transition effects */
+/* Animation for the hide/show effect */
 .menuside-enter{
   transform: translateY(-200px);
 }
-
 .menuside-enter-active,
 .menuside-leave-active {
 	transition: all 0.4s ease;
 }
-
-
 .menuside-leave-to{
 	transform: translateY(-200px);
 }

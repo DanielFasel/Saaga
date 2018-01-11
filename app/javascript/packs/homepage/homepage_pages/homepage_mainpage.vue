@@ -7,9 +7,9 @@
     <homepage-drawer></homepage-drawer>
     <homepage-footer></homepage-footer>
 
-    <!-- Dark Background for modals and drawer all modals and other component trigering the background need to be listed here -->
+    <!-- Dark Background for router content, all component trigering the background need to be listed here -->
     <transition name="mask">
-      <div id="background_mask" v-show="showMenuDrawer || showMenuSide" ></div>
+      <div id="router_mask" v-show="showMenuDrawer || showMenuSide" ></div>
     </transition>
 
   </div>
@@ -19,9 +19,7 @@
 
 import {mapGetters} from 'vuex'
 
-
 export default {
-
 
   computed:{
     ...mapGetters('layout/modalDrawer',[
@@ -49,7 +47,7 @@ export default {
 
 }
 
-#background_mask{
+#router_mask{
   position: fixed;
   z-index: 2;
   background-color: rgba(0, 0, 0, .5);
@@ -59,7 +57,7 @@ export default {
   height: 100%;
 }
 
-/*Animation for the "background_mask" */
+/*Animation for the "router_mask" */
 .mask-enter-active, .mask-leave-active {
 transition: opacity .5s
 }
