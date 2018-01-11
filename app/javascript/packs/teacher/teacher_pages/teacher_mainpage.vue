@@ -23,6 +23,7 @@
 <script>
 import {mapGetters} from 'vuex'
 import {mapActions} from 'vuex'
+
 import TeacherSettings from "./teacher_helpers/teacher_settings/teacher_settings.vue"
 import TeacherHelp from "./teacher_helpers/teacher_help/teacher_help.vue"
 
@@ -42,7 +43,6 @@ export default {
 
   computed:{
     ...mapGetters('layout/modalDrawer',[
-      'overflowHidden',
       'showMenuDrawer',
       'showSettingsModal',
       'showHelpModal',

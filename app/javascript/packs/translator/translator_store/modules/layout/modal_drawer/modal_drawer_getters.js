@@ -13,17 +13,6 @@ export default {
 
 	showHelpModal (state)	{
 		return state.showHelpModal
-	},
-
-	// my courses getters
-	showStudentManagementModal (state)	{
-		return state.showStudentManagementModal
-	},
-	showCourseManagementModal (state)	{
-		return state.showCourseManagementModal
-	},
-	showSubstituteTeacherModal (state)	{
-		return state.showSubstituteTeacherModal
 	}
 
 }

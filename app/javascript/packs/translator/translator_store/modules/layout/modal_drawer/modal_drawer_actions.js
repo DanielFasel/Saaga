@@ -11,16 +11,5 @@ export default {
     },
     toggleHelpModal(context){
         return context.commit('toggleHelpModal')
-    },
-
-    // my courses modal actions
-    toggleStudentManagementModal(context){
-        return context.commit('toggleStudentManagementModal')
-    },
-    toggleCourseManagementModal(context){
-        return context.commit('toggleCourseManagementModal')
-    },
-    toggleSubstituteTeacherModal(context){
-        return context.commit('toggleSubstituteTeacherModal')
     }
 }

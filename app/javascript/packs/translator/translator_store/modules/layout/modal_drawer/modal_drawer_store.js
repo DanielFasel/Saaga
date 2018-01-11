@@ -13,11 +13,6 @@ export const modalDrawer = {
 		//utility modals
 		showSettingsModal: false,
 		showHelpModal: false,
-
-		//my courses modals
-		showStudentManagementModal: false,
-		showCourseManagementModal: false,
-		showSubstituteTeacherModal: false
 	},
 	getters,
 	mutations,
