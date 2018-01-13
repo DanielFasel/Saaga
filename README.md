@@ -31,13 +31,15 @@ Database commands:
 - `rails db:migrate`
 - `rails db:seed`
 
+- `rails c --sandbox` allows to access database through the terminal
+
 Testing commands:
 - `rails test`
 
 Scaffolding commands:
 - `rails g` you can then add "controllers", "models" and so on.
 
-These are jsdfsdfust some of the commands I used the most. There are more commands that might prove useful so I highly suggest to read the [Ruby on rails documentation](http://guides.rubyonrails.org/v5.0/) for more information.
+These are just some of the commands I used the most. There are more commands that might prove useful so I highly suggest to read the [Ruby on rails documentation](http://guides.rubyonrails.org/v5.0/) for more information.
 
 
 ## Where are we?

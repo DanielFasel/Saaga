@@ -19,6 +19,10 @@ end
 
 
 
+Language.create!(language: "english")
+
+Language.create!(language:"finnish")
+
 #Users and related tables
 
 #translator
@@ -33,7 +37,10 @@ end
               password: "123456",
               password_confirmation: "123456"
               )
-  end
+
+end
+
+
 
 #student
 

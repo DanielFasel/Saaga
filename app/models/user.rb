@@ -12,5 +12,6 @@ class User < ApplicationRecord
   has_one :student_spec, :dependent => :delete
   has_one :teacher_spec, :dependent => :delete
   has_one :admin_spec, :dependent => :delete
+  has_and_belongs_to_many :languages
 
 end
