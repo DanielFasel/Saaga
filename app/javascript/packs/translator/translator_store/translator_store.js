@@ -9,12 +9,14 @@ import actions from"./translator_actions.js"
 //Importing all the modules
 
 import {layout} from "./modules/layout/layout_store.js"
+import {translations} from "./modules/translations/translations_store.js"
 
 export const store = new Vuex.Store({
 
 
 	modules: {
-        layout
+        layout,
+				translations
     },
 
 	state: {

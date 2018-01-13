@@ -98,7 +98,8 @@ export default{
 </script>
 
 <style scoped>
-#test{
-  color:black;
+#router_content{
+  margin-top: 70px;
+  min-height: calc(100vh - 70px);
 }
 </style>
