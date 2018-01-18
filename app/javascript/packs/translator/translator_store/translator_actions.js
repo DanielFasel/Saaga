@@ -1,4 +1,18 @@
+import Vue from 'vue'
+
 export default {
 
+  languages(context, data) {
+
+    // request for the languages that a translator has access to
+    Vue.prototype.$http.get('/languages')
+      .then(function (response) {
+        context.commit('languages',response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+   }
 
 }

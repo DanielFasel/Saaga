@@ -72,6 +72,10 @@ Rails.application.routes.draw do
     get '/teacheradminschools', to: 'teacher_admins#schools'
     get '/schoolstudents/:id', to: 'school_students#index'
 
+    #Translator side
+    #Languages of Translator
+    get '/languages', to: 'translatorpages#languages'
+
   end
 
 
