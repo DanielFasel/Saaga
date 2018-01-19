@@ -12,6 +12,11 @@ class User < ApplicationRecord
   has_one :student_spec, :dependent => :delete
   has_one :teacher_spec, :dependent => :delete
   has_one :admin_spec, :dependent => :delete
+
+  #translator
   has_and_belongs_to_many :languages
+  has_many :translations
+
+
 
 end

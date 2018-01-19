@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180113171447) do
+ActiveRecord::Schema.define(version: 20180119210511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,12 @@ ActiveRecord::Schema.define(version: 20180113171447) do
   create_table "languages_users", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "language_id"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "page_title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "school_admin_teacher_admins", force: :cascade do |t|
@@ -118,6 +124,18 @@ ActiveRecord::Schema.define(version: 20180113171447) do
     t.index ["user_id"], name: "index_teacher_specs_on_user_id", using: :btree
   end
 
+  create_table "translations", force: :cascade do |t|
+    t.string   "translation"
+    t.integer  "word_id"
+    t.integer  "language_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["language_id"], name: "index_translations_on_language_id", using: :btree
+    t.index ["user_id"], name: "index_translations_on_user_id", using: :btree
+    t.index ["word_id"], name: "index_translations_on_word_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "username",               default: "", null: false
     t.string   "givenname",              default: "", null: false
@@ -144,6 +162,14 @@ ActiveRecord::Schema.define(version: 20180113171447) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
+  end
+
+  create_table "words", force: :cascade do |t|
+    t.string   "keyword"
+    t.integer  "page_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_words_on_page_id", using: :btree
   end
 
 end
