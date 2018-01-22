@@ -36,6 +36,9 @@
 
 export default{
 
+  props:['modalToggleFunction'],
+
+
   methods:{
     // Function to close Modal with button
     closeModal: function(){
@@ -68,6 +71,10 @@ export default{
 </script>
 
 <style>
+
+.modal-open {
+  overflow: hidden;
+} 
 
 /* Modal window styling */
 .modal-wrapper {
