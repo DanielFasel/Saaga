@@ -31,6 +31,7 @@ import axios from 'axios'
 let token = document.getElementsByName('csrf-token')[0].getAttribute('content')
 axios.defaults.headers.common['X-CSRF-Token'] = token
 axios.defaults.headers.common['Accept'] = 'application/json'
+
 Vue.prototype.$http = axios
 
 
@@ -73,24 +74,27 @@ const routes = [
   {path: '/privacy', component: PrivacyNotice}
 ]
 
-    const router = new VueRouter({
-      routes
-    })
+const router = new VueRouter({
+    routes
+})
 
+// Fetching the translations before mounting the page to avoid async problem.
+store.dispatch('testpage',"HomepageMenu").then(response => {
 
+      //default component
+      document.addEventListener('DOMContentLoaded', () => {
+        document.body.appendChild(document.createElement('hello'))
+        const app = new Vue({
+          el: 'hello',
+          store,
+          router,
+          template: '<homepage-mainpage/>',
+          components: {
+            HomepageMainpage
+          }
 
-    //default component
-    document.addEventListener('DOMContentLoaded', () => {
-      document.body.appendChild(document.createElement('hello'))
-      const app = new Vue({
-        el: 'hello',
-        store,
-        router,
-        template: '<homepage-mainpage/>',
-        components: {
-          HomepageMainpage
-        }
-
+        })
       })
-      console.log(app)
+    }, error => {
+        console.error("Can't load the text")
     })

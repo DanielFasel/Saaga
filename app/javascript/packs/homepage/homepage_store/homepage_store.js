@@ -21,7 +21,8 @@ export const store = new Vuex.Store({
 	state: {
 		menuSide:"",
 		showMenuSideMobile:false,
-		currentPage:""
+		currentPage:"",
+		testpage: []
 
 	},
 

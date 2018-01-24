@@ -6,12 +6,11 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "Saaga" %></title>
 
-    <%= javascript_include_tag "vendor/modernizr" %>
     <%= stylesheet_link_tag "application" %>
 
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> 
-   
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
 
 
     <%= csrf_meta_tags %>
@@ -22,20 +21,20 @@
     <!-- wrapper to hide off wrapper -->
 
 
-  
 
 
 
 
 
 
-      <!-- flash messages for devise 
+
+      <!-- flash messages for devise
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 -->
-   
+
         <%= yield %>
-      
+
 
 
     </div>

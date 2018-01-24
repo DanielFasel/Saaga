@@ -9,8 +9,9 @@ export default {
                 // http success, call the mutator and change something in state
 
                 var receivedData = [response.data]
-
+                console.log(response.data)
                 var schools = receivedData[0]
+                console.log(schools)
                 var schoolsLength = schools.length
                 var schoolStudent = []
                 var counter = 0

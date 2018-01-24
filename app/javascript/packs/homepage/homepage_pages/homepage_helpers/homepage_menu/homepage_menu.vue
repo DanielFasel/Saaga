@@ -4,7 +4,7 @@
   <header>
     <!-- Logo -->
     <div id="logo">
-      <router-link to='/' exact><span id="big_logo">Saaga</span><span id="small_logo">S</span></router-link>
+      <router-link to='/' exact><span id="big_logo">{{this.testpage[0].translation}}</span><span id="small_logo">S</span></router-link>
     </div>
 
     <!-- Reactive middle bar -->
@@ -100,16 +100,17 @@ export default {
 
   computed: {
     ...mapGetters([
-      'currentPage'
+      'currentPage',
+      'testpage'
     ]),
     ...mapGetters('layout/modalDrawer',[
       'showMenuSide'
     ])
   },
-
   // Creation and Destruction of listener to know when to hide and show the scroll button
   created: function() {
     window.addEventListener('scroll', this.pressTop);
+
   },
   destroyed: function() {
     window.removeEventListener('scroll', this.pressTop);
@@ -243,7 +244,7 @@ header {
   #big_logo{
     display: block;
   }
-  
+
   nav {
     flex-grow: 1;
     justify-content: space-between;

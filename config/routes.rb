@@ -51,9 +51,6 @@ Rails.application.routes.draw do
       # root page
       root 'homepages#index'
 
-
-
-
     # Teacher, Translator and Student Welcome page after first sign in
     get '/welcomestudent', to: 'student_welcomes#index'
     get '/welcometeacher', to: 'teacher_welcomes#index'
@@ -72,9 +69,17 @@ Rails.application.routes.draw do
     get '/teacheradminschools', to: 'teacher_admins#schools'
     get '/schoolstudents/:id', to: 'school_students#index'
 
+
+    get '/languages', to: 'languages#pages'
+
+
     #Translator side
     #Languages of Translator
-    get '/languages', to: 'translatorpages#languages'
+    get '/translatorlanguages', to: 'translatorpages#languages'
+
+
+
+
 
   end
 

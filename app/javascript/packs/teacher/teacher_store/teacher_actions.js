@@ -24,6 +24,7 @@ export default {
             // Do something here... lets say, a http call using vue-resource
             Vue.prototype.$http.get('./schools').then(function(response){
                 // http success, call the mutator and change something in state
+								console.log(response.data)
                 context.commit('schools',response.data )
                 resolve(response);  // Let the calling function know that http is done. You may send some data back
             }, error => {
