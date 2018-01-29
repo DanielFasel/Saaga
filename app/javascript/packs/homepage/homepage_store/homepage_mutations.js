@@ -19,6 +19,11 @@ export default {
 
   testpage(state, data){
     state.testpage=data
+  },
+
+  readyToRender(state){
+    console.log("mutated")
+    state.readyToRender=true
   }
 
 }

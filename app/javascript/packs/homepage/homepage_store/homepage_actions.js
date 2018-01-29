@@ -14,16 +14,25 @@ export default {
   },
 
   testpage(context, data){
+    console.log("reached Actions")
+    return  new Promise((resolve,reject) => {
+
     // request for the languages that a translator has access to
-    console.log(data)
     Vue.prototype.$http.get('/languages',{params:{ name: data}} )
       .then(function (response) {
-      
-        context.commit('testpage',response.data);
+        console.log("fetched")
+
+        context.commit('testpage',response.data)
+        context.commit('readyToRender')
+        resolve()
       })
       .catch(function (error) {
         console.log(error);
-      });
+      })
+
+    }, error => {
+      reject(error)
+    })
   }
 
 }

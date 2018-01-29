@@ -24,12 +24,25 @@ import {mapGetters} from 'vuex'
 export default {
 
   computed:{
+    ...mapGetters([
+      'readyToRender'
+    ]),
     ...mapGetters('layout/modalDrawer',[
       'showMenuDrawer',
       'showMenuSide'
     ])
+  },
+  created: function(){
+    // Fetching the translations before mounting the page to avoid async problem.
+    this.$store.dispatch('testpage',"HomepageMenu").then(response => {
+    console.log("started")
+  }, error => {
+        console.error("Can't load the text")
+  })
+
   }
 }
+
 
 </script>
 

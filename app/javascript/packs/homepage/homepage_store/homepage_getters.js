@@ -16,5 +16,8 @@ export default {
 
 	testpage(state){
 		return state.testpage
+	},
+	readyToRender(state){
+		return state.readyToRender
 	}
 }
