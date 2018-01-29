@@ -20,9 +20,12 @@ Vue.prototype.$http = axios
 
 
 //components
+import TranslatorStart from './translator/translator_pages/translator_start.vue'
+import TranslatorLoading from './translator/translator_pages/translator_loading.vue'
 import TranslatorMainpage from './translator/translator_pages/translator_mainpage.vue'
 import TranslatorMenu from './translator/translator_pages/translator_helpers/translator_menu/translator_menu.vue'
 import TranslatorDrawer from './translator/translator_pages/translator_helpers/translator_menu/translator_drawer.vue'
+
 import TranslatorHomepage from './translator/translator_pages/translator_homepage/translator_homepage.vue'
 import TranslatorLanguages from './translator/translator_pages/translator_languages/translator_languages.vue'
 
@@ -32,13 +35,17 @@ Vue.component('translator-drawer', TranslatorDrawer)
 
 //routing
 const routes = [
-  { path: '/', redirect: '/homepage' },
-  {path: '/homepage', component: TranslatorHomepage},
-  {path: '/languages', component: TranslatorLanguages}
+  {path: '/loading', component: TranslatorLoading},
+  {path: '/test', component: TranslatorMainpage,
+    children: [
+      {path: '/homepage', component: TranslatorHomepage, name: 'homepage'},
+      {path: '/languages', component: TranslatorLanguages}
+    ]},
+  { path: '/', redirect: '/loading' }
 ]
 
 const router = new VueRouter({
-	routes
+  routes
 })
 
 
@@ -50,9 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
     el: 'hello',
     store,
     router,
-    template: '<translator-mainpage/>',
-    components: { TranslatorMainpage }
+    template: '<translator-start/>',
+    components: { TranslatorStart }
 
   })
-  console.log(app)
 })

@@ -77,7 +77,7 @@ Rails.application.routes.draw do
     #Languages of Translator
     get '/translatorlanguages', to: 'translatorpages#languages'
 
-
+    get '/*path', to: 'homepages#index', format: false
 
 
 

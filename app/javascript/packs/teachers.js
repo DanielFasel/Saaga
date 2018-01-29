@@ -20,11 +20,17 @@ Vue.prototype.$http = axios
 
 
 //components
+
+import TeacherStart from './teacher/teacher_pages/teacher_start.vue'
+import TeacherLoading from './teacher/teacher_pages/teacher_loading.vue'
 import TeacherMainpage from './teacher/teacher_pages/teacher_mainpage.vue'
 import TeacherMenu from './teacher/teacher_pages/teacher_helpers/teacher_menu/teacher_menu.vue'
+import TeacherDrawer from './teacher/teacher_pages/teacher_helpers/teacher_menu/teacher_drawer.vue'
+
 import TeacherCourses from './teacher/teacher_pages/teacher_courses/teacher_courses.vue'
 import TeacherLessons from './teacher/teacher_pages/teacher_lessons/teacher_lessons.vue'
-import TeacherDrawer from './teacher/teacher_pages/teacher_helpers/teacher_menu/teacher_drawer.vue'
+
+
 
 //imported component to be used on all the SPA
 Vue.component('teacher-menu', TeacherMenu)
@@ -33,9 +39,14 @@ Vue.component('teacher-drawer', TeacherDrawer)
 
 //routing
 const routes = [
-	{path: '/courses', component: TeacherCourses},
-  {path: '/lessons', component: TeacherLessons},
-  { path: '/', redirect: '/courses' }
+	{path: '/loading', component: TeacherLoading},
+	{path: '/test', component: TeacherMainpage,
+		children: [
+			{path: '/courses', component: TeacherCourses, name: 'courses'},
+			{path: '/lessons', component: TeacherLessons}
+	]},
+	{ path: '/', redirect: '/loading' }
+
 ]
 
 const router = new VueRouter({
@@ -51,9 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
     el: 'hello',
     store,
     router,
-    template: '<teacher-mainpage/>',
-    components: { TeacherMainpage }
+    template: '<teacher-start/>',
+    components: { TeacherStart }
 
   })
-  console.log(app)
 })
