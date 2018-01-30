@@ -51,8 +51,8 @@ import PrivacyNotice from './homepage/homepage_pages/privacy_notice/privacy_noti
 import HomepageMenu from './homepage/homepage_pages/homepage_helpers/homepage_menu/homepage_menu.vue'
 import HomepageDrawer from './homepage/homepage_pages/homepage_helpers/homepage_menu/homepage_drawer.vue'
 import HomepageMenuSide from './homepage/homepage_pages/homepage_helpers/homepage_menu/homepage_menu_side.vue'
-
 import HomepageFooter from './homepage/homepage_pages/homepage_helpers/homepage_footer/homepage_footer.vue'
+
 //imported component to be used on all the SPA
 Vue.component('homepage-menu-side', HomepageMenuSide)
 Vue.component('homepage-menu', HomepageMenu)
@@ -75,26 +75,37 @@ const routes = [
 ]
 
 const router = new VueRouter({
-    routes
+  mode: 'history',
+  routes
 })
 
-// Fetching the translations before mounting the page to avoid async problem.
-store.dispatch('testpage',"HomepageMenu").then(response => {
 
-      //default component
-      document.addEventListener('DOMContentLoaded', () => {
-        document.body.appendChild(document.createElement('hello'))
-        const app = new Vue({
-          el: 'hello',
-          store,
-          router,
-          template: '<homepage-mainpage/>',
-          components: {
-            HomepageMainpage
-          }
 
-        })
+
+
+  // request for the languages
+  Vue.prototype.$http.get('/languages',{params:{ name: "HomepageMenu"}} )
+    .then(function (response) {
+      console.log("Async done")
+      resolve()
+    })
+    .catch(function (error) {
+
+    })
+
+
+
+    //default component
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.appendChild(document.createElement('hello'))
+      const app = new Vue({
+        el: 'hello',
+        store,
+        router,
+        template: '<homepage-mainpage/>',
+        components: {
+          HomepageMainpage
+        }
+
       })
-    }, error => {
-        console.error("Can't load the text")
     })

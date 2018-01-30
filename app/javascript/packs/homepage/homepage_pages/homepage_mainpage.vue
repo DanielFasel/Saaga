@@ -24,9 +24,6 @@ import {mapGetters} from 'vuex'
 export default {
 
   computed:{
-    ...mapGetters([
-      'readyToRender'
-    ]),
     ...mapGetters('layout/modalDrawer',[
       'showMenuDrawer',
       'showMenuSide'

@@ -4,7 +4,7 @@
   <header>
     <!-- Logo -->
     <div id="logo">
-      <router-link to='/' exact><span id="big_logo">{{this.testpage[0].translation}}</span><span id="small_logo">S</span></router-link>
+      <router-link to='/' exact><span id="big_logo">Saaga</span><span id="small_logo">S</span></router-link>
     </div>
 
     <!-- Reactive middle bar -->
