@@ -4,7 +4,7 @@ class LanguagesController < ApplicationController
   skip_before_action :authenticate_user!, :only => [:pages]
 
 
-  def pages
+  def get
 
     @requested=Page.find_by_page_title(page_params)
     @words=@requested.words
@@ -15,6 +15,11 @@ class LanguagesController < ApplicationController
     end
 
     respond_with(@translations)
+  end
+
+  def post
+    # save a translation, update the Json file and maybe also the seed file 
+
   end
 
 private

@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 
 
 //Vuex
-import {store} from './translator/translator_store/translator_store.js'
+import {store} from './apps/translator/translator_store/translator_store.js'
 
 import vMediaQuery from 'v-media-query'
 Vue.use(vMediaQuery)
@@ -20,14 +20,14 @@ Vue.prototype.$http = axios
 
 
 //components
-import TranslatorStart from './translator/translator_pages/translator_start.vue'
-import TranslatorLoading from './translator/translator_pages/translator_loading.vue'
-import TranslatorMainpage from './translator/translator_pages/translator_mainpage.vue'
-import TranslatorMenu from './translator/translator_pages/translator_helpers/translator_menu/translator_menu.vue'
-import TranslatorDrawer from './translator/translator_pages/translator_helpers/translator_menu/translator_drawer.vue'
+import TranslatorStart from './apps/translator/translator_pages/translator_start.vue'
+import TranslatorLoading from './apps/translator/translator_pages/translator_loading.vue'
+import TranslatorMainpage from './apps/translator/translator_pages/translator_mainpage.vue'
+import TranslatorMenu from './apps/translator/translator_pages/translator_helpers/translator_menu/translator_menu.vue'
+import TranslatorDrawer from './apps/translator/translator_pages/translator_helpers/translator_menu/translator_drawer.vue'
 
-import TranslatorHomepage from './translator/translator_pages/translator_homepage/translator_homepage.vue'
-import TranslatorLanguages from './translator/translator_pages/translator_languages/translator_languages.vue'
+import TranslatorHomepage from './apps/translator/translator_pages/translator_homepage/translator_homepage.vue'
+import TranslatorLanguages from './apps/translator/translator_pages/translator_languages/translator_languages.vue'
 
 //imported component to be used on all the SPA
 Vue.component('translator-menu', TranslatorMenu)

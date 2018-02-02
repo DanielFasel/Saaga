@@ -70,7 +70,8 @@ Rails.application.routes.draw do
     get '/schoolstudents/:id', to: 'school_students#index'
 
 
-    get '/languages', to: 'languages#pages'
+    get '/languages', to: 'languages#get'
+    post '/languages', to: 'languages#post'
 
 
     #Translator side
