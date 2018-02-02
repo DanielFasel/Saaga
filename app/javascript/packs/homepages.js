@@ -1,5 +1,8 @@
 //extention
 import Vue from 'vue'
+import Vuex from 'vuex'
+// load vuex i18n module
+import vuexI18n from 'vuex-i18n'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
@@ -54,7 +57,7 @@ import HomepageMenuSide from './apps/homepage/homepage_pages/homepage_helpers/ho
 import HomepageFooter from './apps/homepage/homepage_pages/homepage_helpers/homepage_footer/homepage_footer.vue'
 
 
-
+Vue.use(vuexI18n.plugin, store)
 
 // Fetching of languages so it can be displayed before moutning the instance
 // Reads and extracts the local variable from the url
@@ -63,7 +66,10 @@ var local = url.substring(1, 3)
 //requires the language json file according to the local
 var json =  require( "./assets/json/homepage_"+local+".json")
 // commits the language to Vuex
-console.log(json[0].name)
+console.log(json.menu.logo)
+Vue.i18n.add('en', json)
+Vue.i18n.set('en')
+
 
 
 
