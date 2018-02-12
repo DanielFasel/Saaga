@@ -3,9 +3,12 @@ class CreateTranslations < ActiveRecord::Migration[5.0]
     create_table :translations do |t|
 
       t.string :translation
-      t.belongs_to :word
+      t.string :temporary
+      t.boolean :validated
       t.belongs_to :language
       t.belongs_to :user
+
+      t.belongs_to :word
 
       t.timestamps
     end

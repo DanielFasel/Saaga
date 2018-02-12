@@ -28,6 +28,8 @@ import {mapActions} from 'vuex'
 import TranslatorSettings from "./translator_helpers/translator_settings/translator_settings.vue"
 import TranslatorHelp from "./translator_helpers/translator_help/translator_help.vue"
 
+
+
 export default{
 
   components:{

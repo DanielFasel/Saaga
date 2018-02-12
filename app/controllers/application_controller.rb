@@ -40,8 +40,6 @@ class ApplicationController < ActionController::Base
   end
 
 
-
-
   protected
 
     # Checks if receiving data and type from form then makes sure no other type was used.

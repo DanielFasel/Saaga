@@ -100,35 +100,17 @@ const router = new VueRouter({
 })
 
 
+//default component
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.appendChild(document.createElement('hello'))
+    const app = new Vue({
+      el: 'hello',
+      store,
+      router,
+      template: '<homepage-mainpage/>',
+      components: {
+        HomepageMainpage
+      }
 
-
-
-  // request for the languages
-  Vue.prototype.$http.get('/languages',{params:{ name: "HomepageMenu"}} )
-    .then(function (response) {
-      console.log(response.data[0].translation)
-
-
-      resolve()
-    })
-    .catch(function (error) {
-
-    })
-
-
-
-
-      //default component
-      document.addEventListener('DOMContentLoaded', () => {
-        document.body.appendChild(document.createElement('hello'))
-        const app = new Vue({
-          el: 'hello',
-          store,
-          router,
-          template: '<homepage-mainpage/>',
-          components: {
-            HomepageMainpage
-          }
-
-        })
-      })
+  })
+})

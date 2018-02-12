@@ -5,8 +5,8 @@
     <!-- Available Languages and their stats -->
     <div>
       <!-- Languages the translator has access to -->
-      <li v-for="language in languages[0]">
-        <button>{{ language.language }}</button>
+      <li v-for="language in languages">
+      {{ language}}
       </li>
     </div>
 

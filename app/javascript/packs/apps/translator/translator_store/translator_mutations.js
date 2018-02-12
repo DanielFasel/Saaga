@@ -1,6 +1,8 @@
 export default {
 
   languages(state, languages){
-      state.languages.push(languages.data)
+    console.log(languages)
+
+      state.languages=languages
   }
 }

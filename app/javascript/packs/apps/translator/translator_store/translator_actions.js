@@ -7,7 +7,7 @@ export default {
     // request for the languages that a translator has access to
     Vue.prototype.$http.get('/translatorlanguages')
       .then(function (response) {
-        context.commit('languages',response);
+        context.commit('languages',response.data[0]);
       })
       .catch(function (error) {
         console.log(error);
