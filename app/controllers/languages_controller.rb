@@ -1,16 +1,12 @@
 class LanguagesController < ApplicationController
   respond_to :html, :json
-  # to allow visiting this page without being logged in.
-  skip_before_action :authenticate_user!, :only => [:get]
-
-
 
   def get
-
+    # When opportunity presents itself check if there is a better way of doing this
     # Get all sites and initiate the response array
     @sitearray=Site.all
     @response=[]
-
+    @language=Language.find_by_language(params[:language]).id
     # Loop through the Sites
     @sitearray.each do |site|
 
@@ -37,14 +33,16 @@ class LanguagesController < ApplicationController
         #Looping through the words to create the WordArray
         page.words.each do  |word|
           # fetch the translation of the word and appropriated language and create a hash of it
-          @translation=word.translations[0]
+          @translation=word.translations.find_by_language_id(@language)
           @translationhash={}
+          # Attributes of the Translations
           @translationhash[:translation]=@translation.translation
           @translationhash[:temporary]=@translation.temporary
           @translationhash[:validated]=@translation.validated
           @translationhash[:author]=@translation.user_id
           # create word hash and add the translation hash to it
           @wordhash={}
+          # Attributes of the Words
           @wordhash[:keyword]=word.keyword
           @wordhash[:translation]=@translationhash
           # Push the word and translation has into the WordArrays
@@ -67,10 +65,9 @@ class LanguagesController < ApplicationController
 
 
 private
+
   def page_params
-
     params.require(:name)
-
   end
 
 end

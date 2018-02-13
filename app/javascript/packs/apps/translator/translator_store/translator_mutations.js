@@ -1,8 +1,14 @@
 export default {
 
   languages(state, languages){
-    console.log(languages)
+    state.languages=languages
+  },
 
-      state.languages=languages
+  translations(state, translations){
+    state.translations=translations
+  },
+
+  user(state, user){
+    state.user=user
   }
 }

@@ -12,12 +12,5 @@ export default {
 	},
 	currentPage(state){
 		return state.currentPage
-	},
-
-	testpage(state){
-		return state.testpage
-	},
-	readyToRender(state){
-		return state.readyToRender
 	}
 }

@@ -6,7 +6,7 @@
     <div>
       <!-- Languages the translator has access to -->
       <li v-for="language in languages">
-      {{ language}}
+      <button>{{ language["language"]}}</button>
       </li>
     </div>
 
@@ -14,7 +14,9 @@
     <div>
       <!-- Personal info -->
       <div>
-        Name and Email
+        {{user["givenname"]}}
+        {{user["familyname"]}}
+        {{user["email"]}}
       </div>
       <!-- General Stats of Translations -->
       <div>
@@ -35,17 +37,9 @@ export default{
 
   computed:{
     ...mapGetters([
-      'languages'
-    ]),
-  },
-
-  created: function() {
-    // Goes fetch the languages of the translator
-    this.$store.dispatch("languages").then(response => {
-        console.log("Got some data, now lets show something in this component")
-    }, error => {
-        console.error("Got nothing from server. Prompt user to check internet connection and try again")
-    })
+      'languages',
+      'user'
+    ])
   }
 
 }

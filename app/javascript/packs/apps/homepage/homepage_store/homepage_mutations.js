@@ -15,15 +15,6 @@ export default {
   },
   currentPage(state,data){
     state.currentPage=data
-  },
-
-  testpage(state, data){
-    state.testpage=data
-  },
-
-  readyToRender(state){
-    console.log("mutated")
-    state.readyToRender=true
   }
 
 }

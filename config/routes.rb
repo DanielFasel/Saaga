@@ -44,7 +44,7 @@ Rails.application.routes.draw do
       delete '/logout', to: 'devise/sessions#destroy', as: :destroy_user_session
     end
 
-
+    get '/userinfo', to: 'userinfos#get'
 
 
 
@@ -72,6 +72,7 @@ Rails.application.routes.draw do
 
     get '/languages', to: 'languages#get'
     post '/languages', to: 'languages#post'
+
 
 
     #Translator side

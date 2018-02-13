@@ -24,6 +24,8 @@ export const store = new Vuex.Store({
 	state: {
 			//languages the translator can translate and has access to
 			languages:[],
+			translations:[],
+			user:{}
 	},
 
 	getters,

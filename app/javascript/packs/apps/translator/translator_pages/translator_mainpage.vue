@@ -41,6 +41,10 @@ export default{
     ...mapActions('layout/generalLayout',{
       overflowPaddingAction:'overflowPadding',
       overflowPaddingLiveAction:'overflowPaddingLive'
+    }),
+    ...mapActions({
+     user: 'user' // map `this.add()` to `this.$store.dispatch('increment')`
+
     })
   },
 
@@ -94,6 +98,25 @@ export default{
       document.body.removeChild (outer);
       // sends the width to vuex
       this.overflowPaddingAction(w1-w2)
+
+
+        // Fetching the translations before mounting the page to avoid async problem.
+        this.$store.dispatch('translations',"english").then(response => {
+        console.log("started")
+      }, error => {
+            console.error("Can't load the text")
+      }),
+
+        // Goes fetch the languages of the translator
+        this.$store.dispatch("languages").then(response => {
+            console.log("Got some data, now lets show something in this component")
+        }, error => {
+            console.error("Got nothing from server. Prompt user to check internet connection and try again")
+        })
+
+        this.user()
+
+
   }
 }
 
