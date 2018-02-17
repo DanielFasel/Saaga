@@ -6,7 +6,7 @@
     <div>
       <!-- Languages the translator has access to -->
       <li v-for="language in languages">
-      <button>{{ language["language"]}}</button>
+      <button @click="navigateSiteSelection(language)">{{ language["language"]}}</button>
       </li>
     </div>
 
@@ -34,12 +34,20 @@ import {mapGetters} from 'vuex'
 
 export default{
 
-
   computed:{
     ...mapGetters([
       'languages',
       'user'
     ])
+  },
+
+  methods:{
+
+    navigateSiteSelection: function(language){
+      // Navigates to the Language Page and commits the selected language to the store
+      this.$router.push({ name: 'languages' })
+      this.$store.commit('selected', {type:0, data:language["language"]})
+    }
   }
 
 }

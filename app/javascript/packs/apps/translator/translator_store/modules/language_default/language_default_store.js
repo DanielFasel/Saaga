@@ -1,9 +1,9 @@
-import getters from './default_language_getters.js'
-import mutations from './default_language_mutations.js'
-import actions from './default_language_actions.js'
+import getters from './language_default_getters.js'
+import mutations from './language_default_mutations.js'
+import actions from './language_default_actions.js'
 
 
-export const defaultLanguage = {
+export const languageDefault = {
   // This makes your getters, mutations, and actions accessed by, eg: 'myModule/myModularizedNumber' instead of mounting getters, mutations, and actions to the root namespace.
 	namespaced:true,
 	state: {

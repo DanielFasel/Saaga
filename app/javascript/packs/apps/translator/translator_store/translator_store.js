@@ -11,21 +11,25 @@ import actions from"./translator_actions.js"
 //Importing all the modules
 
 import {layout} from "./modules/layout/layout_store.js"
-import {languages} from "./modules/languages/languages_store.js"
+import {languageDefault} from "./modules/language_default/language_default_store.js"
+import {languageTranslated} from "./modules/language_translated/language_translated_store.js"
 
 export const store = new Vuex.Store({
 
 
 	modules: {
         layout,
-				languages
+				languageDefault,
+				languageTranslated
     },
 
 	state: {
-			//languages the translator can translate and has access to
+			//languages the translator has access to
 			languages:[],
-			translations:[],
-			user:{}
+			// Info about the translator
+			user:{},
+			// object telling which language/site/page got selected
+			selected: {language:"", site:"", page:""}
 	},
 
 	getters,

@@ -39,7 +39,7 @@ const routes = [
   {path: '/test', component: TranslatorMainpage,
     children: [
       {path: '/homepage', component: TranslatorHomepage, name: 'homepage'},
-      {path: '/languages', component: TranslatorLanguages}
+      {path: '/languages', component: TranslatorLanguages, name: 'languages'}
     ]},
   { path: '/', redirect: '/loading' }
 ]

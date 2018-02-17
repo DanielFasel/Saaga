@@ -43,8 +43,11 @@ export default{
       overflowPaddingLiveAction:'overflowPaddingLive'
     }),
     ...mapActions({
-     user: 'user' // map `this.add()` to `this.$store.dispatch('increment')`
-
+      user: 'user',
+      fetchlanguages: 'languages'
+    }),
+    ...mapActions('languageTranslated',{
+      languageTranslated: 'languageTranslated'
     })
   },
 
@@ -60,6 +63,10 @@ export default{
       'overflowPadding',
       'overflowPaddingLive'
     ]),
+      ...mapGetters([
+        'languages'
+      ]),
+
 
     // function that adds padding to compensate for the scroll bar disappearing when modals are shown. It avoids the page to "jump".
     modalMenuPadding: function(){
@@ -74,6 +81,7 @@ export default{
   },
 
   created: function(){
+
     // calculates the width of the scroll bar of any browser
       var inner = document.createElement('p');
       inner.style.width = "100%";
@@ -99,25 +107,21 @@ export default{
       // sends the width to vuex
       this.overflowPaddingAction(w1-w2)
 
+  },
 
-        // Fetching the translations before mounting the page to avoid async problem.
-        this.$store.dispatch('translations',"english").then(response => {
-        console.log("started")
-      }, error => {
-            console.error("Can't load the text")
-      }),
+  mounted: function(){
 
-        // Goes fetch the languages of the translator
-        this.$store.dispatch("languages").then(response => {
-            console.log("Got some data, now lets show something in this component")
-        }, error => {
-            console.error("Got nothing from server. Prompt user to check internet connection and try again")
-        })
-
-        this.user()
-
-
-  }
+    // Have to rethink because it doesn+t get fetched when translator reloads homepage.
+    // fetches authorized languages and then fetches hte strings of them, needs cleaning
+    this.fetchlanguages().then(response => {
+              console.log("Got the translators authorized languages now fetching them")
+              this.languageTranslated(this.languages[0]['language'])
+          }, error => {
+              console.error("Got nothing from server. Prompt user to check internet connection and try again")
+          })
+          // fetches user info
+          this.user()
+        }
 }
 
 </script>
