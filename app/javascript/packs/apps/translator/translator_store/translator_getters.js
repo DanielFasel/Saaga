@@ -54,5 +54,14 @@ export default {
     else {
       return false
     }
+  },
+
+  showTranslations(state){
+    if(state.selected["page"]==""){
+      return false
+    }
+    else{
+      return true
+    }
   }
 }

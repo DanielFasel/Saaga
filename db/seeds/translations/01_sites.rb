@@ -20,3 +20,8 @@ Site.create!( name: "Admin",
               completed: 0,
               total: 0)
 puts "Admin"
+
+Site.create!( name: "SuperAdmin",
+              completed: 0,
+              total: 0)
+puts "SuperAdmin"

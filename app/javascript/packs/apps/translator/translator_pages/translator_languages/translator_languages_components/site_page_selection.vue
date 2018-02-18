@@ -18,6 +18,9 @@
       <button @click="fetchingTranslations(page)">{{page['name'] }}</button>
     </li>
   </ul>
+
+
+
 </div>
 </template>
 
@@ -54,15 +57,11 @@ export default{
           this.page=this.languageTranslated.indexOf(site)
           this.pages()
           this.$store.commit('selected', {type:1, data:site["name"]})
-          console.log(this.page)
       return
     },
-
     pages(){
-      console.log(this.languageTranslated[this.page]['pages'])
       return this.languageTranslated[this.page]['pages']
     },
-
     fetchingTranslations(page){
       this.$store.commit('selected', {type:2, data:page["name"]})
     }
