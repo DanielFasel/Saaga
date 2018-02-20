@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 
 
 //Vuex
-import {store} from './student/student_store/student_store.js'
+import {store} from './apps/student/student_store/student_store.js'
 
 import vMediaQuery from 'v-media-query'
 Vue.use(vMediaQuery)
@@ -20,11 +20,11 @@ Vue.prototype.$http = axios
 
 
 //components
-import StudentMainpage from './student/student_pages/student_mainpage.vue'
-import StudentMenu from './student/student_pages/student_helpers/student_menu/student_menu.vue'
-import StudentDrawer from './student/student_pages/student_helpers/student_menu/student_drawer.vue'
-import StudentCourses from './student/student_pages/student_courses/student_courses.vue'
-import StudentHomeworks from './student/student_pages/student_homeworks/student_homeworks.vue'
+import StudentMainpage from './apps/student/student_pages/student_mainpage.vue'
+import StudentMenu from './apps/student/student_pages/student_helpers/student_menu/student_menu.vue'
+import StudentDrawer from './apps/student/student_pages/student_helpers/student_menu/student_drawer.vue'
+import StudentCourses from './apps/student/student_pages/student_courses/student_courses.vue'
+import StudentHomeworks from './apps/student/student_pages/student_homeworks/student_homeworks.vue'
 
 //imported component to be used on all the SPA
 Vue.component('student-menu', StudentMenu)
@@ -39,6 +39,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
+	mode: 'history',
 	routes
 })
 

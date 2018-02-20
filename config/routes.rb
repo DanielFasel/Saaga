@@ -44,15 +44,12 @@ Rails.application.routes.draw do
       delete '/logout', to: 'devise/sessions#destroy', as: :destroy_user_session
     end
 
-
+    get '/userinfo', to: 'userinfos#get'
 
 
 
       # root page
       root 'homepages#index'
-
-
-
 
     # Teacher, Translator and Student Welcome page after first sign in
     get '/welcomestudent', to: 'student_welcomes#index'
@@ -72,9 +69,19 @@ Rails.application.routes.draw do
     get '/teacheradminschools', to: 'teacher_admins#schools'
     get '/schoolstudents/:id', to: 'school_students#index'
 
+
+    get '/languages', to: 'languages#get'
+    post '/languages', to: 'languages#post'
+
+
+
     #Translator side
     #Languages of Translator
-    get '/languages', to: 'translatorpages#languages'
+    get '/translatorlanguages', to: 'translatorpages#languages'
+
+    get '/*path', to: 'homepages#index', format: false
+
+
 
   end
 

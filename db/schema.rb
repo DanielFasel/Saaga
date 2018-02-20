@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180119210511) do
+ActiveRecord::Schema.define(version: 20180212180258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,9 +43,13 @@ ActiveRecord::Schema.define(version: 20180119210511) do
   end
 
   create_table "pages", force: :cascade do |t|
-    t.string   "page_title"
+    t.string   "name"
+    t.integer  "completed"
+    t.integer  "total"
+    t.integer  "site_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_pages_on_site_id", using: :btree
   end
 
   create_table "school_admin_teacher_admins", force: :cascade do |t|
@@ -103,6 +107,14 @@ ActiveRecord::Schema.define(version: 20180119210511) do
     t.index ["name"], name: "index_schools_on_name", using: :btree
   end
 
+  create_table "sites", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "completed"
+    t.integer  "total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "student_specs", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -126,9 +138,11 @@ ActiveRecord::Schema.define(version: 20180119210511) do
 
   create_table "translations", force: :cascade do |t|
     t.string   "translation"
-    t.integer  "word_id"
+    t.string   "temporary"
+    t.boolean  "validated"
     t.integer  "language_id"
     t.integer  "user_id"
+    t.integer  "word_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["language_id"], name: "index_translations_on_language_id", using: :btree
