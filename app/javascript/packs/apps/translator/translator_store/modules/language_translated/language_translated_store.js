@@ -8,7 +8,7 @@ export const languageTranslated = {
 	namespaced:true,
 	state: {
 			//Language that needs to be translated
-			languageTranslated: []
+			languageTranslated: {}
 	},
 	getters,
 	mutations,

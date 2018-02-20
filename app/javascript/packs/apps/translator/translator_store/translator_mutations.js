@@ -13,10 +13,12 @@ export default {
       state.selected['language']=selection['data']
     }
     else if(selection['type']==1){
-      state.selected['site']=selection['data']
+      state.selected['site']['name']=selection['data']['name']
+      state.selected['site']['index']=selection['data']['index']
     }
     else if (selection['type']==2){
-      state.selected['page']=selection['data']
+      state.selected['page']['name']=selection['data']['name']
+      state.selected['page']['index']=selection['data']['index']
     }
 
   }

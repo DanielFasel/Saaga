@@ -115,7 +115,10 @@ export default{
     // fetches authorized languages and then fetches hte strings of them, needs cleaning
     this.fetchlanguages().then(response => {
               console.log("Got the translators authorized languages now fetching them")
-              this.languageTranslated(this.languages[0]['language'])
+              // Loop through the languages and call an action to fetch it
+              for (var i = 0; i < this.languages.length; i++) {
+                  this.languageTranslated(this.languages[i]['language'])
+              }
           }, error => {
               console.error("Got nothing from server. Prompt user to check internet connection and try again")
           })

@@ -2,8 +2,8 @@
   <div>
 
     <button @click="languageSelection">{{selected["language"]}}</button>
-    <button v-if="showSiteButton" @click="siteSelection">{{selected["site"]}}</button>
-    <button v-if="showPageButton" @click="pageSelection">{{selected["page"]}}</button>
+    <button v-if="showSiteButton" @click="siteSelection">{{selected["site"]['name']}}</button>
+    <button v-if="showPageButton" @click="pageSelection">{{selected["page"]['name']}}</button>
 
   </div>
 
@@ -20,7 +20,7 @@ export default {
     }),
 
     showSiteButton(){
-      if(this.selected["site"]==""){
+      if(this.selected["site"]['name']==""){
         return false
       }
       else{
@@ -28,7 +28,7 @@ export default {
       }
     },
     showPageButton(){
-      if(this.selected["page"]==""){
+      if(this.selected["page"]['name']==""){
         return false
       }
       else{
@@ -39,19 +39,18 @@ export default {
 
   methods:{
     languageSelection(){
-        console.log(this.selected["site"])
       this.$router.push({ name: 'homepage' })
-      this.$store.commit('selected', {type:0, data:""})
-      this.$store.commit('selected', {type:1, data:""})
-      this.$store.commit('selected', {type:2, data:""})
+      this.$store.commit('selected', {type:0, data:{name:"",index:""}})
+      this.$store.commit('selected', {type:1, data:{name:"",index:""}})
+      this.$store.commit('selected', {type:2, data:{name:"",index:""}})
 
     },
     siteSelection(){
-      this.$store.commit('selected', {type:1, data:""})
-      this.$store.commit('selected', {type:2, data:""})
+      this.$store.commit('selected', {type:1, data:{name:"",index:""}})
+      this.$store.commit('selected', {type:2, data:{name:"",index:""}})
     },
     pageSelection(){
-      this.$store.commit('selected', {type:2, data:""})
+      this.$store.commit('selected', {type:2, data:{name:"",index:""}})
     }
   }
 }

@@ -39,7 +39,7 @@ export default {
   },
 
   showPageSelection(state){
-    if(state.selected["site"]==""){
+    if(state.selected["site"]["name"]==""){
       return false
     }
     else{
@@ -48,7 +48,7 @@ export default {
   },
 
   showSitePageSelection(state){
-    if(state.selected["page"]==""){
+    if(state.selected["page"]['name']==""){
       return true
     }
     else {
@@ -57,7 +57,7 @@ export default {
   },
 
   showTranslations(state){
-    if(state.selected["page"]==""){
+    if(state.selected["page"]['name']==""){
       return false
     }
     else{

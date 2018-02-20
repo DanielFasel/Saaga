@@ -1,7 +1,7 @@
 <template>
   <ul id="translation">
     <li v-for="translation in translation()">
-      <button @click="translation()">{{translation["translation"]}}</button>
+      <button>{{translation["translation"]['translation']}}</button>
     </li>
   </ul>
 </template>
@@ -22,7 +22,7 @@ export default {
 
   methods:{
     translation(){
-      return (this.languageTranslated[0]["pages"][0]["words"])
+      return this.languageTranslated[this.selected['language']] [this.selected['site']['index']] ['pages'] [this.selected['page']['index']] ['words']
     }
   }
 

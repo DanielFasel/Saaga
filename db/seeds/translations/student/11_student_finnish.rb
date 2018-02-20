@@ -1,15 +1,15 @@
-# seeding all homepage pages
-puts "Seeding Homepage Finnish"
-site = Site.find_by(name: 'Homepage')
+# seeding all student pages
+puts "Seeding Student Finnish"
+site = Site.find_by(name: 'Student')
 # fetching the language of the translations
 language = Language.find_by_language('finnish')
 
 #fetching the default json file and parsing it
-homepageFinnishPath = "#{Rails.root}/app/javascript/packs/assets/json/languages/homepage/homepage_fi.json"
-homepageFinnish = JSON.parse(File.read(homepageFinnishPath))
+studentFiPath = "#{Rails.root}/app/javascript/packs/assets/json/languages/student/student_fi.json"
+studentFi = JSON.parse(File.read(studentFiPath))
 
 # seeding the pages from the default json hash
-homepageFinnish.each do |key, value|
+studentFi.each do |key, value|
   puts "Page: #{key}"
   # seeding words of the page
   puts "-> Words of #{key}"

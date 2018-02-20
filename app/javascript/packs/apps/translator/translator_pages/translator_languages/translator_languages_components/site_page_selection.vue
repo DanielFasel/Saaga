@@ -8,7 +8,7 @@
     </ul>
 
     <ul id="sites" v-if="showSiteSelection">
-    <li v-for="site in languageTranslated">
+    <li v-for="site in languageTranslated['english']">
       <button @click="fetchingPages(site)">{{ site['name'] }}</button>
     </li>
   </ul>
@@ -31,13 +31,15 @@ export default{
 
   data: function(){
     return{
+      site:0,
       page:0
     }
   },
 
   computed:{
     ...mapGetters([
-      'languages'
+      'languages',
+      'selected'
     ]),
     ...mapGetters('languageTranslated',{
       languageTranslated: 'languageTranslated'
@@ -54,16 +56,17 @@ export default{
         this.$store.commit('selected', {type:0, data:language["language"]})
     },
     fetchingPages(site){
-          this.page=this.languageTranslated.indexOf(site)
-          this.pages()
-          this.$store.commit('selected', {type:1, data:site["name"]})
-      return
+        this.site=this.languageTranslated['english'].indexOf(site)
+        console.log(site)
+        this.pages()
+        this.$store.commit('selected', {type:1, data:{name: site["name"], index: this.site}})
     },
     pages(){
-      return this.languageTranslated[this.page]['pages']
+      return this.languageTranslated['english'][this.site]['pages']
     },
     fetchingTranslations(page){
-      this.$store.commit('selected', {type:2, data:page["name"]})
+      this.page=this.languageTranslated['english'][this.site]['pages'].indexOf(page)
+      this.$store.commit('selected', {type:2, data:{name: page["name"], index: this.page}})
     }
   }
 }

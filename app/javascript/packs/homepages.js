@@ -64,11 +64,10 @@ Vue.use(vuexI18n.plugin, store)
 var url = window.location.pathname
 var local = url.substring(1, 3)
 //requires the language json file according to the local
-var json =  require( "./assets/json/homepage_"+local+".json")
+var json =  require( "./assets/json/languages/homepage/homepage_"+local+".json")
 // commits the language to Vuex
-console.log(json.menu.logo)
-Vue.i18n.add('en', json)
-Vue.i18n.set('en')
+Vue.i18n.add(local, json)
+Vue.i18n.set(local)
 
 
 
