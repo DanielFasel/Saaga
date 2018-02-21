@@ -57,7 +57,6 @@ export default{
     },
     fetchingPages(site){
         this.site=this.languageTranslated['english'].indexOf(site)
-        console.log(site)
         this.pages()
         this.$store.commit('selected', {type:1, data:{name: site["name"], index: this.site}})
     },

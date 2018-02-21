@@ -4,6 +4,9 @@
   <menu-drawer v-show="showMenuDrawer" @toggleDrawer='toggleMenuDrawer'>
     <ul id="mobile_navigation_links">
       <li @click="toggleMenuDrawer">
+        <router-link class="navigation_tab" to='/homepage' exact>Home<i class="fa fa-link" aria-hidden="true"></i></router-link>
+      </li>
+      <li @click="toggleMenuDrawer">
         <router-link class="navigation_tab" to='/languages' exact>Languages<i class="fa fa-link" aria-hidden="true"></i></router-link>
       </li>
 

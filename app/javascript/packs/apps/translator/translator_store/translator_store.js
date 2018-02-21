@@ -11,7 +11,6 @@ import actions from"./translator_actions.js"
 //Importing all the modules
 
 import {layout} from "./modules/layout/layout_store.js"
-import {languageDefault} from "./modules/language_default/language_default_store.js"
 import {languageTranslated} from "./modules/language_translated/language_translated_store.js"
 
 export const store = new Vuex.Store({
@@ -19,7 +18,6 @@ export const store = new Vuex.Store({
 
 	modules: {
         layout,
-				languageDefault,
 				languageTranslated
     },
 

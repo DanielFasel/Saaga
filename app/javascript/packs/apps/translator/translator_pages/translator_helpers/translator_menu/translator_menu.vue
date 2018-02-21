@@ -13,6 +13,9 @@
     <nav>
       <ul id="navigation_links">
         <li>
+          <router-link class="navigation_tab" to='/homepage' exact>Home <i class="fa fa-link" aria-hidden="true"></i></router-link>
+        </li>
+        <li>
           <router-link class="navigation_tab" to='/languages' exact>Languages <i class="fa fa-link" aria-hidden="true"></i></router-link>
         </li>
       </ul>

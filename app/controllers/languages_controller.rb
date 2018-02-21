@@ -61,6 +61,8 @@ class LanguagesController < ApplicationController
 
   def post
     # save a translation, update the Json file and maybe also the seed file
+    # received data is in this form {language:"", word:"", translation:"", type:""}
+    # get the word and then the translation with the correct language. Then check the type and either save it to translations or temporary. If saved to translations update or 
   end
 
 

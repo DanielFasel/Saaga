@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id="container">
 
   <tree-navigation v-if="showTreeNavigation"></tree-navigation>
   <site-page-selection v-if="showSitePageSelection"></site-page-selection>
@@ -39,5 +39,9 @@ export default {
 </script>
 
 <style scoped>
-
+#container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 <style>
