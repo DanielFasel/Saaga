@@ -48,8 +48,6 @@ Rails.application.routes.draw do
 
 
 
-      # root page
-      root 'homepages#index'
 
     # Teacher, Translator and Student Welcome page after first sign in
     get '/welcomestudent', to: 'student_welcomes#index'
@@ -86,5 +84,8 @@ Rails.application.routes.draw do
   end
 
 
+
+   root to: redirect("/#{I18n.default_locale}", status: 302), as: :redirected_root
+    get "/*path", to: redirect("/#{I18n.default_locale}/%{path}", status: 302), constraints: {path: /(?!(#{I18n.available_locales.join("|")})\/).*/}, format: false
 
 end

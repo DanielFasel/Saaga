@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="selectionList">
 
     <ul id="languages" v-if="showLanguageSelection">
       <li v-for="language in languages">
@@ -73,4 +73,11 @@ export default{
 </script>
 
 <style :scoped>
+
+#selectionList{
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  margin-top: 20vh;
+}
 </style>

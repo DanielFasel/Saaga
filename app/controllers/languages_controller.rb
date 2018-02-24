@@ -6,7 +6,7 @@ class LanguagesController < ApplicationController
     # Get all sites and initiate the response array
     @sitearray=Site.all
     @response=[]
-    @language=Language.find_by_language(params[:language]).id
+    @language=Language.find_by(language: params[:language]).id
     # Loop through the Sites
     @sitearray.each do |site|
 
@@ -60,9 +60,30 @@ class LanguagesController < ApplicationController
 
 
   def post
+    @languageId=Language.find_by(language: params[:selected][:language]).id
+    # Fetch the Id of the word being translated
+    @word=Word.find_by_keyword(params[:selected][:word][:name])
+    # Updates different fields depending on type as well as different response
+    if params[:type]=="temporary"
+      @translation=@word.translations.find_by(language_id: @languageId)
+      @translation.temporary= params[:translation]
+      @translation.user_id= current_user.id
+      @translation.save
+      render json: @translation
+    elsif params[:type]=="translation"
+      @translation=@word.translations.find_by(language_id: @languageId)
+      @translation.translation= params[:translation]
+      @translation.user_id= current_user.id
+      @translation.save
+      render json: @translation 
+    end
+
+
+
     # save a translation, update the Json file and maybe also the seed file
     # received data is in this form {language:"", word:"", translation:"", type:""}
-    # get the word and then the translation with the correct language. Then check the type and either save it to translations or temporary. If saved to translations update or 
+    # get the word and then the translation with the correct language. Then check the type and either save it to translations or temporary. If saved to translations update or
+
   end
 
 

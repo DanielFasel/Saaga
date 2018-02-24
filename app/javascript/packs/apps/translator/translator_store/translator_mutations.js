@@ -20,6 +20,10 @@ export default {
       state.selected['page']['name']=selection['data']['name']
       state.selected['page']['index']=selection['data']['index']
     }
+    else if(selection['type']==3){
+      state.selected['word']['name']=selection['data']['name']
+      state.selected['word']['index']=selection['data']['index']
+    }
 
   }
 }

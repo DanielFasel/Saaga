@@ -17,10 +17,26 @@ export default{
       })
     },
 
-    postTranslation(context, data){
 
-      // Post promise needs to come here
-      console.log("Almost saved! Maybe Tomorrow :) ")
+    postTranslation({commit}, data){
+        Vue.prototype.$http.post('/languages', data )
+          .then(function (response) {
+            data['userId']=response.data['user_id']
+
+            if(data['type']=='temporary'){
+              data['translation']=response.data['temporary']
+            }
+            else if(data['type']=='translation'){
+              data['translation']=response.data['translation']
+              commit('saveTranslation', data)
+            }
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+    },
+
+    wordLength(context,data){
+      context.commit('wordLength',data)
     }
-
 }
