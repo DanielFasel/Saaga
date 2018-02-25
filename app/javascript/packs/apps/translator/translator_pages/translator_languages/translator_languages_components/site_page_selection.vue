@@ -53,7 +53,7 @@ export default{
 
   methods:{
     fetchingSites(language){
-        this.$store.commit('selected', {type:0, data:language["language"]})
+        this.$store.commit('selected', {type:0, data:{name: language["language"]}})
     },
     fetchingPages(site){
         this.site=this.languageTranslated['english'].indexOf(site)

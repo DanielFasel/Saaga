@@ -46,7 +46,7 @@ export default{
     navigateSiteSelection: function(language){
       // Navigates to the Language Page and commits the selected language to the store
       this.$router.push({ name: 'languages' })
-      this.$store.commit('selected', {type:0, data:language["language"]})
+      this.$store.commit('selected', {type:0, data:{name: language["language"]}})
     }
   }
 

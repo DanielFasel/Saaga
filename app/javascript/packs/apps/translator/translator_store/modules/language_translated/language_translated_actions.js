@@ -21,13 +21,12 @@ export default{
     postTranslation({commit}, data){
         Vue.prototype.$http.post('/languages', data )
           .then(function (response) {
-            data['userId']=response.data['user_id']
 
-            if(data['type']=='temporary'){
-              data['translation']=response.data['temporary']
-            }
-            else if(data['type']=='translation'){
+            if(data['type']=='translation'){
+              data['userId']=response.data['user_id']
               data['translation']=response.data['translation']
+              data['validated']=response.data['validated']
+              data['temporary']=response.data['temporary']
               commit('saveTranslation', data)
             }
           })

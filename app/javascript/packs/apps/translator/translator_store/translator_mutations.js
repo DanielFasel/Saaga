@@ -10,7 +10,7 @@ export default {
 
   selected(state, selection){
     if(selection['type']==0){
-      state.selected['language']=selection['data']
+      state.selected['language']['name']=selection['data']['name']
     }
     else if(selection['type']==1){
       state.selected['site']['name']=selection['data']['name']

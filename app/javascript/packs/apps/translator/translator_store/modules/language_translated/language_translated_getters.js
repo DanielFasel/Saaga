@@ -12,7 +12,7 @@ export default{
   },
 
   selectedTranslations: (state) => (selected,index) => {
-    return state.languageTranslated[selected['language']][selected['site']['index']]['pages'][selected['page']['index']]['words'][index]
+    return state.languageTranslated[selected['language']['name']][selected['site']['index']]['pages'][selected['page']['index']]['words'][index]
   },
 
   words: (state) => (selected) => {

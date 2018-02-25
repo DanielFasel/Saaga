@@ -12,7 +12,7 @@ export default {
 },
 
   showTreeNavigation(state){
-    if(state.selected["language"]==""){
+    if(state.selected["language"]['name']==""){
       return false
     }
     else {
@@ -21,7 +21,7 @@ export default {
   },
 
   showLanguageSelection(state){
-    if(state.selected["language"]==""){
+    if(state.selected["language"]['name']==""){
       return true
     }
     else{
@@ -30,7 +30,7 @@ export default {
   },
 
   showSiteSelection(state){
-    if(state.selected["language"]==""){
+    if(state.selected["language"]['name']==""){
       return false
     }
     else{

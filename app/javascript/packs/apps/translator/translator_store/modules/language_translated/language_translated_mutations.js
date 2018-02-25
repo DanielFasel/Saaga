@@ -10,9 +10,17 @@ export default{
         // state.languageTranslated.splice([keyString], 1, language[keyString])
     },
 
+    saveTemporary(state, data){
+      console.log("also Here")
+      state.languageTranslated[data['selected']['language']['name']][data['selected']['site']['index']]['pages'][data['selected']['page']['index']]['words'][data['selected']['word']['index']]['translation']['validated']=data['data']
+    },
+
     saveTranslation(state, data){
       // Goes replace temporary translation with new one. data['selected'] is used to access the right translation then data['translation'] replaces the temporary translation
-    state.languageTranslated[data['selected']['language']][data['selected']['site']['index']]['pages'][data['selected']['page']['index']]['words'][data['selected']['word']['index']]['translation']['translation']=data['translation']
+    state.languageTranslated[data['selected']['language']['name']][data['selected']['site']['index']]['pages'][data['selected']['page']['index']]['words'][data['selected']['word']['index']]['translation']['translation']=data['translation']
+    state.languageTranslated[data['selected']['language']['name']][data['selected']['site']['index']]['pages'][data['selected']['page']['index']]['words'][data['selected']['word']['index']]['translation']['temporary']=data['temporary']
+
+    state.languageTranslated[data['selected']['language']['name']][data['selected']['site']['index']]['pages'][data['selected']['page']['index']]['words'][data['selected']['word']['index']]['translation']['validated']=data['validated']
     },
 
     wordLength(state,data){

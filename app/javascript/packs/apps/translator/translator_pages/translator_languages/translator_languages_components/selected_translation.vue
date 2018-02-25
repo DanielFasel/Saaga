@@ -3,9 +3,9 @@
 
     {{selectedTranslations['translation']['translation']}}
     {{characterCount}}
-
-    <textarea @keyup="saveTemporaryTranslation(selectedTranslations['translation']['temporary'])" v-model="selectedTranslations['translation']['temporary']"></textarea>
-    <button @click="saveTranslation(selectedTranslations['translation']['temporary'])">Save</button>
+    {{selectedTranslations['translation']['validated']}}
+    <textarea @keyup="saveTemporaryTranslation(selectedTranslations['translation']['temporary'])" @keydown="setValidatedTemporary()" v-model="selectedTranslations['translation']['temporary']"></textarea>
+    <button @click="saveTranslation(selectedTranslations['translation']['temporary'])">Validate</button>
 
   </div>
 </template>
@@ -60,10 +60,15 @@ export default{
       this.requiredToSave['type']='temporary'
       this.requiredToSave['translation']=bindedTemporary
       // Commits word and wordIndex that will be needed for the mutation
-      this.$store.commit('selected', {type:3, data:{name: this.selectedTranslations['keyword'], index: this.index}})
       this.requiredToSave['selected']=this.selected
       this.postTranslation(this.requiredToSave)
     }, 200),
+
+    setValidatedTemporary(){
+      this.$store.commit('selected', {type:3, data:{name: this.selectedTranslations['keyword'], index: this.index}})
+      var hash = {data: false, selected:this.selected}
+      this.$store.commit('languageTranslated/saveTemporary', hash)
+    }
   },
 
   mounted(){

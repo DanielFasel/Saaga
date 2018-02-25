@@ -60,7 +60,7 @@ class LanguagesController < ApplicationController
 
 
   def post
-    @languageId=Language.find_by(language: params[:selected][:language]).id
+    @languageId=Language.find_by(language: params[:selected][:language][:name]).id
     # Fetch the Id of the word being translated
     @word=Word.find_by_keyword(params[:selected][:word][:name])
     # Updates different fields depending on type as well as different response
@@ -68,14 +68,16 @@ class LanguagesController < ApplicationController
       @translation=@word.translations.find_by(language_id: @languageId)
       @translation.temporary= params[:translation]
       @translation.user_id= current_user.id
+      @translation.validated=false
       @translation.save
       render json: @translation
     elsif params[:type]=="translation"
       @translation=@word.translations.find_by(language_id: @languageId)
       @translation.translation= params[:translation]
       @translation.user_id= current_user.id
+      @translation.validated=true
       @translation.save
-      render json: @translation 
+      render json: @translation
     end
 
 
