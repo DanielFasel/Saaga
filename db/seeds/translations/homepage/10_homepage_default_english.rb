@@ -2,7 +2,7 @@
 puts "Seeding Homepage default/english"
 site = Site.find_by(name: 'Homepage')
 # fetching the language of the translations
-language = Language.find_by_language('english')
+language = Language.find_by(name: 'english')
 
 #fetching the default json file and parsing it
 homepageDefaultEnPath = "#{Rails.root}/app/javascript/packs/assets/json/languages/homepage/homepage_en.json"
@@ -10,7 +10,7 @@ homepageDefaultEn = JSON.parse(File.read(homepageDefaultEnPath))
 
 # seeding the pages from the default json hash
 homepageDefaultEn.each do |key, value|
-  site.pages.create(name: key, completed: 0, total: 0)
+  site.pages.create(name: key)
   puts "Page: #{key}"
   page=Page.find_by(name: key)
   # seeding words of the page

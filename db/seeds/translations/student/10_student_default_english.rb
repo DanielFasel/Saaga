@@ -2,7 +2,7 @@
 puts "Seeding Student default/english"
 site = Site.find_by(name: 'Student')
 # fetching the language of the translations
-language = Language.find_by_language('english')
+language = Language.find_by(name: 'english')
 
 #fetching the default json file and parsing it
 studentDefaultEnPath = "#{Rails.root}/app/javascript/packs/assets/json/languages/student/student_en.json"
@@ -10,7 +10,7 @@ studentDefaultEn = JSON.parse(File.read(studentDefaultEnPath))
 
 # seeding the pages from the default json hash
 studentDefaultEn.each do |key, value|
-  site.pages.create(name: key, completed: 0, total: 0)
+  site.pages.create(name: key)
   puts "Page: #{key}"
   page=Page.find_by(name: key)
   # seeding words of the page

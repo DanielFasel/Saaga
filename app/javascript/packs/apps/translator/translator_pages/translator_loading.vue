@@ -38,7 +38,7 @@ export default{
                 console.log("Got the translators authorized languages now fetching them")
                 // Loop through the languages and call an action to fetch it
                 for (var i = 0; i < this.languages.length; i++) {
-                    this.languageTranslated(this.languages[i]['language'])
+                    this.languageTranslated(this.languages[i]['name'])
                 }
             }, error => {
                 console.error("Got nothing from server. Prompt user to check internet connection and try again")

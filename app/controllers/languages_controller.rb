@@ -5,8 +5,14 @@ class LanguagesController < ApplicationController
     # When opportunity presents itself check if there is a better way of doing this
     # Get all sites and initiate the response array
     @sitearray=Site.all
-    @response=[]
-    @language=Language.find_by(language: params[:language]).id
+    @response={}
+    @language=Language.find_by(name: params[:language])
+
+
+    @response[:name]=@language.name
+    @response[:total]=0
+    @response[:completed]=0
+    @response[:sites]=[]
     # Loop through the Sites
     @sitearray.each do |site|
 
@@ -15,8 +21,8 @@ class LanguagesController < ApplicationController
       @pagearray=[]
       # Attributes of the sites
       @sitehash[:name]=site.name
-      @sitehash[:completed]=site.completed
-      @sitehash[:total]=site.total
+      @sitehash[:completed]=0
+      @sitehash[:total]=0
       @sitehash[:pages]=@pagearray
 
       # Looping through the pages to create the PageArray
@@ -26,14 +32,14 @@ class LanguagesController < ApplicationController
         @wordarray=[]
         # Attributes of the Pages
         @pagehash[:name]=page.name
-        @pagehash[:completed]=page.completed
-        @pagehash[:total]=page.total
+        @pagehash[:completed]=0
+        @pagehash[:total]=0
         @pagehash[:words]=@wordarray
 
         #Looping through the words to create the WordArray
         page.words.each do  |word|
           # fetch the translation of the word and appropriated language and create a hash of it
-          @translation=word.translations.find_by_language_id(@language)
+          @translation=word.translations.find_by_language_id(@language.id)
           @translationhash={}
           # Attributes of the Translations
           @translationhash[:translation]=@translation.translation
@@ -47,12 +53,25 @@ class LanguagesController < ApplicationController
           @wordhash[:translation]=@translationhash
           # Push the word and translation has into the WordArrays
           @wordarray.push(@wordhash)
+
+          # Incriment the total and completed translations
+          #Incriment total
+          @pagehash[:total]+=1
+          @sitehash[:total]+=1
+          @response[:total]+=1
+          # incriment if validated for completed
+          if @translation[:validated]==true
+            @pagehash[:completed]+=1
+            @sitehash[:completed]+=1
+            @response[:completed]+=1
+          end
+
         end
         # Push the PageHash into the PageArray
         @pagearray.push(@pagehash)
       end
       # Push the Sitehash into the Response Array to finalize the response
-      @response.push(@sitehash)
+      @response[:sites].push(@sitehash)
     end
 
     respond_with(@response)
@@ -60,7 +79,7 @@ class LanguagesController < ApplicationController
 
 
   def post
-    @languageId=Language.find_by(language: params[:selected][:language][:name]).id
+    @languageId=Language.find_by(name: params[:selected][:language][:name]).id
     # Fetch the Id of the word being translated
     @word=Word.find_by_keyword(params[:selected][:word][:name])
     # Updates different fields depending on type as well as different response

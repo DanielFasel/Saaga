@@ -5,8 +5,8 @@
     <!-- Available Languages and their stats -->
     <div>
       <!-- Languages the translator has access to -->
-      <li v-for="language in languages">
-      <button @click="navigateSiteSelection(language)">{{ language["language"]}}</button>
+      <li v-for="language, index in languages">
+      <button @click="navigateSiteSelection(language, index)">{{ language["name"]}} / {{languagePercentage(index)}}</button>
       </li>
     </div>
 
@@ -43,10 +43,16 @@ export default{
 
   methods:{
 
-    navigateSiteSelection: function(language){
+    navigateSiteSelection: function(language, languageIndex){
       // Navigates to the Language Page and commits the selected language to the store
       this.$router.push({ name: 'languages' })
-      this.$store.commit('selected', {type:0, data:{name: language["language"]}})
+      this.$store.commit('selected', {type:0, data:{name: language["name"], index: languageIndex}})
+    },
+
+    languagePercentage(languageIndex){
+      var hash = this.$store.getters['languageTranslated/languageTotalCompleted'](languageIndex)
+      var percentage = hash['completed']/(hash['total']/100)
+      return percentage
     }
   }
 

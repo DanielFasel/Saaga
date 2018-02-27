@@ -2,7 +2,7 @@
 puts "Seeding Student Finnish"
 site = Site.find_by(name: 'Student')
 # fetching the language of the translations
-language = Language.find_by_language('finnish')
+language = Language.find_by(name: 'finnish')
 
 #fetching the default json file and parsing it
 studentFiPath = "#{Rails.root}/app/javascript/packs/assets/json/languages/student/student_fi.json"

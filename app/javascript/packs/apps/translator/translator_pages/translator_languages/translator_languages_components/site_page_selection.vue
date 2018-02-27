@@ -2,20 +2,20 @@
   <div id="selectionList">
 
     <ul id="languages" v-if="showLanguageSelection">
-      <li v-for="language in languages">
-        <button @click="fetchingSites(language)">{{ language["language"]}}</button>
+      <li v-for="language, index in languages">
+        <button @click="fetchingSites(language ,index)">{{ language["name"]}} / {{languagePercentage(index)}}</button>
       </li>
     </ul>
 
     <ul id="sites" v-if="showSiteSelection">
-    <li v-for="site in languageTranslated['english']">
-      <button @click="fetchingPages(site)">{{ site['name'] }}</button>
+    <li v-for="site, index in languageTranslated[0]['sites']">
+      <button @click="fetchingPages(site, index)">{{ site['name'] }}/ {{sitePercentage(index)}}</button>
     </li>
   </ul>
 
   <ul id="pages" v-if="showPageSelection">
-    <li v-for="page in this.pages()">
-      <button @click="fetchingTranslations(page)">{{page['name'] }}</button>
+    <li v-for="page, index in this.pages()">
+      <button @click="fetchingTranslations(page, index)">{{page['name'] }}/ {{pagePercentage(index)}}</button>
     </li>
   </ul>
 
@@ -31,8 +31,7 @@ export default{
 
   data: function(){
     return{
-      site:0,
-      page:0
+      site:0
     }
   },
 
@@ -49,23 +48,43 @@ export default{
       showSiteSelection: 'showSiteSelection',
       showPageSelection: 'showPageSelection'
     })
+
+
   },
 
   methods:{
-    fetchingSites(language){
-        this.$store.commit('selected', {type:0, data:{name: language["language"]}})
+    fetchingSites(language, languageIndex){
+        this.$store.commit('selected', {type:0, data:{name: language["name"], index: languageIndex}})
     },
-    fetchingPages(site){
-        this.site=this.languageTranslated['english'].indexOf(site)
+    fetchingPages(site, siteIndex){
+        this.site=siteIndex
         this.pages()
-        this.$store.commit('selected', {type:1, data:{name: site["name"], index: this.site}})
+        this.$store.commit('selected', {type:1, data:{name: site["name"], index: siteIndex}})
     },
     pages(){
-      return this.languageTranslated['english'][this.site]['pages']
+      return this.languageTranslated[0]['sites'][this.site]['pages']
     },
-    fetchingTranslations(page){
-      this.page=this.languageTranslated['english'][this.site]['pages'].indexOf(page)
-      this.$store.commit('selected', {type:2, data:{name: page["name"], index: this.page}})
+    fetchingTranslations(page, pageIndex){
+      this.$store.commit('selected', {type:2, data:{name: page["name"], index: pageIndex}})
+    },
+
+    languagePercentage(languageIndex){
+      var hash = this.$store.getters['languageTranslated/languageTotalCompleted'](languageIndex)
+      var percentage = hash['completed']/(hash['total']/100)
+      return percentage
+    },
+
+    sitePercentage(siteIndex){
+
+      var hash = this.$store.getters['languageTranslated/siteTotalCompleted'](siteIndex)
+      var percentage = hash['completed']/(hash['total']/100)
+      return percentage
+    },
+
+    pagePercentage(pageIndex){
+      var hash = this.$store.getters['languageTranslated/pageTotalCompleted'](pageIndex)
+      var percentage = hash['completed']/(hash['total']/100)
+      return percentage
     }
   }
 }

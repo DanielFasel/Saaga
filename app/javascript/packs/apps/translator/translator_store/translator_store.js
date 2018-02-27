@@ -27,7 +27,7 @@ export const store = new Vuex.Store({
 			// Info about the translator
 			user:{},
 			// object telling which language/site/page got selected
-			selected: {language:{name:""}, site:{name:"", index:""}, page:{name:"",index:""}, word:{name:"", index:""}}
+			selected: {language:{name:"", index:""}, site:{name:"", index:""}, page:{name:"",index:""}, word:{name:"", index:""}}
 	},
 
 	getters,

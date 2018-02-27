@@ -21,10 +21,10 @@ end
 
 
 
-Language.create!(language: "english")
+Language.create!(name: "english")
 
-Language.create!(language:"finnish")
-Language.create!(language:"swedish")
+Language.create!(name:"finnish")
+Language.create!(name:"swedish")
 
 #Users and related tables
 
@@ -39,7 +39,7 @@ User.create!(username: "Tran1",
               email:"translator1@english.com",
               password: "123456",
               password_confirmation: "123456",
-              :languages => Language.where(:language => ['english','finnish'])
+              :languages => Language.where(:name => ['english','finnish'])
               )
 
 
@@ -51,7 +51,7 @@ User.create!(username: "Tran2",
             email:"translator2@english.com",
             password: "123456",
             password_confirmation: "123456",
-            :languages => Language.where(:language => ['english','swedish'])
+            :languages => Language.where(:name => ['english','swedish'])
             )
 
 #student
