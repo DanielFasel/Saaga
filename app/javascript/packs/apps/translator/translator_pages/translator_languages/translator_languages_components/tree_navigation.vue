@@ -67,19 +67,37 @@ export default {
     languagePercentage(){
       var hash = this.$store.getters['languageTranslated/languageTotalCompleted'](this.selected['language']['index'])
       var percentage = hash['completed']/(hash['total']/100)
-      return percentage
+      percentage=+percentage.toFixed(1)
+      if(hash['total']==0){
+        return ""
+      }
+      else{
+        return percentage
+      }
     },
 
     sitePercentage(){
       var hash = this.$store.getters['languageTranslated/siteTotalCompleted'](this.selected['site']['index'])
       var percentage = hash['completed']/(hash['total']/100)
-      return percentage
+      percentage=+percentage.toFixed(1)
+      if(hash['total']==0){
+        return ""
+      }
+      else{
+        return percentage
+      }
     },
 
     pagePercentage(){
       var hash = this.$store.getters['languageTranslated/pageTotalCompleted'](this.selected['page']['index'])
       var percentage = hash['completed']/(hash['total']/100)
-      return percentage
+      percentage=+percentage.toFixed(1)
+      if(hash['total']==0){
+        return ""
+      }
+      else{
+        return percentage
+      }
     }
   }
 }

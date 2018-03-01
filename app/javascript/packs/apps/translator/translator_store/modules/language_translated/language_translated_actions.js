@@ -1,13 +1,15 @@
 import Vue from 'vue'
 export default{
 
-  languageTranslated(context, data){
+  languageTranslated({commit, state, rootState}, data){
     // What is this ? Needs to be checked and annotated for better understanding.
     var language=data
     Vue.prototype.$http.get('/languages',{params:{language: data}} )
       .then(function (response) {
-      
-        context.commit('languageTranslated',response.data)
+    
+        if(state.languageTranslated.length < rootState.languages.length){
+        commit('languageTranslated',response.data)
+      }
       })
       .catch(function (error) {
         console.log(error);

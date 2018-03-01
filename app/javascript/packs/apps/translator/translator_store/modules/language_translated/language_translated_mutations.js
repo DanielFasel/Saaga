@@ -2,13 +2,10 @@ import Vue from 'vue'
 
 export default{
     languageTranslated(state, language){
-
       state.languageTranslated.push(language)
-
     },
 
     saveTemporary(state, data){
-      console.log("also Here")
       state.languageTranslated[data['selected']['language']['index']]['sites'][data['selected']['site']['index']]['pages'][data['selected']['page']['index']]['words'][data['selected']['word']['index']]['translation']['validated']=data['data']
     },
 
@@ -16,7 +13,6 @@ export default{
       // Goes replace temporary translation with new one. data['selected'] is used to access the right translation then data['translation'] replaces the temporary translation
     state.languageTranslated[data['selected']['language']['index']]['sites'][data['selected']['site']['index']]['pages'][data['selected']['page']['index']]['words'][data['selected']['word']['index']]['translation']['translation']=data['translation']
     state.languageTranslated[data['selected']['language']['index']]['sites'][data['selected']['site']['index']]['pages'][data['selected']['page']['index']]['words'][data['selected']['word']['index']]['translation']['temporary']=data['temporary']
-
     state.languageTranslated[data['selected']['language']['index']]['sites'][data['selected']['site']['index']]['pages'][data['selected']['page']['index']]['words'][data['selected']['word']['index']]['translation']['validated']=data['validated']
     },
 

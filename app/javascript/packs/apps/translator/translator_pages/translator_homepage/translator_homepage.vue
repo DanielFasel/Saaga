@@ -52,7 +52,13 @@ export default{
     languagePercentage(languageIndex){
       var hash = this.$store.getters['languageTranslated/languageTotalCompleted'](languageIndex)
       var percentage = hash['completed']/(hash['total']/100)
-      return percentage
+      percentage=+percentage.toFixed(1)
+      if(hash['total']==0){
+        return ""
+      }
+      else{
+        return percentage
+      }
     }
   }
 
