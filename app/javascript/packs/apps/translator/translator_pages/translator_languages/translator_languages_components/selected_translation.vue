@@ -51,7 +51,6 @@ export default{
       this.requiredToSave['translation']=bindedTemporary
       this.$store.commit('selected', {type:3, data:{name: this.selectedTranslations['keyword'], index: this.index}})
       this.requiredToSave['selected']=this.selected
-      console.log(this.requiredToSave['translation'])
       this.postTranslation(this.requiredToSave)
     },
 
@@ -73,8 +72,6 @@ export default{
 
   mounted(){
     this.bindedTemporary=this.selectedTranslations['translation']['temporary']
-
-
   }
 }
 

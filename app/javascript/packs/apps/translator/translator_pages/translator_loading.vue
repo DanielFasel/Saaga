@@ -17,7 +17,8 @@ export default{
       fetchlanguages: 'languages'
     }),
     ...mapActions('languageTranslated',{
-      languageTranslated: 'languageTranslated'
+      languageTranslated: 'languageTranslated',
+      defaultLanguageTranslated: 'defaultLanguageTranslated'
     }),
     fakeFetch: function(){
         this.$router.push({ name: 'homepage' })
@@ -31,7 +32,7 @@ export default{
   },
 
     created: function(){
-
+      this.defaultLanguageTranslated("english")
       // Have to rethink because it doesn+t get fetched when translator reloads homepage.
       // fetches authorized languages and then fetches hte strings of them, needs cleaning
       this.fetchlanguages().then(response => {

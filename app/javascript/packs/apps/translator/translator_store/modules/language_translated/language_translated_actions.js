@@ -6,7 +6,7 @@ export default{
     var language=data
     Vue.prototype.$http.get('/languages',{params:{language: data}} )
       .then(function (response) {
-    
+
         if(state.languageTranslated.length < rootState.languages.length){
         commit('languageTranslated',response.data)
       }
@@ -14,6 +14,22 @@ export default{
       .catch(function (error) {
         console.log(error);
       })
+    },
+
+    defaultLanguageTranslated({commit,state}, data){
+
+      var language=data
+      Vue.prototype.$http.get('/languages',{params:{language: data}} )
+        .then(function (response) {
+
+          if(state.defaultLanguageTranslated.length < 1){
+          commit('defaultLanguageTranslated',response.data)
+        }
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+
     },
 
 

@@ -15,12 +15,16 @@ export default{
     return state.languageTranslated
   },
 
+  defaultLanguageTranslated(state){
+    return state.defaultLanguageTranslated
+  },
+
   wordLength(state){
     return state.wordLength
   },
 
   defaultTranslations: (state) => (selected,index) => {
-    return state.languageTranslated[0]['sites'][selected['site']['index']]['pages'][selected['page']['index']]['words'][index]
+    return state.defaultLanguageTranslated[0]['sites'][selected['site']['index']]['pages'][selected['page']['index']]['words'][index]
   },
 
   selectedTranslations: (state) => (selected,index) => {
@@ -33,7 +37,6 @@ export default{
 
   languageTotalCompleted: (state, getters, rootState) => (languageIndex) =>{
     var hash = {total:0, completed:0}
-
     if(typeof state.languageTranslated !== 'undefined' && state.languageTranslated.length == rootState.languages.length){
       hash['total']=state.languageTranslated[languageIndex]['total']
       var sites =state.languageTranslated[languageIndex]['sites']
@@ -57,15 +60,13 @@ export default{
 
       }
 
-
-
       return hash
-
 
     }
     else{
       return hash
     }
+
   },
 
   siteTotalCompleted: (state, getters, rootState, rootGetters) => (siteIndex) =>{

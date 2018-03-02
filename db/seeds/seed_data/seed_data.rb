@@ -51,7 +51,7 @@ User.create!(username: "Tran2",
             email:"translator2@english.com",
             password: "123456",
             password_confirmation: "123456",
-            :languages => Language.where(:name => ['english','swedish'])
+            :languages => Language.where(:name => ['finnish'])
             )
 
 #student

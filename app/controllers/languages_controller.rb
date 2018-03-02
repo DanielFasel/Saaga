@@ -54,17 +54,11 @@ class LanguagesController < ApplicationController
           # Push the word and translation has into the WordArrays
           @wordarray.push(@wordhash)
 
-          # Incriment the total and completed translations
+          # Incriment the total translations
           #Incriment total
           @pagehash[:total]+=1
           @sitehash[:total]+=1
           @response[:total]+=1
-          # incriment if validated for completed
-          if @translation[:validated]==true
-            @pagehash[:completed]+=1
-            @sitehash[:completed]+=1
-            @response[:completed]+=1
-          end
 
         end
         # Push the PageHash into the PageArray

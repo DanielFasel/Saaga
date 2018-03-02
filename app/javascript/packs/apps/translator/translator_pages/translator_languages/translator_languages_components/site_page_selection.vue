@@ -8,7 +8,7 @@
     </ul>
 
     <ul id="sites" v-if="showSiteSelection">
-    <li v-for="site, index in languageTranslated[0]['sites']">
+    <li v-for="site, index in defaultLanguageTranslated[0]['sites']">
       <button @click="fetchingPages(site, index)">{{ site['name'] }}/ {{sitePercentage(index)}}</button>
     </li>
   </ul>
@@ -41,7 +41,7 @@ export default{
       'selected'
     ]),
     ...mapGetters('languageTranslated',{
-      languageTranslated: 'languageTranslated'
+      defaultLanguageTranslated: 'defaultLanguageTranslated'
     }),
     ...mapGetters({
       showLanguageSelection: 'showLanguageSelection',
@@ -62,7 +62,7 @@ export default{
         this.$store.commit('selected', {type:1, data:{name: site["name"], index: siteIndex}})
     },
     pages(){
-      return this.languageTranslated[0]['sites'][this.site]['pages']
+      return this.defaultLanguageTranslated[0]['sites'][this.site]['pages']
     },
     fetchingTranslations(page, pageIndex){
       this.$store.commit('selected', {type:2, data:{name: page["name"], index: pageIndex}})
