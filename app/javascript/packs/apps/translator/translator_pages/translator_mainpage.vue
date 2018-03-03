@@ -5,7 +5,7 @@
 
     <!-- Content of the pages when changing route -->
     <router-view  id="router_content" :style="modalMenuPadding"></router-view>
-
+    <!-- Components that are always needed on the main interface -->
     <translator-menu></translator-menu>
     <translator-drawer></translator-drawer>
     <translator-settings></translator-settings>
@@ -21,14 +21,11 @@
 </template>
 
 <script>
-
 import {mapGetters} from 'vuex'
 import {mapActions} from 'vuex'
 
 import TranslatorSettings from "./translator_helpers/translator_settings/translator_settings.vue"
 import TranslatorHelp from "./translator_helpers/translator_help/translator_help.vue"
-
-
 
 export default{
 
@@ -53,13 +50,11 @@ export default{
   },
 
   computed:{
-
     ...mapGetters('layout/modalDrawer',[
       'showMenuDrawer',
       'showSettingsModal',
       'showHelpModal'
     ]),
-
     ...mapGetters('layout/generalLayout',[
       'overflowPadding',
       'overflowPaddingLive'
@@ -67,7 +62,6 @@ export default{
       ...mapGetters([
         'languages'
       ]),
-
 
     // function that adds padding to compensate for the scroll bar disappearing when modals are shown. It avoids the page to "jump".
     modalMenuPadding: function(){
@@ -107,27 +101,26 @@ export default{
       document.body.removeChild (outer);
       // sends the width to vuex
       this.overflowPaddingAction(w1-w2)
-
   },
 
   mounted: function(){
+    // Fetches the default language
+    this.defaultLanguageTranslated("english")
 
-    // Have to rethink because it doesn+t get fetched when translator reloads homepage.
-    // fetches authorized languages and then fetches hte strings of them, needs cleaning
+    // fetches authorized languages
     this.fetchlanguages().then(response => {
-              this.defaultLanguageTranslated("english")
-              // Loop through the languages and call an action to fetch it
-              for (var i = 0; i < this.languages.length; i++) {
-                  this.languageTranslated(this.languages[i]['name'])
-              }
-          }, error => {
-              console.error("Got nothing from server. Prompt user to check internet connection and try again")
-          })
-          // fetches user info
-          this.user()
-        }
-}
+     // Loop through the languages and call an action to fetch it
+     for (var i = 0; i < this.languages.length; i++) {
+       this.languageTranslated(this.languages[i]['name'])
+      }
+    }, error => {
+      console.error("Got nothing from server. Prompt user to check internet connection and try again")
+    })
+    // fetches user info
+    this.user()
+  }
 
+}
 </script>
 
 <style scoped>

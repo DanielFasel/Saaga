@@ -42,17 +42,18 @@ export default{
   },
 
   methods:{
-
     navigateSiteSelection: function(language, languageIndex){
-      // Navigates to the Language Page and commits the selected language to the store
+      // Navigates to the Language Page and commits the selected language to 'selected' in the store
       this.$router.push({ name: 'languages' })
       this.$store.commit('selected', {type:0, data:{name: language["name"], index: languageIndex}})
     },
 
     languagePercentage(languageIndex){
+      // Calculates the percentage done of the language.
       var hash = this.$store.getters['languageTranslated/languageTotalCompleted'](languageIndex)
       var percentage = hash['completed']/(hash['total']/100)
       percentage=+percentage.toFixed(1)
+      // Returns empty percentage incase the total is 0 (Happens because the authorized languages get loaded before the language files themselves)
       if(hash['total']==0){
         return ""
       }

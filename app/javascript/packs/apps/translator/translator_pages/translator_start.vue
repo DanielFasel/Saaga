@@ -1,5 +1,6 @@
 <template>
-    <router-view></router-view>
+  <!-- Main Container that allows for the loading screen -->
+  <router-view></router-view>
 </template>
 
 <script>
