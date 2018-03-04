@@ -91,12 +91,24 @@ export default{
       var hash = this.$store.getters['languageTranslated/siteTotalCompleted'](siteIndex)
       var percentage = hash['completed']/(hash['total']/100)
       percentage=+percentage.toFixed(1)
+      if(hash['total']==0){
+        return ""
+      }
+      else{
+        return percentage
+      }
     },
     pagePercentage(pageIndex){
       // Calculates the percentage done of the page.
       var hash = this.$store.getters['languageTranslated/pageTotalCompleted'](pageIndex)
       var percentage = hash['completed']/(hash['total']/100)
       percentage=+percentage.toFixed(1)
+      if(hash['total']==0){
+        return ""
+      }
+      else{
+        return percentage
+      }
     }
   }
 }

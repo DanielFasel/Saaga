@@ -9,8 +9,8 @@ export const languageTranslated = {
 	state: {
 			//Language that needs to be translated
 			languageTranslated: [],
-			defaultLanguageTranslated:[],
-			wordLength:0
+			// default language (english)
+			defaultLanguageTranslated:[]
 	},
 	getters,
 	mutations,

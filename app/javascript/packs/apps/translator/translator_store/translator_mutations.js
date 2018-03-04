@@ -48,5 +48,5 @@ export default {
       state.selected['word']['index']=selection['data']['index']
     }
   }
-  
+
 }
