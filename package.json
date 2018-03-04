@@ -38,11 +38,15 @@
     "vuex-i18n": "^1.10.5",
     "webpack": "^2.5.1",
     "webpack-manifest-plugin": "^1.1.0",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
   },
   "devDependencies": {
     "babel-preset-stage-2": "^6.24.1",
     "vuetify": "^0.11.1",
     "webpack-dev-server": "^2.11.1"
-  }
+  },
+  "scripts": {
+  "webpack:deploy": "webpack --config=webpack/webpack.config.js -p",
+  "heroku-postbuild": "npm run webpack:deploy"
+}
 }

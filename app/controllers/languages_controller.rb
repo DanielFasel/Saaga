@@ -8,7 +8,6 @@ class LanguagesController < ApplicationController
     @response={}
     @language=Language.find_by(name: params[:language])
 
-
     @response[:name]=@language.name
     @response[:total]=0
     @response[:completed]=0
@@ -67,7 +66,6 @@ class LanguagesController < ApplicationController
       # Push the Sitehash into the Response Array to finalize the response
       @response[:sites].push(@sitehash)
     end
-
     respond_with(@response)
   end
 
@@ -91,14 +89,10 @@ class LanguagesController < ApplicationController
       @translation.validated=true
       @translation.save
       render json: @translation
+
+    #Update temporary Json file ??
     end
-
-
-
-    # save a translation, update the Json file and maybe also the seed file
-    # received data is in this form {language:"", word:"", translation:"", type:""}
-    # get the word and then the translation with the correct language. Then check the type and either save it to translations or temporary. If saved to translations update or
-
+    # Once translator is satisfied with translations he sends a message (within the website to the superadmin) and the superadmin controlls and updates the json file.
   end
 
 
