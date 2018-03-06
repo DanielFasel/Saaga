@@ -58,7 +58,7 @@ Rails.application.routes.draw do
     get '/student', to: 'studentpages#index'
     get '/teacher', to: 'teacherpages#index'
     get '/translator', to: 'translatorpages#index'
-
+    get '/superAdmin', to: 'super_admin_pages#index'
 
     #School creation routes
 

@@ -89,10 +89,27 @@ class LanguagesController < ApplicationController
       @translation.validated=true
       @translation.save
       render json: @translation
+    elsif params[:type]=="save"
 
-    #Update temporary Json file ??
+      # Create a button for it !! Because it reloads it
+
+
+      original_json= 'app/javascript/packs/assets/json/languages/homepage/'+params[:selected][:site][:name]+'_'+params[:selected][:language][:name]+'.json'
+      new_json = original_json + '.new'
+      old_json = original_json + '.old'
+
+      language_json = JSON.parse(File.read('app/javascript/packs/assets/json/languages/homepage/'+params[:selected][:site][:name]+'_'+params[:selected][:language][:name]+'.json'))
+      puts language_json
+      language_json[params[:selected][:page][:name]][params[:selected][:word][:name]]=params[:translation]
+      puts language_json
+
+      File.write(new_json,language_json.to_json)
+
+      File.rename(original_json, old_json)
+      File.rename(new_json, original_json)
+      File.delete(old_json)
+      # Once translator is satisfied with translations he sends a message (within the website to the superadmin) and the superadmin controlls and updates the json file.
     end
-    # Once translator is satisfied with translations he sends a message (within the website to the superadmin) and the superadmin controlls and updates the json file.
   end
 
 

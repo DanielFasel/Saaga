@@ -7,6 +7,7 @@
       <!-- Languages the translator has access to -->
       <li v-for="language, index in languages">
       <button @click="navigateSiteSelection(language, index)">{{ language["name"]}} / {{languagePercentage(index)}}</button>
+      <button v-if="languagePercentage(index)===100" @click="validateLanguage(language["name"])">Validate {{language["name"]}}</button>
       </li>
     </div>
 
@@ -42,6 +43,9 @@ export default{
   },
 
   methods:{
+    ...mapActions({
+      validateLanguage: 'validateLanguage'
+    }),
     navigateSiteSelection: function(language, languageIndex){
       // Navigates to the Language Page and commits the selected language to 'selected' in the store
       this.$router.push({ name: 'languages' })
@@ -60,6 +64,9 @@ export default{
       else{
         return percentage
       }
+    },
+    validateLanguage(languageName){
+      this.validateLanguage(languageName)
     }
   }
 }

@@ -165,3 +165,18 @@ end
   @asp = AdminSpec.last
   AdminSpecSchoolAdmin.create!(admin_spec_id: @asp.id, school_admin_id: 1+i)
 end
+
+
+#superAdmin
+puts "Seed SuperAdmin"
+2.times do |i|
+  User.create!(username: "Master#{i}",
+                givenname: "Master#{i}",
+                familyname: "Super",
+                region: "en",
+                type: "SuperAdmin",
+                email:"superadmin#{i}@english.com",
+                password: "123456",
+                password_confirmation: "123456"
+                )
+end

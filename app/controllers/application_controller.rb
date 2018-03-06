@@ -30,6 +30,9 @@ class ApplicationController < ActionController::Base
         translator_url
     elsif user.is_a?(Translator) && user.sign_in_count==1
         welcometranslator_path
+
+    elsif user.is_a?(SuperAdmin)
+        superAdmin_url
     end
 
   end
@@ -46,7 +49,7 @@ class ApplicationController < ActionController::Base
     def configure_permitted_parameters
 
       if params.key?(:user) && params[:user].key?(:type) && params[:user].key?(:region)
-        raise "YOU SHALL NOT PASS!" unless params[:user][:type].in?(['Student', 'Teacher', 'Translator'])
+        raise "YOU SHALL NOT PASS!" unless params[:user][:type].in?(['Student', 'Teacher', 'Translator', 'SuperAdmin'])
         raise "invalid language" unless params[:user][:region].in?(['en','fi','sv'])
       end
 

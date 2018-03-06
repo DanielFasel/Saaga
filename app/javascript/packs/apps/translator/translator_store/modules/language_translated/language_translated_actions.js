@@ -63,5 +63,21 @@ export default{
     .catch(function (error) {
       console.log(error);
     })
+  },
+
+  validateLanguage(context, data){
+
+    var validationInfo={}
+    validationInfo['type']="save"
+
+    Vue.prototype.$http.post('/languages', validationInfo )
+    .then(function (response) {
+      console.log("Success")
+
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+
   }
 }
