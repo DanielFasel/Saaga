@@ -1,28 +1,33 @@
 <template>
 
-  <div class="content_container">
+  <div class="content-container">
 
     <!-- Available Languages and their stats -->
-    <div>
+    <div id="available-languages">
       <!-- Languages the translator has access to -->
       <li v-for="language, index in languages">
       <button @click="navigateSiteSelection(language, index)">{{ language["name"]}} / {{languagePercentage(index)}}</button>
-      <button v-if="languagePercentage(index)===100" @click="validateLanguage(language["name"])">Validate {{language["name"]}}</button>
+      <button v-if="languagePercentage(index)===100" @click="validateLanguageButton(language)">Validate {{ language["name"]}} </button>
       </li>
     </div>
 
     <!-- Information Table -->
-    <div>
+    <div id="information">
       <!-- Personal info -->
-      <div>
+      <div id="user-info">
         {{user["givenname"]}}
         {{user["familyname"]}}
         {{user["email"]}}
       </div>
       <!-- General Stats of Translations -->
-      <div>
+      <div id="translation-statistics">
         Completed Translations
       </div>
+    </div>
+
+    <!-- Tips about savings and link to download the languages straight as json file -->
+    <div id="tips-download">
+      <p>When editing a translation the website will save after 500ms. This way there is no need to worry about saving your work.</p>
     </div>
 
   </div>
@@ -43,7 +48,7 @@ export default{
   },
 
   methods:{
-    ...mapActions({
+    ...mapActions('languageTranslated',{
       validateLanguage: 'validateLanguage'
     }),
     navigateSiteSelection: function(language, languageIndex){
@@ -65,17 +70,32 @@ export default{
         return percentage
       }
     },
-    validateLanguage(languageName){
-      this.validateLanguage(languageName)
+    validateLanguageButton(languageName){
+      this.validateLanguage(languageName['name'])
     }
   }
 }
 </script>
 
 <style scoped>
-.content_container{
-  display: flex;
-  flex-direction: column;
-  color: black;
+.content-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "languages information"
+      "tips tips"
+}
+#available-languages{
+  grid-area: languages;
+}
+
+#information{
+  grid-area: information;
+}
+
+#tips-download{
+  grid-area: tips;
+  justify-self: center;
 }
 <style>

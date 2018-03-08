@@ -1,10 +1,10 @@
 <template>
 
   <!--"page_container" is needed because vuejs can only have one outer element and it's also used to scroll to the top-->
-  <div id="page_container">
+  <div id="page-container">
 
     <!-- Content of the pages when changing route -->
-    <router-view  id="router_content" :style="modalMenuPadding"></router-view>
+    <router-view  class="router_content" :style="modalMenuPadding"></router-view>
     <!-- Components that are always needed on the main interface -->
     <translator-menu></translator-menu>
     <translator-drawer></translator-drawer>
@@ -123,9 +123,12 @@ export default{
 }
 </script>
 
-<style scoped>
-#router_content{
+<style >
+.router_content{
+  margin: auto;
   margin-top: 70px;
   min-height: calc(100vh - 70px);
+  display: grid;
 }
+
 </style>

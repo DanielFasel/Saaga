@@ -66,7 +66,6 @@ export default{
   },
 
   validateLanguage(context, data){
-
     var validationInfo={}
     validationInfo['type']="save"
 
