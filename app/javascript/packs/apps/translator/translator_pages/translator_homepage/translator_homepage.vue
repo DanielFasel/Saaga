@@ -1,9 +1,9 @@
 <template>
 
-  <div class="content-container">
+  <div id="homepage-content">
 
     <!-- Available Languages and their stats -->
-    <div id="available-languages">
+    <div class="available-languages">
       <!-- Languages the translator has access to -->
       <li v-for="language, index in languages">
       <button @click="navigateSiteSelection(language, index)">{{ language["name"]}} / {{languagePercentage(index)}}</button>
@@ -12,7 +12,7 @@
     </div>
 
     <!-- Information Table -->
-    <div id="information">
+    <div class="information">
       <!-- Personal info -->
       <div id="user-info">
         {{user["givenname"]}}
@@ -20,13 +20,13 @@
         {{user["email"]}}
       </div>
       <!-- General Stats of Translations -->
-      <div id="translation-statistics">
+      <div class="translation-statistics">
         Completed Translations
       </div>
     </div>
 
     <!-- Tips about savings and link to download the languages straight as json file -->
-    <div id="tips-download">
+    <div class="tips-download">
       <p>When editing a translation the website will save after 500ms. This way there is no need to worry about saving your work.</p>
     </div>
 
@@ -78,7 +78,7 @@ export default{
 </script>
 
 <style scoped>
-.content-container{
+#homepage-content{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
@@ -86,16 +86,29 @@ export default{
       "languages information"
       "tips tips"
 }
-#available-languages{
+.available-languages{
   grid-area: languages;
 }
 
-#information{
+.information{
   grid-area: information;
 }
 
-#tips-download{
+.tips-download{
   grid-area: tips;
   justify-self: center;
 }
-<style>
+
+
+@media (max-width: 600px) {
+  #homepage-content{
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "languages"
+        "information"
+        "tips"
+  }
+}
+</style>

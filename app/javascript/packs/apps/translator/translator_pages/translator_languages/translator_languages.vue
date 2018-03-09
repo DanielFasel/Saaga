@@ -1,5 +1,5 @@
 <template>
-  <div id="container">
+  <div class="language-content">
     <!-- Content of the language page -->
     <tree-navigation v-if="showTreeNavigation"></tree-navigation>
     <site-page-selection v-if="showSitePageSelection"></site-page-selection>
@@ -35,9 +35,7 @@ export default {
 </script>
 
 <style scoped>
-#container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.language-content{
+
 }
-<style>
+</style>
