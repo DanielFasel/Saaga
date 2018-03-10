@@ -1,23 +1,16 @@
 <template>
 
 <menu-main>
-  <!-- "padding right" is there to avoid jumps when opening a modal because the scroll bar disappears-->
-  <header :style="{paddingRight: this.overflowPaddingLive + 'px'}">
-
     <!-- Logo -->
-    <div id="logo">
+    <h1 id="logo">
       <router-link to='/homepage' exact>SAAGA</router-link>
-    </div>
+    </h1>
 
     <!-- Navigation for Routes and utility modals -->
     <nav>
       <ul id="navigation_links">
-        <li>
-          <router-link class="navigation_tab" to='/homepage' exact>Home <i class="fa fa-link" aria-hidden="true"></i></router-link>
-        </li>
-        <li>
-          <router-link class="navigation_tab" to='/languages' exact>Languages <i class="fa fa-link" aria-hidden="true"></i></router-link>
-        </li>
+          <li><router-link class="navigation_tab" to='/homepage' exact>Home <i class="fa fa-link" aria-hidden="true"></i></router-link></li>
+          <li><router-link class="navigation_tab" to='/languages' exact>Languages <i class="fa fa-link" aria-hidden="true"></i></router-link></li>
       </ul>
 
       <ul id="utility_links">
@@ -29,12 +22,10 @@
     </nav>
 
     <!-- Menu Icon that triggers drawer on click for medium and small screens -->
-    <div class="center_div" id="mobile_center_div" @click="toggleMenuDrawer">
+    <button class="center_div" id="mobile_center_div" @click="toggleMenuDrawer">
       <i class="menu_icon fa fa-bars"></i>
       <span id="menutext">Menu</span>
-    </div>
-
-  </header>
+    </button>
 </menu-main>
 
 </template>
@@ -67,12 +58,6 @@ export default {
         window.location.href = "/login"
       })
     }
-  },
-
-  computed: {
-    ...mapGetters('layout/generalLayout', [
-      'overflowPaddingLive'
-    ])
   }
 }
 

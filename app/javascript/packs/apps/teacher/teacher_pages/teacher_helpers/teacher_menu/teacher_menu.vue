@@ -2,7 +2,7 @@
 
 <menu-main>
   <!-- "padding right" is there to avoid jumps when opening a modal because the scroll bar disappears-->
-  <header :style="{paddingRight: this.overflowPaddingLive + 'px'}">
+  <header>
 
     <!-- Logo -->
     <div id="logo">SAAGA</div>

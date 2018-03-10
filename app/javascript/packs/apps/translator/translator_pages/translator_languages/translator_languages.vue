@@ -1,11 +1,11 @@
 <template>
-  <div class="language-content">
+  <main id="language-content">
     <!-- Content of the language page -->
     <tree-navigation v-if="showTreeNavigation"></tree-navigation>
     <site-page-selection v-if="showSitePageSelection"></site-page-selection>
     <translations v-if="showTranslations"></translations>
 
-  </div>
+  </main>
 </template>
 
 <script>
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style scoped>
-.language-content{
+#language-content{
 
 }
 </style>

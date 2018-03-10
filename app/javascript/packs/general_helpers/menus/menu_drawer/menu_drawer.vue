@@ -1,12 +1,12 @@
 <template>
 		<transition name="drawer">
-		<div class="drawer-mask"  @click.self="toggleMenuDrawer">
+		<aside class="drawer-mask"  @click.self="toggleMenuDrawer">
 
-			<div class="drawer-wrapper">
+			<nav class="drawer-wrapper">
 				<slot></slot>
-			</div>
+			</nav>
 
-		</div>
+		</aside>
 	</transition>
 </template>
 
@@ -72,7 +72,7 @@ export default {
 
 /* Transition effects */
 .drawer-enter{
-	transform: translateX(300px);
+	transform: translateX(500px);
 }
 .drawer-enter-active,
 .drawer-leave-active {

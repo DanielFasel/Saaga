@@ -1,18 +1,20 @@
 <template>
-
-  <div id="homepage-content">
+  <main id="homepage-content">
 
     <!-- Available Languages and their stats -->
-    <div class="available-languages">
+    <section id="available-languages">
+      <h2>Languages</h2>
       <!-- Languages the translator has access to -->
-      <li v-for="language, index in languages">
-      <button @click="navigateSiteSelection(language, index)">{{ language["name"]}} / {{languagePercentage(index)}}</button>
-      <button v-if="languagePercentage(index)===100" @click="validateLanguageButton(language)">Validate {{ language["name"]}} </button>
-      </li>
-    </div>
+      <div v-for="language, index in languages">
+        <button @click="navigateSiteSelection(language, index)">{{ language["name"]}} / {{languagePercentage(index)}}</button>
+        <button v-if="languagePercentage(index)===100" @click="validateLanguageButton(language)">Validate {{ language["name"]}} </button>
+      </div>
+    </section>
 
     <!-- Information Table -->
-    <div class="information">
+    <section id="information">
+
+    <h2>User Info</h2>
       <!-- Personal info -->
       <div id="user-info">
         {{user["givenname"]}}
@@ -20,18 +22,18 @@
         {{user["email"]}}
       </div>
       <!-- General Stats of Translations -->
-      <div class="translation-statistics">
+      <div id="translation-statistics">
         Completed Translations
       </div>
-    </div>
+    </section>
 
     <!-- Tips about savings and link to download the languages straight as json file -->
-    <div class="tips-download">
+    <section id="tips-download">
+      <h2>Tips</h2>
       <p>When editing a translation the website will save after 500ms. This way there is no need to worry about saving your work.</p>
-    </div>
+    </section>
 
-  </div>
-
+  </main>
 </template>
 
 <script>
@@ -80,23 +82,28 @@ export default{
 <style scoped>
 #homepage-content{
     display: grid;
+    height: calc(100vh - 70px);
+    align-content: center;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     grid-template-areas:
       "languages information"
       "tips tips"
 }
-.available-languages{
+#available-languages{
   grid-area: languages;
+  background-color: red;
 }
 
-.information{
+#information{
   grid-area: information;
+  background-color: yellow;
 }
 
-.tips-download{
+#tips-download{
   grid-area: tips;
   justify-self: center;
+  background-color: silver;
 }
 
 

@@ -1,16 +1,16 @@
 <template>
 
   <transition name="homepagemenu">
-    <div id="menu" v-show="menuHide">
+    <header id="menu" v-show="menuHide">
 
       <slot></slot>
 
       <!-- Dark Background for the HomepageMenu, all component trigering the background need to be listed here -->
-      <transition name="mask">
+      <!-- <transition name="mask">
         <div id="homepage_menu_mask" v-show="showMenuDrawer" ></div>
-      </transition>
+      </transition> -->
 
-    </div>
+    </header>
   </transition>
 
 </template>

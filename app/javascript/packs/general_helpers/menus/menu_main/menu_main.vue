@@ -1,16 +1,16 @@
 <template>
 
   <transition name="menumain">
-    <div id="menu" v-show="menuShow">
+    <header id="menu" v-show="menuShow">
 
       <slot></slot>
 
       <!-- Dark Background for the MainMenu, all component trigering the background need to be listed here -->
-      <transition name="mask">
+      <!-- <transition name="mask">
         <div id="main_menu_mask" v-show="showMenuDrawer" ></div>
-      </transition>
+      </transition> -->
 
-    </div>
+    </header>
   </transition>
 
 </template>
@@ -31,7 +31,8 @@ export default {
 
   computed:{
     ...mapGetters('layout/modalDrawer',[
-      'showMenuDrawer'
+      'showMenuDrawer',
+      'overflowPaddingLive'
     ])},
 
   methods: {

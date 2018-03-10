@@ -3,11 +3,15 @@
   <!--"page_container" is needed because vuejs can only have one outer element and it's also used to scroll to the top-->
   <div id="site-container">
 
-    <!-- Content of the pages when changing route -->
-    <router-view :style="modalMenuPadding"></router-view>
-    <!-- Components that are always needed on the main interface -->
-    <translator-menu></translator-menu>
+    <!-- Menu and drawer -->
+    <translator-menu :style="modalMenuPadding"></translator-menu>
     <translator-drawer></translator-drawer>
+
+    <!-- Content of the pages -->
+    <!-- "padding" is there to avoid jumps when opening a modal because the scroll bar disappears-->
+    <router-view :style="modalMenuPadding"></router-view>
+
+    <!-- Components that are always needed on the main interface (inclueds menu and drawer) -->
     <translator-settings></translator-settings>
     <translator-help></translator-help>
 
@@ -133,5 +137,21 @@ export default{
 .router_content{
 
 }
+#router_mask{
+  position: fixed;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, .5);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
+/*Animation for the "router_mask" */
+.mask-enter-active, .mask-leave-active {
+transition: opacity .5s
+}
+.mask-enter, .mask-leave-to {
+opacity: 0
+}
 </style>

@@ -2,12 +2,12 @@
 
 <!--"page_container" is needed because vuejs can only have one outer element and it's also used to scroll to the top-->
 <div id="page_container">
-
+  <teacher-menu :style="modalMenuPadding" ></teacher-menu>
+  <teacher-drawer></teacher-drawer>
   <!-- Content of the pages when changing route -->
   <router-view  id="router_content" :style="modalMenuPadding"></router-view>
 
-  <teacher-menu></teacher-menu>
-  <teacher-drawer></teacher-drawer>
+
   <teacher-settings></teacher-settings>
   <teacher-help></teacher-help>
 
