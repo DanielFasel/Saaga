@@ -81,14 +81,19 @@ export default{
 
 <style scoped>
 #homepage-content{
+    margin-left: 2vw;
+    margin-right: 2vw;
     display: grid;
     height: calc(100vh - 70px);
-    align-content: center;
+    grid-column-gap: 20px;
+    grid-row-gap: 15px;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: 1fr auto auto 2fr;
     grid-template-areas:
+      ". ."
       "languages information"
       "tips tips"
+      ". .";
 }
 #available-languages{
   grid-area: languages;
@@ -97,7 +102,7 @@ export default{
 
 #information{
   grid-area: information;
-  background-color: yellow;
+  background-color: gold;
 }
 
 #tips-download{
@@ -109,13 +114,14 @@ export default{
 
 @media (max-width: 600px) {
   #homepage-content{
-      display: grid;
       grid-template-columns: auto;
-      grid-template-rows: auto;
+      grid-template-rows: 1fr auto auto auto 2fr;
       grid-template-areas:
+        "."
         "languages"
         "information"
         "tips"
+        "."
   }
 }
 </style>
