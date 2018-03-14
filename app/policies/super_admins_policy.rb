@@ -1,6 +1,6 @@
 # checking if user a superAdmin and letting them access the page.
 
-class SuperAdminPagesPolicy < Struct.new(:user, :superAdminPages)
+class SuperAdminsPolicy < Struct.new(:user, :superAdmins)
 
    class Scope
      def resolve
