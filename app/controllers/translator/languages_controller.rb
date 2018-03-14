@@ -1,7 +1,8 @@
-class LanguagesController < ApplicationController
+
+class Translator::LanguagesController < ApplicationController
   respond_to :html, :json
 
-  def get
+  def show
     # When opportunity presents itself check if there is a better way of doing this
     # Get all sites and initiate the response array
     @sitearray=Site.all
@@ -70,7 +71,7 @@ class LanguagesController < ApplicationController
   end
 
 
-  def post
+  def update
     @languageId=Language.find_by(name: params[:selected][:language][:name]).id
     # Fetch the Id of the word being translated
     @word=Word.find_by_keyword(params[:selected][:word][:name])

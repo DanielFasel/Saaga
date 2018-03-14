@@ -1,6 +1,6 @@
 # checking if user a translator and letting them access the page.
 
-class TranslatorpagesPolicy < Struct.new(:user, :translatorpages)
+class TranslatorsPolicy < Struct.new(:user, :translators)
 
    class Scope
      def resolve

@@ -15,24 +15,24 @@ class ApplicationController < ActionController::Base
 
     #If user is a student
     if user.is_a?(Student) && user.sign_in_count>1
-      student_url
+      students_url
     elsif user.is_a?(Student) && user.sign_in_count==1
-      welcomestudent_path
+      welcome_students_path
 
     #If user is a teacher
     elsif user.is_a?(Teacher) && user.sign_in_count>1
-      teacher_url
+      teachers_url
     elsif user.is_a?(Teacher) && user.sign_in_count==1
-      welcometeacher_path
+      welcome_teachers_path
 
     #If user is a translator
     elsif user.is_a?(Translator) && user.sign_in_count>1
-        translator_url
+        translators_url
     elsif user.is_a?(Translator) && user.sign_in_count==1
-        welcometranslator_path
+        welcome_translators_path
 
     elsif user.is_a?(SuperAdmin)
-        superAdmin_url
+        super_admins_url
     end
 
   end
