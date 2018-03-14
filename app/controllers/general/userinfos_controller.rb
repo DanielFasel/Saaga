@@ -1,4 +1,4 @@
-class UserinfosController < ApplicationController
+class General::UserinfosController < ApplicationController
 respond_to :html, :json
 
 def get

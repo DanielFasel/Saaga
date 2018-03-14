@@ -28,7 +28,7 @@ Rails.application.routes.draw do
       delete '/logout', to: 'devise/sessions#destroy', as: :destroy_user_session
     end
 
-    get '/userinfo', to: 'userinfos#get'
+
 
 
     # Students
@@ -62,9 +62,15 @@ Rails.application.routes.draw do
     resources :translators, only: [:index]
     # Translator namspaced folder for all resources only used by a Translator
     namespace :translator do
-      resources :languages, only: [:show, :create]
+      get '/languages', to: 'languages#get'
+      post '/languages', to: 'languages#post'
     end
 
+
+    # General controllers. They are being scoped for organisation purpuses but it doesn't append anything to the url
+    scope module: 'general' do
+      get '/userinfo', to: 'userinfos#get'
+    end
 
 
     # resources
@@ -76,7 +82,6 @@ Rails.application.routes.draw do
     get '/schoolstudents/:id', to: 'school_students#index'
     #Languages of Translator
     get '/translatorlanguages', to: 'translators#languages'
-
 
     get '/*path', to: 'homepages#index', format: false
 

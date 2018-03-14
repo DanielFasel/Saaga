@@ -5,7 +5,7 @@ export default{
 
   languageTranslated({commit, state, rootState}, data){
     // Fetches the languages to be translated and commits them
-    Vue.prototype.$http.get('/languages',{params:{language: data}})
+    Vue.prototype.$http.get('/translator/languages',{params:{language: data}})
     .then(function (response) {
       // If success commit the languages. The 'if' statement to prevents from adding languages every time the mainpages is mounted after the load page (it would double the languages)
       if(state.languageTranslated.length < rootState.languages.length){
@@ -35,7 +35,7 @@ export default{
 
   defaultLanguageTranslated({commit,state}, data){
     // Fetches default languages and commits it
-    Vue.prototype.$http.get('/languages',{params:{language: data}} )
+    Vue.prototype.$http.get('/translator/languages',{params:{language: data}} )
     .then(function (response) {
       // If success commit the default language (english). The 'if' statement to prevents from adding languages every time the mainpages is mounted after the load page (it would double the languages)
       if(state.defaultLanguageTranslated.length < 1){
@@ -49,7 +49,7 @@ export default{
 
   postTranslation({commit}, data){
     // saves translations or temporary translations
-    Vue.prototype.$http.post('/languages', data )
+    Vue.prototype.$http.post('/translator/languages', data )
     .then(function (response) {
       // If it is a success and a translations it will commit the response in order to keep the back end and front end synchronised. It doesn't do it with the temporary translations because of the delay that would make the UI unintutive
       if(data['type']=='translation'){
