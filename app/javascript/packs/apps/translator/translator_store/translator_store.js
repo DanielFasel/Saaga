@@ -23,7 +23,7 @@ export const store = new Vuex.Store({
 
 	state: {
 			//languages the translator has access to
-			languages:[],
+			assigned_languages:[],
 			// Info about the translator
 			user:{},
 			// object telling which language/site/page got selected

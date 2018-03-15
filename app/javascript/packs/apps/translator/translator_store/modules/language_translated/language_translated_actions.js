@@ -8,7 +8,7 @@ export default{
     Vue.prototype.$http.get('/translator/languages',{params:{language: data}})
     .then(function (response) {
       // If success commit the languages. The 'if' statement to prevents from adding languages every time the mainpages is mounted after the load page (it would double the languages)
-      if(state.languageTranslated.length < rootState.languages.length){
+      if(state.languageTranslated.length < rootState.assigned_languages.length){
         // Initiate the index variable and set default
         var saveIndex="last"
         // check the alphabetical order of the received klanguage and give the appropriated index back

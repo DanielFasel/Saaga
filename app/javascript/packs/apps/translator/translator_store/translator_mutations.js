@@ -1,8 +1,8 @@
 export default {
 
-  languages(state, languages){
+  assigned_languages(state, languages){
     // Sets the languages available to the translator
-    state.languages=languages
+    state.assigned_languages=languages
   },
 
   user(state, user){

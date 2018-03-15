@@ -2,7 +2,7 @@ export default {
 
   languages(state){
     // gets list of languages available to the translator
-		return state.languages
+		return state.assigned_languages
 	},
 
   user(state){

@@ -24,7 +24,7 @@ export default{
     // returns the total and completed translations of the language given by the 'languageIndex'
     var hash = {total:0, completed:0}
     // if statement makes sure that all the languages are fetched before doing anything
-    if(typeof state.languageTranslated !== 'undefined' && state.languageTranslated.length == rootState.languages.length){
+    if(typeof state.languageTranslated !== 'undefined' && state.languageTranslated.length == rootState.assigned_languages.length){
       // sets the total according to the total received by the server
       hash['total']=state.languageTranslated[languageIndex]['total']
       // list of sites of the demanded language

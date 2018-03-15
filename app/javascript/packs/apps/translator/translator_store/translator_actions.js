@@ -5,9 +5,9 @@ export default {
   languages(context, data) {
     // goes get the languages available to the translator
     return new Promise((resolve, reject) => {
-      Vue.prototype.$http.get('/translatorlanguages').then(function (response) {
+      Vue.prototype.$http.get('/translator/assigned_languages').then(function (response) {
         // commit if success
-        context.commit('languages',response.data)
+        context.commit('assigned_languages',response.data)
         // Is resolve necessary? Needs to be checked!!
         resolve(response);
       }, error => {
@@ -19,7 +19,7 @@ export default {
 
   user(context, data){
     // Get user data and commit it
-    Vue.prototype.$http.get('/userinfo')
+    Vue.prototype.$http.get('/user_infos')
       .then(function (response) {
         context.commit('user',response.data)
       })

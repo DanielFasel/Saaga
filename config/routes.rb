@@ -60,28 +60,31 @@ Rails.application.routes.draw do
     # Translators
     resources :welcome_translators, only: [:index]
     resources :translators, only: [:index]
-    # Translator namspaced folder for all resources only used by a Translator
+    # Translator namspaced folder for all resources only used by a Translator or only concern a Translator
     namespace :translator do
-      get '/languages', to: 'languages#get'
-      post '/languages', to: 'languages#post'
+
+      resources :languages, only: [:index]
+      resources :translations, only: [:update]
+
+      #Languages of Translator
+      resources :assigned_languages, only: [:index]
     end
 
 
     # General controllers. They are being scoped for organisation purpuses but it doesn't append anything to the url
     scope module: 'general' do
-      get '/userinfo', to: 'userinfos#get'
+      resources :user_infos, only: [:index]
     end
 
 
-    # resources
+
+
+
+    #Schools of Teacher Will need to be rethought and adapted to the new RESTfull way.
     resources :schools
-
-
-    #Schools of Teacher
     get '/teacheradminschools', to: 'teacher_admins#schools'
     get '/schoolstudents/:id', to: 'school_students#index'
-    #Languages of Translator
-    get '/translatorlanguages', to: 'translators#languages'
+
 
     get '/*path', to: 'homepages#index', format: false
 
