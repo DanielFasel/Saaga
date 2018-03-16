@@ -49,7 +49,7 @@ export default{
 
   postTranslation({commit}, data){
     // saves translations or temporary translations
-    Vue.prototype.$http.post('/translator/languages', data )
+    Vue.prototype.$http.patch('/translator/translations', data )
     .then(function (response) {
       // If it is a success and a translations it will commit the response in order to keep the back end and front end synchronised. It doesn't do it with the temporary translations because of the delay that would make the UI unintutive
       if(data['type']=='translation'){

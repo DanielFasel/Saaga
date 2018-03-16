@@ -29,8 +29,6 @@ Rails.application.routes.draw do
     end
 
 
-
-
     # Students
     resources :welcome_students, only: [:index]
     resources :students, only: [:index]
@@ -47,9 +45,6 @@ Rails.application.routes.draw do
     end
 
 
-    # Admins
-
-
     # SuperAdmins
     resources :super_admins, only: [:index]
     # SuperAdmin namspaced folder for all resources only used by a SuperAdmin
@@ -62,11 +57,11 @@ Rails.application.routes.draw do
     resources :translators, only: [:index]
     # Translator namspaced folder for all resources only used by a Translator or only concern a Translator
     namespace :translator do
-
+      # Full language hash
       resources :languages, only: [:index]
-      resources :translations, only: [:update]
-
-      #Languages of Translator
+      # Updating Translations
+      patch '/translations', to: 'translations#update'
+      #Languages assigned to the Translator
       resources :assigned_languages, only: [:index]
     end
 
@@ -75,8 +70,6 @@ Rails.application.routes.draw do
     scope module: 'general' do
       resources :user_infos, only: [:index]
     end
-
-
 
 
 

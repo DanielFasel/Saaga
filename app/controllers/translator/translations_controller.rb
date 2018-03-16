@@ -50,8 +50,9 @@ class Translator::TranslationsController < ApplicationController
       File.rename(new_json, original_json)
       File.delete(old_json)
       # Once translator is satisfied with translations he sends a message (within the website to the superadmin) and the superadmin controlls and updates the json file.
+    end
   end
-
+  
   def destroy
   end
 
