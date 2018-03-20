@@ -49,6 +49,13 @@ Rails.application.routes.draw do
     resources :super_admins, only: [:index]
     # SuperAdmin namspaced folder for all resources only used by a SuperAdmin
     namespace :super_admin do
+      scope module: 'general' do
+      end
+      namespace :translator do
+        #Resources concerning the translator that are needed by a superAdmin
+        resources :language_validations, only: [:index]
+        resources :site_validations, only: [:index]
+      end
     end
 
 
@@ -59,10 +66,13 @@ Rails.application.routes.draw do
     namespace :translator do
       # Full language hash
       resources :languages, only: [:index]
-      # Updating Translations
-      patch '/translations', to: 'translations#update'
       #Languages assigned to the Translator
       resources :assigned_languages, only: [:index]
+      # Validating completed Languages
+      resources :validate_languages, only: [:update]
+      # Updating Translations
+      patch '/translations', to: 'translations#update'
+
     end
 
 

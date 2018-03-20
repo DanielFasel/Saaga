@@ -66,10 +66,8 @@ export default{
   },
 
   validateLanguage(context, data){
-    var validationInfo={}
-    validationInfo['type']="save"
 
-    Vue.prototype.$http.post('/languages', validationInfo )
+    Vue.prototype.$http.patch('/translator/validate_languages/'+ data )
     .then(function (response) {
       console.log("Success")
 

@@ -13,7 +13,7 @@
 
     <!-- Dark Background for router content, all component trigering the background need to be listed here -->
     <transition name="mask">
-      <div id="router_mask" v-show="showMenuDrawer || showSettingsModal || showHelpModal || showAddCoursesModal" ></div>
+      <div id="router_mask" v-show="showMenuDrawer || showSettingsModal || showHelpModal" ></div>
     </transition>
   </div>
 
@@ -36,6 +36,9 @@ export default {
   },
 
   methods:{
+    ...mapActions({
+      languages: 'languages'
+    }),
     ...mapActions('layout/generalLayout',{
       overflowPaddingAction: 'overflowPadding',
       overflowPaddingLiveAction: 'overflowPaddingLive'
@@ -46,8 +49,7 @@ export default {
     ...mapGetters('layout/modalDrawer',[
       'showMenuDrawer',
       'showSettingsModal',
-      'showHelpModal',
-      'showAddCoursesModal'
+      'showHelpModal'
     ]),
     ...mapGetters('layout/generalLayout',[
       'overflowPadding',
@@ -56,7 +58,7 @@ export default {
 
   // function that adds padding to compensate for the scroll bar disappearing when modals are shown. It avoids the page to "jump".
   modalMenuPadding: function(){
-    if (this.showSettingsModal || this.showHelpModal || this.showAddCoursesModal){
+    if (this.showSettingsModal || this.showHelpModal){
       this.overflowPaddingLiveAction(this.overflowPadding)
       }
     else{
@@ -67,7 +69,8 @@ export default {
 },
 
 created: function(){
-  // calculates the width of the scroll bar of any browser
+    this.languages()
+    // calculates the width of the scroll bar of any browser
     var inner = document.createElement('p');
     inner.style.width = "100%";
     inner.style.height = "200px";

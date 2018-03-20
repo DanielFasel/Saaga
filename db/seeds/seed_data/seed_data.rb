@@ -21,10 +21,12 @@ end
 
 
 
-Language.create!(name: "english")
-
-Language.create!(name:"finnish")
-Language.create!(name:"swedish")
+Language.create!(name: "english",
+                validated: false)
+Language.create!(name:"finnish",
+                validated: false)
+Language.create!(name:"swedish",
+                validated: false)
 
 #Users and related tables
 

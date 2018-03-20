@@ -5,7 +5,7 @@ Vue.use(VueRouter)
 
 
 //Vuex
-import {store} from './apps/translator/translator_store/translator_store.js'
+import {store} from './apps/super_admin/super_admin_store/super_admin_store.js'
 
 import vMediaQuery from 'v-media-query'
 Vue.use(vMediaQuery)
@@ -35,7 +35,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  
+
   routes
 })
 

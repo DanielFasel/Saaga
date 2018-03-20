@@ -16,7 +16,8 @@ export const store = new Vuex.Store({
 		layout
 	},
 	state: {
-
+		//languages the translator has access to
+		languages:[]
 	},
 
 	getters,

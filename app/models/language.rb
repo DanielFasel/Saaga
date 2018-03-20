@@ -2,6 +2,13 @@ class Language < ApplicationRecord
   has_and_belongs_to_many :users
   has_many :translations,  :dependent => :delete_all
 
+  def self.validate_language(languageId)
+    puts languageId[:id]
+    @languageToValidate=Language.find_by(id: languageId[:id])
+    @languageToValidate.update_attributes(validated: true)
+  end
+
+
   def self.get_language_hash(languageName)
 
   # Get all sites and initiate the response array
@@ -69,4 +76,5 @@ class Language < ApplicationRecord
     end
     return response
   end
+
 end

@@ -7,7 +7,7 @@
       <!-- Languages the translator has access to -->
       <div v-for="language, index in languages">
         <button @click="navigateSiteSelection(language, index)">{{ language["name"]}} / {{languagePercentage(index)}}</button>
-        <button v-if="languagePercentage(index)===100" @click="validateLanguageButton(language)">Validate {{ language["name"]}} </button>
+        <button v-if="languagePercentage(index)===100" @click="validateLanguageButton(language['id'])">Validate {{ language["name"]}} </button>
       </div>
     </section>
 
@@ -72,8 +72,8 @@ export default{
         return percentage
       }
     },
-    validateLanguageButton(languageName){
-      this.validateLanguage(languageName['name'])
+    validateLanguageButton(languageId){
+      this.validateLanguage(languageId)
     }
   }
 }
