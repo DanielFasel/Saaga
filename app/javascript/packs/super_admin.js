@@ -19,11 +19,12 @@ Vue.prototype.$http = axios
 
 
 //components
-
-import SuperAdminMainpage from './apps/super_admin/super_admin_pages/super_admin_mainpage.vue'
 import SuperAdminMenu from './apps/super_admin/super_admin_pages/super_admin_helpers/super_admin_menu/super_admin_menu.vue'
 import SuperAdminDrawer from './apps/super_admin/super_admin_pages/super_admin_helpers/super_admin_menu/super_admin_drawer.vue'
+
+import SuperAdminMainpage from './apps/super_admin/super_admin_pages/super_admin_mainpage.vue'
 import SuperAdminHomepage from './apps/super_admin/super_admin_pages/super_admin_homepage/super_admin_homepage.vue'
+import SuperAdminTranslator from './apps/super_admin/super_admin_pages/super_admin_translator/super_admin_translator.vue'
 //imported component to be used on all the SPA
 Vue.component('super-admin-menu', SuperAdminMenu)
 Vue.component('super-admin-drawer', SuperAdminDrawer)
@@ -31,6 +32,7 @@ Vue.component('super-admin-drawer', SuperAdminDrawer)
 //routing
 const routes = [
   {path: '/homepage', component: SuperAdminHomepage},
+  {path: '/translator', component: SuperAdminTranslator},
   {path: '/', redirect: '/homepage'}
 ]
 

@@ -10,6 +10,8 @@
     <super-admin-menu></super-admin-menu>
     <super-admin-drawer></super-admin-drawer>
 
+    <super-admin-help></super-admin-help>
+    <super-admin-settings></super-admin-settings>
 
     <!-- Dark Background for router content, all component trigering the background need to be listed here -->
     <transition name="mask">

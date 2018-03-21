@@ -20,14 +20,6 @@ export default {
 			state.showHelpModal=true
 		else
 			state.showHelpModal=false
-	},
-
-	// my courses modal mutations
-	toggleAddCoursesModal(state){
-		if (state.showAddCoursesModal==false)
-			state.showAddCoursesModal=true
-		else
-			state.showAddCoursesModal=false
 	}
 
 }

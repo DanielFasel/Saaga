@@ -14,8 +14,6 @@ export const modalDrawer = {
 		showSettingsModal: false,
 		showHelpModal: false,
 
-		//my courses modals
-		showAddCoursesModal: false,
 
 	},
 	getters,

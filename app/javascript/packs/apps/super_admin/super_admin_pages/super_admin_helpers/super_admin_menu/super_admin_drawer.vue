@@ -5,17 +5,12 @@
       <!-- Navigation for routes -->
       <ul id="mobile_navigation_links">
         <li @click="toggleMenuDrawer">
-          <router-link class="navigation_tab" to='/homeworks' exact>Homeworks <i class="fa fa-link" aria-hidden="true"></i></router-link>
-        </li>
-        <li @click="toggleMenuDrawer">
-          <router-link class="navigation_tab" to='/courses' exact >Courses <i class="fa fa-book" aria-hidden="true"></i></router-link>
+          <router-link class="navigation_tab" to='/translator' exact>Translator <i class="fa fa-link" aria-hidden="true"></i></router-link>
         </li>
       </ul>
 
       <!-- Navigation for utility modals & logout -->
       <ul id="mobile_utility_links">
-        <li>8</li>
-        <li>Game</li>
         <li><button @click="settingsclicksmall">Settings</button></li>
         <li><button @click="helpclicksmall">Help</button</li>
         <li><button v-on:click="logout">Logout</button></li>

@@ -12,11 +12,6 @@ export default {
 
 	showHelpModal (state)	{
 		return state.showHelpModal
-	},
-
-	// my courses getters
-	showAddCoursesModal (state)	{
-		return state.showAddCoursesModal
 	}
 
 }

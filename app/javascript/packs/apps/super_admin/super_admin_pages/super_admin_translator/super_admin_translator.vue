@@ -1,7 +1,15 @@
 <template>
   <div>
-    <h1>Super Admin Homepage</h1>
-    <router-link to='/translator'>Translator</router-link>
+    <h1>Super Admin Translator</h1>
+
+    <section>
+      <div v-for="language in languages">
+        {{language["name"]}}
+        <button v-if="language['validated']" @click="validate(language)">
+          Validate
+        </button>
+      </div>
+    </section>
   </div>
 </template>
 

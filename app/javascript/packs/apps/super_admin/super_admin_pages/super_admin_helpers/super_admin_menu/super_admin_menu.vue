@@ -5,25 +5,20 @@
   <header :style="{paddingRight: this.overflowPaddingLive + 'px'}">
 
     <!-- Logo -->
-    <div id="logo">SAAGA</div>
+    <h1 id="logo"><router-link to='/'>Saaga</router-link></h1>
 
     <!-- Middle bar-->
-    <div id="current_page">My courses</div>
+    <div id="current_page">Homepage</div>
 
     <!-- Navigation for routes and utility modals -->
     <nav>
       <ul id="navigation_links">
         <li>
-          <router-link class="navigation_tab" to='/homeworks'>Homeworks</router-link>
-        </li>
-        <li>
-          <router-link class="navigation_tab" to='/courses'>Courses</router-link>
+          <router-link class="navigation_tab" to='/translator'>Translator</router-link>
         </li>
       </ul>
 
       <ul id="utility_links">
-        <li>8</li>
-        <li>Game</li>
         <li><button @click="toggleSettingsModal">Settings</button></li>
         <li><button @click="toggleHelpModal">Help</button></li>
         <li><button v-on:click="logout">Logout</button></li>

@@ -11,10 +11,5 @@ export default {
     },
     toggleHelpModal(context){
         return context.commit('toggleHelpModal')
-    },
-
-    // my courses modal actions
-    toggleAddCoursesModal(context){
-        return context.commit('toggleAddCoursesModal')
     }
 }
