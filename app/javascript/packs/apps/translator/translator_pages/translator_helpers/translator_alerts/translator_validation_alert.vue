@@ -29,7 +29,8 @@ export default {
   },
   computed:{
     ...mapGetters([
-      'selected'
+      'selected',
+      'languages'
     ])
   },
 
@@ -37,11 +38,18 @@ export default {
     ...mapActions('layout/modalDrawer',{
       toggleValidationAlert: 'toggleValidationAlert'
     }),
+    ...mapActions('languageTranslated',{
+      validateLanguage: 'validateLanguage'
+    }),
     cancel(){
       this.toggleValidationAlert()
     },
     validate(){
+
+      var languageIndex = this.selected['language']['index']
+      var languageId = this.languages[languageIndex]['id']
       this.toggleValidationAlert()
+      this.validateLanguage(languageId)
       //this.validateLanguage(// Language Id)
       // if language reroute to home other wise to site selection with same language selected
     },

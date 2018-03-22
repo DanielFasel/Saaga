@@ -4,6 +4,7 @@ class Language < ApplicationRecord
 
   def self.validate_language(languageId)
     puts languageId[:id]
+    puts "reached model"
     @languageToValidate=Language.find_by(id: languageId[:id])
     @languageToValidate.update_attributes(validated: true)
   end
