@@ -70,30 +70,18 @@ export default {
       this.$store.commit('selected', {type:3, data:{name:"",index:""}})
     },
     languagePercentage(){
-      // Calculates the percentage done of the language.
-      var hash = this.$store.getters['languageTranslated/languageTotalCompleted'](this.selected['language']['index'])
-      var percentage = hash['completed']/(hash['total']/100)
-      percentage=+percentage.toFixed(1)
-      // Returns empty percentage incase the total is 0 (Happens because the authorized languages get loaded before the language files themselves)
-      if(hash['total']==0){
-        return ""
-      }
-      else{
-        return percentage
-      }
+      // Fetches the percentage done of the language.
+      var percentage = this.$store.getters['languageTranslated/languageTotalCompleted'](this.selected['language']['index'])
+      return percentage
     },
     sitePercentage(){
-      // Calculates the percentage done of the site.
-      var hash = this.$store.getters['languageTranslated/siteTotalCompleted'](this.selected['site']['index'])
-      var percentage = hash['completed']/(hash['total']/100)
-      percentage=+percentage.toFixed(1)
+      // Fetches the percentage done of the site.
+      var percentage = this.$store.getters['languageTranslated/siteTotalCompleted'](this.selected['site']['index'])
       return percentage
     },
     pagePercentage(){
-      // Calculates the percentage done of the page.
-      var hash = this.$store.getters['languageTranslated/pageTotalCompleted'](this.selected['page']['index'])
-      var percentage = hash['completed']/(hash['total']/100)
-      percentage=+percentage.toFixed(1)
+      // Fetches the percentage done of the page.
+      var percentage = this.$store.getters['languageTranslated/pageTotalCompleted'](this.selected['page']['index'])
       return percentage
     }
   }

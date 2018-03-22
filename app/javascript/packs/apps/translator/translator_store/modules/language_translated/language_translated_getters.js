@@ -47,11 +47,20 @@ export default{
         }
       }
       }
-      return hash
+      if(hash['total']===0){
+        return false
+      }
+      else if(hash['completed']===0){
+          return 0
+      }
+      else{
+        var percentage = hash['completed']/(hash['total']/100)
+        return percentage
+      }
     }
     // return default hash in case the languages are not yet fetched
     else{
-      return hash
+      return ""
     }
   },
 
@@ -77,7 +86,17 @@ export default{
           }
         }
     }
-    return hash
+    if(hash['total']===0){
+      return ""
+    }
+    else if(hash['completed']===0){
+        return 0
+    }
+    else{
+      var percentage = hash['completed']/(hash['total']/100)
+      percentage=+percentage.toFixed(1)
+      return percentage
+    }
   },
 
   pageTotalCompleted: (state, getters, rootState, rootGetters) => (pageIndex) => {
@@ -96,8 +115,17 @@ export default{
         }
       }
     }
-    return hash
+    if(hash['total']===0){
+      return ""
+    }
+    else if(hash['completed']===0){
+        return 0
+    }
+    else{
+      var percentage = hash['completed']/(hash['total']/100)
+      percentage=+percentage.toFixed(1)
+      return percentage
+    }
   }
-
 
 }

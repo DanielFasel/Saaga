@@ -35,6 +35,20 @@ export default {
 			state.showHelpModal=true
 		else
 			state.showHelpModal=false
+	},
+
+	toggleValidationAlert(state){
+		// overflowHidden switch
+		if (state.overflowHidden==false)
+			state.overflowHidden=true
+		else
+			state.overflowHidden=false
+
+		// modal/drawer switch
+		if (state.showValidationAlert==false)
+			state.showValidationAlert=true
+		else
+			state.showValidationAlert=false
 	}
 
 }

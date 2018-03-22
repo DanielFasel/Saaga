@@ -14,10 +14,11 @@
     <!-- Components that are always needed on the main interface (inclueds menu and drawer) -->
     <translator-settings></translator-settings>
     <translator-help></translator-help>
+    <translator-validation-alert v-if="showValidationAlert"></translator-validation-alert>
 
     <!-- Dark Background for router content, all component trigering the background need to be listed here -->
     <transition name="mask">
-      <div id="router_mask" v-show="showMenuDrawer || showSettingsModal || showHelpModal" ></div>
+      <div id="router_mask" v-show="showMenuDrawer || showSettingsModal || showHelpModal || showValidationAlert"></div>
     </transition>
 
   </div>
@@ -30,18 +31,23 @@ import {mapActions} from 'vuex'
 
 import TranslatorSettings from "./translator_helpers/translator_settings/translator_settings.vue"
 import TranslatorHelp from "./translator_helpers/translator_help/translator_help.vue"
+import TranslatorValidationAlert from './translator_helpers/translator_alerts/translator_validation_alert.vue'
 
 export default{
 
   components:{
     "translator-settings": TranslatorSettings,
-    "translator-help": TranslatorHelp
+    "translator-help": TranslatorHelp,
+    "translator-validation-alert": TranslatorValidationAlert
   },
 
   methods:{
     ...mapActions('layout/generalLayout',{
       overflowPaddingAction:'overflowPadding',
       overflowPaddingLiveAction:'overflowPaddingLive'
+    }),
+    ...mapActions('layout/modal_drawer',{
+      toggleValidationAlert: 'toggleValidationAlert'
     }),
     ...mapActions({
       user: 'user',
@@ -57,15 +63,24 @@ export default{
     ...mapGetters('layout/modalDrawer',[
       'showMenuDrawer',
       'showSettingsModal',
-      'showHelpModal'
+      'showHelpModal',
+      'showValidationAlert'
     ]),
     ...mapGetters('layout/generalLayout',[
       'overflowPadding',
       'overflowPaddingLive'
     ]),
-      ...mapGetters([
-        'languages'
-      ]),
+    ...mapGetters([
+      'languages',
+      'selected'
+    ]),
+
+    validationAlertTrigger(){
+      // for(var i = 0; i < this.languages.length; i++){
+        var percentage = this.$store.getters['languageTranslated/languageTotalCompleted'](1)
+        console.log("Percentage " + percentage)
+      // }
+    },
 
     // function that adds padding to compensate for the scroll bar disappearing when modals are shown. It avoids the page to "jump".
     modalMenuPadding: function(){

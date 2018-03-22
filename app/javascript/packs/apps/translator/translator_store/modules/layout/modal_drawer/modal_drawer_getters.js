@@ -13,6 +13,11 @@ export default {
 
 	showHelpModal (state)	{
 		return state.showHelpModal
+	},
+
+	//Alert modals
+	showValidationAlert(state){
+		return state.showValidationAlert
 	}
 
 }

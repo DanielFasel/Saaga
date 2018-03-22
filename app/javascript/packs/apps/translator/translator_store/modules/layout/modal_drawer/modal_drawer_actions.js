@@ -11,5 +11,9 @@ export default {
     },
     toggleHelpModal(context){
         return context.commit('toggleHelpModal')
-    }
+    },
+
+		toggleValidationAlert(context){
+			return context.commit('toggleValidationAlert')
+		}
 }

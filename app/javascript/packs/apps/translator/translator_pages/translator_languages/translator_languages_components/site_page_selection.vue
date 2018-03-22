@@ -74,41 +74,20 @@ export default{
       return this.defaultLanguageTranslated[0]['sites'][this.site]['pages']
     },
     languagePercentage(languageIndex){
-      // Calculates the percentage done of the language.
-      var hash = this.$store.getters['languageTranslated/languageTotalCompleted'](languageIndex)
-      var percentage = hash['completed']/(hash['total']/100)
-      percentage=+percentage.toFixed(1)
-      // Returns empty percentage incase the total is 0 (Happens because the authorized languages get loaded before the language files themselves)
-      if(hash['total']==0){
-        return ""
-      }
-      else{
-        return percentage
-      }
+      // fetches the percentage done of the language.
+      var percentage = this.$store.getters['languageTranslated/languageTotalCompleted'](languageIndex)
+      return percentage
     },
     sitePercentage(siteIndex){
-      // Calculates the percentage done of the site.
-      var hash = this.$store.getters['languageTranslated/siteTotalCompleted'](siteIndex)
-      var percentage = hash['completed']/(hash['total']/100)
-      percentage=+percentage.toFixed(1)
-      if(hash['total']==0){
-        return ""
-      }
-      else{
-        return percentage
-      }
+      // fetches the percentage done of the site.
+      var percentage = this.$store.getters['languageTranslated/siteTotalCompleted'](siteIndex)
+      return percentage
+
     },
     pagePercentage(pageIndex){
-      // Calculates the percentage done of the page.
-      var hash = this.$store.getters['languageTranslated/pageTotalCompleted'](pageIndex)
-      var percentage = hash['completed']/(hash['total']/100)
-      percentage=+percentage.toFixed(1)
-      if(hash['total']==0){
-        return ""
-      }
-      else{
-        return percentage
-      }
+      // fetches the percentage done of the page.
+      var percentage = this.$store.getters['languageTranslated/pageTotalCompleted'](pageIndex)
+      return percentage
     }
   }
 }

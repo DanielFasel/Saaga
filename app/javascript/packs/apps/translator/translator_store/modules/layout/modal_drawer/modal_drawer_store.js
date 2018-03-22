@@ -13,6 +13,9 @@ export const modalDrawer = {
 		//utility modals
 		showSettingsModal: false,
 		showHelpModal: false,
+
+		//Alert modals
+		showValidationAlert: false
 	},
 	getters,
 	mutations,
