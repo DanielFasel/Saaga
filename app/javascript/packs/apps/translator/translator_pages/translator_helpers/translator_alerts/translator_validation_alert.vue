@@ -3,7 +3,7 @@
 <alert-window>
   <div slot="body">
 
-  You have completed the translations for the "English" language.
+  You have completed the translations for the {{selected['language']['name']}} language.
   Do you want to validate and send it for confirmation? If you chose to validate but regret your choice you will have to ask a SuperAdmin to open it again
   <button @click="cancel()">Cancel</button>
   <button @click="validate()">Validate the Language</button>
@@ -27,13 +27,21 @@ export default {
   components: {
     "alert-window": AlertWindow,
   },
+  computed:{
+    ...mapGetters([
+      'selected'
+    ])
+  },
 
   methods: {
+    ...mapActions('layout/modalDrawer',{
+      toggleValidationAlert: 'toggleValidationAlert'
+    }),
     cancel(){
-
+      this.toggleValidationAlert()
     },
     validate(){
-
+      this.toggleValidationAlert()
       //this.validateLanguage(// Language Id)
       // if language reroute to home other wise to site selection with same language selected
     },

@@ -75,16 +75,9 @@ export default{
       'selected'
     ]),
 
-    validationAlertTrigger(){
-      // for(var i = 0; i < this.languages.length; i++){
-        var percentage = this.$store.getters['languageTranslated/languageTotalCompleted'](1)
-        console.log("Percentage " + percentage)
-      // }
-    },
-
     // function that adds padding to compensate for the scroll bar disappearing when modals are shown. It avoids the page to "jump".
     modalMenuPadding: function(){
-      if (this.showSettingsModal || this.showHelpModal){
+      if (this.showSettingsModal || this.showHelpModal || this.showValidationAlert){
         this.overflowPaddingLiveAction(this.overflowPadding)
         }
       else{

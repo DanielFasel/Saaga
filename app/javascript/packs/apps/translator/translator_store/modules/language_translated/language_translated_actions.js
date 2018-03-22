@@ -47,17 +47,27 @@ export default{
     })
   },
 
-  postTranslation({commit}, data){
+  postTranslation({commit, state, getters, dispatch}, data){
+    console.log("Temporaray fed ot the server " + data['temporary'])
     // saves translations or temporary translations
     Vue.prototype.$http.patch('/translator/translations', data )
     .then(function (response) {
       // If it is a success and a translations it will commit the response in order to keep the back end and front end synchronised. It doesn't do it with the temporary translations because of the delay that would make the UI unintutive
+      console.log("Temporary gotten from server " + response.data['temporary'])
       if(data['type']=='translation'){
         data['userId']=response.data['user_id']
         data['translation']=response.data['translation']
         data['validated']=response.data['validated']
         data['temporary']=response.data['temporary']
         commit('saveTranslation', data)
+
+        //check percentage is 100'
+        var languageIndex = data['selected']['language']['index']
+        var percentage = getters.languageTotalCompleted(languageIndex)
+        var total = state.languageTranslated[languageIndex]['total']
+        if(total-total*percentage/100<0.5){
+          dispatch('layout/modalDrawer/toggleValidationAlert', null, {root: true})
+        }
       }
     })
     .catch(function (error) {
