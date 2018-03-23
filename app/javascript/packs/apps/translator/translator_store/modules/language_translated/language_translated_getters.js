@@ -58,9 +58,9 @@ export default{
         return percentage
       }
     }
-    // return default hash in case the languages are not yet fetched
+    // return false in case the languages are not yet fetched
     else{
-      return ""
+      return false
     }
   },
 

@@ -75,9 +75,17 @@ export default{
     },
     languagePercentage(languageIndex){
       // fetches the percentage done of the language.
-      var percentage = parseFloat(this.$store.getters['languageTranslated/languageTotalCompleted'](languageIndex))
-      percentage= +percentage.toFixed(1)
-      return percentage
+      var percentage = this.$store.getters['languageTranslated/languageTotalCompleted'](languageIndex)
+
+      if( typeof percentage == "number" ){
+        percentage = parseFloat(percentage)
+        percentage= +percentage.toFixed(1)
+        return percentage
+      }
+      else {
+        return ""
+      }
+
     },
     sitePercentage(siteIndex){
       // fetches the percentage done of the site.
