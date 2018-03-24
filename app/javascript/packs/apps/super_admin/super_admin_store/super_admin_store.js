@@ -8,16 +8,17 @@ import actions from"./super_admin_actions.js"
 
 // importing all the modules
 import {layout} from "./modules/layout/layout_store.js"
+import {translator} from "./modules/translator/translator_store.js"
 
 
 export const store = new Vuex.Store({
 
 	modules: {
-		layout
+		layout,
+		translator
 	},
 	state: {
-		//languages the translator has access to
-		languages:[]
+
 	},
 
 	getters,

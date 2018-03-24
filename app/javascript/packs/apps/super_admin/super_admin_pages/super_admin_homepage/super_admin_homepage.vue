@@ -10,20 +10,7 @@ import {mapActions} from 'vuex'
 import {mapGetters} from 'vuex'
 
 export default{
-  methods:{
-    ...mapActions({
-      validateLanguage: 'validateLanguage'
-    }),
-    validate(language){
-      this.validateLanguage(language['id'])
-    }
-  },
 
-  computed:{
-    ...mapGetters([
-        'languages'
-    ])
-  }
 }
 </script>
 

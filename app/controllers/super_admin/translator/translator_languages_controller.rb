@@ -1,4 +1,4 @@
-class SuperAdmin::Translator::LanguageValidationsController < ApplicationController
+class SuperAdmin::Translator::TranslatorLanguagesController < ApplicationController
   respond_to :html, :json
 
 

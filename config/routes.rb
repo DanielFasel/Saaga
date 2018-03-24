@@ -53,7 +53,8 @@ Rails.application.routes.draw do
       end
       namespace :translator do
         #Resources concerning the translator that are needed by a superAdmin
-        resources :language_validations, only: [:index]
+        resources :translator_languages, only: [:index]
+        resources :json_languages
         resources :site_validations, only: [:index]
       end
     end

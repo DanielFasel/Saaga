@@ -38,7 +38,7 @@ export default {
   },
 
   methods:{
-    ...mapActions({
+    ...mapActions('translator',{
       languages: 'languages'
     }),
     ...mapActions('layout/generalLayout',{

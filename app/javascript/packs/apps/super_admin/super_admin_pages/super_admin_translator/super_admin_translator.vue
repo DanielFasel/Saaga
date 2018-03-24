@@ -18,19 +18,21 @@ import {mapActions} from 'vuex'
 import {mapGetters} from 'vuex'
 
 export default{
+
+  computed:{
+    ...mapGetters('translator',{
+        languages: 'languages'
+    })
+  },
+
   methods:{
-    ...mapActions({
+    ...mapActions('translator',{
       validateLanguage: 'validateLanguage'
     }),
+
     validate(language){
       this.validateLanguage(language['id'])
     }
-  },
-
-  computed:{
-    ...mapGetters([
-        'languages'
-    ])
   }
 }
 </script>
