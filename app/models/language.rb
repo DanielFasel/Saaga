@@ -78,4 +78,7 @@ class Language < ApplicationRecord
     return response
   end
 
+  def self.get_language_json(languageId)
+  end
+
 end
