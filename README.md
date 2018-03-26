@@ -93,6 +93,8 @@ On fedora use the command `dnf install ruby` if the version is not right you can
 After you installed Ruby you need to install rails. Follow this [guide](https://developer.fedoraproject.org/tech/languages/ruby/ror-installation.html).
 Here it is even more important to have the right version (5.0.5 in our case). So instead of writing `gem install rails` write `gem install rails -v 5.0.5`. In case errors show up read the logs (the path is given in the terminal) and google the problem usually there is a quick fix.
 
+instead of `gem install rails` do `bundle install`. There will be two errors. The first one with nokogiri which requires the dev packages and the second error is pg which also requires some dev packages in addition of installing postgresql before. 
+
 ### Github
 To use Github you can either use a program with a graphical interface or the Terminal.
 The simplest way in my opinion is to use a program (it might be a bit slower but it's easier to begin with). I currently use gitkraken which you can install from here [Gitkraken](https://support.gitkraken.com/how-to-install). Now you can create a folder and clone the Saaga repository.
