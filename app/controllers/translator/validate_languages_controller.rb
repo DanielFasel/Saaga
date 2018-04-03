@@ -13,10 +13,8 @@ class Translator::ValidateLanguagesController < ApplicationController
   end
 
   def update
-    puts 'reached controller'
-    puts params
-    Language.validate_language(params)
-
+    languageId = params[:id]
+    Services::ValidateLanguage.new(languageId, true).call
   end
 
   def destroy

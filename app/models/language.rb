@@ -2,11 +2,9 @@ class Language < ApplicationRecord
   has_and_belongs_to_many :users
   has_many :translations,  :dependent => :delete_all
 
-  def self.validate_language(languageId)
-    puts languageId[:id]
-    puts "reached model"
-    @languageToValidate=Language.find_by(id: languageId[:id])
-    @languageToValidate.update_attributes(validated: true)
+  def self.validate_language(params)
+    @languageToValidate=Language.find_by(id: params[:language][:id])
+    @languageToValidate.update_attributes(validated: params[:value])
   end
 
 

@@ -17,6 +17,16 @@ export default {
   },
 
   validateLanguage(context, data){
-    console.log("Validate")
+    console.log(data)
+    return new Promise((resolve, reject) => {
+      Vue.prototype.$http.post('/super_admin/translator/json_languages', {languageId: data}).then(function (response) {
+        console.log(response.data)
+        console.log(response.data.validated)
+        resolve(response);
+      }, error => {
+        // http failed, let the calling function know that action did not work out
+        reject(error);
+      })
+    })
   }
 }
