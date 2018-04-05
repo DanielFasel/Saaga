@@ -17,11 +17,10 @@ export default {
   },
 
   validateLanguage(context, data){
-    console.log(data)
+    // updates the validate field of the languages and mutatates the response.data to update the vuex state
     return new Promise((resolve, reject) => {
       Vue.prototype.$http.post('/super_admin/translator/json_languages', {languageId: data}).then(function (response) {
-        console.log(response.data)
-        console.log(response.data.validated)
+        context.commit('updateLanguage',response.data)
         resolve(response);
       }, error => {
         // http failed, let the calling function know that action did not work out
