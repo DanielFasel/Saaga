@@ -12,10 +12,9 @@ class SuperAdmin::Translator::JsonLanguagesController < ApplicationController
     #languageId = params
     languageId = params[:languageId]
     language = Services::ValidateLanguage.new(languageId, false).call
-    puts "Hello"
     render json: language
 
-    #create json...
+    Services::JsonLanguageToLive.new(languageId).call
   end
 
   def update
