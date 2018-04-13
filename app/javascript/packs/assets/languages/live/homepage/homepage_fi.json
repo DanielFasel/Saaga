@@ -1,0 +1,21 @@
+{
+	"homepageHomepage": {},
+	"homepageAsASchool":{},
+	"homepageAsAStudent":{},
+	"homepageAsATeacher":{},
+	"homepageWhatIsIt":{},
+	"homepageContactUs":{},
+	"homepagePrivacyNotice":{},
+	"homepageSiteMap":{},
+	"homepageTermsOfUse":{},
+	"homepageHelp":{},
+	"homepageMenu":{"homepageMenuLogo":"Saaga",
+									"homepageMenuAsATeacher":"Opettaja",
+									"homepageMenuAsASchool":"Koulu",
+									"homepageMenuAsAStudent":"Opiskellija",
+									"homepageMenuWhatIsIt":"Mitä se on?",
+									"homepageMenuLogout":"Logout",
+									"homepageMenuRegister":"Register"},
+	"homepageFooter":{},
+	"homepageDrawer":{}
+}

@@ -64,7 +64,7 @@ Vue.use(vuexI18n.plugin, store)
 var url = window.location.pathname
 var local = url.substring(1, 3)
 //requires the language json file according to the local
-var json =  require( "./assets/json/languages/homepage/homepage_"+local+".json")
+var json =  require( "./assets/languages/live/homepage/homepage_"+local+".json")
 // commits the language to Vuex
 Vue.i18n.add(local, json)
 Vue.i18n.set(local)

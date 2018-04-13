@@ -5,7 +5,7 @@ site = Site.find_by(name: 'Student')
 language = Language.find_by(name: 'english')
 
 #fetching the default json file and parsing it
-teacherDefaultEnPath = "#{Rails.root}/app/javascript/packs/assets/json/languages/teacher/teacher_en.json"
+teacherDefaultEnPath = "#{Rails.root}/app/javascript/packs/assets/languages/live/teacher/teacher_#{language.local}.json"
 teacherDefaultEn = JSON.parse(File.read(teacherDefaultEnPath))
 
 # seeding the pages from the default json hash

@@ -22,10 +22,13 @@ end
 
 
 Language.create!(name: "english",
+                local: "en",
                 validated: false)
 Language.create!(name:"finnish",
+                local: "fi",
                 validated: false)
 Language.create!(name:"swedish",
+                local: "sv",
                 validated: false)
 
 #Users and related tables

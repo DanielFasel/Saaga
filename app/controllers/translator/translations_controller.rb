@@ -33,7 +33,7 @@ class Translator::TranslationsController < ApplicationController
       render json: translation
 
       # Updates the temporary json of the translated language
-      Services::UpdateJsonLanguage.new(languageId, keyword, params[:translation]).call
+      Services::UpdateJsonLanguage.new(languageId, params[:selected], params[:translation]).call
     end
   end
 

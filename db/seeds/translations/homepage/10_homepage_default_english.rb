@@ -5,7 +5,7 @@ site = Site.find_by(name: 'Homepage')
 language = Language.find_by(name: 'english')
 
 #fetching the default json file and parsing it
-homepageDefaultEnPath = "#{Rails.root}/app/javascript/packs/assets/json/languages/homepage/homepage_en.json"
+homepageDefaultEnPath = "#{Rails.root}/app/javascript/packs/assets/languages/live/homepage/homepage_#{language.local}.json"
 homepageDefaultEn = JSON.parse(File.read(homepageDefaultEnPath))
 
 # seeding the pages from the default json hash

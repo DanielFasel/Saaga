@@ -1,0 +1,23 @@
+{
+  "homepageHomepage": {},
+  "homepageAsASchool": {},
+  "homepageAsAStudent": {},
+  "homepageAsATeacher": {},
+  "homepageWhatIsIt": {},
+  "homepageContactUs": {},
+  "homepagePrivacyNotice": {},
+  "homepageSiteMap": {},
+  "homepageTermsOfUse": {},
+  "homepageHelp": {},
+  "homepageMenu": {
+    "homepageMenuLogo": "Saaga",
+    "homepageMenuAsATeacher": "As a Teacher",
+    "homepageMenuAsASchool": "As a School",
+    "homepageMenuAsAStudent": "As a Student",
+    "homepageMenuWhatIsIt": "What is it?",
+    "homepageMenuLogout": "Logout",
+    "homepageMenuRegister": "Register"
+  },
+  "homepageFooter": {},
+  "homepageDrawer": {}
+}
