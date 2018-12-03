@@ -73,6 +73,35 @@ These are just some of the commands I used the most. There are more commands tha
 The Database diagrams and wireframes can be found in a shared folder called *Saaga* on the site [Mega](https://mega.nz). If you do not have access to it contact Daniel.
 
 
+## New Installation Guide
+- Ruby (rbenv)
+- NodeJs (nvm)
+- Python (pyenv)
+- Yarn
+- Rails (for the specific ruby version)'
+- Postgresql
+- PgAdmin4
+- Initial Setup
+### Ruby
+
+### NodeJs
+
+### Python
+
+### Yarn
+
+### Rails
+
+### Postgresql
+
+### PgAdmin4
+
+### Initial Setup
+
+Since rails 5.1 webpack is integrated into rails. This allows us to use an option of the `rails new` command to install VueJs as we generate a new Rails app. Postgresql can also be setup in this initial phase with the help of an option. In other words the command to generate to initial files of our particular environement ggoes as follows: `rails new myapp --webpack=vue`. 
+
+Before running the command we need to set up postgreql. So install the pg gem: `gem install pg`. Then Login as Postgres (`su - postgres`, not su -postgres because fedora doesn't have a root user anymore by default) to create a user for our new app/database. Then `psql` (mistake in the guide) and finally create the User "myapp" with the right of creating databases.  `create role myapp with createdb login password 'password1';`) Used the guide from this site: https://www.digitalocean.com/community/tutorials/how-to-setup-ruby-on-rails-with-postgres
+
 
 ## How to start?
 The following installations are required to work with Saaga.
