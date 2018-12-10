@@ -74,6 +74,7 @@ The Database diagrams and wireframes can be found in a shared folder called *Saa
 
 
 ## New Installation Guide
+- Fresh install
 - Ruby (rbenv)
 - NodeJs (nvm)
 - Python (pyenv)
@@ -82,7 +83,25 @@ The Database diagrams and wireframes can be found in a shared folder called *Saa
 - Postgresql
 - PgAdmin4
 - Initial Setup
+
+### Fresh Install
+I use mainly Fedora and therefore this following guide will be with Fedora (It's kind of for me so If you are using a different Distro deal with it).
+
+After a fresh Fedora install, in this case Fedora 29, a few things need to be done:
+
+1. Updating the hole system using: `sudo dnf update`.
+2. Add the rpmFusion repositories.
+3. Use Tweaks (install if needed via Software) to remove the Background Logo, add the Places Status Indicator, the Minimize and Maximize buttons.
+4. Install the Workspaces to Dock and Dash to Docks Extentions (and all other desired extentions like Weather or Pomodoro for exaxmple).
+6. Install a text editor. For example Visual Code (with this guide: https://code.visualstudio.com/docs/setup/linux).
+7. Install a git system. For example GitKraken (with these guides: https://blog.scottlowe.org/2018/05/01/installing-gitkraken-on-fedora-27/ , https://gist.github.com/aelkz/17528d2f6a5db73185c7dfbd28e49d18. As mentioned in the comments, `sudo dnf install libgnome-keyring` is needed for Fedora 29).
+8. Install various browsers to test the website.
+
+Once these steps are done it is time to install the development specific programs and dependencies. 
+
+
 ### Ruby
+
 
 ### NodeJs
 
