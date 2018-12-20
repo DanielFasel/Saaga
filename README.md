@@ -102,8 +102,17 @@ Once these steps are done it is time to install the development specific program
 
 ### Ruby
 
+To install Ruby we will use Rbenv (rvm would be an other option), which is a package manager, instead of the basic Ruby packages of the official Fedora repositoriy. Rbenv allows for a better management of the different versions of Ruby required during the development phase.
+
+The installation is done following this guide: https://developer.fedoraproject.org/start/sw/web-app/rails.html. Once the dependencies, rbenv and ruby-build are installed run the rbenv-doctor script to verify the installation. The script can be found on the official Git page of rbenv: https://github.com/rbenv/rbenv#installation.
+
+If the result is positive we can proceed and install Ruby itself. To install simply use the following command: `rbenv install *version (ex. 3.2.1)*`. To check which versions are available use this command: `rbenv install -l`. To set the global version use `rbenv global *version*` and to set a local version `cd` into the desired directory and use `rbenv local *version*` which creates a `.ruby-version` file indicating the set version. More commands and options can be found on the Git readme file.
+
+
 
 ### NodeJs
+
+
 
 ### Python
 
