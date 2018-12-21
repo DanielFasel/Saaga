@@ -128,7 +128,10 @@ Yarn can be installed using this guide: https://yarnpkg.com/en/docs/install#cent
 
 ### Rails
 
+Rails can be installed according to this guide:
+https://developer.fedoraproject.org/start/sw/web-app/rails.html.
 
+Remember that the gems like rail (at least I think so) are installed with the ruby version set in this directory. Also remember that after installing a new gem     as well as a new ruby version the following   command    should be run: `rbenv rehash`.
 
 ### Postgresql
 
