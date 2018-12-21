@@ -124,7 +124,11 @@ The commands to install and manage different python versions can be found here: 
 
 ### Yarn
 
+Yarn can be installed using this guide: https://yarnpkg.com/en/docs/install#centos-stable.
+
 ### Rails
+
+
 
 ### Postgresql
 
