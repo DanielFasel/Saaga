@@ -135,8 +135,25 @@ Remember that the gems like rail (at least I think so) are installed with the ru
 
 ### Postgresql
 
+First install Posgresql from their official webpage: https://www.postgresql.org/download/linux/redhat/. After starting the service follow the steps given below taken from this guide: https://fedoraproject.org/wiki/PostgreSQL.
+
+1. `sudo su - postgres` 
+2. `psql`
+3. `\password postgres` then chose a password for postgres
+4. `create role username with createdb login password 'password';`, create a user with rights to create databases.
+5. Modify the `postgresql.conf` file that is located in this directory  `/var/lib/pgsql/data/`. From `listen_addresses = 'localhost'` to `listen_addresses = '*'`.
+6. Modify the `pg_hba.conf`file that is locatedin the same directory. Change `indent` to `md5`. From the fields shown in the guide.
+
+Afterr this is done restart the service: `systemctl restart postgresql-11`.
+
 ### PgAdmin4
 
+To install run the following commands:
+1. `sudo dnf install pgadmin4`
+2. `sudo /usr/pgadmin4/bin/pgadmin4-web-setup.sh`, this script will ask you for email and password to login to Pgadmin4.
+3. `sudo dnf install pgadmin4-desktop-gnome`
+
+These steps were taken from this guide: https://people.planetpostgresql.org/devrim/index.php?/archives/96-Installing-pgAdmin4-3.X-on-RHEL-CentOS-7-and-Fedora-27.html.
 ### Initial Setup
 
 Since rails 5.1 webpack is integrated into rails. This allows us to use an option of the `rails new` command to install VueJs as we generate a new Rails app. Postgresql can also be setup in this initial phase with the help of an option. In other words the command to generate to initial files of our particular environement ggoes as follows: `rails new myapp --webpack=vue`. 
