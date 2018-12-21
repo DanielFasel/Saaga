@@ -114,9 +114,13 @@ One thing to remember is that one should use the command `rbenv rehash` after in
 
 To install Nodejs we will also use a version manager called nvm this time. To install follow the installation process explained here: https://github.com/creationix/nvm#install-script.
 
-The commands are similar to those used with rbenv. To install the latest version the command is `nvm install node`. The other comands are explained on the readme file.
+The commands are similar to those used with rbenv. To install the latest version the command is `nvm install node`. The other comands are explained on their Readme file.
 
 ### Python
+
+To install Python (forgot what needs python but it's good to have it anyways for AI programing for example) we will use pyenv. To install follow this guide: https://github.com/pyenv/pyenv-installer. Don't forget to install the prerequisites and add the Path to the `.bashrc` file.
+
+The commands to install and manage different python versions can be found here: https://github.com/pyenv/pyenv/blob/master/COMMANDS.md. They are mostly the same as with rbenv. As with rbenv `pyenv rehash`should be run after installing a new version.
 
 ### Yarn
 
