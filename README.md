@@ -144,7 +144,7 @@ First install Posgresql from their official webpage: https://www.postgresql.org/
 5. Modify the `postgresql.conf` file that is located in this directory  `/var/lib/pgsql/data/`. From `listen_addresses = 'localhost'` to `listen_addresses = '*'`.
 6. Modify the `pg_hba.conf`file that is locatedin the same directory. Change `indent` to `md5`. From the fields shown in the guide.
 
-Afterr this is done restart the service: `systemctl restart postgresql-11`. Also install posgrel-devel, that is needed for the pg gem, using  the command `sudo dnf install posgresql-devel`.
+Afterr this is done restart the service: `systemctl restart postgresql-11`. Also install postgrel-devel, that is needed for the pg gem, using  the command `sudo dnf install postgresql-devel`.
 
 ### PgAdmin4
 
@@ -165,7 +165,21 @@ You can now create the databases needed for the webpage. The default names, user
 
 After all is installed you can run `rails db:migrate` and `rails db:seed` to create and populate the database. Now you are ready to go and can start the server using `rails s` and  `./bin/webpack-dev-server` in two distinct terminal windows.
 
+## Server Setup
 
+### DigitalOcean
+First create an account. Then create a new project. In this new project we can create droplets. In my case I chose Fedora (because my dev-machine uses fedora). To add the ssh keys use the `ssh-keygen` command on the local machine. This will create the public and private keys. I used the following command `ssh-keygen -a 1000 -b 4096 -C "" -E sha256 -o -t rsa` according to the first answer: https://www.digitalocean.com/community/questions/ubuntu-16-04-creating-new-user-and-adding-ssh-keys.
+
+Once this is done get the public key and add it to the droplet. The public key is stored in the following folder: `/home/.ssh/id_rsa.pub`. Then finalize the creation of the droplet. After the droplet is created request a static IP. Called floating Ip with DigitalOcean. Append the droplet to this IP and then use the same IP to forward the domain name traffic to this new server. To do that go to Godaddy and click on: manage dns. Add the IP under the column value of the type A. 
+
+The next step is to add a new user on the server. Otherwise we would have to use the root user which is not good. To add the user follow the instructions given in the answer above.
+
+Then follow the DigitalOcean guide to setup a fedora server. 
+https://www.digitalocean.com/community/tutorials/initial-setup-of-a-fedora-22-server
+
+In the future one should consider using an other operating system than fedora for the server due to unstability and better documentation for other operating systems like ubuntu for example.
+
+Once this is done the basic server setup is done and the environment of the server can be installed.
 
 ## File Structure
 The files are organized according to the Ruby on rails conventions which is a MVC (Model View Controller). To understand what the different files do read the [Ruby on rails documentation](http://guides.rubyonrails.org/v5.0/)
