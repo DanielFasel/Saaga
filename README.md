@@ -133,6 +133,8 @@ https://developer.fedoraproject.org/start/sw/web-app/rails.html. If a speccific 
 
 Remember that the gems like rail (at least I think so) are installed with the ruby version set in this directory. Also remember that after installing a new gem as well as a new ruby version the following   command should be run: `rbenv rehash`.
 
+After installing rails also install `bundler` with the command `gem install bundler`. 
+
 ### Postgresql
 
 First install Posgresql from their official webpage: https://www.postgresql.org/download/linux/redhat/. After starting the service follow the steps given below taken from this guide: https://fedoraproject.org/wiki/PostgreSQL.
