@@ -174,9 +174,23 @@ First create an account. Then create a new project. In this new project we can c
 
 Once this is done get the public key and add it to the droplet. The public key is stored in the following folder: `/home/.ssh/id_rsa.pub`. Then finalize the creation of the droplet. After the droplet is created request a static IP. Called floating Ip with DigitalOcean. Append the droplet to this IP and then use the same IP to forward the domain name traffic to this new server. To do that go to Godaddy and click on: manage dns. Add the IP under the column value of the type A. 
 
-The next step is to add a new user on the server. Otherwise we would have to use the root user which is not good. To add the user follow the instructions given in the answer above.
+Once the droplet is connected to the domain name login using this command `ssh root@saaga.org`. Once connected update the server using `sudo dnf update` then reboot the server using `sudo shutdown -r now`. After that install nano (terminal text editor) using `sudo dnf install nano`.
 
-Then follow the DigitalOcean guide to setup a fedora server. 
+The next step is to prepare the directory for the new user, add that user and grant him sudo rights. This is to prevent to login as root as it leads to security risks. To do this I followed the answer of the previous link. 
+
+1. `mkdir -p /home/username/.ssh`
+2. `touch /home/username/.ssh/authorized_keys`
+3. `useradd -d /home/username username`, this might gives some errors but as far as I know they don't matter (at least it works anyways).
+4. `gpasswd -a username wheel`, the answer being for Ubuntu this is the Fedora equivalent to give sudo rights taken from the guide linked below.
+5. `chown -R username:username /home/username/`, the next commands fix the permissions for the new user.
+6. `chown root:root /home/username`
+7. `chmod 700 /home/username/.ssh`
+8. `chmod 644 /home/username/.ssh/authorized_keys`
+9. `passwd username`, while this login method is or will be disabled I still add a password incase.
+
+Now the public key stored on the local machine can be added to this file: `/home/username/.ssh/authorized_keys` with the help of nano. Once this is done it is possible to login as the new user with the following command `ssh username@saaga.org`.
+
+Then follow the DigitalOcean guide to setup a fedora server starting from chapter 2 after the installation of nano. 
 https://www.digitalocean.com/community/tutorials/initial-setup-of-a-fedora-22-server
 
 In the future one should consider using an other operating system than fedora for the server due to unstability and better documentation for other operating systems like ubuntu for example.
