@@ -106,6 +106,8 @@ To install Ruby we will use *rbenv* (*rvm* would be an other option), which is a
 
 The installation is done following this guide: https://developer.fedoraproject.org/start/sw/web-app/rails.html. Once the dependencies, *rbenv* and *ruby-build* are installed run the *rbenv-doctor* script to verify the installation. The script can be found on the official Git page of *rbenv*: https://github.com/rbenv/rbenv#installation.
 
+On the server install using the second link and the git method. Remember to first install the dependencies from the first link. Also remember to append the given command to the `/.bash_profile` after after setting up rbenv in the shell. And to install the ruby-build as a plugin.
+
 If the result is positive we can proceed and install Ruby itself. To install simply use the following command: `rbenv install *version (ex. 3.2.1)*`. To check which versions are available use this command: `rbenv install -l`. To set the global version use `rbenv global *version*` and to set a local version `cd` into the desired directory and use `rbenv local *version*` which creates a `.ruby-version` file indicating the set version. More commands and options can be found on the Git readme file.
 
 One thing to remember is that one should use the command `rbenv rehash` after installing a new version of Ruby or a new Gem.
@@ -118,7 +120,7 @@ The commands are similar to those used with *rbenv*. To install the latest versi
 
 ### Python
 
-To install Python we will use *pyenv*. To install follow this guide: https://github.com/pyenv/pyenv-installer. Don't forget to install the prerequisites and add the Path to the `.bashrc` file.
+To install Python we will use *pyenv*. To install follow this guide: https://github.com/pyenv/pyenv-installer. Don't forget to install the prerequisites and add the Path to the `.bashrc` file. On the server, if it doesn't work after exiting and loggin in again add the path also to the `.bash_profile` file.
 
 The commands to install and manage different python versions can be found here: https://github.com/pyenv/pyenv/blob/master/COMMANDS.md. They are mostly the same as with *rbenv*. As with rbenv `pyenv rehash`should be run after installing a new version.
 
@@ -183,7 +185,7 @@ The next step is to prepare the directory for the new user, add that user and gr
 3. `useradd -d /home/username username`, this might gives some errors but as far as I know they don't matter (at least it works anyways).
 4. `gpasswd -a username wheel`, the answer being for Ubuntu this is the Fedora equivalent to give sudo rights taken from the guide linked below.
 5. `chown -R username:username /home/username/`, the next commands fix the permissions for the new user.
-6. `chown root:root /home/username`
+6.  ~~`chown root:root /home/username`~~, is note used since it causes problems when installing rbenv.
 7. `chmod 700 /home/username/.ssh`
 8. `chmod 644 /home/username/.ssh/authorized_keys`
 9. `passwd username`, while this login method is or will be disabled I still add a password incase.
