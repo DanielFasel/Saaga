@@ -5,13 +5,21 @@
 * [Where are we?](#where-are-we)
     - [Needed for 0.4.0](#needed-for-040)
 * [Database diagrams and Wireframes](#database-diagrams-and-wireframes)
-* [How to start?](#how-to-start)
+* [Local Machine Setup Guide](#local-machine-setup-guide)
+    - [Fresh Install](#fresh-install)
     - [Ruby](#ruby)
-    - [Ruby on rails](#ruby-on-rails)
-    - [Postgresql](#postgreql)
     - [NodeJS](#nodejs)
-    - [Yarn and NPM](#yarn-and-npm)
-    - [Github](#github)
+    - [Python](#python)
+    - [Yarn](#yarn)
+    - [Rails](#rails)
+    - [Postgresql](#postgreql)
+    - [PgAdmin4](#pgadmin4)
+    - [Initial Setup](#initial-setup)
+* [Server Setup Guide](#server-setup-guide)
+    - [DigitalOcean](#digitalocean)
+    - [Dependencies](#dependencies)
+    - [Manual Deployment](#manual-deployment)
+    - [Automatic deployement using Capistrano](#automatic-deployment-using-capistrano)
 * [File Structure](#file-structure)
     - [Backend](#backend)
     - [Frontend](#frontend)
@@ -21,6 +29,9 @@
 
 
 ## Helpful Commands
+
+This needs to be updated (03.02.2019)
+
 Server commands:
 - `rails s` or `rails server` is used to start the rails server. This allows the site to be accessible at `localhost:3000`.
 - `./bin/webpack-dev-server` starts the NodeJs server for the SPA's (Singe Page Apps). For more details on the webpacker integration watch their [ReadMe](https://github.com/rails/webpacker) file.
@@ -73,7 +84,7 @@ These are just some of the commands I used the most. There are more commands tha
 The Database diagrams and wireframes can be found in a shared folder called *Saaga* on the site [Mega](https://mega.nz). If you do not have access to it contact Daniel.
 
 
-## New Installation Guide
+## Local Machine Setup Guide
 - Fresh install
 - Ruby (rbenv)
 - NodeJs (nvm)
@@ -169,7 +180,7 @@ You can now create the databases needed for the webpage. The default names, user
 
 After all is installed you can run `rails db:migrate` and `rails db:seed` to create and populate the database. Now you are ready to go and can start the server using `rails s` and  `./bin/webpack-dev-server` in two distinct terminal windows.
 
-## Server Setup
+## Server Setup Guide
 
 ### DigitalOcean
 First create an account. Then create a new project. In this new project we can create droplets. In my case I chose Fedora (because my dev-machine uses fedora). To add the ssh keys use the `ssh-keygen` command on the local machine. This will create the public and private keys. I used the following command `ssh-keygen -a 1000 -b 4096 -C "" -E sha256 -o -t rsa` according to the first answer: https://www.digitalocean.com/community/questions/ubuntu-16-04-creating-new-user-and-adding-ssh-keys.
@@ -185,9 +196,9 @@ The next step is to prepare the directory for the new user, add that user and gr
 3. `useradd -d /home/username username`, this might gives some errors but as far as I know they don't matter (at least it works anyways).
 4. `gpasswd -a username wheel`, the answer being for Ubuntu this is the Fedora equivalent to give sudo rights taken from the guide linked below.
 5. `chown -R username:username /home/username/`, the next commands fix the permissions for the new user.
-6.  ~~`chown root:root /home/username`~~, is note used since it causes problems when installing rbenv.
+6.  ~~`chown root:root /home/username`~~, is not used since it causes problems when installing rbenv.
 7. `chmod 700 /home/username/.ssh`
-8. `chmod 644 /home/username/.ssh/authorized_keys`
+8. `chmod 644 /home/username/.ssh/authorized_keys` Once I understand it better a more comprehensive guide for permissions will have to be made (for example with the addition of SeLinux).
 9. `passwd username`, while this login method is or will be disabled I still add a password incase.
 
 Now the public key stored on the local machine can be added to this file: `/home/username/.ssh/authorized_keys` with the help of nano. Once this is done it is possible to login as the new user with the following command `ssh username@saaga.org`.
@@ -196,10 +207,132 @@ Then follow the DigitalOcean guide to setup a fedora server starting from chapte
 https://www.digitalocean.com/community/tutorials/initial-setup-of-a-fedora-22-server
 
 In the future one should consider using an other operating system than fedora for the server due to unstability and better documentation for other operating systems like ubuntu for example.
-
 Once this is done the basic server setup is done and the environment of the server can be installed.
 
+### Dependencies
+
+Once the server is initialised it is time to install the dependencies. To do so use the previous steps meant for the local developement machine without the PgAdmin 4 since it is a graphical interface.
+
+
+### Manual Deployment
+Basic steps to fetch the website from a github repository and clone it to the server.
+- `ssh-keygen`, on the server. A more secure key could be generated according to the example above.
+- copy the public key from the `/home/username/.ssh` directory. It is called `id_rsa.pub`. The `vi` editor is required instead of `nano`.
+- Add the key to the deplo keys of the application's git repository. 
+- Create a directory that will host the website. For example `mkdir /home/username/apps`.
+- `cd` into that directory and initialise git (`git init`) then clone the desired repository: `git clone "ssh-clone-url"`.
+- Once this is done use `bundle install` in the apps directory.
+
+The next steps are taken from this guide: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-rails-app-with-puma-and-nginx-on-ubuntu-14-04.
+
+- Check the `database.yml` file incase it hasn't been done before. Not all is needed, I just added the password for example.
+- install rbenv-vars
+- Use the command `rake secret` in the apps directory and copy the secret.
+- Create the `.rbenv-vars` file in the same directory.
+- Add the secret, appname and password according to the guide.
+- Check if it worked by using the command `rbenv vars` within that directory.
+- Create the database (remember to use `rbenv rehash` if needed) with the command: `RAILS_ENV=production rake db:create` use `migrate`, `seed`, `precompile` if necessary. 
+
+Next comes the Puma configuration.
+
+- Check the amount of processor the server has using: ` grep -c processor /proc/cpuinfo`.
+- Open the config/puma.rb file which is in the apps directory and paste the following configuration instead of the default ones: 
+
+---
+   <pre> # Change to match your CPU core count
+workers 2
+
+# Min and Max threads per worker
+threads 1, 6
+
+app_dir = File.expand_path("../..", __FILE__)
+shared_dir = "#{app_dir}/shared"
+
+# Default to production
+rails_env = ENV['RAILS_ENV'] || "production"
+environment rails_env
+
+# Set up socket location
+bind "unix://#{shared_dir}/sockets/puma.sock"
+
+# Logging
+stdout_redirect "#{shared_dir}/log/puma.stdout.log", "#{shared_dir}/log/puma.stderr.log", true
+
+# Set master PID and state locations
+pidfile "#{shared_dir}/pids/puma.pid"
+state_path "#{shared_dir}/pids/puma.state"
+activate_control_app
+
+on_worker_boot do
+  require "active_record"
+  ActiveRecord::Base.connection.disconnect! rescue ActiveRecord::ConnectionNotEstablished
+  ActiveRecord::Base.establish_connection(YAML.load_file("#{app_dir}/config/database.yml")[rails_env])
+end
+</pre>
+
+---
+- The only required change (unless more control is needed) is the worker number to adapt it to the CPU core count of the server which we got before.
+- Add the line `daemonize true` to the `puma.rb` file which will allow Puma to run in the background.
+- Make the directories that are mentionned in the config file: `mkdir -p shared/pids shared/sockets shared/log`.
+- Skip the Puma UpStart since this guide is for ubuntu and it wouldn+t work in Fedora.
+
+Now let's configure `Nginx`
+
+- Add a file to the `/etc/nginx/conf.d` directory that ends with `.conf`. The actual name doesn't matter since all file ending with .conf will get included in the default configuration file.
+- Copy and paste the following code from the guide and adjust the paths for the directories and root as well as the server name (saaga.org):
+
+---
+<pre>
+upstream app {
+    # Path to Puma SOCK file, as defined previously
+    server unix:/home/deploy/appname/shared/sockets/puma.sock fail_timeout=0;
+}
+
+server {
+    listen 80;
+    server_name localhost;
+
+    root /home/deploy/appname/public;
+
+    try_files $uri/index.html $uri @app;
+
+    location @app {
+        proxy_pass http://app;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+    }
+
+    error_page 500 502 503 504 /500.html;
+    client_max_body_size 4G;
+    keepalive_timeout 10;
+}
+</pre> 
+
+---
+
+- Remove the server from the default configuration file located at `/etc/nginx/nginx.conf`. 
+- Change if necessary `type_hash_max_size` to 4096.
+- Start nginx: `systemctl start nginx.service`.
+- If necessary fix the `Pid` error with the following commands according to this guide: https://www.cloudinsidr.com/content/heres-fix-nginx-error-failed-read-pid-file-linux/.
+- (`mkdir /etc/systemd/system/nginx.service.d`, might give an error but it doesn't matter)
+- (`printf "[Service]\nExecStartPost=/bin/sleep 0.1\n" > /etc/systemd/system/nginx.service.d/override.conf`, as root user)
+- (`systemctl daemon-reload`, then restart nginx using: `systemctl restart nginx`)
+
+Now that both Puma and Nginx it is time to start them up.
+
+- Start Nginx according to the previous given commands
+- Start Puma with : `RACK_ENV=production bundle exec puma` withing the app's directory if starting for the first time (not 100% sure about this command) or with this command once started once, `bundle exec pumactl -P /home/username/apps/appname/shared/pids/puma.pid start/restart/stop`
+- Disable SeLinux unless you really know what you are doing using this command with sudo: setenforce 0. Getenforce to check that it is indeed Permissive.
+- If you want to see the rails errors you need to change `config.conside_all_requests_local = true` in the `config/environments/production.rb` file within the app's directory. 
+
+### Automatic deployement using Capistrano
+
+This needs to be done since an automatic deployment will be required once the website is actually live. For the moment the manual deployment works for my needs.
+
 ## File Structure
+Needs to be updated (03.02.2019)
+
 The files are organized according to the Ruby on rails conventions which is a MVC (Model View Controller). To understand what the different files do read the [Ruby on rails documentation](http://guides.rubyonrails.org/v5.0/)
 
 ### Backend
